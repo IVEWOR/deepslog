@@ -4,7 +4,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config("S_KEY")
+SECRET_KEY = "django-insecure-calfa6oj0vtz7s+d@l((!e*tumhz%a7xm@^8ml&doz^p3nm6!#"
 
 DEBUG = True
 
@@ -57,15 +57,22 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # Database
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": config("DB_NAME"),
-        "USER": config("DB_USER"),
-        "PASSWORD": config("DB_PASS"),
-        "HOST": config("DB_HOST"),
-        "PORT": config("DB_PORT"),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
+
+#DATABASES = {
+  #  "default": {
+ #       "ENGINE": "django.db.backends.postgresql",
+#    "NAME": config("DB_NAME"),
+    #   "USER": config("DB_USER"),
+    #    "PASSWORD": config("DB_PASS"),
+   #     "HOST": config("DB_HOST"),
+  #      "PORT": config("DB_PORT"),
+ #   }
+#}
 
 
 # Password validation
