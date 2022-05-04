@@ -33,6 +33,7 @@ MANIFEST
 *.manifest
 *.spec
 assets
+*.css
 
 # Installer logs
 pip-log.txt
