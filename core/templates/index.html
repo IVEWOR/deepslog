@@ -1,111 +1,69 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" class="bg-gray-50">
+{% block main %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-
-</head>
-
-<body class="font-sans">
-    <nav class="border-b">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="relative flex items-center justify-between h-16">
-                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                    <a class="font-medium" href="{% url 'index' %}">deepslog</a>
-                </div>
-                <ul class="flex space-x-4">
-                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
-                            href="#">home</a>
-                    </li>
-                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
-                            href="#">blog</a>
-                    </li>
-                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
-                            href="#">work</a>
-                    </li>
-                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
-                            href="#">contact</a>
-                    </li>
-                </ul>
+<main>
+    <header class="border-b">
+        <div class="max-w-7xl flex items-center justify-between mx-auto h-96 px-2 sm:px-6 lg:px-8">
+            <div>
+                <h1 class="font-semibold uppercase text-sm text-indigo-800">Deepak Jangra</h1>
+                <h2 class="mt-4 text-5xl font-extrabold text-gray-800">full stack developer</h2>
+            </div>
+            <div>
+                <div class="w-64 h-64 bg-gray-200 rounded-full"></div>
             </div>
         </div>
-    </nav>
-    <main>
-        <header class="border-b">
-            <div class="max-w-7xl flex items-center justify-between mx-auto h-96 px-2 sm:px-6 lg:px-8">
-                <div>
-                    <h1 class="font-semibold uppercase text-sm text-indigo-800">Deepak Jangra</h1>
-                    <h2 class="mt-4 text-5xl font-extrabold text-gray-800">full stack developer</h2>
-                </div>
-                <div>
-                    <div class="w-64 h-64 bg-gray-200 rounded-full"></div>
-                </div>
-            </div>
-        </header>
-        <section class="max-w-7xl mx-auto py-12 px-2 sm:px-6 lg:px-8">
-            <h2 class="mt-4 text-4xl font-extrabold text-gray-800">blog</h2>
-            <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3 lg:gap-x-8">
-                {% for obj in blog %}
-                <article class="pb-4 sm:pb-0 sm:pt-4">
-                    <time class="font-semibold text-gray-600 uppercase text-xs">{{ obj.updated_at }}</time>
-                    <h3 class="mt-2 text-base font-semibold text-gray-900">
-                        <a class="border-transparent transition hover:border-indigo-800 border-b-2"
-                            href="{{ obj.slug }}">
-                            {{ obj.title }}</a>
-                    </h3>
-                </article>
-                {% endfor %}
-            </div>
-        </section>
-        <section class="max-w-7xl mx-auto py-12 px-2 sm:px-6 lg:px-8">
-            <h2 class="mt-4 text-4xl font-extrabold text-gray-800">projects</h2>
-            <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-                <article class="">
-                    <img src="{% static 'images/1.png' %}" alt="project 1">
-                    <h3 class="mt-2 mb-4 text-xl font-semibold text-gray-900">
-                        <a class="border-transparent transition hover:border-indigo-800 border-b-2"
-                            href="{{ obj.slug }}">Project 1</a>
-                    </h3>
-                    <div class="flex">
-                        <a class="bg-gray-900 font-semibold text-gray-200 uppercase text-xs p-1 rounded text-gray-500 mr-2"
-                            href="#">python</a>
-                        <a class="bg-gray-900 font-semibold text-gray-200 uppercase text-xs p-1 rounded text-gray-500 mr-2"
-                            href="#">django</a>
-                        <a class="bg-gray-900 font-semibold text-gray-200 uppercase text-xs p-1 rounded text-gray-500"
-                            href="#">react</a>
-                    </div>
-                </article>
-                <article class="">
-                    <img src="{% static 'images/1.png' %}" alt="project 1">
-                    <h3 class="mt-2 mb-4 text-xl font-semibold text-gray-900">
-                        <a class="border-transparent transition hover:border-indigo-800 border-b-2"
-                            href="{{ obj.slug }}">Project 1</a>
-                    </h3>
-                    <div class="flex">
-                        <a class="bg-gray-900 font-semibold text-gray-200 p-1 rounded uppercase text-xs text-gray-500 mr-2"
-                            href="#">python</a>
-                        <a class="bg-gray-900 font-semibold text-gray-200 uppercase p-1 rounded text-xs text-gray-500 mr-2"
-                            href="#">django</a>
-                        <a class="bg-gray-900 font-semibold text-gray-200 uppercase p-1 rounded text-xs text-gray-500"
-                            href="#">react</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-    <footer class="bg-gray-900">
-        <div class="max-w-7xl text-center mx-auto py-4 px-2 sm:px-6 lg:px-8 text-sm text-gray-400">
-            <a href="{% url 'index' %}">deepslog.com</a>
+    </header>
+    <section class="max-w-7xl mx-auto py-12 px-2 sm:px-6 lg:px-8">
+        <h2 class="mt-4 text-4xl font-extrabold text-gray-800">blog</h2>
+        <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3 lg:gap-x-8">
+            {% for obj in blog %}
+            <article class="pb-4 sm:pb-0 sm:pt-4">
+                <time class="font-semibold text-gray-600 uppercase text-xs">{{ obj.updated_at }}</time>
+                <h3 class="mt-2 text-base font-semibold text-gray-900">
+                    <a class="border-transparent transition hover:border-indigo-800 border-b-2"
+                        href="{% url 'article' obj.slug %}">
+                        {{ obj.title }}</a>
+                </h3>
+            </article>
+            {% endfor %}
         </div>
-    </footer>
-</body>
+    </section>
+    <section class="max-w-7xl mx-auto py-12 px-2 sm:px-6 lg:px-8">
+        <h2 class="mt-4 text-4xl font-extrabold text-gray-800">projects</h2>
+        <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+            <article class="">
+                <img src="{% static 'images/1.png' %}" alt="project 1">
+                <h3 class="mt-2 mb-4 text-xl font-semibold text-gray-900">
+                    <a class="border-transparent transition hover:border-indigo-800 border-b-2"
+                        href="{{ obj.slug }}">Project 1</a>
+                </h3>
+                <div class="flex">
+                    <a class="bg-gray-900 font-semibold text-gray-200 uppercase text-xs p-1 rounded text-gray-500 mr-2"
+                        href="#">python</a>
+                    <a class="bg-gray-900 font-semibold text-gray-200 uppercase text-xs p-1 rounded text-gray-500 mr-2"
+                        href="#">django</a>
+                    <a class="bg-gray-900 font-semibold text-gray-200 uppercase text-xs p-1 rounded text-gray-500"
+                        href="#">react</a>
+                </div>
+            </article>
+            <article class="">
+                <img src="{% static 'images/1.png' %}" alt="project 1">
+                <h3 class="mt-2 mb-4 text-xl font-semibold text-gray-900">
+                    <a class="border-transparent transition hover:border-indigo-800 border-b-2"
+                        href="{{ obj.slug }}">Project 1</a>
+                </h3>
+                <div class="flex">
+                    <a class="bg-gray-900 font-semibold text-gray-200 p-1 rounded uppercase text-xs text-gray-500 mr-2"
+                        href="#">python</a>
+                    <a class="bg-gray-900 font-semibold text-gray-200 uppercase p-1 rounded text-xs text-gray-500 mr-2"
+                        href="#">django</a>
+                    <a class="bg-gray-900 font-semibold text-gray-200 uppercase p-1 rounded text-xs text-gray-500"
+                        href="#">react</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
 
-</html>
+{% endblock %}

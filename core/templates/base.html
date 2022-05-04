@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="font-sans">
+    <nav class="border-b">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <a class="font-medium" href="{% url 'index' %}">deepslog</a>
+                </div>
+                <ul class="flex space-x-4">
+                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
+                            href="{% url 'index' %}">home</a>
+                    </li>
+                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
+                            href="#">blog</a>
+                    </li>
+                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
+                            href="#">work</a>
+                    </li>
+                    <li> <a class="transition inline-block border-transparent hover:border-indigo-600 border-b font-medium"
+                            href="#">contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block main %}
+    {% endblock %}
+    <footer class="bg-gray-900">
+        <div class="max-w-7xl text-center mx-auto py-4 px-2 sm:px-6 lg:px-8 text-sm text-gray-400">
+            <a href="{% url 'index' %}">deepslog.com</a>
+        </div>
+    </footer>
+</body>
+
+</html>
