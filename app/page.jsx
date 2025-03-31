@@ -251,9 +251,8 @@ export default function PortfolioPage() {
             <motion.div
               key={index}
               variants={scrollVariants}
-              className={`flex flex-col ${
-                project.side === "right" ? "md:flex-row-reverse" : "md:flex-row"
-              } items-center mb-16 bg-black/20 rounded-2xl overflow-hidden`}
+              className={`flex flex-col ${project.side === "right" ? "md:flex-row-reverse" : "md:flex-row"
+                } items-center mb-16 bg-black/20 rounded-2xl overflow-hidden`}
             >
               <div className="md:w-1/2 h-[400px] bg-gradient-to-br from-purple-600/30 to-pink-600/30"></div>
               <div className="md:w-1/2 p-8 space-y-4">
