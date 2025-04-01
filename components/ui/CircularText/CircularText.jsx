@@ -110,18 +110,12 @@ const CircularText = ({
   return (
     <motion.div
       initial={{ rotate: 0 }}
-      className={`rounded-full text-white font-black text-center cursor-pointer origin-center ${className}`}
+      className={`rounded-full text-white font-black text-center cursor-pointer origin-center ${className} mx-auto w-[125px] h-[125px] sticky`}
       animate={controls}
-      // Set position fixed so it stays on screen; start centered.
       style={{
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        x: x, // additional x offset from scroll
-        y: y, // additional y offset from scroll
-        width: "200px",
-        height: "200px",
+        position: "sticky",
+        x: x,
+        y: y,
       }}
       onUpdate={(latest) => setCurrentRotation(Number(latest.rotate))}
       onMouseEnter={handleHoverStart}

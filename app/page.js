@@ -28,7 +28,6 @@ export function Hero() {
                 text="LETS TALK * LETS TALK * LETS TALK * "
                 onHover="speedUp"
                 spinDuration={30}
-                className="w-[125px] h-[125px]"
                 letterClassName="text-sm font-semibold"
               />
             </FadeContent>
@@ -41,7 +40,7 @@ export function Hero() {
 
 export default function Home() {
   return (
-    <div className="bg-zinc-900">
+    <div className="bg-zinc-900 container mx-auto relative">
       <Hero />
       <div className="h-[100vh]"></div>
     </div>
