@@ -33,23 +33,33 @@ const CircularText = ({
   const [currentRotation, setCurrentRotation] = useState(0);
   const [finalOffsets, setFinalOffsets] = useState({ x: 0, y: 0 });
 
-  // Calculate how much to shift from center to bottom-right.
-  // The circle is 200px wide/height; we want it to end up with a margin (e.g., 20px) from the viewport’s edges.
   useEffect(() => {
+    // Calculate how far from center to bottom-right we want to move.
+    // Circle is 200px. We'll place it near bottom-right with a small margin:
     const margin = 20;
-    const circleSize = 200; // same as width & height below
+    const circleSize = 200;
     const halfSize = circleSize / 2;
+
+    // The center is at (50vw, 50vh).
+    // We want final position to be near bottom-right, i.e. (windowWidth - margin - halfSize, windowHeight - margin - halfSize)
+    // But in the coordinate space of "top:50%, left:50%", we need an offset from center:
     const finalX =
-      window.innerWidth - margin - halfSize - window.innerWidth / 2;
+      window.innerWidth / 2 - (window.innerWidth - margin - halfSize);
     const finalY =
-      window.innerHeight - margin - halfSize - window.innerHeight / 2;
-    setFinalOffsets({ x: finalX, y: finalY });
+      window.innerHeight / 2 - (window.innerHeight - margin - halfSize);
+
+    // Note: finalX, finalY will be negative since we’re going from center -> bottom-right
+    setFinalOffsets({ x: -finalX, y: -finalY });
   }, []);
 
-  // Map scroll values to x and y offsets.
-  // Here, when scrollY goes from 0 to 300, x/y will interpolate from 0 to the computed final offsets.
-  const x = useTransform(scrollY, [0, 300], [0, finalOffsets.x]);
-  const y = useTransform(scrollY, [0, 300], [0, finalOffsets.y]);
+  // Smoothly animate from 0 offset (center) to finalOffsets (bottom-right) over the first 300px of scroll.
+  // Using clamp: true so it stays pinned in the bottom-right after that.
+  const x = useTransform(scrollY, [0, 300], [0, finalOffsets.x], {
+    clamp: true,
+  });
+  const y = useTransform(scrollY, [0, 300], [100, finalOffsets.y + 0], {
+    clamp: true,
+  });
 
   useEffect(() => {
     controls.start({
@@ -109,30 +119,39 @@ const CircularText = ({
 
   return (
     <motion.div
-      initial={{ rotate: 0 }}
-      className={`rounded-full text-white font-black text-center cursor-pointer origin-center ${className} mx-auto w-[125px] h-[125px] sticky`}
-      animate={controls}
+      // Start it centered via top/left=50% and translation. Then let x/y move it around.
       style={{
-        position: "sticky",
-        x: x,
-        y: y,
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        x,
+        y,
+        width: 120,
+        height: 120,
+        // You could use transform: translate(-50%, -50%) in CSS, but
+        // with Framer x/y it’s easier to do it this way:
+        marginLeft: -60,
+        marginTop: -60,
       }}
+      initial={{ rotate: 0 }}
+      animate={controls}
       onUpdate={(latest) => setCurrentRotation(Number(latest.rotate))}
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
+      className={`rounded-full text-white font-black text-center cursor-pointer origin-center ${className}`}
     >
       {letters.map((letter, i) => {
         const rotation = (360 / letters.length) * i;
-        const factor = Number((Math.PI / letters.length).toFixed(0));
-        const xVal = factor * i;
-        const yVal = factor * i;
-        const transform = `rotateZ(${rotation}deg) translate3d(${xVal}px, ${yVal}px, 0)`;
+        const transform = `rotateZ(${rotation}deg) translate3d(0, 0, 0)`;
 
         return (
           <span
             key={i}
-            className={`absolute inline-block inset-0 transition-all duration-500 ease-[cubic-bezier(0,0,0,1)] ${letterClassName}`}
-            style={{ transform, WebkitTransform: transform }}
+            className={`absolute inset-0 ${letterClassName}`}
+            style={{
+              transform,
+              WebkitTransform: transform,
+            }}
           >
             {letter}
           </span>
@@ -147,7 +166,6 @@ const CircularText = ({
           strokeWidth={1.5}
           stroke="currentColor"
           className="w-6 h-6"
-          // The icon rotation on hover remains as in the previous implementation.
           animate={{ rotate: 0 }}
         >
           <path
