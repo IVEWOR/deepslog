@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import { gsap } from "gsap";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { IoMdArrowDown } from "react-icons/io";
 
-function FlowingMenu({ items = [] }) {
+function FlowingProjects({ items = [] }) {
   return (
     <div className="w-full h-full overflow-hidden">
       <nav className="flex flex-col h-full m-0 p-0">
@@ -14,7 +17,7 @@ function FlowingMenu({ items = [] }) {
   );
 }
 
-function MenuItem({ link, text, image }) {
+function MenuItem({ link, text, image, year = 2020 }) {
   const itemRef = React.useRef(null);
   const marqueeRef = React.useRef(null);
   const marqueeInnerRef = React.useRef(null);
@@ -75,33 +78,45 @@ function MenuItem({ link, text, image }) {
   ));
 
   return (
-    <div
-      className="flex-1 relative overflow-hidden text-center shadow-[0_-1px_0_0_#fff]"
-      ref={itemRef}
+    <motion.div
+      initial={{ y: 48, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.75 }}
     >
-      <a
-        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] hover:text-[#060606] focus:text-white focus-visible:text-[#060606]"
-        href={link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {text}
-      </a>
       <div
-        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-white translate-y-[101%]"
-        ref={marqueeRef}
+        className="flex-1 relative overflow-hidden shadow-[0_-1px_0_0_#fff]"
+        ref={itemRef}
       >
-        <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>
-          <div className="flex items-center relative h-full w-[200%] will-change-transform animate-marquee">
-            {repeatedMarqueeContent}
+        <Link
+          className="h-full flex justify-between items-center relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] hover:text-[#060606] focus:text-white focus-visible:text-[#060606] pl-10 py-10"
+          href={link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <span>
+            <span className="block">{text}</span>
+            <span className="block text-[calc(3vh-12px)] text-zinc-400 font-normal">
+              {year}
+            </span>
+          </span>
+          <IoMdArrowDown size="1.4em" className="rotate-225" />
+        </Link>
+        <div
+          className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-white translate-y-[101%]"
+          ref={marqueeRef}
+        >
+          <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>
+            <div className="flex items-center relative h-full w-[200%] will-change-transform animate-marquee">
+              {repeatedMarqueeContent}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-export default FlowingMenu;
+export default FlowingProjects;
 
 // Note: this is also needed
 // /** @type {import('tailwindcss').Config} */

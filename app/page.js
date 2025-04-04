@@ -1,7 +1,7 @@
+import ExperienceTree from "@/components/sections/ExperienceTree";
 import Hero from "@/components/sections/Hero";
 import Navbar from "@/components/sections/Navbar";
-import Projects from "@/components/sections/Projects";
-import { SmoothScrollHero } from "@/components/ui/SmoothScrollHero/SmoothScrollHero";
+import { Projects } from "@/components/sections/Projects";
 import Waves from "@/components/ui/Waves/Waves";
 
 export default function Home() {
@@ -22,7 +22,8 @@ export default function Home() {
       />
       <Navbar />
       <Hero />
-      <SmoothScrollHero />
+      <Projects />
+      <ExperienceTree />
     </div>
   );
 }

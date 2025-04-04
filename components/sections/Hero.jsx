@@ -7,8 +7,7 @@ import FadeContent from "@/components/ui/FadeContent/FadeContent";
 import CircularText from "@/components/ui/CircularText/CircularText";
 import ScrollVelocity from "@/components/ui/ScrollVelocity/ScrollVelocity";
 import techs from "@/components/Logos";
-import Waves from "../ui/Waves/Waves";
-import GradientText from "../ui/GradientText/GradientText";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -37,12 +36,17 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="flex flex-col" ref={containerRef}>
+    <div className="flex flex-col h-screen" ref={containerRef}>
       <div className="container mx-auto px-6 pt-42 pb-24">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal font-semibold text-center z-10 text-white">
+        <motion.h1
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal font-semibold text-center z-10 text-white"
+        >
           I help agencies build websites with Shopify, WordPress, or custom{" "}
           solutions
-        </h1>
+        </motion.h1>
       </div>
 
       <FadeContent blur duration={1200} easing="ease-out" initialOpacity={0}>
@@ -52,13 +56,13 @@ export default function Hero() {
               <div className="flex gap-2" key="1">
                 {techs.map((tech, index) => (
                   <div
-                    className={`p-2 px-3 flex items-center rounded-full ${
+                    className={`p-2 px-3 flex items-center ${
                       index === 0 ? "ml-2" : ""
                     }`}
                     key={index}
                   >
                     <div className="mr-2">{tech.icon}</div>
-                    <div className="text-[16px] tracking-normal">
+                    <div className="text-[16px] tracking-normal text-zinc-400">
                       {tech.text}
                     </div>
                   </div>
@@ -71,11 +75,11 @@ export default function Hero() {
         />
       </FadeContent>
 
-      <FadeContent
-        className="pt-26"
-        easing="ease-in-out"
-        initialOpacity={0}
-        duration={1600}
+      <motion.div
+        initial={{ y: 48, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.75 }}
+        className="pt-28"
       >
         <CircularText
           text="LETS TALK * LETS TALK * LETS TALK * "
@@ -83,7 +87,7 @@ export default function Hero() {
           spinDuration={20}
           className="z-1 cursor-pointer"
         />
-      </FadeContent>
+      </motion.div>
     </div>
   );
 }
