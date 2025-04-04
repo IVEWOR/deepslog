@@ -61,14 +61,14 @@ export const Projects = () => {
         //   syncTouch: true,
       }}
     >
-      <motion.h1
+      <motion.h2
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
         className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center"
       >
         WORK
-      </motion.h1>
+      </motion.h2>
       <Hero />
       <div className="relative container mx-auto">
         <FlowingProjects items={demoItems} />
