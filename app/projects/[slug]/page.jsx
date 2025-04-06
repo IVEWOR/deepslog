@@ -34,7 +34,7 @@ export default async function ProjectPage(props) {
         className="z-[-1]"
       />
       <Navbar />
-      <div className="container text-white mx-auto pt-24 py-8 px-4">
+      <div className="container text-white mx-auto pt-24 py-8 px-6">
         <h1 className="text-4xl font-bold mb-4">{meta.title}</h1>
         <article dangerouslySetInnerHTML={{ __html: html }} />
       </div>

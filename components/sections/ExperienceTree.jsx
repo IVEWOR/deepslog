@@ -42,16 +42,16 @@ export default function ExperienceTree() {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center mb-20"
+        className="text-[32px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center mb-20"
       >
         Experience
       </motion.h2>
       <Node ref={ref1}>
-        <div className="flex justify-between mb-2">
+        <div className="flex flex-col md:flex-row justify-between mb-2">
           <div className="font-bold uppercase text-[15px] text-white">
             Beginning
           </div>
-          <div className="font-bold uppercase text-[15px] text-zinc-500">
+          <div className="font-bold uppercase  text-sm md:text-[15px] text-zinc-500">
             2016
           </div>
         </div>
@@ -66,11 +66,11 @@ export default function ExperienceTree() {
 
       <div className="flex justify-start w-full mt-40">
         <Node ref={ref2}>
-          <div className="flex justify-between mb-2">
+          <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
               Internship
             </div>
-            <div className="font-bold uppercase text-[15px] text-zinc-500">
+            <div className="font-bold uppercase  text-sm md:text-[15px] text-zinc-500">
               Mar 2017 - Jun 2017
             </div>
           </div>
@@ -85,11 +85,11 @@ export default function ExperienceTree() {
 
       <div className="flex justify-end w-full mt-40">
         <Node ref={ref3}>
-          <div className="flex justify-between mb-2">
+          <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
               Junior Developer
             </div>
-            <div className="font-bold uppercase text-[15px] text-zinc-500">
+            <div className="font-bold uppercase  text-sm md:text-[15px] text-zinc-500">
               Nov 2017 - Jan 2018
             </div>
           </div>
@@ -104,11 +104,11 @@ export default function ExperienceTree() {
 
       <div className="flex justify-start w-full mt-40">
         <Node ref={ref4}>
-          <div className="flex justify-between mb-2">
+          <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
               Freelancing
             </div>
-            <div className="font-bold uppercase text-[15px] text-zinc-500">
+            <div className="font-bold uppercase  text-sm md:text-[15px] text-zinc-500">
               Feb 2019 - Jul 2019
             </div>
           </div>
@@ -123,11 +123,11 @@ export default function ExperienceTree() {
 
       <div className="flex justify-end w-full mt-40">
         <Node ref={ref5}>
-          <div className="flex justify-between mb-2">
+          <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
               White Label / Contracting
             </div>
-            <div className="font-bold uppercase text-[15px] text-zinc-500">
+            <div className="font-bold uppercase  text-sm md:text-[15px] text-zinc-500">
               Aug 2019 - Aug 2021
             </div>
           </div>
@@ -143,11 +143,11 @@ export default function ExperienceTree() {
 
       <div className="flex justify-start w-full mt-40">
         <Node ref={ref6}>
-          <div className="flex justify-between mb-2">
+          <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
               Senior Web Developer
             </div>
-            <div className="font-bold uppercase text-[15px] text-zinc-500">
+            <div className="font-bold uppercase text-sm md:text-[15px] text-zinc-500">
               Jun 2022 - Jul 2023
             </div>
           </div>
@@ -162,11 +162,11 @@ export default function ExperienceTree() {
 
       <div className="flex justify-end w-full mt-40">
         <Node ref={ref7}>
-          <div className="flex justify-between mb-2">
+          <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
               White Label Services
             </div>
-            <div className="font-bold uppercase text-[15px] text-zinc-500">
+            <div className="font-bold uppercase text-sm md:text-[15px] text-zinc-500">
               Jul 2023 - Present
             </div>
           </div>

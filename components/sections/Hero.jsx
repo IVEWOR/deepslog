@@ -36,20 +36,26 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen" ref={containerRef}>
-      <div className="container mx-auto px-6 pt-42 pb-24">
+    <div className="flex flex-col justify-center h-screen" ref={containerRef}>
+      <div className="container mx-auto px-6 ">
         <motion.h1
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal font-semibold text-center z-10 text-white"
+          className="text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal font-semibold text-center z-10 text-white"
         >
           I help agencies build websites with Shopify, WordPress, or custom{" "}
           solutions
         </motion.h1>
       </div>
 
-      <FadeContent blur duration={1200} easing="ease-out" initialOpacity={0}>
+      <FadeContent
+        blur
+        duration={1200}
+        easing="ease-out"
+        initialOpacity={0}
+        className="py-24"
+      >
         <ScrollVelocity
           texts={[
             [
@@ -79,7 +85,6 @@ export default function Hero() {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="pt-28"
       >
         <CircularText
           text="LETS TALK * LETS TALK * LETS TALK * "

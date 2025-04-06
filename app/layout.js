@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html className="bg-zinc-900" lang="en">
       <body className={funnelDisplay.className}>{children}</body>
     </html>
   );

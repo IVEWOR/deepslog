@@ -88,18 +88,18 @@ function MenuItem({ link, text, image, year = 2020 }) {
         ref={itemRef}
       >
         <Link
-          className="h-full flex justify-between items-center relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] hover:text-[#060606] focus:text-white focus-visible:text-[#060606] pl-10 py-10"
+          className="h-full flex justify-between items-center relative cursor-pointer uppercase no-underline font-semibold text-white  hover:text-[#060606] focus:text-white focus-visible:text-[#060606] px-6 py-10"
           href={link}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <span>
-            <span className="block">{text}</span>
-            <span className="block text-[calc(3vh-12px)] text-zinc-400 font-normal">
+            <span className="block text-3xl md:text-[2vh]">{text}</span>
+            <span className="block text-lg md:text-[calc(2vh-12px)] text-zinc-400 font-normal">
               {year}
             </span>
           </span>
-          <IoMdArrowDown size="1.4em" className="rotate-225" />
+          <IoMdArrowDown size="2em" className="rotate-225" />
         </Link>
         <div
           className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-white translate-y-[101%]"
