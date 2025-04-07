@@ -25,7 +25,7 @@ const demoItems = [
     ],
   },
   {
-    link: "#",
+    link: "/projects/elegance-originals",
     text: "Elegance Originals",
     image: "./eleganceoriginals.png",
     year: "2024",
@@ -38,7 +38,7 @@ const demoItems = [
     ],
   },
   {
-    link: "#",
+    link: "/projects/green-building-canada",
     text: "Green Building Canada",
     image: "./green-building-canada.png",
     year: "2024",
@@ -46,28 +46,28 @@ const demoItems = [
   },
 
   {
-    link: "#",
+    link: "/projects/faire",
     text: "Faire",
     image: "./Faire.png",
     year: "2023",
     tags: ["WordPress", "Php", "JavaScript"],
   },
   {
-    link: "#",
+    link: "/appspace",
     text: "Appspace",
     image: "./appspace.png",
     year: "2022",
     tags: ["WordPress", "Custom Theme", "Php", "JavaScript"],
   },
   {
-    link: "#",
+    link: "/projects/capes-sokol",
     text: "Capes Sokol",
     image: "./capes-sokol.png",
     year: "2022",
     tags: ["JavaScript", "WordPress", "Php", "Custom Theme"],
   },
   {
-    link: "#",
+    link: "/projects/graymattersnyc",
     text: "Gray Matters Nyc",
     image: "./graymattersnyc.png",
     year: "2021",
@@ -80,7 +80,7 @@ const demoItems = [
     ],
   },
   {
-    link: "#",
+    link: "/projects/darkestfox",
     text: "Darkest Fox",
     image: "./darkestfox.png",
     year: "2021",
@@ -88,16 +88,17 @@ const demoItems = [
   },
 
   {
-    link: "#",
+    link: "/projects/next2skin",
     text: "Next2Skin",
     image: "./next2skin.png",
     year: "2020",
     tags: ["WordPress", "Custom Theme", "WooCommerce", "JavaScript"],
   },
   {
-    link: "#",
+    link: "/projects/leoeyewear",
     text: "LEO Eyewear",
     image: "./leoeyewear.png",
+    year: "2020",
     tags: ["Shopify", "JavaScript", "Custom Blocks", "Liquid"],
   },
 ];
@@ -118,6 +119,7 @@ export const Projects = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
         className="text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center"
+        id="work"
       >
         WORK
       </motion.h2>

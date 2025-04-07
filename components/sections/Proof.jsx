@@ -8,15 +8,15 @@ import Image from "next/image";
 
 const clientLogos = [
   "/logos/merkbart.svg",
-  "/logos/df.png",
-  "/logos/Capes-Sokol.svg",
-  "/logos/faire.svg",
-  "/logos/gmn.png",
+  "/logos/df_no_background.png",
+  "/logos/Capes-Sokol_white_fixed.svg",
+  "/logos/faire_white.svg",
+  "/logos/gmn_white.png",
 ];
 
 export default function Proof() {
   return (
-    <div className="container mx-auto px-6 pt-32">
+    <div className="container mx-auto px-6 pt-32" id="testimonials">
       <motion.h2
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -33,7 +33,7 @@ export default function Proof() {
       >
         Here's what they say about working with me
       </motion.div>
-      <div className="flex gap-10">
+      <div className="flex md:flex-row flex-col gap-10">
         <SpotlightCard
           className="text-zinc-300"
           spotlightColor="rgba(64, 255, 170, 0.2)"
@@ -103,7 +103,7 @@ export default function Proof() {
                     className={`p-2 px-10 flex items-center justify-center rounded-md ${
                       index === 0 ? "ml-2" : ""
                     }`}
-                    style={{ height: "50px", width: "auto", minWidth: "100px" }}
+                    style={{ height: "40px", width: "auto", minWidth: "100px" }}
                     key={index}
                   >
                     <Image

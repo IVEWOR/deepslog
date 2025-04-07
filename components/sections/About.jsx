@@ -4,7 +4,7 @@ import GradientText from "../ui/GradientText/GradientText";
 
 export default function About() {
   return (
-    <div className="container mx-auto py-20 px-6">
+    <div className="container mx-auto py-20 px-6" id="about">
       <motion.h2
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}

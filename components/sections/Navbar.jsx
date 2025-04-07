@@ -14,10 +14,10 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Work", href: "/work" },
-    { name: "About", href: "/about" },
-    { name: "Experience", href: "/contact" },
-    { name: "Testimonials", href: "#" },
+    { name: "Work", href: "#work" },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Testimonials", href: "#testimonials" },
   ];
 
   return (

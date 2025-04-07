@@ -99,15 +99,15 @@ function MenuItem({
           className="h-full flex justify-between items-center relative cursor-pointer uppercase no-underline font-semibold text-white  hover:text-[#060606] focus:text-white focus-visible:text-[#060606] px-6 py-8"
           href={link}
         >
-          <span>
+          <span className=" w-11/12">
             <span className="block text-2xl md:text-[2vh]">{text}</span>
             <span className="block md:text-[calc(2vh-12px)] text-zinc-400 font-normal">
               {year}
             </span>
-            <span className="flex gap-5 mt-4 text-[#40ffaa]/50 capitalize">
+            <span className="flex flex-wrap gap-5 mt-4 text-[#40ffaa]/50 capitalize">
               {tags.map((tag, index) => (
                 <span
-                  className="text-sm rounded-xl border border-[#40ffaa]/50 px-2 py-1"
+                  className="text-xs rounded-xl border border-[#40ffaa]/50 px-2 py-1"
                   key={index}
                 >
                   {tag}
@@ -115,7 +115,7 @@ function MenuItem({
               ))}
             </span>
           </span>
-          <IoMdArrowDown size="2em" className="rotate-225" />
+          <IoMdArrowDown size="2em" className="rotate-225 w-1/12" />
         </Link>
         <div
           className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-white translate-y-[101%]"

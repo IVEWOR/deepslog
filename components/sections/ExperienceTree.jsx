@@ -37,6 +37,7 @@ export default function ExperienceTree() {
     <div
       className="relative flex flex-col items-center justify-start max-w-[1020px] px-10 mx-auto md:mt-28"
       ref={containerRef}
+      id="experience"
     >
       <motion.h2
         initial={{ y: 48, opacity: 0 }}
