@@ -13,7 +13,7 @@ import FlowingProjects from "../ui/FlowingMenu/FlowingProjects";
 
 const demoItems = [
   {
-    link: "#",
+    link: "/projects/merkbart",
     text: "Merkbart",
     image: "./merkbart.png",
     year: "2025",

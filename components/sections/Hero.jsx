@@ -44,8 +44,8 @@ export default function Hero() {
           transition={{ ease: "easeInOut", duration: 0.75 }}
           className="text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal font-semibold text-center z-10 text-white"
         >
-          I help agencies build websites with Shopify, WordPress, or custom{" "}
-          solutions
+          Helping agencies deliver high-performance websites their clients love
+          — optimized for SEO, speed, and conversions.
         </motion.h1>
       </div>
 

@@ -21,10 +21,18 @@ export default function Proof() {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center mb-10"
+        className="text-4xl lg:text-5xl leading-normal text-white font-bold text-center mb-3"
       >
-        Testimonials
+        Trusted by clients and agency partners
       </motion.h2>
+      <motion.div
+        initial={{ y: 48, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.75 }}
+        className="block text-zinc-300 mb-10 text-center text-lg"
+      >
+        Here's what they say about working with me
+      </motion.div>
       <div className="flex gap-10">
         <SpotlightCard
           className="text-zinc-300"

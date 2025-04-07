@@ -39,10 +39,16 @@ export default function About() {
             transition={{ ease: "easeInOut", duration: 0.75 }}
             className="text-white md:text-lg"
           >
-            I’m a full-stack developer with 9+ years of experience helping
-            agencies turn ideas into beautiful, performant websites. I
-            specialize in Shopify, WordPress, and custom builds—always aiming
-            for clean code, scalable architecture, and solid UX.
+            <div className="mb-3">
+              I’m a full-stack developer with 9+ years of experience helping SEO
+              and marketing agencies deliver beautiful, fast, and scalable
+              websites.{" "}
+            </div>
+            <div>
+              I specialize in Shopify, WordPress, and custom builds — always
+              focused on performance, clean architecture, and results that drive
+              traffic and conversions.
+            </div>
           </motion.div>
           <motion.div
             initial={{ y: 48, opacity: 0 }}
