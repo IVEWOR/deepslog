@@ -9,44 +9,96 @@ import {
 import { SiSpacex } from "react-icons/si";
 import { FiArrowRight, FiMapPin } from "react-icons/fi";
 import { useRef } from "react";
-import TextButtonWithArrow from "../ui/Buttons/TextButtonWithArrow";
 import FlowingProjects from "../ui/FlowingMenu/FlowingProjects";
 
 const demoItems = [
   {
     link: "#",
-    text: "Mojave",
-    image: "https://picsum.photos/600/400?random=1",
+    text: "Merkbart",
+    image: "./merkbart.png",
+    year: "2025",
+    tags: [
+      "WordPress",
+      "Custom Plugin Development",
+      "Custom Design",
+      "JavaScript",
+    ],
   },
   {
     link: "#",
-    text: "Sonoma",
-    image: "https://picsum.photos/600/400?random=2",
+    text: "Elegance Originals",
+    image: "./eleganceoriginals.png",
+    year: "2024",
+    tags: [
+      "Shopify",
+      "JavaScript",
+      "Custom Blocks",
+      "Custom Theme App Extension",
+      "Liquid",
+    ],
   },
   {
     link: "#",
-    text: "Monterey",
-    image: "https://picsum.photos/600/400?random=3",
+    text: "Green Building Canada",
+    image: "./green-building-canada.png",
+    year: "2024",
+    tags: ["WordPress", "Php", "Plugin Development", "JavaScript"],
+  },
+
+  {
+    link: "#",
+    text: "Faire",
+    image: "./Faire.png",
+    year: "2023",
+    tags: ["WordPress", "Php", "JavaScript"],
   },
   {
     link: "#",
-    text: "Sequoia",
-    image: "https://picsum.photos/600/400?random=4",
+    text: "Appspace",
+    image: "./appspace.png",
+    year: "2022",
+    tags: ["WordPress", "Custom Theme", "Php", "JavaScript"],
   },
   {
     link: "#",
-    text: "Sonoma",
-    image: "https://picsum.photos/600/400?random=2",
+    text: "Capes Sokol",
+    image: "./capes-sokol.png",
+    year: "2022",
+    tags: ["JavaScript", "WordPress", "Php", "Custom Theme"],
   },
   {
     link: "#",
-    text: "Monterey",
-    image: "https://picsum.photos/600/400?random=3",
+    text: "Gray Matters Nyc",
+    image: "./graymattersnyc.png",
+    year: "2021",
+    tags: [
+      "Shopify",
+      "JavaScript",
+      "Custom Blocks",
+      "Custom Theme App Extension",
+      "Liquid",
+    ],
   },
   {
     link: "#",
-    text: "Sequoia",
-    image: "https://picsum.photos/600/400?random=4",
+    text: "Darkest Fox",
+    image: "./darkestfox.png",
+    year: "2021",
+    tags: ["Shopify", "JavaScript", "Custom Blocks", "Liquid"],
+  },
+
+  {
+    link: "#",
+    text: "Next2Skin",
+    image: "./next2skin.png",
+    year: "2020",
+    tags: ["WordPress", "Custom Theme", "WooCommerce", "JavaScript"],
+  },
+  {
+    link: "#",
+    text: "LEO Eyewear",
+    image: "./leoeyewear.png",
+    tags: ["Shopify", "JavaScript", "Custom Blocks", "Liquid"],
   },
 ];
 
@@ -65,7 +117,7 @@ export const Projects = () => {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="text-[32px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center"
+        className="text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center"
       >
         WORK
       </motion.h2>
@@ -133,8 +185,7 @@ const CenterImage = () => {
         clipPath,
         backgroundSize,
         opacity,
-        backgroundImage:
-          "url(https://images.unsplash.com/photo-1460186136353-977e9d6085a1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+        backgroundImage: "url(./darkestfox.png)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
@@ -146,32 +197,32 @@ const ParallaxImages = () => {
   return (
     <div className="mx-auto max-w-5xl px-4 pt-[200px]">
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1484600899469-230e8d1d59c0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="And example of a space launch"
+        src="./Faire.png"
+        alt="Faire"
         start={-200}
         end={200}
-        className="w-1/3"
+        className="w-4/5"
       />
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1446776709462-d6b525c57bd3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="An example of a space launch"
+        src="./eleganceoriginals.png"
+        alt="eleganceoriginals"
         start={200}
         end={-250}
         className="mx-auto w-2/3"
       />
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Orbiting satellite"
+        src="./graymattersnyc.png"
+        alt="graymattersnyc"
         start={-200}
         end={200}
-        className="ml-auto w-1/3"
+        className="ml-auto w-4/5"
       />
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1494022299300-899b96e49893?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Orbiting satellite"
+        src="./capes-sokol.png"
+        alt="Capes Sokol"
         start={0}
         end={-500}
-        className="ml-24 w-5/12"
+        className="ml-24 w-7/12"
       />
     </div>
   );

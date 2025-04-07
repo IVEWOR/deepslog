@@ -266,7 +266,7 @@ const LetterGlitch = ({
   }, [glitchSpeed, smooth]);
 
   return (
-    <div className="container mx-auto relative text-white mt-32 bg-zinc-700/40 w-full h-[500px] overflow-hidden rounded-lg">
+    <div className="container mx-auto relative text-white mt-32 bg-zinc-700/40 w-full h-[350px] md:h-[500px] overflow-hidden rounded-lg">
       <canvas ref={canvasRef} className="block w-full h-full" />
       {outerVignette && (
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0)_60%,_rgba(0,0,0,1)_100%)]"></div>
@@ -279,16 +279,23 @@ const LetterGlitch = ({
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-semibold text-center z-10 text-white"
+          className="text-4xl lg:text-5xl xl:text-6xl leading-tight font-semibold text-center z-10 text-white"
         >
           Great websites start <br /> with great conversations
         </motion.h3>
+        <motion.div
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="text-xl text-center"
+        >
+          Interested in working together? I’m currently open to new projects.
+        </motion.div>
 
         <motion.div
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-semibold text-center z-10 text-white"
         >
           <Magnet
             padding={50}
@@ -300,7 +307,7 @@ const LetterGlitch = ({
               className="inline-block text-xl border bg-zinc-200 text-black font-bold hover:bg-transparent hover:text-white px-6 py-4 rounded-xl"
               href="#"
             >
-              Say Hello
+              Let’s Build Together
             </Link>
           </Magnet>
         </motion.div>

@@ -35,14 +35,14 @@ export default function ExperienceTree() {
 
   return (
     <div
-      className="relative flex flex-col items-center justify-start max-w-[1020px] px-10 mx-auto mt-28 "
+      className="relative flex flex-col items-center justify-start max-w-[1020px] px-10 mx-auto md:mt-28"
       ref={containerRef}
     >
       <motion.h2
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="text-[32px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center mb-20"
+        className="text-4xl lg:text-5xl xl:text-6xl leading-normal text-white font-bold text-center mb-20"
       >
         Experience
       </motion.h2>
@@ -64,7 +64,7 @@ export default function ExperienceTree() {
         </div>
       </Node>
 
-      <div className="flex justify-start w-full mt-40">
+      <div className="flex justify-start w-full mt-16 md:mt-40">
         <Node ref={ref2}>
           <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
@@ -83,7 +83,7 @@ export default function ExperienceTree() {
         </Node>
       </div>
 
-      <div className="flex justify-end w-full mt-40">
+      <div className="flex justify-end w-full mt-16 md:mt-40">
         <Node ref={ref3}>
           <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
@@ -102,7 +102,7 @@ export default function ExperienceTree() {
         </Node>
       </div>
 
-      <div className="flex justify-start w-full mt-40">
+      <div className="flex justify-start w-full mt-16 md:mt-40">
         <Node ref={ref4}>
           <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
@@ -121,7 +121,7 @@ export default function ExperienceTree() {
         </Node>
       </div>
 
-      <div className="flex justify-end w-full mt-40">
+      <div className="flex justify-end w-full mt-16 md:mt-40">
         <Node ref={ref5}>
           <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
@@ -141,7 +141,7 @@ export default function ExperienceTree() {
         </Node>
       </div>
 
-      <div className="flex justify-start w-full mt-40">
+      <div className="flex justify-start w-full mt-16 md:mt-40">
         <Node ref={ref6}>
           <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">
@@ -160,7 +160,7 @@ export default function ExperienceTree() {
         </Node>
       </div>
 
-      <div className="flex justify-end w-full mt-40">
+      <div className="flex justify-end w-full mt-16 md:mt-40">
         <Node ref={ref7}>
           <div className="flex flex-col md:flex-row justify-between mb-2">
             <div className="font-bold uppercase text-[15px] text-white">

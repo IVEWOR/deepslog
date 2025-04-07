@@ -1,9 +1,11 @@
+import About from "@/components/sections/About";
 import CTA from "@/components/sections/CTA";
 import ExperienceTree from "@/components/sections/ExperienceTree";
 import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import Navbar from "@/components/sections/Navbar";
 import { Projects } from "@/components/sections/Projects";
+import Proof from "@/components/sections/Proof";
 import Waves from "@/components/ui/Waves/Waves";
 
 export default function Home() {
@@ -25,7 +27,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
+      <About />
       <ExperienceTree />
+      <Proof />
       <CTA />
       <Footer />
     </div>

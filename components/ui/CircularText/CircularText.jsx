@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { FaArrowLeft } from "react-icons/fa";
 
 const getRotationTransition = (duration, from, loop = true) => ({
   from: from,
@@ -88,32 +89,37 @@ const CircularText = ({
   };
 
   return (
-    <motion.div
-      initial={{ rotate: 0 }}
-      className={`mx-auto rounded-full w-[180px] h-[180px] text-white font-black text-center cursor-pointer origin-center ${className}`}
-      animate={controls}
-      onUpdate={(latest) => setCurrentRotation(Number(latest.rotate))}
-      onMouseEnter={handleHoverStart}
-      onMouseLeave={handleHoverEnd}
-    >
-      {letters.map((letter, i) => {
-        const rotation = (360 / letters.length) * i;
-        const factor = Number((Math.PI / letters.length).toFixed(0));
-        const x = factor * i;
-        const y = factor * i;
-        const transform = `rotateZ(${rotation}deg) translate3d(${x}px, ${y}px, 0)`;
+    <div className="relative">
+      <motion.div
+        initial={{ rotate: 0 }}
+        className={`mx-auto rounded-full w-[180px] h-[180px] text-white font-black text-center cursor-pointer origin-center ${className}`}
+        animate={controls}
+        onUpdate={(latest) => setCurrentRotation(Number(latest.rotate))}
+        onMouseEnter={handleHoverStart}
+        onMouseLeave={handleHoverEnd}
+      >
+        {letters.map((letter, i) => {
+          const rotation = (360 / letters.length) * i;
+          const factor = Number((Math.PI / letters.length).toFixed(0));
+          const x = factor * i;
+          const y = factor * i;
+          const transform = `rotateZ(${rotation}deg) translate3d(${x}px, ${y}px, 0)`;
 
-        return (
-          <span
-            key={i}
-            className={`absolute inline-block inset-0 text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)] ${letterClassName}`}
-            style={{ transform, WebkitTransform: transform }}
-          >
-            {letter}
-          </span>
-        );
-      })}
-    </motion.div>
+          return (
+            <span
+              key={i}
+              className={`absolute inline-block inset-0 text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)] ${letterClassName}`}
+              style={{ transform, WebkitTransform: transform }}
+            >
+              {letter}
+            </span>
+          );
+        })}
+      </motion.div>
+      <div className="absolute top-1/2 left-1/2 -translate-1/2 -z-10">
+        <FaArrowLeft size={30} className="fill-white rotate-135" />
+      </div>
+    </div>
   );
 };
 

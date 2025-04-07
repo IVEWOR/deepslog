@@ -9,12 +9,14 @@ export default function CTA() {
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
     >
-      <LetterGlitch
-        glitchSpeed={50}
-        centerVignette={true}
-        outerVignette={true}
-        smooth={true}
-      />
+      <div className="px-4">
+        <LetterGlitch
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={true}
+          smooth={true}
+        />
+      </div>
     </motion.div>
   );
 }

@@ -17,7 +17,13 @@ function FlowingProjects({ items = [] }) {
   );
 }
 
-function MenuItem({ link, text, image, year = 2020 }) {
+function MenuItem({
+  link,
+  text,
+  image,
+  year = 2020,
+  tags = ["Shopify", "JavaScript"],
+}) {
   const itemRef = React.useRef(null);
   const marqueeRef = React.useRef(null);
   const marqueeInnerRef = React.useRef(null);
@@ -65,9 +71,9 @@ function MenuItem({ link, text, image, year = 2020 }) {
       .to(marqueeInnerRef.current, { y: edge === "top" ? "101%" : "-101%" });
   };
 
-  const repeatedMarqueeContent = Array.from({ length: 4 }).map((_, idx) => (
+  const repeatedMarqueeContent = Array.from({ length: 6 }).map((_, idx) => (
     <React.Fragment key={idx}>
-      <span className="text-[#060606] uppercase font-normal text-[4vh] leading-[1.2] p-[1vh_1vw_0]">
+      <span className="text-[#060606] uppercase font-normal block text-3xl md:text-[2vh] leading-[1.2] p-[1vh_1vw_0]">
         {text}
       </span>
       <div
@@ -86,17 +92,27 @@ function MenuItem({ link, text, image, year = 2020 }) {
       <div
         className="flex-1 relative overflow-hidden shadow-[0_-1px_0_0_#fff]"
         ref={itemRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <Link
-          className="h-full flex justify-between items-center relative cursor-pointer uppercase no-underline font-semibold text-white  hover:text-[#060606] focus:text-white focus-visible:text-[#060606] px-6 py-10"
+          className="h-full flex justify-between items-center relative cursor-pointer uppercase no-underline font-semibold text-white  hover:text-[#060606] focus:text-white focus-visible:text-[#060606] px-6 py-8"
           href={link}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
         >
           <span>
-            <span className="block text-3xl md:text-[2vh]">{text}</span>
-            <span className="block text-lg md:text-[calc(2vh-12px)] text-zinc-400 font-normal">
+            <span className="block text-2xl md:text-[2vh]">{text}</span>
+            <span className="block md:text-[calc(2vh-12px)] text-zinc-400 font-normal">
               {year}
+            </span>
+            <span className="flex gap-5 mt-4 text-[#40ffaa]/50 capitalize">
+              {tags.map((tag, index) => (
+                <span
+                  className="text-sm rounded-xl border border-[#40ffaa]/50 px-2 py-1"
+                  key={index}
+                >
+                  {tag}
+                </span>
+              ))}
             </span>
           </span>
           <IoMdArrowDown size="2em" className="rotate-225" />
@@ -117,26 +133,3 @@ function MenuItem({ link, text, image, year = 2020 }) {
 }
 
 export default FlowingProjects;
-
-// Note: this is also needed
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-//   theme: {
-//     extend: {
-//       translate: {
-//         '101': '101%',
-//       },
-//       keyframes: {
-//         marquee: {
-//           'from': { transform: 'translateX(0%)' },
-//           'to': { transform: 'translateX(-50%)' }
-//         }
-//       },
-//       animation: {
-//         marquee: 'marquee 15s linear infinite'
-//       }
-//     }
-//   },
-//   plugins: [],
-// };

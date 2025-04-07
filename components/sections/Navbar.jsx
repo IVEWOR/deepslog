@@ -14,16 +14,17 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
+    { name: "Work", href: "/work" },
     { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "/contact" },
+    { name: "Experience", href: "/contact" },
+    { name: "Testimonials", href: "#" },
   ];
 
   return (
     <nav className="sticky w-full top-0 z-50 bg-transparent backdrop-blur-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-semibold text-white">
-          YourBrand
+          deepslog
         </Link>
 
         <div className="hidden md:flex space-x-8">
