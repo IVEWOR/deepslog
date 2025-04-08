@@ -12,6 +12,8 @@ export async function generateStaticParams() {
   }));
 }
 
+export const metadata = {};
+
 export default async function ProjectPage(props) {
   const { slug } = await props.params;
   const { getProjectBySlug } = await import("@/lib/projects");
@@ -26,6 +28,9 @@ export default async function ProjectPage(props) {
   if (!contentData || !contentData.meta) {
     return notFound();
   }
+
+  // page seo title
+  metadata.title = `Project: ${contentData.meta.title} - Deepak Jangra`;
 
   const html = await markdownToHtml(contentData.content);
 

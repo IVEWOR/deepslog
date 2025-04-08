@@ -8,6 +8,12 @@ import { Projects } from "@/components/sections/Projects";
 import Proof from "@/components/sections/Proof";
 import Waves from "@/components/ui/Waves/Waves";
 
+export const metadata = {
+  title: "White Label Developer for Agencies - Deepak Jangra",
+  description:
+    "Helping agencies deliverhigh-performance websites their clientslove — optimized for SEO, speed, andconversions",
+};
+
 export default function Home() {
   return (
     <div className="bg-zinc-900 relative z-0">
