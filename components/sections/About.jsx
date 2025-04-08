@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import GradientText from "../ui/GradientText/GradientText";
+import { PopupButton } from "@typeform/embed-react";
 
 export default function About() {
   return (
@@ -55,14 +56,16 @@ export default function About() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 0.75 }}
           >
-            <GradientText
-              colors={["#40ffaa", "#008B7F", "#40ffaa", "#4079ff", "#40ffaa"]}
-              animationSpeed={6}
-              showBorder={true}
-              className="px-8 py-[12px] mt-5 ml-0 text-lg"
-            >
-              Let's Connect
-            </GradientText>
+            <PopupButton id="Bw20TurD">
+              <GradientText
+                colors={["#40ffaa", "#008B7F", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={6}
+                showBorder={true}
+                className="px-8 py-[12px] mt-5 ml-0 text-lg"
+              >
+                Let's Connect
+              </GradientText>
+            </PopupButton>
           </motion.div>
         </div>
       </div>

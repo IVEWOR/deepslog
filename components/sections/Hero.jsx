@@ -8,6 +8,7 @@ import CircularText from "@/components/ui/CircularText/CircularText";
 import ScrollVelocity from "@/components/ui/ScrollVelocity/ScrollVelocity";
 import techs from "@/components/Logos";
 import { motion } from "framer-motion";
+import { PopupButton } from "@typeform/embed-react";
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -86,12 +87,13 @@ export default function Hero() {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
       >
-        <CircularText
-          text="LETS TALK * LETS TALK * LETS TALK * "
-          onHover="speedUp"
-          spinDuration={20}
-          className="z-1 cursor-pointer"
-        />
+        <PopupButton id="Bw20TurD" className="z-1 cursor-pointer w-full">
+          <CircularText
+            text="LETS TALK * LETS TALK * LETS TALK * "
+            onHover="speedUp"
+            spinDuration={20}
+          />
+        </PopupButton>
       </motion.div>
     </div>
   );

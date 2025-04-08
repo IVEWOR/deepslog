@@ -2,6 +2,7 @@ import About from "@/components/sections/About";
 import CTA from "@/components/sections/CTA";
 import ExperienceTree from "@/components/sections/ExperienceTree";
 import Footer from "@/components/sections/Footer";
+import Form from "@/components/sections/Form";
 import Hero from "@/components/sections/Hero";
 import Navbar from "@/components/sections/Navbar";
 import { Projects } from "@/components/sections/Projects";
@@ -37,6 +38,7 @@ export default function Home() {
       <ExperienceTree />
       <Proof />
       <CTA />
+      <Form />
       <Footer />
     </div>
   );

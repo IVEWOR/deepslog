@@ -1,8 +1,8 @@
 "use client";
 import { useRef, useEffect } from "react";
 import Magnet from "../Magnet/Magnet";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { PopupButton } from "@typeform/embed-react";
 
 const LetterGlitch = ({
   glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
@@ -296,12 +296,12 @@ const LetterGlitch = ({
             magnetStrength={10}
             className="text-center mx-auto w-full mt-8"
           >
-            <Link
-              className="inline-block text-xl border bg-zinc-200 text-black font-bold hover:bg-transparent hover:text-white px-6 py-4 rounded-xl"
-              href="#"
+            <PopupButton
+              id="Bw20TurD"
+              className="inline-block text-xl border bg-zinc-200 text-black font-bold hover:bg-transparent hover:text-white px-6 py-4 rounded-xl cursor-pointer"
             >
               Let’s Collaborate
-            </Link>
+            </PopupButton>
           </Magnet>
         </motion.div>
       </div>
