@@ -100,10 +100,9 @@ export default function Proof() {
               <div className="flex gap-2" key="1">
                 {clientLogos.map((item, index) => (
                   <div
-                    className={`p-2 px-10 flex items-center justify-center rounded-md ${
+                    className={`p-2 px-10 flex items-center justify-center rounded-md h-[40px] w-auto min-w-[100px] ${
                       index === 0 ? "ml-2" : ""
                     }`}
-                    style={{ height: "40px", width: "auto", minWidth: "100px" }}
                     key={index}
                   >
                     <Image
@@ -112,7 +111,7 @@ export default function Proof() {
                       width={0}
                       height={0}
                       sizes="100vw"
-                      className="h-full w-auto object-contain"
+                      className="h-[40px] w-auto object-contain"
                     />
                   </div>
                 ))}
