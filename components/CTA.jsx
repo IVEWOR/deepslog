@@ -1,0 +1,74 @@
+export default function CTA() {
+  return (
+    <section
+      id="contact"
+      className="relative py-24 lg:py-32 bg-slate-900 overflow-hidden"
+    >
+      {/* Premium Dark Background Effects */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+
+      {/* Subtle Indigo Glow in the center */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
+          Looking for a developer who <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">
+            gets how agencies work?
+          </span>
+        </h2>
+
+        <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:200ms]">
+          Stop rolling the dice on unreliable contractors. Let's build scalable,
+          high-performance sites that people love delivered on time, every time.
+        </p>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:300ms]">
+          {/* Primary High-Contrast Button */}
+          {/* Pro Tip: Link this to a Calendly or a very short Typeform instead of just mailto: for higher conversions */}
+          <a
+            href="#"
+            className="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all duration-300 shadow-xl shadow-white/10 flex items-center justify-center gap-2"
+          >
+            Book a Free Call
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
+            </svg>
+          </a>
+
+          {/* Secondary Button */}
+          <a
+            href="mailto:hello@deepslog.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-800/50 border border-slate-700 rounded-xl hover:bg-slate-700 hover:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            Email Me Directly
+          </a>
+        </div>
+
+        {/* Availability Indicator - Massive Conversion Booster */}
+        <div className="mt-12 flex items-center justify-center gap-3 animate-fade-in-up [animation-delay:400ms]">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+          <span className="text-sm font-medium text-slate-300 tracking-wide uppercase">
+            Available for new projects
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
