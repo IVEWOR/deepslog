@@ -2,9 +2,66 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "White-Label Development Services",
+  description:
+    "Your silent, senior-level technical partner. Scale your agency's development capacity with Next.js and Shopify, strictly under NDA.",
+  alternates: {
+    canonical: "/agency",
+  },
+  openGraph: {
+    title: "White-Label Development Services | Deepak Jangra",
+    description:
+      "Scale your agency's development capacity with Next.js and Shopify, strictly under NDA.",
+    url: "/agency",
+  },
+};
+
 export default function AgencyPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://deepslog.com/agency#service",
+    name: "White-Label Development Services",
+    provider: {
+      "@id": "https://deepslog.com/#person",
+    },
+    areaServed: "Global",
+    serviceType: "Web Development",
+    offers: {
+      "@type": "Offer",
+      price: "75.00",
+      priceCurrency: "USD",
+      priceValidUntil: "2026-12-31",
+      availability: "https://schema.org/InStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "50",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "Filip J",
+        },
+        reviewBody:
+          "Deepak is our secret weapon. Clients think he's our in-house lead engineer.",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+        },
+      },
+    ],
+  };
   return (
     <main className="min-h-screen bg-white selection:bg-indigo-100 selection:text-indigo-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* 1. HERO SECTION (Updated with Social Proof & Copy) */}
@@ -380,7 +437,7 @@ export default function AgencyPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Ready to scale <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-blue-400">
               without hiring?

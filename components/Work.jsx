@@ -9,7 +9,7 @@ export default function Work() {
       metric: "99/100 Lighthouse Score",
       description: "Custom WordPress plugin & architecture optimization.",
       tech: ["WordPress", "Custom Plugin", "JavaScript"],
-      link: "#",
+      link: "merkbart",
     },
     {
       year: "2024",
@@ -17,7 +17,7 @@ export default function Work() {
       metric: "+42% Checkout Conversion",
       description: "Custom Shopify theme and app extension builds.",
       tech: ["Shopify", "Liquid", "JavaScript"],
-      link: "#",
+      link: "elegance-originals",
     },
     {
       year: "2023",
@@ -25,7 +25,7 @@ export default function Work() {
       metric: "Sub-2s Page Load Time",
       description: "High-traffic resource hub built for scale.",
       tech: ["WordPress", "PHP", "React"],
-      link: "#",
+      link: "faire",
     },
     {
       year: "2022",
@@ -33,7 +33,7 @@ export default function Work() {
       metric: "Complete Technical Rebuild",
       description: "Enterprise legal firm frontend overhaul.",
       tech: ["JavaScript", "Custom Theme", "PHP"],
-      link: "#",
+      link: "capes-sokol",
     },
   ];
 
@@ -65,7 +65,7 @@ export default function Work() {
         <div className="flex flex-col border-t border-slate-200">
           {projects.map((project, index) => (
             <Link
-              href={project.link}
+              href={`/work/${project.link}`}
               key={index}
               className="group block border-b border-slate-200 py-8 lg:py-10 hover:bg-slate-50 transition-colors duration-300 relative overflow-hidden"
             >
@@ -132,10 +132,10 @@ export default function Work() {
         {/* View All Button */}
         <div className="mt-16 text-center">
           <Link
-            href="/archive"
+            href="/work"
             className="inline-flex items-center gap-2 text-base font-semibold text-slate-600 hover:text-indigo-600 transition-colors underline-offset-4 hover:underline"
           >
-            View More Projects
+            View More Work
             <svg
               className="w-4 h-4"
               fill="none"

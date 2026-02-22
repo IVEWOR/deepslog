@@ -2,9 +2,129 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title:
+    "Emergency Code Rescue | AI Cleanup & Speed Optimization | Deepak Jangra",
+  description:
+    "Vibe coding cleanup, AI-generated code rescue, and Core Web Vitals optimization. I stabilize Cursor/Copilot MVPs and fix slow Shopify/WordPress sites. 48-hour audit available.",
+  alternates: {
+    canonical: "https://deepslog.com/rescue",
+  },
+  openGraph: {
+    title: "Emergency Code Rescue | Vibe Coding Cleanup & Speed Optimization",
+    description:
+      "Rescue AI-generated codebases and fix slow websites. 4× speed improvements, production-ready results.",
+    url: "https://deepslog.com/rescue",
+    siteName: "Deepak Jangra",
+    images: [
+      {
+        url: "https://deepslog.com/og-rescue.png", // Before/after visual
+        width: 1200,
+        height: 630,
+        alt: "Code Rescue Services - AI Cleanup & Speed Optimization",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 export default function RescueHub() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://deepslog.com/rescue#service",
+        name: "Emergency Web Development & Code Rescue",
+        description:
+          "Specialized rescue services for broken codebases, AI-generated messes, and performance failures",
+        provider: {
+          "@id": "https://deepslog.com/#person",
+        },
+        serviceType: [
+          "AI Code Rescue",
+          "Vibe Coding Cleanup",
+          "Performance Optimization",
+          "Technical Debt Reduction",
+        ],
+        areaServed: {
+          "@type": "Place",
+          name: "Global",
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Rescue Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                "@id": "https://deepslog.com/rescue/vibe-coding#service",
+                name: "Vibe Coding Cleanup",
+                description:
+                  "Refactor AI-generated code from Cursor, Copilot, v0 into production-ready applications",
+              },
+              price: "2500.00",
+              priceCurrency: "USD",
+              priceValidUntil: "2026-12-31",
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                "@id": "https://deepslog.com/rescue/speed#service",
+                name: "Speed & Core Web Vitals Rescue",
+                description:
+                  "Fix slow websites, optimize Shopify/WordPress, guarantee sub-2-second loads",
+              },
+              price: "1500.00",
+              priceCurrency: "USD",
+              priceValidUntil: "2026-12-31",
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://deepslog.com/rescue#webpage",
+        name: "Emergency Code Rescue Services",
+        description: "Stabilize broken codebases and fix slow websites",
+        url: "https://deepslog.com/rescue",
+        mainEntity: {
+          "@id": "https://deepslog.com/rescue#service",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://deepslog.com/rescue#faq",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What is vibe coding cleanup?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Vibe coding cleanup is the process of refactoring AI-generated code from tools like Cursor, Copilot, or v0 into production-ready, scalable applications. I specialize in stabilizing these codebases without rebuilding from scratch.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How much does a codebase audit cost?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "My 48-hour codebase audit is $2,500. This includes a comprehensive review of your repository, identification of critical issues, and a step-by-step roadmap for remediation.",
+            },
+          },
+        ],
+      },
+    ],
+  };
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* 1. HERO SECTION: The Triage Center */}
@@ -178,7 +298,7 @@ export default function RescueHub() {
       <section className="py-24 bg-slate-900 border-t border-slate-800 relative overflow-hidden text-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1e293b,transparent)] opacity-100"></div>
         <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Have a different kind of emergency?
           </h2>
           <p className="text-lg text-slate-400 mb-10 leading-relaxed">

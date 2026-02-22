@@ -2,9 +2,45 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "AI Codebase Rescue & Refactoring",
+  description:
+    "AI built your prototype. I build the production app. Get your Cursor, v0, or ChatGPT generated codebase refactored for enterprise scale.",
+  alternates: {
+    canonical: "/rescue/vibe-coding",
+  },
+  openGraph: {
+    title: "AI Codebase Refactoring Services",
+    description:
+      "Turn your AI-generated prototype into a scalable production app.",
+    url: "/rescue/vibe-coding",
+  },
+};
+
 export default function VibeCodingRescue() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://deepslog.com/rescue/vibe-coding#service",
+    name: "AI Codebase Refactoring",
+    provider: {
+      "@id": "https://deepslog.com/#person",
+    },
+    areaServed: "Global",
+    serviceType: "Software Architecture Refactoring",
+    offers: {
+      "@type": "Offer",
+      price: "1000.00", // Example audit/starting price
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  };
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50 selection:bg-indigo-500/30 selection:text-indigo-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* 1. HERO SECTION (Dark & Technical Theme) */}
@@ -225,7 +261,7 @@ export default function VibeCodingRescue() {
       {/* 4. FINAL CTA (Audit Focus) */}
       <section id="audit" className="relative py-24 bg-slate-950 text-center">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Stop fighting the AI. Let's fix the foundation.
           </h2>
           <p className="text-lg text-slate-400 mb-10">

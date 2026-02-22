@@ -15,22 +15,28 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 font-medium text-slate-600">
           <Link
-            href="#work"
-            className="hover:text-indigo-600 transition-colors"
-          >
-            Work
-          </Link>
-          <Link
             href="/agency"
             className="hover:text-indigo-600 transition-colors"
           >
-            Agency
+            agency
           </Link>
           <Link
-            href="/rescue/vibe-coding"
+            href="/rescue"
             className="hover:text-indigo-600 transition-colors"
           >
-            Rescue
+            rescue
+          </Link>
+          <Link
+            href="/work"
+            className="hover:text-indigo-600 transition-colors"
+          >
+            work
+          </Link>
+          <Link
+            href="/about"
+            className="hover:text-indigo-600 transition-colors"
+          >
+            about
           </Link>
         </div>
 

@@ -1,6 +1,22 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
+
+export const metadata = {
+  title: "Core Web Vitals & Speed Optimization",
+  description:
+    "Stop losing customers to a slow website. I rewrite bloated frontends and configure edge networks to guarantee sub-2-second load times.",
+  alternates: {
+    canonical: "/rescue/performance",
+  },
+  openGraph: {
+    title: "Core Web Vitals Optimization Expert",
+    description:
+      "Guarantee sub-2-second load times for your Shopify or Custom site.",
+    url: "/rescue/performance",
+  },
+};
 
 // Simple SVG Icons for Performance
 const SpeedometerIcon = () => (
@@ -55,8 +71,29 @@ const SearchIcon = () => (
 );
 
 export default function PerformanceRescue() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://deepslog.com/rescue/performance#service",
+    name: "Core Web Vitals Optimization",
+    provider: {
+      "@id": "https://deepslog.com/#person",
+    },
+    areaServed: "Global",
+    serviceType: "Web Performance Optimization",
+    offers: {
+      "@type": "Offer",
+      price: "500.00", // Example diagnostic/starting price to show Google it's a paid service
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  };
   return (
     <main className="min-h-screen bg-white text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* 1. HERO SECTION (Analytical & Urgent) */}
@@ -84,25 +121,10 @@ export default function PerformanceRescue() {
           </p>
 
           <div className="animate-fade-in-up [animation-delay:300ms] flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="#audit"
-              className="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-slate-900 rounded-xl hover:bg-slate-800 shadow-xl shadow-slate-900/10 transition-all inline-flex items-center justify-center gap-2"
-            >
-              Get Free Speed Audit
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
-            </Link>
+            <ContactModal
+              triggerText="Get Free Speed Audit"
+              triggerStyle="px-8 py-4 text-base font-bold text-white bg-slate-900 rounded-xl hover:bg-slate-800 shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+            />
             <Link
               href="#proof"
               className="w-full sm:w-auto px-8 py-4 text-base font-bold text-emerald-700 bg-emerald-50 rounded-xl hover:bg-emerald-100 transition-all inline-flex items-center justify-center"
@@ -377,7 +399,7 @@ export default function PerformanceRescue() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Let's find the bottlenecks.
           </h2>
           <p className="text-lg text-slate-400 mb-10 leading-relaxed">

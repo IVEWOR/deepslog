@@ -276,4 +276,123 @@ const techs = [
   },
 ];
 
+// components/Logo.jsx
+
+export function GeometricMonogram({ className = "w-10 h-10" }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 240 240"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        {/* Electric Indigo Gen-Z Gradient */}
+        <linearGradient id="indigo-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#818CF8" /> {/* Tailwind indigo-400 */}
+          <stop offset="100%" stopColor="#4F46E5" /> {/* Tailwind indigo-600 */}
+        </linearGradient>
+      </defs>
+
+      {/* The Bowl of the 'd' */}
+      <circle cx="96" cy="124" r="56" stroke="currentColor" strokeWidth="32" />
+
+      {/* The Stem of the 'd' */}
+      <rect
+        x="136"
+        y="20"
+        width="32"
+        height="176"
+        rx="16"
+        fill="currentColor"
+      />
+
+      {/* The Signature Dot (perfectly baseline aligned) */}
+      <circle cx="204" cy="180" r="16" fill="url(#indigo-glow)" />
+    </svg>
+  );
+}
+
+export function SparkWordmark({ className = "h-8" }) {
+  return (
+    <div className={`flex items-baseline gap-1 ${className}`}>
+      {/* Clean, heavily-weighted text */}
+      <span className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Deepak
+      </span>
+
+      {/* The 4-Pointed Spark */}
+      <svg
+        className="w-4 h-4 translate-y-[2px]"
+        viewBox="0 0 240 240"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="spark-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#60A5FA" /> {/* blue-400 */}
+            <stop offset="100%" stopColor="#4F46E5" /> {/* indigo-600 */}
+          </linearGradient>
+        </defs>
+        <path
+          d="M120 20 C120 75.228 164.772 120 220 120 C164.772 120 120 164.772 120 220 C120 164.772 75.228 120 20 120 C75.228 120 120 75.228 120 20 Z"
+          fill="url(#spark-glow)"
+        />
+      </svg>
+    </div>
+  );
+}
+
+export function ModernSparkLogo({ className = "" }) {
+  return (
+    <div className={`group flex items-baseline gap-0.5 ${className}`}>
+      {/* Typography: Lowercase, ultra-heavy, tightly tracked.
+        This is the defining look of 2026 minimalist branding. 
+      */}
+      <span className="text-2xl md:text-3xl font-black tracking-tighter text-slate-950 dark:text-white transition-colors">
+        deepak
+      </span>
+
+      {/* The Spark: Replaces the period.
+        Hover effect uses a high-tension bezier curve for a "snap" rotation and scale.
+      */}
+      <svg
+        className="w-5 h-5 md:w-6 md:h-6 transition-all duration-500 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-hover:rotate-90 group-hover:scale-110"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          {/* Iridescent Web3/AI Gradient */}
+          <linearGradient
+            id="iridescent-spark"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            <stop offset="0%" stopColor="#818CF8" /> {/* Tailwind indigo-400 */}
+            <stop offset="50%" stopColor="#C084FC" />{" "}
+            {/* Tailwind purple-400 */}
+            <stop offset="100%" stopColor="#2DD4BF" /> {/* Tailwind teal-400 */}
+          </linearGradient>
+        </defs>
+
+        {/* Main sharp 4-point star */}
+        <path
+          d="M12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0Z"
+          fill="url(#iridescent-spark)"
+        />
+
+        {/* Subtle inner core for dimensional depth */}
+        <path
+          d="M12 6C12 9.31371 14.6863 12 18 12C14.6863 12 12 14.6863 12 18C12 14.6863 9.31371 12 6 12C9.31371 12 12 9.31371 12 6Z"
+          fill="white"
+          className="opacity-30"
+        />
+      </svg>
+    </div>
+  );
+}
+
 export default techs;

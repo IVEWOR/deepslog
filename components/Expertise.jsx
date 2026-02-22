@@ -6,7 +6,7 @@ export default function Expertise() {
         "I integrate seamlessly into your Slack, Jira, or Asana. I can act as your lead technical developer on client calls, representing your agency with complete professionalism.",
       icon: (
         <svg
-          className="w-6 h-6 text-indigo-600"
+          className="w-6 h-6 text-indigo-600 group-hover:text-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -26,7 +26,7 @@ export default function Expertise() {
         "Fast sites make more money. I build Next.js and headless Shopify architectures designed to hit 99+ Lighthouse scores and pass Core Web Vitals out of the box.",
       icon: (
         <svg
-          className="w-6 h-6 text-indigo-600"
+          className="w-6 h-6 text-indigo-600 group-hover:text-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -46,7 +46,7 @@ export default function Expertise() {
         "I do vibe coding cleanup for AI-generated web apps. I stabilize  Cursor/Copilot-built web apps without rebuilding from scratch.",
       icon: (
         <svg
-          className="w-6 h-6 text-indigo-600"
+          className="w-6 h-6 text-indigo-600 group-hover:text-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -66,7 +66,7 @@ export default function Expertise() {
         "With 9 years of experience and 100+ projects delivered, I anticipate edge cases, write clean documentation, and hit delivery deadlines. You assign the project, I handle the rest.",
       icon: (
         <svg
-          className="w-6 h-6 text-indigo-600"
+          className="w-6 h-6 text-indigo-600 group-hover:text-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -116,9 +116,9 @@ export default function Expertise() {
               style={{ animationDelay: `${400 + index * 150}ms` }}
             >
               {/* Subtle hover gradient at the top of the card */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-[2rem]"></div>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-4xl"></div>
 
-              <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
                 {feature.icon}
               </div>
 
