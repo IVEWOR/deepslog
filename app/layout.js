@@ -44,6 +44,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={funnelDisplay.className}>{children}</body>
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "ea88142598b349b9b9c1682da19f3a0f"}'
+      ></script>
     </html>
   );
 }
