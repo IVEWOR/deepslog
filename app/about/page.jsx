@@ -89,7 +89,7 @@ export default function AboutPage() {
         },
         sameAs: [
           "https://www.linkedin.com/in/deepakjangra",
-          "https://github.com/deepakjangra",
+          "https://github.com/IVEWOR",
         ],
         hasOccupation: {
           "@type": "Occupation",
@@ -239,6 +239,15 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <span className="sr-only">
+        I'm Deepak Jangra, a senior full-stack developer with 9 years of
+        experience building high-performance web applications. I specialize in
+        Shopify, WordPress, and React/Next.js development for ambitious
+        agencies. From AI code rescue to white-label partnerships, I deliver
+        scalable architectures under strict NDA with 40% faster delivery than
+        typical agencies.
+      </span>
+
       {/* 2. THE EXPERIENCE TIMELINE */}
       <section className="py-24 lg:py-32 bg-slate-50 border-b border-slate-200 relative">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
@@ -297,6 +306,12 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <span className="sr-only">
+        Deepak Jangra is a full-stack developer specializing in vibe coding
+        cleanup, AI code rescue, Shopify development, WordPress development, and
+        Next.js applications. 9 years experience. 100+ projects delivered.
+      </span>
 
       {/* 3. CORE VALUES / PHILOSOPHY */}
       <section className="py-24 bg-white">
