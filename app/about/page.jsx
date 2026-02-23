@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export const metadata = {
   title: "Deepak Jangra | Senior Full-Stack Developer | 9 Years Experience",
@@ -172,14 +173,14 @@ export default function AboutPage() {
             </h1>
 
             <p className="animate-fade-in-up [animation-delay:200ms] text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              I am a full-stack developer specializing in Shopify, WordPress,
-              and custom React/Next.js builds. I partner with ambitious agencies
+              I am a full-stack developer specializing in Shopify, WordPress, &
+              custom React/Next.js builds. I partner with agencies & individuals
               to deliver beautiful, fast, and highly scalable architectures
               under strict NDA.
             </p>
 
             <div className="flex-1 lg:hidden w-full max-w-md mx-auto lg:max-w-none relative animate-fade-in-up [animation-delay:400ms] mb-12">
-              <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
+              <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 md:shadow-2xl bg-white">
                 <Image
                   src="/AAdeepak.png"
                   alt="Deepak Jangra"
@@ -192,10 +193,10 @@ export default function AboutPage() {
 
             <div className="animate-fade-in-up [animation-delay:300ms] flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/thedeepakjangra/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-sm"
+                className="px-5 py-3 text-sm md:text-base rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-sm"
               >
                 <svg
                   className="w-5 h-5 text-blue-600"
@@ -207,10 +208,10 @@ export default function AboutPage() {
                 Connect on LinkedIn
               </a>
               <a
-                href="https://github.com/yourhandle"
+                href="https://github.com/IVEWOR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-sm"
+                className="px-5 py-3 text-sm md:text-base rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-sm"
               >
                 <svg
                   className="w-5 h-5 text-slate-900"
@@ -409,25 +410,10 @@ export default function AboutPage() {
             high-performance sites that your clients will love—delivered on
             time, every time.
           </p>
-          <Link
-            href="mailto:hello@deepslog.com?subject=Agency%20Partnership%20Inquiry"
-            className="w-full sm:w-auto px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto"
-          >
-            Let's Talk Project Specs
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText="Let's Talk Project Specs"
+            triggerStyle="w-full sm:w-auto px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto"
+          />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export const metadata = {
   title: "White-Label Development Services",
@@ -90,25 +91,10 @@ export default function AgencyPage() {
           </p>
 
           <div className="animate-fade-in-up [animation-delay:300ms] mb-10 md:mb-16">
-            <Link
-              href="#contact"
-              className="px-8 py-4 text-base font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 transition-all inline-flex items-center gap-2"
-            >
-              Discuss a Pilot Project
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
-            </Link>
+            <ContactModal
+              triggerText={<>Discuss a Pilot Project</>}
+              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 shadow-lg shadow-indigo-500/30 transition-all flex items-center justify-center gap-2 mx-auto cursor-pointer"
+            />
           </div>
 
           {/* Social Proof Above the Fold */}
@@ -449,28 +435,13 @@ export default function AgencyPage() {
             quick alignment call.
           </p>
 
-          <Link
-            href="mailto:hello@deepslog.com?subject=Agency%20Partnership"
-            className="w-full sm:w-auto px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto"
-          >
-            Book Free Alignment Call
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText={<>Book Free Alignment Call</>}
+            triggerStyle="w-full px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2 cursor-pointer"
+          />
 
           {/* Testimonial right at the point of action */}
-          <div className="mt-16 pt-10 border-t border-slate-800/50">
+          <div className=" pt-10">
             <p className="text-slate-300 italic mb-4">
               "3+ years working with Deepak. He converts vague client ideas into
               functional websites—zero hand-holding required."

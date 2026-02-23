@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ContactModal from "./ContactModal";
 
 export default function Hero() {
   return (
@@ -56,35 +57,17 @@ export default function Hero() {
 
           {/* 3. ACTION BUTTONS (order-3: Kept your exact classes and SVG updates) */}
           <div className="order-3 animate-fade-in-up [animation-delay:550ms] flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <Link
-              href="#contact"
-              className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 transition-all flex items-center justify-center gap-2 border border-indigo-600"
-            >
-              Partner With Me
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
-            </Link>
+            <ContactModal
+              triggerText={<>Partner With Me</>}
+              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 transition-all flex items-center justify-center gap-2 border border-indigo-600"
+            />
+            <ContactModal
+              triggerText={<> Rescue My Project</>}
+              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-semibold text-indigo-700 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-all border border-indigo-500 flex items-center justify-center gap-2"
+            />
 
             <Link
-              href="#performance"
-              className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-indigo-700 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-all border border-indigo-500 flex items-center justify-center "
-            >
-              Rescue My Project
-            </Link>
-
-            <Link
-              href="#work"
+              href="/work"
               className="w-full sm:w-auto px-8 py-4 text-base font-medium text-slate-600 hover:text-slate-900 transition-colors underline-offset-4 hover:underline flex gap-2 items-center justify-center border border-transparent"
             >
               <span>See My Work</span>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export const metadata = {
   title:
@@ -159,7 +160,7 @@ export default function RescueHub() {
           <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8 animate-fade-in-up [animation-delay:300ms]">
             TRUSTED BY TEAMS BUILDING AT SCALE
           </p>
-          <div className="flex justify-center items-center gap-8 md:gap-16 animate-fade-in-up [animation-delay:400ms]">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 lg:gap-x-16 mb-10 w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500 animate-fade-in-up [animation-delay:400ms]">
             <div className="font-bold text-xl tracking-tighter text-slate-800">
               NXPRO
             </div>
@@ -306,25 +307,10 @@ export default function RescueHub() {
             Don't let a bad codebase sink your business. Send me the details and
             I'll review it within 24 hours.
           </p>
-          <Link
-            href="mailto:hello@deepslog.com?subject=General%20Project%20Rescue"
-            className="px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-100 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto w-fit"
-          >
-            Get Immediate Help
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText="Get Immediate Help"
+            triggerStyle="px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-100 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto w-fit"
+          />
         </div>
       </section>
 

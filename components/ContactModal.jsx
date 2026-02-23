@@ -13,14 +13,14 @@ export default function ContactModal({ triggerText, triggerStyle }) {
     setMounted(true);
   }, []);
 
-  // Initialize Cal.com UI settings when the calendar is shown
+  // Initialize Cal.com UI settings
   useEffect(() => {
     if (showCalendar) {
       (async function () {
         const cal = await getCalApi();
         cal("ui", {
           theme: "light",
-          styles: { branding: { brandColor: "#4F46E5" } }, // Matches Tailwind indigo-600
+          styles: { branding: { brandColor: "#4F46E5" } },
           hideEventTypeDetails: false,
           layout: "month_view",
         });
@@ -42,7 +42,7 @@ export default function ContactModal({ triggerText, triggerStyle }) {
 
   const modalUI = isOpen ? (
     <div
-      className="fixed inset-0 z-[9999] overflow-y-auto"
+      className="fixed inset-0 z-[9999] overflow-y-auto overscroll-none"
       style={{ position: "fixed" }}
     >
       {/* Backdrop */}
@@ -53,14 +53,17 @@ export default function ContactModal({ triggerText, triggerStyle }) {
 
       {/* Scrollable Wrapper */}
       <div className="flex min-h-full flex-col justify-center p-4 sm:p-8 relative">
-        <div className="relative w-full max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl flex flex-col md:flex-row animate-fade-in-up my-auto overflow-hidden">
+        {/* MODAL CONTAINER
+            FIX: Added `md:h-[600px] md:max-h-[85vh]` to strictly limit the desktop height.
+        */}
+        <div className="relative w-full max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl flex flex-col md:flex-row animate-fade-in-up my-auto overflow-hidden md:h-[600px] md:max-h-[85vh]">
           {/* Global Close Button */}
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-3 right-4 p-2 text-slate-200 hover:text-white bg-slate-800/80 rounded-full hover:bg-slate-700 transition-colors z-30 backdrop-blur-sm"
+            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white bg-slate-800/80 rounded-full hover:bg-slate-700 transition-colors z-30 backdrop-blur-sm"
           >
             <svg
-              className="w-3 h-3"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -74,9 +77,11 @@ export default function ContactModal({ triggerText, triggerStyle }) {
             </svg>
           </button>
 
-          {/* LEFT SIDE: The Quick Form */}
+          {/* LEFT SIDE: The Quick Form 
+              FIX: Added `flex flex-col justify-center md:h-full overflow-y-auto` so it centers vertically in the new locked height.
+          */}
           <div
-            className={`w-full md:w-1/2 p-6 md:p-8 border-b md:border-b-0 md:border-r border-slate-800 relative z-10 bg-slate-900 ${showCalendar ? "hidden md:block" : "block"}`}
+            className={`w-full md:w-1/2 p-6 md:p-8 border-b md:border-b-0 md:border-r border-slate-800 relative z-10 bg-slate-900 flex-col justify-center md:h-full overflow-y-auto ${showCalendar ? "hidden md:flex" : "flex"}`}
           >
             <h3 className="text-2xl font-bold text-white mb-1">
               Send a brief.
@@ -135,22 +140,24 @@ export default function ContactModal({ triggerText, triggerStyle }) {
 
               <button
                 type="submit"
-                className="w-full py-3 mt-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors"
+                className="w-full py-3 mt-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors shrink-0"
               >
                 Send Message
               </button>
             </form>
           </div>
 
-          {/* RIGHT SIDE: Dynamic Cal.com / CTA Area */}
+          {/* RIGHT SIDE: Dynamic Cal.com / CTA Area 
+              FIX: Changed to `md:h-full` so it stops at 600px.
+          */}
           <div
-            className={`w-full bg-slate-950 flex flex-col justify-center items-center relative z-10 transition-all duration-500 ${showCalendar ? "p-0 h-150 md:h-auto md:min-h-137.5 md:w-1/2" : "p-6 md:p-8 text-center md:w-1/2"}`}
+            className={`w-full bg-slate-950 flex flex-col justify-center items-center relative z-10 transition-all duration-500 ${showCalendar ? "p-0 h-[85vh] md:h-full md:w-1/2" : "p-6 md:p-8 text-center md:w-1/2 md:h-full"}`}
           >
             {showCalendar ? (
               // The Live Cal.com Embed
               <div className="w-full h-full bg-white animate-fade-in-up md:rounded-r-3xl flex flex-col relative overflow-hidden">
                 {/* Mobile 'Back to Form' Header */}
-                <div className="md:hidden w-full bg-slate-50 border-b border-slate-200 p-4 flex items-center z-20 absolute top-0 left-0 right-0">
+                <div className="md:hidden w-full bg-slate-50 border-b border-slate-200 p-4 flex items-center z-20 absolute top-0 left-0 right-0 shadow-sm">
                   <button
                     onClick={() => setShowCalendar(false)}
                     className="text-sm font-bold text-slate-600 flex items-center gap-1.5 hover:text-indigo-600 transition-colors"
@@ -172,15 +179,14 @@ export default function ContactModal({ triggerText, triggerStyle }) {
                   </button>
                 </div>
 
-                {/* Cal.com component - pt-14 pushes it below the mobile back button */}
-                <div className="flex-grow w-full pt-14 md:pt-0">
+                {/* Cal.com component */}
+                <div
+                  className="flex-grow w-full h-full pt-[60px] md:pt-0 overflow-y-auto overscroll-contain"
+                  style={{ WebkitOverflowScrolling: "touch" }}
+                >
                   <Cal
-                    calLink="deepslog/30min"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      overflow: "scroll",
-                    }}
+                    calLink="deepslog/meet"
+                    style={{ width: "100%", height: "100%" }}
                     config={{ layout: "month_view" }}
                   />
                 </div>
@@ -235,19 +241,21 @@ export default function ContactModal({ triggerText, triggerStyle }) {
         }
       >
         {triggerText || "Let's Talk"}
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          ></path>
-        </svg>
+        {typeof triggerText === "string" && (
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            ></path>
+          </svg>
+        )}
       </button>
 
       {mounted && createPortal(modalUI, document.body)}

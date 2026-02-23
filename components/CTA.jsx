@@ -1,3 +1,5 @@
+import ContactModal from "./ContactModal";
+
 export default function CTA() {
   return (
     <section
@@ -26,26 +28,10 @@ export default function CTA() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:300ms]">
           {/* Primary High-Contrast Button */}
-          {/* Pro Tip: Link this to a Calendly or a very short Typeform instead of just mailto: for higher conversions */}
-          <a
-            href="#"
-            className="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all duration-300 shadow-xl shadow-white/10 flex items-center justify-center gap-2"
-          >
-            Book a Free Call
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
+          <ContactModal
+            triggerText={<>Book a Free Call</>}
+            triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center justify-center"
+          />
 
           {/* Secondary Button */}
           <a

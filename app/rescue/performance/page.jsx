@@ -126,7 +126,7 @@ export default function PerformanceRescue() {
               triggerStyle="px-8 py-4 text-base font-bold text-white bg-slate-900 rounded-xl hover:bg-slate-800 shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
             />
             <Link
-              href="#proof"
+              href="/work"
               className="w-full sm:w-auto px-8 py-4 text-base font-bold text-emerald-700 bg-emerald-50 rounded-xl hover:bg-emerald-100 transition-all inline-flex items-center justify-center"
             >
               See Case Studies
@@ -407,25 +407,10 @@ export default function PerformanceRescue() {
             send you a custom report outlining exactly what is slowing your site
             down and how much it will cost to fix it.
           </p>
-          <Link
-            href="mailto:hello@deepslog.com?subject=Performance%20Diagnostic%20Request"
-            className="px-10 py-4 text-base font-bold text-slate-900 bg-emerald-400 rounded-xl hover:bg-emerald-300 hover:scale-105 transition-all shadow-[0_0_25px_rgba(52,211,153,0.2)] flex items-center justify-center gap-2 mx-auto w-fit"
-          >
-            Get Free Diagnostic Report
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText="Get Free Diagnostic Report"
+            triggerStyle="px-10 py-4 text-base font-bold text-slate-900 bg-emerald-400 rounded-xl hover:bg-emerald-300 hover:scale-105 transition-all shadow-[0_0_25px_rgba(52,211,153,0.2)] flex items-center justify-center gap-2 mx-auto w-fit"
+          />
         </div>
       </section>
 

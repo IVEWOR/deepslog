@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export const metadata = {
   title: "AI Codebase Rescue & Refactoring",
@@ -73,25 +74,10 @@ export default function VibeCodingRescue() {
           </p>
 
           <div className="animate-fade-in-up [animation-delay:300ms] flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="#audit"
-              className="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-900 bg-indigo-400 rounded-xl hover:bg-indigo-300 shadow-[0_0_20px_rgba(129,140,248,0.3)] transition-all inline-flex items-center justify-center gap-2"
-            >
-              Book a Codebase Audit
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                ></path>
-              </svg>
-            </Link>
+            <ContactModal
+              triggerText="Book Codebase Audit"
+              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-950 bg-indigo-400 rounded-xl hover:bg-indigo-300 shadow-[0_0_20px_rgba(129,140,248,0.3)] transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+            />
           </div>
           <div className="animate-fade-in-up [animation-delay:400ms] flex flex-col gap-4 mt-20">
             <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6 animate-fade-in-up [animation-delay:400ms]">
@@ -269,25 +255,10 @@ export default function VibeCodingRescue() {
             give you a step-by-step roadmap of exactly what needs to be
             refactored for production scale.
           </p>
-          <Link
-            href="mailto:hello@deepslog.com?subject=Codebase%20Audit%20Request"
-            className="px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto w-fit"
-          >
-            Request Codebase Audit
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText="Request Codebase Audit"
+            triggerStyle="mx-auto w-fit px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 cursor-pointer"
+          />
         </div>
       </section>
 

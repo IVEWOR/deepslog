@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export const metadata = {
   title: "Work & Case Studies | Deepak Jangra | 100+ Projects",
@@ -271,25 +272,10 @@ export default function WorkPage() {
             needing overflow help or a brand needing a rebuild, I'm ready to
             ship.
           </p>
-          <Link
-            href="mailto:hello@deepslog.com?subject=Project%20Inquiry%20from%20Portfolio"
-            className="w-full sm:w-auto px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto"
-          >
-            Start a Conversation
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText="Start Conversation"
+            triggerStyle="w-full px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2"
+          />
 
           <div className="mt-12 flex items-center justify-center gap-3">
             <span className="relative flex h-3 w-3">
