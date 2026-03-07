@@ -130,8 +130,8 @@ export default function RescueHub() {
 
       {/* 1. HERO SECTION: The Triage Center */}
       <section className="relative pt-40 pb-16 lg:pt-48 lg:pb-24 overflow-hidden border-b border-slate-100 bg-white">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-red-50/50 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-size-[4rem_4rem]"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-red-50/50 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-100 text-red-600 font-bold text-sm mb-8 animate-fade-in-up shadow-sm">
@@ -141,7 +141,7 @@ export default function RescueHub() {
 
           <h1 className="animate-fade-in-up [animation-delay:100ms] text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900">
             Did your last developer <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-orange-500">
               leave a mess?
             </span>
           </h1>
@@ -188,9 +188,9 @@ export default function RescueHub() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Pathway 1: Vibe Coding / AI Rescue (Dark Theme Card) */}
             <div className="animate-fade-in-up [animation-delay:500ms] group relative bg-slate-950 p-10 lg:p-12 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl hover:shadow-[0_0_40px_rgba(99,102,241,0.15)] transition-all duration-500 flex flex-col h-full">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-20"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[2rem_2rem] opacity-20"></div>
 
-              <div className="relative z-10 flex-grow">
+              <div className="relative z-10 grow">
                 <div className="w-14 h-14 bg-indigo-500/20 rounded-2xl flex items-center justify-center mb-8 border border-indigo-500/30 text-indigo-400 group-hover:scale-110 transition-transform duration-300">
                   <svg
                     className="w-7 h-7"
@@ -243,7 +243,7 @@ export default function RescueHub() {
             <div className="animate-fade-in-up [animation-delay:600ms] group relative bg-white p-10 lg:p-12 rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-xl hover:shadow-[0_20px_40px_rgba(16,185,129,0.1)] transition-all duration-500 flex flex-col h-full">
               <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <div className="relative z-10 flex-grow">
+              <div className="relative z-10 grow">
                 <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8 border border-emerald-100 text-emerald-600 group-hover:scale-110 transition-transform duration-300">
                   <svg
                     className="w-7 h-7"
@@ -309,7 +309,14 @@ export default function RescueHub() {
           </p>
           <ContactModal
             triggerText="Get Immediate Help"
-            triggerStyle="px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-100 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto w-fit"
+            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
+            title="Emergency Rescue."
+            subtitle="Stop the bleeding. Tell me what's going wrong."
+            subject="URGENT: General Rescue Request"
+            inputLabel="What is broken?"
+            inputPlaceholder="Share details about the bugs, security flaws, or bad migrations so I can review it ASAP."
+            calTitle="Need immediate triage?"
+            calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
           />
         </div>
       </section>

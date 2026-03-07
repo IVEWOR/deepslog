@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-slate-950 py-6 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-slate-500 text-sm text-center sm:text-left">
-          Deepak - Full-Stack Developer
+          Deepak - Senior Full-Stack Developer
         </p>
         {/* Copyright */}
         <p className="text-slate-500 text-sm text-center sm:text-left">

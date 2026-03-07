@@ -98,8 +98,8 @@ export default function PerformanceRescue() {
 
       {/* 1. HERO SECTION (Analytical & Urgent) */}
       <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-100">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f8fafc_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-50 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f8fafc_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc_1px,transparent_1px)] bg-size-[4rem_4rem]"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-emerald-50 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-sm mb-8 animate-fade-in-up shadow-sm">
@@ -109,7 +109,7 @@ export default function PerformanceRescue() {
 
           <h1 className="animate-fade-in-up [animation-delay:100ms] text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
             Stop losing customers to <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-500 to-teal-500">
               a slow website.
             </span>
           </h1>
@@ -122,8 +122,15 @@ export default function PerformanceRescue() {
 
           <div className="animate-fade-in-up [animation-delay:300ms] flex flex-col sm:flex-row items-center justify-center gap-4">
             <ContactModal
-              triggerText="Get Free Speed Audit"
-              triggerStyle="px-8 py-4 text-base font-bold text-white bg-slate-900 rounded-xl hover:bg-slate-800 shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              triggerText="Get Free Performance Audit"
+              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-slate-900 rounded-xl hover:bg-slate-800 shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+              title="Book a Performance Audit."
+              subtitle="Let's diagnose your Core Web Vitals and map out a sub-second optimization plan."
+              subject="Performance Audit Request"
+              inputLabel="Website Details"
+              inputPlaceholder="What is your URL, and what specific metrics are failing (e.g., LCP, CLS)?"
+              calTitle="Ready to review metrics?"
+              calSubtitle="Grab a slot on my calendar so we can look at your Lighthouse scores together."
             />
             <Link
               href="/work"
@@ -396,7 +403,7 @@ export default function PerformanceRescue() {
         className="relative py-24 bg-slate-900 text-center overflow-hidden"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0f172a,transparent)] opacity-100"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
@@ -409,7 +416,14 @@ export default function PerformanceRescue() {
           </p>
           <ContactModal
             triggerText="Get Free Diagnostic Report"
-            triggerStyle="px-10 py-4 text-base font-bold text-slate-900 bg-emerald-400 rounded-xl hover:bg-emerald-300 hover:scale-105 transition-all shadow-[0_0_25px_rgba(52,211,153,0.2)] flex items-center justify-center gap-2 mx-auto w-fit"
+            triggerStyle="px-10 py-4 text-base font-bold text-slate-900 bg-emerald-400 rounded-xl hover:bg-emerald-300 hover:scale-105 transition-all shadow-[0_0_25px_rgba(52,211,153,0.2)] flex items-center justify-center gap-2 mx-auto w-fit cursor-pointer"
+            title="Emergency Speed Rescue."
+            subtitle="Stop bleeding conversions. Let's fix your frontend."
+            subject="URGENT: Performance Rescue Request"
+            inputLabel="Performance Bottlenecks"
+            inputPlaceholder="Share your URL and any specific issues (e.g., bloated JavaScript, slow third-party scripts)..."
+            calTitle="Need immediate triage?"
+            calSubtitle="Grab the next available slot on my calendar to look at the codebase together."
           />
         </div>
       </section>

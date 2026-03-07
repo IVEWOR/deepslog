@@ -92,8 +92,15 @@ export default function AgencyPage() {
 
           <div className="animate-fade-in-up [animation-delay:300ms] mb-10 md:mb-16">
             <ContactModal
-              triggerText={<>Discuss a Pilot Project</>}
-              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 shadow-lg shadow-indigo-500/30 transition-all flex items-center justify-center gap-2 mx-auto cursor-pointer"
+              triggerText="Discuss a Pilot Project"
+              triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-sm font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30 mx-auto"
+              title="Discuss a Pilot Project."
+              subtitle="Let's test the waters. Send me the details of a small, fixed-price build."
+              subject="Agency Pilot Project Inquiry"
+              inputLabel="Pilot Scope & Tech Stack"
+              inputPlaceholder="What is the tech stack (Next.js, Shopify, etc.), and what is the expected timeline?"
+              calTitle="Skip to a quick chat."
+              calSubtitle="Grab 15 minutes to discuss the pilot scope and my current availability."
             />
           </div>
 
@@ -436,8 +443,15 @@ export default function AgencyPage() {
           </p>
 
           <ContactModal
-            triggerText={<>Book Free Alignment Call</>}
-            triggerStyle="w-full px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2 cursor-pointer"
+            triggerText="Book Free Alignment Call"
+            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-all mx-auto"
+            title="Book an Alignment Call."
+            subtitle="Let's discuss your agency's workflow and overflow needs."
+            subject="Agency Alignment Call Request"
+            inputLabel="Agency Details & Volume"
+            inputPlaceholder="What is your current stack, and what kind of monthly volume are you looking to offload?"
+            calTitle="Ready to lock in a time?"
+            calSubtitle="Pick a slot on my calendar to discuss how I can slot in as your technical partner."
           />
 
           {/* Testimonial right at the point of action */}

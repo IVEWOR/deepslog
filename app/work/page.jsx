@@ -178,7 +178,7 @@ export default function WorkPage() {
         <div className="max-w-3xl">
           <h1 className="animate-fade-in-up [animation-delay:100ms] text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1]">
             Code that <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
               drives revenue.
             </span>
           </h1>
@@ -233,7 +233,7 @@ export default function WorkPage() {
               </div>
 
               {/* Meta Information */}
-              <div className="flex flex-col flex-grow">
+              <div className="flex flex-col grow">
                 <div className="flex items-center justify-between mb-3">
                   <h2 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">
                     {project.title}
@@ -266,13 +266,13 @@ export default function WorkPage() {
 
       {/* 3. FINAL CTA (Umbrella Style - Dark) */}
       <section className="relative py-24 lg:py-32 bg-slate-950 overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Like what you see? <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-blue-400">
               Let's build yours next.
             </span>
           </h2>
@@ -283,7 +283,12 @@ export default function WorkPage() {
           </p>
           <ContactModal
             triggerText="Start Conversation"
-            triggerStyle="w-full px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2"
+            triggerStyle="w-full sm:w-auto min-w-[200px] flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
+            title="Let's build yours next."
+            subtitle="Currently accepting new projects for Q1."
+            subject="New Project Inquiry (From Portfolio)"
+            inputLabel="Project Overview"
+            inputPlaceholder="Are you an agency needing overflow help, or a brand needing a rebuild?"
           />
 
           <div className="mt-12 flex items-center justify-center gap-3">

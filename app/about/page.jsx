@@ -161,13 +161,13 @@ export default function AboutPage() {
 
       {/* 1. HERO SECTION */}
       <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-100">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f8fafc_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f8fafc_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc_1px,transparent_1px)] bg-size-[4rem_4rem]"></div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="flex-1 text-center lg:text-left">
             <h1 className="animate-fade-in-up [animation-delay:100ms] text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900">
               9 years of <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
                 engineering the web.
               </span>
             </h1>
@@ -226,7 +226,7 @@ export default function AboutPage() {
           </div>
 
           <div className="hidden lg:block flex-1 w-full max-w-md mx-auto lg:max-w-none relative animate-fade-in-up [animation-delay:400ms]">
-            <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl bg-white">
+            <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
               <Image
                 src="/AAdeepak.png"
                 alt="Deepak Jangra"
@@ -273,7 +273,7 @@ export default function AboutPage() {
                     className="relative flex flex-col md:flex-row items-start md:items-center w-full group"
                   >
                     {/* The Dot */}
-                    <div className="absolute left-[-5px] md:left-1/2 w-3 h-3 bg-white border-2 border-slate-300 rounded-full md:-translate-x-1/2 mt-1.5 md:mt-0 group-hover:border-indigo-600 group-hover:bg-indigo-600 transition-colors duration-300 z-10">
+                    <div className="absolute -left-1.25 md:left-1/2 w-3 h-3 bg-white border-2 border-slate-300 rounded-full md:-translate-x-1/2 mt-1.5 md:mt-0 group-hover:border-indigo-600 group-hover:bg-indigo-600 transition-colors duration-300 z-10">
                       {item.highlight && (
                         <div className="absolute inset-0 rounded-full bg-indigo-600 animate-ping opacity-20"></div>
                       )}
@@ -410,13 +410,13 @@ export default function AboutPage() {
 
       {/* 4. FINAL CTA */}
       <section className="relative py-24 lg:py-32 bg-slate-950 overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Looking for a reliable <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-blue-400">
               technical partner?
             </span>
           </h2>
@@ -427,7 +427,12 @@ export default function AboutPage() {
           </p>
           <ContactModal
             triggerText="Let's Talk Project Specs"
-            triggerStyle="w-full sm:w-auto px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto"
+            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
+            title="Send the specs."
+            subtitle="Stop rolling the dice on unvetted freelancers. Let's build something scalable."
+            subject="New Project Specs (From About Page)"
+            inputLabel="Project Details"
+            inputPlaceholder="What are the goals, timeline, and tech stack for your upcoming build?"
           />
         </div>
       </section>

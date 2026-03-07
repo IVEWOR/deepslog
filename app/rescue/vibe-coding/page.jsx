@@ -47,8 +47,8 @@ export default function VibeCodingRescue() {
       {/* 1. HERO SECTION (Dark & Technical Theme) */}
       <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-800/30">
         {/* Hacker/Code aesthetic background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-indigo-500/30 text-indigo-300 font-mono text-sm mb-8 animate-fade-in-up">
@@ -58,7 +58,7 @@ export default function VibeCodingRescue() {
 
           <h1 className="animate-fade-in-up [animation-delay:100ms] text-[38px] md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-white">
             <span>AI built your prototype. </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-cyan-400">
               I build the production app.
             </span>
           </h1>
@@ -76,7 +76,14 @@ export default function VibeCodingRescue() {
           <div className="animate-fade-in-up [animation-delay:300ms] flex flex-col sm:flex-row items-center justify-center gap-4">
             <ContactModal
               triggerText="Book Codebase Audit"
-              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-950 bg-indigo-400 rounded-xl hover:bg-indigo-300 shadow-[0_0_20px_rgba(129,140,248,0.3)] transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+              triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-dark bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/20"
+              title="Book a Codebase Audit."
+              subtitle="Let's review your AI-generated prototype and map out a production-ready architecture."
+              subject="AI Codebase Audit Request"
+              inputLabel="Project Context"
+              inputPlaceholder="What tools did you use (Cursor, v0, etc.), and where is the app currently breaking?"
+              calTitle="Need immediate triage?"
+              calSubtitle="Grab a slot on my calendar to walk through the repo together."
             />
           </div>
           <div className="animate-fade-in-up [animation-delay:400ms] flex flex-col gap-4 mt-20">
@@ -173,7 +180,7 @@ export default function VibeCodingRescue() {
                 "Security Patching: Fixing exposed API keys, insecure routes, and authentication flaws.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                  <div className="mt-1 shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400">
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -256,8 +263,15 @@ export default function VibeCodingRescue() {
             refactored for production scale.
           </p>
           <ContactModal
-            triggerText="Request Codebase Audit"
-            triggerStyle="mx-auto w-fit px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 cursor-pointer"
+            triggerText="Get Immediate Help"
+            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
+            title="Emergency Rescue."
+            subtitle="Stop the bleeding. Tell me what's going wrong."
+            subject="URGENT: General Rescue Request"
+            inputLabel="What is broken?"
+            inputPlaceholder="Share details about the bugs, security flaws, or bad migrations so I can review it ASAP."
+            calTitle="Need immediate triage?"
+            calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
           />
         </div>
       </section>

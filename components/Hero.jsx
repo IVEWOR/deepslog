@@ -58,12 +58,26 @@ export default function Hero() {
           {/* 3. ACTION BUTTONS (order-3: Kept your exact classes and SVG updates) */}
           <div className="order-3 animate-fade-in-up [animation-delay:550ms] flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <ContactModal
-              triggerText={<>Partner With Me</>}
-              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 transition-all flex items-center justify-center gap-2 border border-indigo-600"
+              triggerText="Partner With Me"
+              triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30"
+              title="Discuss a partnership."
+              subtitle="Let's scale your capacity. All work is strictly NDA."
+              subject="Agency Partnership Inquiry"
+              inputLabel="Agency Details & Needs"
+              inputPlaceholder="What is your current tech stack, and what kind of overflow volume are you looking to offload?"
+              calTitle="Book an alignment call."
+              calSubtitle="Let's discuss your agency's workflow and how I can slot in."
             />
             <ContactModal
-              triggerText={<> Rescue My Project</>}
-              triggerStyle="w-full sm:w-auto px-8 py-4 text-base font-semibold text-indigo-700 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-all border border-indigo-500 flex items-center justify-center gap-2"
+              triggerText="Rescue My Project"
+              triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-700 bg-indigo-600/5 border border-indigo-600/40 rounded-xl hover:bg-slate-50 transition-colors"
+              title="Emergency Rescue."
+              subtitle="Stop the bleeding. Tell me what's going wrong."
+              subject="URGENT: Code Rescue Request (Homepage)"
+              inputLabel="What is broken?"
+              inputPlaceholder="e.g., Core Web Vitals failing, AI-generated spaghetti code, abandoned migration..."
+              calTitle="Need immediate triage?"
+              calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
             />
 
             <Link

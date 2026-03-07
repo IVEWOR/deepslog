@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import markdownToHtml from "@/lib/markdownToHtml";
+import ContactModal from "@/components/ContactModal";
 
 export async function generateStaticParams() {
   const slugs = getProjectSlugs();
@@ -295,7 +296,7 @@ export default async function ProjectPage(props) {
 
       {/* 4. BOTTOM CTA */}
       <section className="py-24 bg-slate-950 text-center border-t border-slate-900 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
             Need a similar solution?
@@ -304,25 +305,15 @@ export default async function ProjectPage(props) {
             Let's discuss how we can apply these same principles to your next
             build.
           </p>
-          <Link
-            href={`mailto:hello@deepslog.com?subject=Inquiry regarding ${meta.title} Case Study`}
-            className="px-10 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto w-fit"
-          >
-            Let's Talk Project Specs
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </Link>
+          <ContactModal
+            triggerText="Let's Talk Project Specs"
+            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
+            title="Need a similar solution?"
+            subtitle="Let's discuss how we can apply these principles to your next build."
+            subject="Similar Project Inquiry (Case Study)"
+            inputLabel="Your Project"
+            inputPlaceholder="What are we building, and what specific features do you need?"
+          />
         </div>
       </section>
 

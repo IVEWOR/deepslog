@@ -36,7 +36,7 @@ export default function Process() {
           </h2>
           <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 animate-fade-in-up [animation-delay:200ms]">
             A transparent process <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
               with zero surprises.
             </span>
           </h3>

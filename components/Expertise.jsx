@@ -95,7 +95,7 @@ export default function Expertise() {
           </h2>
           <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 animate-fade-in-up [animation-delay:200ms]">
             Why technical directors <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
               trust me to build.
             </span>
           </h3>
@@ -112,13 +112,13 @@ export default function Expertise() {
             <div
               key={index}
               // The staggered animation delay math: 400ms + (index * 150ms)
-              className={`animate-fade-in-up group relative bg-white p-8 lg:p-10 rounded-[2rem] border border-slate-200 hover:border-indigo-100 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300`}
+              className={`animate-fade-in-up group relative bg-white p-8 lg:p-10 rounded-4xl border border-slate-200 hover:border-indigo-100 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300`}
               style={{ animationDelay: `${400 + index * 150}ms` }}
             >
               {/* Subtle hover gradient at the top of the card */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-4xl"></div>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-indigo-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-4xl"></div>
 
-              <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 group-hover:scale-110 group-hover:bg-linear-to-r group-hover:from-indigo-600 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
                 {feature.icon}
               </div>
 

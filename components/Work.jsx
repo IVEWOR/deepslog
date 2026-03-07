@@ -4,6 +4,15 @@ export default function Work() {
   // Array of your projects to map through, keeping the code clean
   const projects = [
     {
+      year: "2026",
+      title: "Prime Peptides",
+      metric: "100% Manual Time Reduction",
+      description:
+        "Custom Node.js & Wix Velo crypto-fiat payment gateway integration.",
+      tech: ["Wix Velo", "Node.js", "REST API"],
+      link: "prime-peptides",
+    },
+    {
       year: "2025",
       title: "MERKBART",
       metric: "99/100 Lighthouse Score",
@@ -50,7 +59,7 @@ export default function Work() {
               Selected Work
             </h2>
             <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
                 Revenue-driving{" "}
               </span>
               web apps
@@ -70,7 +79,7 @@ export default function Work() {
               className="group block border-b border-slate-200 py-8 lg:py-10 hover:bg-slate-50 transition-colors duration-300 relative overflow-hidden"
             >
               {/* Subtle indigo gradient that fades in on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-indigo-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
               <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start md:items-center px-4">
                 {/* 1. Year & Title (Col span 4) */}
