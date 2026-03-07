@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Essential Links & Back to Top */}
         <div className="flex items-center gap-6">
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://linkedin.com/in/thedeepakjangra"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-500 hover:text-indigo-400 text-sm transition-colors font-medium"
@@ -22,7 +22,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="https://github.com/yourhandle"
+            href="https://github.com/IVEWOR"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-500 hover:text-indigo-400 text-sm transition-colors font-medium"

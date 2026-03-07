@@ -33,6 +33,15 @@ export const metadata = {
 export default function WorkPage() {
   const projects = [
     {
+      title: "Prime Peptides / PsiFi Integration",
+      year: "2026",
+      description:
+        "Custom high-risk payment gateway integration for Wix E-commerce using PsiFi and Simplex with automated 5% fee logic.",
+      tech: ["Wix Velo", "Node.js", "REST API", "HMAC Security"],
+      link: "prime-peptides",
+      image: "/primepeptides.png",
+    },
+    {
       title: "Merkbart",
       year: "2025",
       description:
@@ -192,7 +201,7 @@ export default function WorkPage() {
               style={{ animationDelay: `${200 + (index % 4) * 100}ms` }}
             >
               {/* Image Container */}
-              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden mb-6 bg-slate-100 border border-slate-200 shadow-sm group-hover:shadow-2xl group-hover:shadow-indigo-500/10 transition-all duration-500">
+              <div className="relative w-full aspect-5/3 rounded-3xl overflow-hidden mb-6 bg-slate-100 border border-slate-200 shadow-sm group-hover:shadow-2xl group-hover:shadow-indigo-500/10 transition-all duration-500">
                 {/* Real Screenshot using next/image */}
                 <Image
                   src={project.image}

@@ -186,8 +186,8 @@ export default async function ProjectPage(props) {
       </section>
 
       {/* 2. HERO IMAGE */}
-      <section className="px-6 lg:px-8 max-w-7xl mx-auto mb-16 lg:mb-24 animate-fade-in-up [animation-delay:300ms]">
-        <div className="relative w-full aspect-video md:aspect-[5/3] bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-200 shadow-xl shadow-slate-200/50">
+      <section className="px-6 lg:px-8 max-w-7xl mx-auto mb-10 lg:mb-24 animate-fade-in-up [animation-delay:300ms]">
+        <div className="relative w-full aspect-5/3 bg-slate-50 rounded-lg overflow-hidden border border-slate-200 shadow-xl shadow-slate-200/50">
           {meta.featured_image && (
             <Image
               src={meta.featured_image}
@@ -279,7 +279,6 @@ export default async function ProjectPage(props) {
 
           {/* Right Column: Parsed Markdown Content */}
           <article className="lg:col-span-8 order-1 lg:order-2">
-            {/* The 'prose' class relies on @tailwindcss/typography being imported in globals.css */}
             <div
               className="prose prose-slate prose-lg max-w-none 
                          prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-slate-900
