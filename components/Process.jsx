@@ -2,27 +2,27 @@ export default function Process() {
   const steps = [
     {
       number: "01",
-      title: "Technical Discovery",
+      title: "Store Audit & Discovery",
       description:
-        "We review your Figma files, architecture requirements, and business goals. I identify potential technical bottlenecks early and propose the most scalable stack.",
+        "I review your current storefront, theme, and apps, and flag performance and conversion bottlenecks before writing a line of code.",
     },
     {
       number: "02",
-      title: "Environment Setup",
+      title: "Staging & Setup",
       description:
-        "No cowboys here. I set up staging environments, version control (Git), and CI/CD pipelines right away so your team has complete visibility from day one.",
+        "I review your current storefront, theme, and apps, and flag performance and conversion bottlenecks before writing a line of code.",
     },
     {
       number: "03",
-      title: "Agile Execution",
+      title: "Agile Build",
       description:
-        "I build in modular, reusable components. You get weekly async updates, clean commit messages, and a staging link that is always functional and up-to-date.",
+        "Modular Liquid and Hydrogen components, weekly async updates, and a staging link that always works.",
     },
     {
       number: "04",
       title: "QA & Handoff",
       description:
-        "Before launch, the site undergoes strict Lighthouse auditing, cross-browser QA, and accessibility checks. I hand over the code with full documentation.",
+        "Lighthouse auditing, cross-browser QA, and accessibility checks before I hand over fully documented code.",
     },
   ];
 
@@ -30,20 +30,20 @@ export default function Process() {
     <section id="process" className="py-24 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+        <div className="text-left sm:text-center max-w-3xl mx-0 sm:mx-auto mb-16 lg:mb-24">
           <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3 animate-fade-in-up [animation-delay:100ms]">
             How I Work
           </h2>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 animate-fade-in-up [animation-delay:200ms]">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight animate-fade-in-up [animation-delay:200ms]">
             A transparent process <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
               with zero surprises.
             </span>
           </h3>
-          <p className="text-lg text-slate-600 leading-relaxed animate-fade-in-up [animation-delay:300ms]">
-            I don't disappear into a cave and emerge weeks later with spaghetti
-            code. My workflow is designed for agencies that require complete
-            visibility and enterprise-level reliability.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed animate-fade-in-up [animation-delay:300ms]">
+            I don't disappear for weeks and deliver spaghetti code. My workflow
+            is designed for merchants who need to keep selling while their store
+            gets rebuilt.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function Process() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className="animate-fade-in-up group relative flex flex-col items-center lg:items-start text-center lg:text-left"
+                className="animate-fade-in-up group relative flex flex-col items-start text-left"
                 style={{ animationDelay: `${400 + index * 150}ms` }}
               >
                 {/* Step Number Badge */}
@@ -69,16 +69,16 @@ export default function Process() {
                 </div>
 
                 {/* Content */}
-                <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-indigo-600 transition-colors duration-300">
                   {step.title}
                 </h4>
-                <p className="text-slate-600 leading-relaxed text-base">
+                <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
                   {step.description}
                 </p>
 
                 {/* Mobile Connecting Line (Downwards arrow on small screens) */}
                 {index !== steps.length - 1 && (
-                  <div className="lg:hidden mt-8 w-[2px] h-12 bg-gradient-to-b from-slate-200 to-transparent"></div>
+                  <div className="lg:hidden mt-8 ml-10 w-[2px] h-12 bg-gradient-to-b from-slate-200 to-transparent"></div>
                 )}
               </div>
             ))}

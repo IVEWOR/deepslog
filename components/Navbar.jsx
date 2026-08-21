@@ -54,9 +54,9 @@ export default function Navbar() {
   }, [pathname]);
 
   const navLinks = [
+    { name: "Shopify", href: "/" },
     { name: "Work", href: "/work" },
-    { name: "Agency Partner", href: "/agency" },
-    { name: "Project Rescue", href: "/rescue" },
+    { name: "Rescue", href: "/rescue" },
     { name: "About", href: "/about" },
   ];
 
@@ -72,7 +72,10 @@ export default function Navbar() {
           {/* 2. DESKTOP NAVIGATION */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = pathname.startsWith(link.href);
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.name}
@@ -130,7 +133,10 @@ export default function Navbar() {
         <div className="md:hidden absolute top-20 left-0 right-0 bg-white border-b border-slate-100 shadow-2xl animate-fade-in-up">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link) => {
-              const isActive = pathname.startsWith(link.href);
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.name}

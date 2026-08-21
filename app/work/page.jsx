@@ -1,25 +1,29 @@
-import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import WorkGrid from "@/components/WorkGrid";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Work & Case Studies | Deepak Jangra | 100+ Projects",
   description:
     "Production-grade Shopify, Next.js, and WordPress builds for agencies. 4× speed improvements, 2× conversion increases. 9 years, 100+ projects delivered.",
   alternates: {
-    canonical: "https://deepslog.com/work",
+    canonical: "/work",
   },
   openGraph: {
     title: "Portfolio | Deepak Jangra | High-Performance Web Apps",
     description:
       "Case studies: 4× faster loads, 2× sales increases. Shopify, Next.js, WordPress for ambitious brands.",
-    url: "https://deepslog.com/work",
+    url: `${SITE_URL}/work`,
     siteName: "Deepak Jangra",
     images: [
       {
-        url: "https://deepslog.com/og-work.png", // Create this: collage of project screenshots
+        // TODO: og-work.png doesn't exist yet ("Create this: collage of
+        // project screenshots" in the original). Using a real project
+        // screenshot as a stopgap instead of a broken image link — swap
+        // this back once the actual collage exists.
+        url: `${SITE_URL}/merkbart.png`,
         width: 1200,
         height: 630,
         alt: "Deepak Jangra Portfolio - 100+ Projects",
@@ -31,7 +35,8 @@ export const metadata = {
 };
 
 export default function WorkPage() {
-  const projects = [
+  // Curated flagship work — always visible first.
+  const featuredProjects = [
     {
       title: "Prime Peptides / PsiFi Integration",
       year: "2026",
@@ -42,11 +47,20 @@ export default function WorkPage() {
       image: "/primepeptides.png",
     },
     {
-      title: "Merkbart",
-      year: "2025",
+      title: "LEO Eyewear",
+      year: "2026",
       description:
-        "Custom WordPress plugin architecture and high-performance design implementation.",
-      tech: ["WordPress", "Custom Plugin", "JavaScript", "Custom Design"],
+        "Full Shopify redesign for a tech eyewear brand — fixed 100vh video homepage, adaptive transparent header, full pixel tracking, technical SEO, and Razorpay + Shiprocket integration.",
+      tech: ["Shopify", "Liquid", "Figma", "Razorpay"],
+      link: "leoeyewear",
+      image: "/leoeyewear.png",
+    },
+    {
+      title: "Merkbart",
+      year: "2024",
+      description:
+        "Rebuilt a slow, freezing WooCommerce store from scratch, custom pricing, discount, and invoicing plugins. Sales doubled within three months.",
+      tech: ["WooCommerce", "WordPress", "Custom Plugin", "AWS"],
       link: "merkbart",
       image: "/merkbart.png",
     },
@@ -115,50 +129,228 @@ export default function WorkPage() {
     },
     {
       title: "Next2Skin",
-      year: "2020",
-      description: "Custom WooCommerce setup and tailored theme modifications.",
-      tech: ["WordPress", "Custom Theme", "WooCommerce", "JavaScript"],
+      year: "2021",
+      description:
+        "Full custom Shopify build for an Indian hosiery brand — every core page built from scratch, Shiprocket integrated for fulfillment and order tracking.",
+      tech: ["Shopify", "Liquid", "Shiprocket", "Judge.me"],
       link: "next2skin",
       image: "/next2skin.png",
     },
+  ];
+
+  // Remaining case studies, sorted newest → oldest by date_published.
+  const additionalProjects = [
     {
-      title: "LEO Eyewear",
-      year: "2020",
+      title: "University Lawns",
+      year: "2023",
       description:
-        "Bespoke Shopify store with dynamic custom blocks and liquid architecture.",
-      tech: ["Shopify", "JavaScript", "Custom Blocks", "Liquid"],
-      link: "leoeyewear",
-      image: "/leoeyewear.png",
+        "Diagnosed a third-party form tracking gap blocking Google and Facebook Ads conversions for a landscaping company.",
+      tech: ["WordPress", "Jobber.com", "Ad Tracking"],
+      link: "university-lawns",
+      image: "/university-lawns.png",
+    },
+    {
+      title: "Bloom Bras",
+      year: "2023",
+      description:
+        "Reusable Shopify product page template — visible size selector, size-guide modal, and Shop Pay integration.",
+      tech: ["Shopify", "Liquid"],
+      link: "bloom-bras",
+      image: "/bloom-bras.png",
+    },
+    {
+      title: "Theatre Projects",
+      year: "2022",
+      description:
+        "WordPress accessibility and SEO overhaul for a global theatre design consultancy — zero critical accessibility issues, custom geotagging across three offices.",
+      tech: ["WordPress", "AWS S3", "CloudFront"],
+      link: "theatre-projects",
+      image: "/theatre-projects.png",
+    },
+    {
+      title: "Solutions by It Works!",
+      year: "2022",
+      description:
+        "10+ Shopify product landing pages built from Figma for a health supplement brand, with a rebuilt slider and checkout fixes.",
+      tech: ["Shopify", "Liquid", "Figma-to-Code"],
+      link: "solutions-by-it-works",
+      image: "/solutions-by-it-works.png",
+    },
+    {
+      title: "GoAmplifi",
+      year: "2022",
+      description:
+        "Webinar registration templates and Salesforce lead-capture integration for a data consultancy.",
+      tech: ["WordPress", "WP Engine", "Salesforce"],
+      link: "goamplifi",
+      image: "/goamplifi.png",
+    },
+    {
+      title: "Alpenature",
+      year: "2022",
+      description:
+        "7+ custom multi-step booking forms with Stripe payments and dynamic pricing for an Austrian adventure tour company.",
+      tech: ["WordPress", "Gravity Forms", "Stripe"],
+      link: "alpenature",
+      image: "/alpenature.png",
+    },
+    {
+      title: "WomenCann",
+      year: "2022",
+      description:
+        "Complete WordPress rebuild for a women's cannabis nonprofit — custom team post type, volunteer portal, 8+ pages under a hard deadline.",
+      tech: ["WordPress", "Custom Post Types", "Connecteam"],
+      link: "womencann",
+      image: "/womencann.png",
+    },
+    {
+      title: "GreenCurve Studio",
+      year: "2022",
+      description:
+        "Homepage rebuild for an award-winning interior design studio — interactive project map and SEO landing pages for three specialties.",
+      tech: ["WordPress", "Custom Slider", "Interactive Map"],
+      link: "greencurve-studio",
+      image: "/greencurve-studio.png",
+    },
+    {
+      title: "Shofar Shoshanna",
+      year: "2022",
+      description:
+        "Homepage rebuild and technical SEO fix for a Judaica brand — resolved Google mobile usability errors and reindexed the site.",
+      tech: ["WordPress", "SEO", "Google Search Console"],
+      link: "shofar-shoshanna",
+      image: "/shofar-shoshanna.png",
+    },
+    {
+      title: "House Haven",
+      year: "2022",
+      description:
+        "Full Shopify store build for a home goods brand — product copywriting, reviews, and an admin-editable FAQ.",
+      tech: ["Shopify"],
+      link: "house-haven",
+      image: "/house-haven.png",
+    },
+    {
+      title: "Classic Car Dealer",
+      year: "2022",
+      description:
+        "Custom vehicle listing system on WordPress with self-service admin and dealer-grade design.",
+      tech: ["WordPress", "Custom Post Types"],
+      link: "classic-car-dealer",
+      image: "/classic-car-dealer.png",
+    },
+    {
+      title: "Instead of Flowers",
+      year: "2022",
+      description:
+        "Diagnosed and fixed Facebook Pixel over-reporting on a WooCommerce store caused by a double-firing tracking path.",
+      tech: ["WooCommerce", "Facebook Pixel", "GTM"],
+      link: "instead-of-flowers",
+      image: "/instead-of-flowers.png",
+    },
+    {
+      title: "Light Up Your Holidays",
+      year: "2022",
+      description:
+        "Salesforce CRM integration across 6 site forms for a holiday lighting service, resolving API and OAuth blockers.",
+      tech: ["WordPress", "Ninja Forms", "Salesforce"],
+      link: "light-up-your-holidays",
+      image: "/light-up-your-holidays.png",
+    },
+    {
+      title: "Mila4u.com",
+      year: "2022",
+      description:
+        "Diagnosed and scoped a Safari-specific navigation bug for a leather bag brand's Shopify store.",
+      tech: ["Shopify"],
+      link: "mila4u",
+      image: "/mila4u.png",
+    },
+    {
+      title: "Chasin' Unicorns",
+      year: "2022",
+      description:
+        "Shopify subscription store rebuild — custom Recharge checkout routing, automated monthly timers, fixed social-share previews.",
+      tech: ["Shopify", "Recharge", "Klaviyo"],
+      link: "chasin-unicorns",
+      image: "/chasin-unicorns.png",
+    },
+    {
+      title: "Sentry Roofing NH",
+      year: "2022",
+      description:
+        "Full Divi rebuild for a roofing company — interactive service-area map, financing calculator, and GoDaddy migration.",
+      tech: ["WordPress", "Divi", "WP Forms"],
+      link: "sentry-roofing-nh",
+      image: "/sentry-roofing-nh.png",
+    },
+    {
+      title: "ABWMS",
+      year: "2022",
+      description:
+        "Custom PHP admin tooling for a medical certification board — filterable CSV export and a security-hardened password reset.",
+      tech: ["PHP", "MySQL", "Bootstrap"],
+      link: "abwms",
+      image: "/abwms.png",
+    },
+    {
+      title: "Dead Atlantic",
+      year: "2022",
+      description:
+        "Custom Shopify lookbook page preserving native image aspect ratios for a streetwear brand.",
+      tech: ["Shopify", "Liquid"],
+      link: "dead-atlantic",
+      image: "/dead-atlantic.png",
+    },
+    {
+      title: "Beryll",
+      year: "2022",
+      description:
+        "Reusable Shopify blog template with standardized image ratios and brand-matched typography.",
+      tech: ["Shopify", "Liquid"],
+      link: "beryll",
+      image: "/beryll.png",
+    },
+    {
+      title: "Citizen PD",
+      year: "2022",
+      description:
+        "Diagnosed Contact Form 7 limitations and scoped an ACF Pro rebuild for a citizen journalism video platform.",
+      tech: ["WordPress", "ACF", "Contact Form 7"],
+      link: "citizen-pd",
+      image: "/citizen-pd.png",
     },
   ];
+
+  const projects = [...featuredProjects, ...additionalProjects];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": "https://deepslog.com/work#webpage",
+        "@id": `${SITE_URL}/work#webpage`,
         name: "Selected Work & Portfolio | Deepak Jangra",
         description:
           "Production-grade web applications built for agencies and startups",
-        url: "https://deepslog.com/work",
-        isPartOf: { "@id": "https://deepslog.com/#website" },
-        about: { "@id": "https://deepslog.com/#person" },
+        url: `${SITE_URL}/work`,
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@id": `${SITE_URL}/#person` },
         creator: {
-          "@id": "https://deepslog.com/#person",
+          "@id": `${SITE_URL}/#person`,
         },
         copyrightHolder: {
-          "@id": "https://deepslog.com/#person",
+          "@id": `${SITE_URL}/#person`,
         },
         mainEntity: {
           "@type": "ItemList",
-          "@id": "https://deepslog.com/work#projects",
+          "@id": `${SITE_URL}/work#projects`,
           itemListElement: projects.map((project, index) => ({
             "@type": "ListItem",
             position: index + 1,
             name: project.title,
             description: project.description,
-            url: `https://deepslog.com/work/${project.link}`,
+            url: `${SITE_URL}/work/${project.link}`,
           })),
         },
       },
@@ -192,76 +384,7 @@ export default function WorkPage() {
 
       {/* 2. THE PORTFOLIO GRID */}
       <section className="pb-32 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
-          {projects.map((project, index) => (
-            <Link
-              href={`/work/${project.link}`}
-              key={index}
-              className="group animate-fade-in-up flex flex-col"
-              style={{ animationDelay: `${200 + (index % 4) * 100}ms` }}
-            >
-              {/* Image Container */}
-              <div className="relative w-full aspect-5/3 rounded-3xl overflow-hidden mb-6 bg-slate-100 border border-slate-200 shadow-sm group-hover:shadow-2xl group-hover:shadow-indigo-500/10 transition-all duration-500">
-                {/* Real Screenshot using next/image */}
-                <Image
-                  src={project.image}
-                  alt={`${project.title} Preview`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-
-                {/* Overlay "View Project" Button that slides up on hover */}
-                <div className="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white text-slate-900 px-6 py-3 rounded-full font-bold text-sm shadow-xl flex items-center gap-2">
-                    View Project Details
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              {/* Meta Information */}
-              <div className="flex flex-col grow">
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">
-                    {project.title}
-                  </h2>
-                  <span className="text-sm font-mono font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                    {project.year}
-                  </span>
-                </div>
-
-                <p className="text-slate-600 mb-6 line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack Pills */}
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tech.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <WorkGrid projects={projects} initialVisible={8} />
       </section>
 
       {/* 3. FINAL CTA (Umbrella Style - Dark) */}

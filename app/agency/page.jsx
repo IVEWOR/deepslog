@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "White-Label Development Services",
@@ -22,40 +23,34 @@ export default function AgencyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://deepslog.com/agency#service",
+    "@id": `${SITE_URL}/agency#service`,
     name: "White-Label Development Services",
     provider: {
-      "@id": "https://deepslog.com/#person",
+      "@id": `${SITE_URL}/#person`,
     },
     areaServed: "Global",
-    serviceType: "Web Development",
+    serviceType: "White-Label Web Development",
+    // Hourly rate, expressed as a proper UnitPriceSpecification rather
+    // than a flat price — a bare `price` field would tell Google the
+    // whole service costs $45, not that it's the hourly rate.
     offers: {
       "@type": "Offer",
-      price: "75.00",
-      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "45.00",
+        priceCurrency: "USD",
+        unitCode: "HUR",
+      },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "50",
-    },
-    review: [
-      {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: "Filip J",
-        },
-        reviewBody:
-          "Deepak is our secret weapon. Clients think he's our in-house lead engineer.",
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-        },
-      },
-    ],
+    // aggregateRating and review removed. reviewCount: "50" had no basis
+    // anywhere in this project, and the one review was a quote attributed
+    // to Filip J (MerkBart's founder, a direct e-commerce client) that
+    // doesn't match his real, documented testimonial and doesn't fit an
+    // agency-partnership context at all. Fabricating structured review
+    // data, or misattributing a real quote out of context to a real
+    // named person, isn't a "fix it later" issue — see the note in chat.
   };
   return (
     <main className="min-h-screen bg-white selection:bg-indigo-100 selection:text-indigo-900">
@@ -87,7 +82,7 @@ export default function AgencyPage() {
 
           <p className="animate-fade-in-up [animation-delay:200ms] text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
             Scale your output without hiring overhead. I build high-performance
-            Next.js and Shopify sites under your brand, strictly under NDA.
+            Shopify Plus and Next.js sites under your brand, strictly under NDA.
           </p>
 
           <div className="animate-fade-in-up [animation-delay:300ms] mb-10 md:mb-16">
@@ -109,19 +104,41 @@ export default function AgencyPage() {
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
               Trusted by leading agencies
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              <span className="font-bold text-xl tracking-tighter text-slate-800">
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 mb-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              <span className="font-semibold text-xl lowercase tracking-tight text-slate-800">
+                creative mischief
+              </span>
+              <span className="font-bold text-xl tracking-tighter uppercase text-slate-800">
                 NXPRO
               </span>
-              <span className="font-serif italic text-xl text-slate-800">
-                GRAY_MATTERS
+              <span className="font-light font-serif tracking-widest text-xl text-slate-800">
+                Kulture Media Group
               </span>
-              <span className="font-light tracking-widest text-xl text-slate-800">
-                FAIRE
+              <span className="font-black text-xl uppercase tracking-tight text-slate-800">
+                FLWMS
               </span>
               <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-300 bg-slate-100 text-xs font-bold text-slate-500">
-                +12 MORE
+                +8 MORE
               </span>
+            </div>
+
+            {/* Testimonial Card */}
+            <div className="relative max-w-2xl w-full bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-2xl p-6 sm:p-8 shadow-xl shadow-indigo-100/10 text-left sm:text-center">
+              <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed mb-4">
+                "3+ years working with Deepak. He converts vague client ideas
+                into functional websites—zero hand-holding required."
+              </p>
+              <div className="flex items-center gap-3 justify-start sm:justify-center">
+                <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs">
+                  DK
+                </div>
+                <p className="text-sm font-bold text-slate-900">
+                  Dev Kumar A.{" "}
+                  <span className="text-slate-400 font-normal">
+                    | Business Manager @ NXPRO
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -453,17 +470,6 @@ export default function AgencyPage() {
             calTitle="Ready to lock in a time?"
             calSubtitle="Pick a slot on my calendar to discuss how I can slot in as your technical partner."
           />
-
-          {/* Testimonial right at the point of action */}
-          <div className=" pt-10">
-            <p className="text-slate-300 italic mb-4">
-              "3+ years working with Deepak. He converts vague client ideas into
-              functional websites—zero hand-holding required."
-            </p>
-            <p className="text-sm font-bold text-slate-500">
-              — Dev Kumar A., Business Manager @ NXPRO
-            </p>
-          </div>
         </div>
       </section>
 

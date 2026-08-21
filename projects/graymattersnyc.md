@@ -1,47 +1,48 @@
 ---
 title: Gray Matters NYC
-
 website: https://www.graymattersnyc.com
-
-platform: Shopify, Liquid
-
+platform: Shopify, Liquid, JavaScript
 location: United States / Italy
-
 featured_image: /graymattersnyc.png
-
-date: 2021
-
-testimonial: 
-
-client: Gray Matters NYC Team
+industry: Fashion / Footwear
+duration: 2021 engagement
+date: "2021"
+date_published: "2021"
+client: Gray Matters NYC
+role: Shopify Developer
+excerpt: Built a pixel-perfect custom Shopify theme from design files for a globally recognized footwear brand made in Italy — multi-location and multi-currency support, dynamic theme blocks, and custom theme extensions for seasonal and localized content.
+cta_heading: Need a Shopify store that handles real global complexity?
+cta_body: I build pixel-perfect custom Shopify themes from your design files, with multi-currency, multi-location, and dynamic content blocks your team can manage without touching code.
+result_summary: Pixel-perfect custom theme, multi-currency and multi-location support, fully dynamic content blocks.
 ---
 
-Gray Matters NYC is a globally recognized fashion brand known for its modern, sculptural footwear made in Italy and sold worldwide. With a strong retail presence in New York and international appeal, they needed a Shopify storefront that matched their artistic design sensibility and could handle complex global requirements — including multi-location support and multi-currency functionality.
+## The problem
 
-I was responsible for building the site from the ground up, using a provided design and transforming it into a fully responsive, pixel-perfect Shopify store. Every section of the site — from homepage to collection and product pages — was developed from scratch using custom HTML, CSS, JavaScript, and Liquid code.
+Gray Matters NYC is a globally recognized fashion brand known for modern, sculptural footwear made in Italy and sold worldwide, with a strong retail presence in New York and real international demand behind it. That meant the Shopify storefront had to handle actual global complexity, multi-location and multi-currency support, while still matching the brand's artistic, minimalist design sensibility exactly, not an approximation of it.
 
-## Objectives
+## What I built
 
-- Build a fully custom Shopify theme from design files with pixel-level accuracy  
-- Implement multi-location and multi-currency support for global shoppers  
-- Develop dynamic, editable content blocks for flexibility via the Shopify theme editor  
-- Create an immersive, clean shopping experience that reflects the brand’s minimalist aesthetic  
-- Ensure fast performance, smooth UX, and mobile-first responsiveness across all pages
+### A fully custom theme, built pixel-perfect from design files
 
-## Approach
+Starting from a blank theme, I implemented the full design using clean, modular code, matching every visual element, spacing rule, and animation to the design vision. Every section, from navigation to footer, from homepage to collection and product pages, was hand-coded rather than assembled from theme defaults.
 
-Starting with a blank theme, I implemented the full design using clean, modular code — ensuring every visual element, spacing rule, and animation matched the design vision exactly. All components, from the navigation to the footer, were coded by hand for control and performance.
+### Multi-location and multi-currency, built in from the start
 
-To give the brand’s internal team the flexibility to manage content without needing to modify code, I built multiple **dynamic theme blocks and sections**, allowing them to edit copy, imagery, and layouts directly from the Shopify customization panel. This included reusable content blocks for homepage, collection highlights, and product storytelling.
+The store needed to serve a genuinely global customer base, so multi-currency and multi-location support was built into the architecture itself rather than patched on afterward.
 
-I also created **custom theme extensions** and Shopify app blocks for various features — including content layout enhancements, seasonal promotions, and localized messaging — all while maintaining seamless multi-currency and multi-location integration.
+### Dynamic content blocks the internal team can actually use
 
-## Results
+I built multiple dynamic theme blocks and sections, for the homepage, collection highlights, and product storytelling, so the brand's internal team can edit copy, imagery, and layouts directly from the Shopify customization panel without needing a developer for routine changes.
 
-- A pixel-perfect Shopify storefront built entirely from custom code  
-- Fully dynamic content blocks for easy editing with no developer required  
-- Multi-currency and multi-location functionality for a global customer base  
-- Clean, responsive, and immersive frontend matching a high-end brand aesthetic  
-- Stable and scalable theme architecture that supports new content, products, and pages
+### Custom theme extensions for seasonal and localized content
 
-From code to UX, every detail was carefully crafted to support the brand’s high-end image while making life easier for their content team — and it’s still live, working, and selling worldwide.
+I built custom theme extensions and Shopify app blocks for layout enhancements, seasonal promotions, and localized messaging, all while keeping the multi-currency and multi-location integration seamless underneath.
+
+## What actually changed
+
+| What changed | Before | After |
+| --- | --- | --- |
+| Theme | None | Fully custom, pixel-perfect from design files |
+| Content editing | Would require a developer | Dynamic blocks, no developer needed |
+| Global support | None | Multi-currency and multi-location |
+| Architecture | N/A | Stable, scalable, built for new products and pages |

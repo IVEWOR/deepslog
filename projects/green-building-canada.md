@@ -1,48 +1,51 @@
 ---
 title: Green Building Canada
-
-website: 
-
-platform: WordPress, Plugin Development, Theme Development
-
+website: (Not publicly listed)
+platform: WordPress, Custom Plugin Development, Theme Development
 location: Canada
-
 featured_image: /green-building-canada.png
-
-date: 2024
-
-testimonial: It was a joy working with Deepak. He delivered what I asked for, patiently working through all issues to arrive at the desired outcome. He is thorough and cares about his work.
-
+industry: Job Portal / Green & Sustainable Employment
+duration: 2024 engagement
+date: "2024"
+date_published: "2024"
 client: Kiva B
+role: WordPress Developer
+excerpt: Custom WordPress job portal for the green employment sector, automatically syncing and cleaning listings from a Canadian government feed while giving admins and outside users their own submission and moderation tools.
+testimonial: "It was a joy working with Deepak. He delivered what I asked for, patiently working through all issues to arrive at the desired outcome. He is thorough and cares about his work."
+cta_heading: Need messy external data turned into something usable?
+cta_body: I build custom WordPress plugins that pull in external feeds, clean up inconsistent data automatically, and give your team real submission and moderation tools.
+result_summary: Automated government feed sync, structured custom fields, frontend job submission system with moderation tools.
 ---
 
-Green Building Canada is a Canadian-based job portal focused on eco-friendly, sustainable employment opportunities. The client wanted a custom-built WordPress site that could fetch and organize job listings from a Canadian government feed, while also offering full control over manually posted listings.
+## The problem
 
-The challenge wasn't just technical — it was about making messy, inconsistent data usable and structured. The government job data being fetched often came with malformed fields and scattered information, so a high degree of customization was required to make the content publishable and searchable.
+Green Building Canada is a Canadian job portal focused specifically on eco-friendly, sustainable employment, and the client needed a WordPress site that could pull job listings from a Canadian government feed while still giving them full control over manually posted listings. The real challenge wasn't the integration itself, it was that the government feed came with malformed fields and scattered information, and none of it was usable or searchable without real structure imposed on top of it.
 
-## Objectives
+## What I built
 
-- Build a WordPress-powered job portal tailored to the green job sector  
-- Automatically fetch and sync job listings from a Canadian government API  
-- Enable both admins and external users to create, edit, and manage job posts  
-- Parse and clean inconsistent fetched content  
-- Automatically populate custom fields like location, salary, and company details
+### A plugin that turns a messy government feed into structured content
 
-## Approach
+I built a custom plugin that fetches job data from the government feed and integrates it into WordPress in a clean, structured format, using a combination of PHP and JavaScript to extract and assign the fields that actually mattered.
 
-I developed a custom plugin that fetches job data from the government feed and integrates it into WordPress in a clean, structured format. To tackle the inconsistencies in the fetched content, I used a combination of PHP and JavaScript to extract and assign critical data fields.
+### Automated cleanup running on every save
 
-Using WordPress `save_post`, `before_save`, and `after_save` hooks, I set up an automated system where each job post is processed after it's saved. The system scans the job description for relevant data — such as salary, company name, and location — and then populates corresponding custom fields accordingly. If needed, the post is resaved with the updated structured information, ensuring each listing has clean, searchable metadata.
+Using WordPress's `save_post`, `before_save`, and `after_save` hooks, I set up a system where each job post gets processed automatically after it's saved. The system scans the job description for relevant data, salary, company name, location, and populates the corresponding custom fields on its own. If needed, the post resaves itself with the updated structured information, so every listing ends up with clean, searchable metadata without anyone doing that work by hand.
 
-On top of that, the platform allows logged-in users to submit their own jobs. I built custom submission forms, account management views, and moderation tools for the admin team.
+### Submission and moderation for outside users
 
-## Results
+Beyond the automated feed, I built custom submission forms, account management views, and moderation tools so logged-in users can submit their own job listings, with the admin team keeping full control over what goes live.
 
-- Fully functional green job board with automated job import system  
-- Clean, categorized listings with structured custom fields  
-- Frontend job submission system for third-party users  
-- Significant time saved in content moderation through automation  
-- Strong testimonial from the client for clear communication and thoughtful execution
+## What actually changed
 
-> *"It was a joy working with Deepak. He delivered what I asked for, patiently working through all issues to arrive at the desired outcome. He is thorough and cares about his work."*  
-> — Kiva B
+| What changed | Before | After |
+| --- | --- | --- |
+| Listings source | Manual only | Automated government feed sync + manual |
+| Job data | Messy, unstructured | Clean, structured, searchable custom fields |
+| Content moderation | Fully manual | Significantly automated |
+| Submissions | Admin-only | Frontend submission system with moderation tools |
+
+## What the client said
+
+"It was a joy working with Deepak. He delivered what I asked for, patiently working through all issues to arrive at the desired outcome. He is thorough and cares about his work."
+
+— Kiva B, Green Building Canada

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lsof -ti:3000 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(npm run *)",
+      "Bash(disown)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000 >/dev/null; do sleep 1; done')",
+      "Bash(find / -iname \"*chromium-cli*\" -maxdepth 6)",
+      "Bash(find / -iname \"*chromium-cli*\")",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(npm ls *)",
+      "Bash(which google-chrome *)",
+      "Read(//usr/bin/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node screenshot.js)"
+    ]
+  }
+}

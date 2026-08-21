@@ -1,9 +1,9 @@
 export default function Expertise() {
   const features = [
     {
-      title: "White-Label Agency Partner",
+      title: "Shopify Plus & Hydrogen",
       description:
-        "I integrate seamlessly into your Slack, Jira, or Asana. I can act as your lead technical developer on client calls, representing your agency with complete professionalism.",
+        "Checkout Extensibility, Liquid, custom Plus builds, and headless Hydrogen storefronts. Hands-on experience shipping on the Plus platform.",
       icon: (
         <svg
           className="w-6 h-6 text-indigo-600 group-hover:text-white"
@@ -21,9 +21,9 @@ export default function Expertise() {
       ),
     },
     {
-      title: "Performance & SEO Obsessed",
+      title: "Performance & CWV",
       description:
-        "Fast sites make more money. I build Next.js and headless Shopify architectures designed to hit 99+ Lighthouse scores and pass Core Web Vitals out of the box.",
+        "99+ Lighthouse scores and sub-2s loads. Core Web Vitals built in from day one, not bolted on after.",
       icon: (
         <svg
           className="w-6 h-6 text-indigo-600 group-hover:text-white"
@@ -41,9 +41,9 @@ export default function Expertise() {
       ),
     },
     {
-      title: "AI Code Rescue Specialist",
+      title: "Store Rescue & Migrations",
       description:
-        "I do vibe coding cleanup for AI-generated web apps. I stabilize  Cursor/Copilot-built web apps without rebuilding from scratch.",
+        "Broken checkout? Messy app stack? Acquired brand with a dead store? I stabilize existing stores and plan complex migrations without starting from scratch.",
       icon: (
         <svg
           className="w-6 h-6 text-indigo-600 group-hover:text-white"
@@ -61,9 +61,9 @@ export default function Expertise() {
       ),
     },
     {
-      title: "Zero Hand-Holding Required",
+      title: "Subscription & Retention",
       description:
-        "With 9 years of experience and 100+ projects delivered, I anticipate edge cases, write clean documentation, and hit delivery deadlines. You assign the project, I handle the rest.",
+        "Recharge, Klaviyo lifecycle flows, and event tracking. I build the backend that keeps subscribers paying.",
       icon: (
         <svg
           className="w-6 h-6 text-indigo-600 group-hover:text-white"
@@ -89,20 +89,21 @@ export default function Expertise() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+        <div className="text-left sm:text-center max-w-3xl mx-0 sm:mx-auto mb-16 lg:mb-24">
           <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3 animate-fade-in-up [animation-delay:100ms]">
-            The Agency Advantage
+            THE PLUS ADVANTAGE
           </h2>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 animate-fade-in-up [animation-delay:200ms]">
-            Why technical directors <br className="hidden sm:block" />
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight animate-fade-in-up [animation-delay:200ms]">
+            Why
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
-              trust me to build.
+              &nbsp;Shopify Plus
             </span>
+            <br className="hidden sm:block" />
+            &nbsp;merchants hire me.
           </h3>
-          <p className="text-lg text-slate-600 leading-relaxed animate-fade-in-up [animation-delay:300ms]">
-            I bridge the gap between brilliant design and flawless execution.
-            When you partner with me, you get a senior engineer who understands
-            agency margins, client management, and strict timelines.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed animate-fade-in-up [animation-delay:300ms]">
+            I don't install apps and hope. I build the custom layer that lets
+            you scale without replatforming.
           </p>
         </div>
 
@@ -122,11 +123,11 @@ export default function Expertise() {
                 {feature.icon}
               </div>
 
-              <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
+              <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-snug">
                 {feature.title}
               </h4>
 
-              <p className="text-slate-600 leading-relaxed text-base md:text-lg">
+              <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
                 {feature.description}
               </p>
             </div>

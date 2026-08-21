@@ -1,47 +1,48 @@
 ---
 title: Faire – Learning Hub
-
 website: https://www.faire.com/blog/community/
-
-platform: WordPress, Custom Theme
-
+platform: WordPress, Custom Child Theme, Gravity Forms
 location: United States
-
 featured_image: /Faire.png
-
-date: 2023
+industry: Wholesale Marketplace / Community & Content
+duration: 2023 engagement
+date: "2023"
+date_published: "2023"
+client: Faire
+role: WordPress Developer
+excerpt: Built a standalone blog and community learning hub for a YC-backed wholesale marketplace on a custom WordPress child theme, with scoped search, a related-content system, and PageSpeed scores above 85, from designs delivered by Faire's in-house team.
+cta_heading: Need a content hub that matches the rest of your product?
+cta_body: I build blog and community hubs on custom WordPress themes — scoped search, related content, and performance tuned to match the standards of the rest of your product.
+result_summary: Scoped search built, related content modules added, PageSpeed above 85.
 ---
 
-Faire is a well-known, YC-backed wholesale marketplace headquartered in the U.S. With a massive footprint in retail and tech, they needed a clean, fast, and scalable blog and community hub to match the rest of their brand experience.
+## The problem
 
-My role was to develop their learning center — a space dedicated to guides, community stories, and educational content — entirely on WordPress, using a custom child theme built to spec. The design was delivered by their in-house team, and I translated it into a fully responsive, high-performance frontend experience.
+Faire is a YC-backed wholesale marketplace with a massive footprint in retail and tech, and they needed a blog and community hub, guides, community stories, educational content, that matched the polish of the rest of their brand experience instead of feeling like a bolted-on afterthought. The default WordPress search returned results from across the entire site, cluttering results with anything but the actual blog content visitors were looking for.
 
-## Objectives
+## What I built
 
-- Build a standalone blog and community learning hub on WordPress  
-- Develop custom layouts for the landing page, category listings, and single blog posts  
-- Improve site speed and SEO performance  
-- Limit the search scope to blog content only  
-- Enhance editor usability with custom meta fields and reusable components  
-- Implement email newsletter signup via Gravity Forms  
-- Add custom related content modules and post sliders
+### A learning hub on a custom child theme, built to spec
 
-## Approach
+Working from designs delivered by Faire's own in-house team, I built the landing page, category listings, and single blog post layout on a custom WordPress child theme, translating their design into a fully responsive, high-performance frontend with precise attention to responsive behavior.
 
-I built the community hub on top of a custom child theme, extending its functionality with a tailored WordPress setup optimized for publishing. The landing page, category page, and single post layout were all developed to match Faire’s brand guidelines with precise attention to responsive behavior and performance.
+### Search that only searches the blog
 
-To improve search UX, I overhauled the default WordPress search and implemented a scoped search bar that only returns articles from the blog section, avoiding clutter from unrelated pages.
+I overhauled the default WordPress search and replaced it with a scoped search bar that returns results from the blog section only, so visitors looking for community content aren't wading through unrelated pages to find it.
 
-Performance was a priority — I optimized stylesheets, deferred non-critical scripts, and improved image handling to push the site into the **85+ PageSpeed score range**. I also restructured the slider code for better stability and smoother transitions.
+### Performance tuned to Faire's standards
 
-For easier content management, I implemented custom meta fields, and created a **related content box** on each post page that dynamically displays articles from the same category — improving user retention and discoverability.
+I optimized stylesheets, deferred non-critical scripts, and improved image handling to push the site into the 85+ PageSpeed range, and restructured the slider code for better stability and smoother transitions.
 
-## Results
+### Related content and editorial tooling
 
-- A fast, clean, and scalable blog hub that aligns with Faire’s brand voice  
-- **Scoped search functionality** focused solely on community content  
-- Modular content layout with reusable backend components for the editorial team  
-- Improved performance with a **PageSpeed score above 85+**  
-- Stronger internal linking and reader retention via related content modules
+I built custom meta fields for the editorial team and a related content box that dynamically surfaces articles from the same category on every post, improving retention and discoverability without manual curation. Email newsletter signup runs through Gravity Forms.
 
-The result is a blog platform that not only looks polished but performs like an integral part of Faire’s massive product ecosystem — intuitive, fast, and built to scale.
+## What actually changed
+
+| What changed | Before | After |
+| --- | --- | --- |
+| Search | Site-wide, cluttered | Scoped to blog content only |
+| PageSpeed | Baseline | 85+ |
+| Content management | Static | Custom meta fields, reusable components |
+| Reader retention | No related content | Related content modules on every post |

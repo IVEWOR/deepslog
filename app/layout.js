@@ -1,26 +1,28 @@
 import { Funnel_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const funnelDisplay = Funnel_Display({
   subsets: ["latin"],
 });
 
 export const metadata = {
-  metadataBase: new URL("https://deepslog.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Deepak Jangra | Senior Full-Stack Developer",
-    template: "%s | Deepak Jangra",
+    default: "Deepak Jangra | Shopify Plus Developer",
+    template: "%s",
   },
   description:
-    "9+ years building high-performance web applications for agencies and startups. Specializing in Next.js, Shopify, and custom WordPress.",
+    "Senior full-stack engineering for Shopify merchants who need speed, checkout conversion, and code that holds up at Plus-level traffic.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Deepak Jangra | Senior Full-Stack Developer",
+    title: "Deepak Jangra | Shopify Plus Developer",
     description:
-      "9+ years building high-performance web applications for agencies and startups.",
-    url: "https://deepslog.com",
+      "Senior full-stack engineering for Shopify merchants who need speed, checkout conversion, and code that holds up at Plus-level traffic.",
+    url: SITE_URL,
     siteName: "Deepak Jangra",
     locale: "en_US",
     type: "website",
@@ -29,27 +31,30 @@ export const metadata = {
         url: "/deepak.jpg", // Default OG image (Make sure this exists in your /public folder)
         width: 1200,
         height: 630,
-        alt: "Deepak Jangra - Senior Full-Stack Developer",
+        alt: "Deepak Jangra - Shopify Plus Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deepak Jangra | Senior Full-Stack Developer",
-    description: "High-performance web apps and technical architecture.",
+    title: "Deepak Jangra | Shopify Plus Developer",
+    description:
+      "Senior full-stack engineering for Shopify merchants who need speed, checkout conversion, and code that holds up at Plus-level traffic.",
+    creator: "@deepakjangra",
     images: ["/deepak.jpg"],
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={funnelDisplay.className}>
         {children}
-        <script
-          defer
+        <Script
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "ea88142598b349b9b9c1682da19f3a0f"}'
-        ></script>
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Core Web Vitals & Speed Optimization",
@@ -74,17 +75,18 @@ export default function PerformanceRescue() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://deepslog.com/rescue/performance#service",
+    "@id": `${SITE_URL}/rescue/performance#service`,
     name: "Core Web Vitals Optimization",
     provider: {
-      "@id": "https://deepslog.com/#person",
+      "@id": `${SITE_URL}/#person`,
     },
     areaServed: "Global",
     serviceType: "Web Performance Optimization",
     offers: {
       "@type": "Offer",
-      price: "500.00", // Example diagnostic/starting price to show Google it's a paid service
+      price: "1500.00",
       priceCurrency: "USD",
+      priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
     },
   };
@@ -150,22 +152,25 @@ export default function PerformanceRescue() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 animate-fade-in-up [animation-delay:500ms]">
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 hover:opacity-100 transition-all duration-500 animate-fade-in-up [animation-delay:500ms]">
-              <div className="font-bold text-xl tracking-tighter text-slate-800">
-                NXPRO
+              <div className="font-semibold text-xl tracking-tight text-slate-800">
+                GRAYMATTERSNYC
               </div>
-              <div className="font-semibold text-xl text-slate-800">
-                GRAYMATTERS
+              <div className="font-serif italic text-xl text-slate-800">
+                TheBusinessFashion
+              </div>
+              <div className="font-black text-xl lowercase italic tracking-tight text-slate-800">
+                Chasin Unicorns
+              </div>
+              <div className="font-bold text-xl tracking-tighter text-slate-800 uppercase">
+                XIDE
               </div>
               <div className="font-light font-serif tracking-widest text-xl text-slate-800">
                 FAIRE
               </div>
-              <div className="font-black text-xl text-slate-800 uppercase tracking-tight">
-                Merkbart
-              </div>
 
-              {/* "+50 more" Badge */}
+              {/* "+25 more" Badge */}
               <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500">
-                +50 MORE
+                +25 MORE
               </div>
             </div>
           </div>
@@ -337,6 +342,12 @@ export default function PerformanceRescue() {
               </div>
             </div>
           </div>
+
+          <p className="mt-12 text-center text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
+            Recent result: a Shopify Plus store reduced Time to Interactive from
+            8.1s to 1.1s after stripping third-party app bloat and implementing
+            edge caching.
+          </p>
         </div>
       </section>
 
@@ -392,6 +403,65 @@ export default function PerformanceRescue() {
                 rendering. I audit, consolidate, and asynchronously load your
                 marketing stack.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3.5 NAMED PROOF: MERKBART (distinct from the anonymous Shopify
+          stat above — a real, linkable, WooCommerce example showing the
+          same rescue pattern holds across platforms) */}
+      <section className="py-24 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+              Same pattern, different platform.
+            </h2>
+            <p className="text-lg text-slate-600">
+              The Shopify example above isn't a one-off — here's a named,
+              linkable case.
+            </p>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-[2.5rem] p-10 lg:p-14 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex-1">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 tracking-widest uppercase bg-emerald-100 text-emerald-700">
+                WooCommerce, Norway
+              </span>
+              <h3 className="text-2xl font-extrabold text-slate-900 mb-4">
+                MerkBart moved off shared hosting onto AWS Lightsail with S3 +
+                CloudFront for uploads.
+              </h3>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                The admin panel used to freeze for minutes on every order with
+                multiple logo uploads. Now it doesn't freeze at all, and pages
+                load roughly 4× faster.
+              </p>
+              <Link
+                href="/work/merkbart"
+                className="inline-flex items-center gap-2 text-emerald-600 font-bold hover:text-emerald-700 transition-colors"
+              >
+                Read the full case study
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </Link>
+            </div>
+            <div className="text-center shrink-0">
+              <div className="text-5xl font-black text-emerald-600">~4×</div>
+              <div className="text-sm text-slate-500 font-medium mt-1">
+                faster page loads
+              </div>
             </div>
           </div>
         </div>

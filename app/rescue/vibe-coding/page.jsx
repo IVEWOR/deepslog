@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "AI Codebase Rescue & Refactoring",
@@ -21,20 +22,49 @@ export const metadata = {
 export default function VibeCodingRescue() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://deepslog.com/rescue/vibe-coding#service",
-    name: "AI Codebase Refactoring",
-    provider: {
-      "@id": "https://deepslog.com/#person",
-    },
-    areaServed: "Global",
-    serviceType: "Software Architecture Refactoring",
-    offers: {
-      "@type": "Offer",
-      price: "1000.00", // Example audit/starting price
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-    },
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/rescue/vibe-coding#service`,
+        name: "AI Codebase Refactoring",
+        provider: {
+          "@id": `${SITE_URL}/#person`,
+        },
+        areaServed: "Global",
+        serviceType: "Software Architecture Refactoring",
+        offers: {
+          "@type": "Offer",
+          // Was "1000.00" ("Example audit/starting price"). Confirmed
+          // final price: $2,000.
+          price: "2000.00",
+          priceCurrency: "USD",
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_URL}/rescue/vibe-coding#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What is vibe coding cleanup?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Vibe coding cleanup is the process of refactoring AI-generated code from tools like Cursor, Copilot, or v0 into production-ready, scalable applications. I specialize in stabilizing these codebases without rebuilding from scratch.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How much does a codebase audit cost?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "My 48-hour codebase audit is $2,000. This includes a comprehensive review of your repository, identification of critical issues, and a step-by-step roadmap for remediation.",
+            },
+          },
+        ],
+      },
+    ],
   };
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50 selection:bg-indigo-500/30 selection:text-indigo-200">
@@ -91,17 +121,23 @@ export default function VibeCodingRescue() {
               Trusted by teams building at scale
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 hover:opacity-100 transition-all duration-500 animate-fade-in-up [animation-delay:500ms]">
-              <span className="font-bold text-xl tracking-tighter text-slate-300 hover:text-white transition-colors">
-                NXPRO
+              <span className="font-semibold text-xl tracking-tight text-slate-300 hover:text-white transition-colors">
+                GRAYMATTERSNYC
               </span>
               <span className="font-serif italic text-xl text-slate-300 hover:text-white transition-colors">
-                GRAY_MATTERS
+                TheBusinessFashion
               </span>
-              <span className="font-light tracking-widest text-xl text-slate-300 hover:text-white transition-colors">
+              <span className="font-black text-xl lowercase italic tracking-tight text-slate-300 hover:text-white transition-colors">
+                Chasin Unicorns
+              </span>
+              <span className="font-bold text-xl tracking-tighter uppercase text-slate-300 hover:text-white transition-colors">
+                XIDE
+              </span>
+              <span className="font-light font-serif tracking-widest text-xl text-slate-300 hover:text-white transition-colors">
                 FAIRE
               </span>
               <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-xs font-bold text-slate-400">
-                +12 MORE
+                +25 MORE
               </span>
             </div>
           </div>
@@ -251,6 +287,40 @@ export default function VibeCodingRescue() {
         </div>
       </section>
 
+      {/* 3.5 FAQ (moved here from the rescue hub — this is where these
+          two questions topically belong, and now the visible content
+          matches the FAQPage schema instead of the schema being the only
+          place this content existed) */}
+      <section className="py-24 bg-slate-900 border-b border-slate-800">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-12 text-center">
+            Questions people actually ask.
+          </h2>
+          <div className="space-y-6">
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8">
+              <h3 className="text-lg font-bold text-white mb-3">
+                What is vibe coding cleanup?
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Refactoring AI-generated code from tools like Cursor, Copilot,
+                or v0 into production-ready, scalable applications. I specialize
+                in stabilizing these codebases without rebuilding from scratch.
+              </p>
+            </div>
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8">
+              <h3 className="text-lg font-bold text-white mb-3">
+                How much does a codebase audit cost?
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                The 48-hour codebase audit is $2,000. That includes a full
+                review of your repository, identification of critical issues,
+                and a step-by-step roadmap for remediation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. FINAL CTA (Audit Focus) */}
       <section id="audit" className="relative py-24 bg-slate-950 text-center">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
@@ -273,6 +343,10 @@ export default function VibeCodingRescue() {
             calTitle="Need immediate triage?"
             calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
           />
+          <p className="mt-8 text-sm text-slate-500">
+            This service also covers Shopify Hydrogen and custom app codebases
+            built with AI tools like Cursor or v0.
+          </p>
         </div>
       </section>
 

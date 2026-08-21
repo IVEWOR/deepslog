@@ -1,31 +1,34 @@
 export default function SocialProof() {
   return (
     <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-      <div className="animate-fade-in-up [animation-delay:700ms] flex flex-col items-center">
+      <div className="animate-fade-in-up [animation-delay:700ms] flex flex-col items-start sm:items-center">
         {/* Top: Trusted By Text */}
-        <p className="text-xs sm:text-sm font-semibold text-slate-400 uppercase tracking-widest mb-6 text-center">
-          Trusted by agencies and startups to deliver
+        <p className="text-sm font-semibold text-slate-400 uppercase tracking-wide sm:tracking-widest mb-6 text-left sm:text-center">
+          Trusted by Shopify Merchants
         </p>
 
         {/* Middle: Logo Cloud */}
-        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 lg:gap-x-16 mb-10 w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex flex-wrap justify-start sm:justify-center items-center gap-x-6 gap-y-5 sm:gap-x-8 lg:gap-x-16 mb-10 w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
           {/* Logo Placeholders (Replace text with your actual SVGs or Image tags later) */}
-          <div className="font-bold text-xl tracking-tighter text-slate-800">
-            NXPRO
+          <div className="font-semibold text-xl tracking-tight text-slate-800">
+            GRAYMATTERSNYC
           </div>
-          <div className="font-semibold text-xl text-slate-800">
-            GRAYMATTERS
+          <div className="font-serif italic text-xl text-slate-800">
+            TheBusinessFashion
+          </div>
+          <div className="font-black text-xl lowercase italic tracking-tight text-slate-800">
+            Chasin Unicorns
+          </div>
+          <div className="font-bold text-xl tracking-tighter text-slate-800 uppercase">
+            XIDE
           </div>
           <div className="font-light font-serif tracking-widest text-xl text-slate-800">
             FAIRE
           </div>
-          <div className="font-black text-xl text-slate-800 uppercase tracking-tight">
-            Merkbart
-          </div>
 
-          {/* "+50 more" Badge */}
+          {/* "+25 more" Badge */}
           <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500">
-            +50 MORE
+            +25 MORE
           </div>
         </div>
 
@@ -44,7 +47,7 @@ export default function SocialProof() {
             </svg>
           </div>
 
-          <div className="relative z-10 flex flex-col items-center text-center">
+          <div className="relative z-10 flex flex-col items-start sm:items-center text-left sm:text-center">
             <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed mb-4">
               "He built our web app from scratch, both backend and frontend.
               Very happy with the result—quick and excellent at finding
@@ -58,6 +61,16 @@ export default function SocialProof() {
                 Filip J{" "}
                 <span className="text-slate-400 font-normal">| MERKBART</span>
               </p>
+            </div>
+
+            {/* Result Badge */}
+            <div className="mt-5 pt-5 border-t border-slate-200/60 flex items-center gap-2">
+              <span className="text-xl sm:text-2xl font-black text-indigo-600">
+                2X
+              </span>
+              <span className="text-sm font-semibold text-slate-600 text-left">
+                conversion rate within 90 days of re-launch
+              </span>
             </div>
           </div>
         </div>

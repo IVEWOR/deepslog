@@ -1,11 +1,61 @@
+// app/page.jsx
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
 import Work from "@/components/Work";
 import Expertise from "@/components/Expertise";
 import Process from "@/components/Process";
+import AboutMe from "@/components/AboutMe";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { SITE_URL, ORG_NAME, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
+
+export const metadata = {
+  title: "Deepak Jangra — Independent Shopify Plus Developer",
+  description:
+    "Deepak Jangra is an independent contractor and Shopify Plus developer with 9+ years of experience building fast, revenue-driving Shopify stores for merchants and agencies. Available for new projects.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Deepak Jangra — Independent Shopify Plus Developer",
+    description:
+      "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
+    url: SITE_URL,
+    siteName: "Deepak Jangra",
+    images: [
+      {
+        // TODO: og-image.jpg doesn't exist yet (was marked "pending" in
+        // the original). Falling back to /deepak.jpg, which is real and
+        // already used as the fallback elsewhere. Swap this back to a
+        // dedicated OG image once one exists.
+        url: `${SITE_URL}/deepak.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Deepak Jangra - Independent Shopify Plus Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deepak Jangra — Independent Shopify Plus Developer",
+    description:
+      "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
+    images: [`${SITE_URL}/deepak.jpg`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
 export default function Home() {
   const jsonLd = {
@@ -13,65 +63,70 @@ export default function Home() {
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://deepslog.com/#person",
+        "@id": `${SITE_URL}/#person`,
         name: "Deepak Jangra",
-        jobTitle: "Senior Full-Stack Developer",
+        jobTitle: "Independent Shopify Plus Developer",
         description:
-          "9+ years building high-performance web applications for agencies and startups",
-        url: "https://deepslog.com",
-        image: "https://deepslog.com/deepak.jpg",
-        sameAs: [
-          "https://www.linkedin.com/in/deepakjangra",
-          "https://github.com/deepakjangra",
-          "https://www.upwork.com/freelancers/~013532ef81f0edafea",
-          "https://www.toptal.com/resume/deepak-jangra",
-        ],
-        knowsAbout: [
-          "React.js",
-          "Next.js",
-          "Node.js",
-          "Shopify Development",
-          "WordPress Development",
-          "AI Code Rescue",
-          "Web Performance Optimization",
-        ],
+          "Independent contractor and Shopify Plus developer with 9+ years of experience building and rescuing high-performance Shopify stores for merchants and agencies.",
+        url: SITE_URL,
+        image: `${SITE_URL}/deepak.jpg`,
+        sameAs: SAME_AS,
+        knowsAbout: KNOWS_ABOUT,
         worksFor: {
-          "@id": "https://deepslog.com/#organization",
+          "@id": `${SITE_URL}/#organization`,
         },
       },
       {
         "@type": "Organization",
-        "@id": "https://deepslog.com/#organization",
-        name: "Deepak Jangra Development",
-        url: "https://deepslog.com",
-        logo: "https://deepslog.com/logo.png",
-        sameAs: ["https://www.linkedin.com/in/deepakjangra"],
+        "@id": `${SITE_URL}/#organization`,
+        name: ORG_NAME,
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo.png`,
+        founder: { "@id": `${SITE_URL}/#person` },
+        employee: { "@id": `${SITE_URL}/#person` },
+        // Excludes the Wikipedia link on purpose — that's Deepak's
+        // personal contributor page, not something an organization
+        // entity should claim as its own "sameAs".
+        sameAs: SAME_AS.filter((url) => !url.includes("wikipedia")),
         makesOffer: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "White-Label Development",
-              description: "Silent technical partner for agencies",
+              name: "Shopify Plus Development",
+              description:
+                "Custom Shopify Plus builds, Hydrogen storefronts, checkout extensibility, and performance optimization.",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "AI Code Rescue",
-              description: "Rescue AI-generated codebases",
+              name: "White-Label Development",
+              description: "Silent technical partner for agencies.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Store Rescue & Migrations",
+              description:
+                "Stabilizing broken Shopify stores and migrating acquired brands without starting from scratch.",
             },
           },
         ],
       },
       {
         "@type": "WebSite",
-        "@id": "https://deepslog.com/#website",
-        url: "https://deepslog.com",
-        name: "Deepak Jangra - Full-Stack Developer",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: "Deepak Jangra — Independent Shopify Plus Developer",
+        description:
+          "Portfolio and services of Deepak Jangra, independent Shopify Plus developer.",
+        inLanguage: "en-US",
         publisher: {
-          "@id": "https://deepslog.com/#organization",
+          "@id": `${SITE_URL}/#organization`,
         },
       },
     ],
@@ -88,6 +143,7 @@ export default function Home() {
       <Work />
       <Expertise />
       <Process />
+      <AboutMe />
       <CTA />
       <Footer />
     </main>

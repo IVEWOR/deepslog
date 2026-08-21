@@ -1,54 +1,53 @@
 ---
 title: Capes Sokol
-
 website: https://capessokol.com/
-
-platform: WordPress, Beaver Builder, Custom Templates
-
+platform: WordPress, Beaver Builder, Custom Templates, MetaBox
 location: United States
-
 featured_image: /capes-sokol.png
-
-date: 2022
-
-testimonial: 
-
-client: Capes Sokol Team
+industry: Legal Services / Law Firm
+duration: 2022 engagement
+date: "2022"
+date_published: "2022"
+client: Capes Sokol
+role: WordPress Developer
+excerpt: Performance and content-architecture overhaul for a high-profile law firm's content-rich WordPress site — PageSpeed up from 49 to 84, Cumulative Layout Shift down to 0, and a rebuilt global navigation, all while preserving Beaver Builder for the internal team's static-page editing.
+cta_heading: Is your content-heavy WordPress site failing PageSpeed?
+cta_body: I fix performance and layout-shift problems on large WordPress sites without ripping out the page builder your team already knows how to use.
+result_summary: PageSpeed 49 → 84, Cumulative Layout Shift 2.8 → 0, Largest Contentful Paint 5.28s → 300ms, navigation rebuilt.
 ---
 
-Capes Sokol is a high-profile law firm with a large-scale, content-rich website. When I joined the project, the site was suffering from performance issues, scattered design elements, and inefficiencies in content management — all while running on Beaver Builder, which had to be preserved for static page editing by their internal team.
+## The problem
 
-My role was to improve both performance and maintainability while following strict brand and design guidelines across all pages.
+Capes Sokol is a high-profile law firm running a large, content-rich site, and by the time I got involved it was struggling on nearly every performance metric at once. PageSpeed was sitting in the 40s. Cumulative Layout Shift was at 2.8, visibly janky. Largest Contentful Paint was taking 5.28 seconds. On top of the performance problems, design elements were scattered across pages instead of standardized, and content management was inefficient for an editorial team managing dozens of pages. The constraint that shaped everything: Beaver Builder had to stay in place, since the firm's internal team relied on it for static-page editing, so this wasn't a rebuild-from-scratch situation.
 
-## Objectives
+## What I built
 
-- Improve overall website performance and Google PageSpeed scores  
-- Standardize design and layout for consistency across all pages  
-- Create custom templates for dynamic content while preserving Beaver Builder for static sections  
-- Reduce layout shifts and slow load times on mobile  
-- Implement dynamic content fields using MetaBox for editorial flexibility  
-- Rebuild the navigation bar and improve site-wide UX
+### Working inside Beaver Builder instead of against it
 
-## Approach
+Rather than replacing Beaver Builder, I built a hybrid system, custom PHP-based templates powered by MetaBox for dynamic content sections, while preserving Beaver Builder for the static pages the internal team already knew how to edit. That meant content editors kept control over the pages they manage day to day, without sacrificing structure or performance on the dynamic side.
 
-Working within the existing Beaver Builder framework, I created custom static pages where appropriate, while building dynamic content sections using PHP-based templates powered by MetaBox. This hybrid approach allowed content editors to maintain control over key pages without sacrificing structure or performance.
+### Structured content for attorney profiles, practice areas, and firm news
 
-To support the site’s heavy content demands, I implemented a set of custom fields and dynamic layouts for attorney profiles, practice areas, resources, and firm news — all designed to pull structured content cleanly and present it with a unified visual language.
+I built custom fields and dynamic layouts for attorney profiles, practice areas, resources, and firm news, all designed to pull structured content cleanly and present it through a single, consistent visual language instead of the scattered design that existed before.
 
-Significant performance optimization was carried out:
-- Google PageSpeed score increased from **49 to 84**  
-- **Cumulative Layout Shift (CLS)** reduced from **2.8 to 0**  
-- **Largest Contentful Paint (LCP)** improved from **5.28s to 300ms**  
-- Critical CSS and asset loading optimized, image handling streamlined
+### Serious performance work
 
-Additionally, I redesigned and rebuilt the global navigation to improve accessibility, clarity, and responsiveness across devices.
+I optimized critical CSS and asset loading and streamlined image handling across the site. The results were direct: PageSpeed moved from 49 to 84, Cumulative Layout Shift dropped from 2.8 to 0, and Largest Contentful Paint improved from 5.28 seconds to 300 milliseconds.
 
-## Results
+### Rebuilding the global navigation
 
-- Major performance boost across desktop and mobile  
-- Fully rebuilt navigation and improved overall user flow  
-- Unified visual design across dozens of static and dynamic pages  
-- Custom templates and MetaBox integration streamlined editorial workflow  
-- Content-heavy pages now load smoothly with minimal layout shifts
+I redesigned and rebuilt the site-wide navigation for better accessibility, clarity, and responsiveness across devices, replacing what had been a source of friction sitewide.
 
-This was a deep dive into enterprise WordPress development — where performance, design consistency, and editorial flexibility had to coexist. Mission accomplished.
+## What actually changed
+
+| What changed | Before | After |
+| --- | --- | --- |
+| PageSpeed score | 49 | 84 |
+| Cumulative Layout Shift | 2.8 | 0 |
+| Largest Contentful Paint | 5.28s | 300ms |
+| Navigation | Outdated | Rebuilt, accessible, responsive |
+| Content management | Scattered, editorially rigid | MetaBox-powered dynamic templates |
+
+## The engagement
+
+This was a deep dive into enterprise WordPress development, where performance, design consistency, and editorial flexibility all had to coexist without breaking the internal team's existing Beaver Builder workflow.

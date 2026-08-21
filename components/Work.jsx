@@ -5,44 +5,39 @@ export default function Work() {
   const projects = [
     {
       year: "2026",
-      title: "Prime Peptides",
-      metric: "100% Manual Time Reduction",
+      title: "The Business Fashion",
+      metric: "+3x Collection Speed",
       description:
-        "Custom Node.js & Wix Velo crypto-fiat payment gateway integration.",
-      tech: ["Wix Velo", "Node.js", "REST API"],
-      link: "prime-peptides",
-    },
-    {
-      year: "2025",
-      title: "MERKBART",
-      metric: "99/100 Lighthouse Score",
-      description: "Custom WordPress plugin & architecture optimization.",
-      tech: ["WordPress", "Custom Plugin", "JavaScript"],
-      link: "merkbart",
-    },
-    {
-      year: "2024",
-      title: "Elegance Originals",
-      metric: "+42% Checkout Conversion",
-      description: "Custom Shopify theme and app extension builds.",
+        "Rebuilt homepage with custom theme sections, and improved collection page load speed by 3x.",
       tech: ["Shopify", "Liquid", "JavaScript"],
-      link: "elegance-originals",
+      link: "the-business-fashion",
+    },
+    {
+      year: "2026",
+      title: "Footware Brand Migration",
+      metric: "Full Data Preserved",
+      description:
+        "Created export runbook and migration plan for an acquired footwear brand's Shopify Plus store. Products, orders, customers, Klaviyo lists, SMS consent, and SEO redirects, all scoped for zero data loss.",
+      tech: ["Shopify Plus", "Klaviyo", "Data Migration"],
+      link: "footware-brand-migration",
     },
     {
       year: "2023",
-      title: "Faire Learning Hub",
-      metric: "Sub-2s Page Load Time",
-      description: "High-traffic resource hub built for scale.",
-      tech: ["WordPress", "PHP", "React"],
-      link: "faire",
+      title: "Chasin Unicorns",
+      metric: "Subscription Live",
+      description:
+        "Configured Recharge prepaid tiers, built Klaviyo lifecycle flows, and implemented GA4 + Meta Pixel tracking for a wellness subscription box brand.",
+      tech: ["Shopify", "Recharge", "Klaviyo", "GA4"],
+      link: "chasin-unicorns",
     },
     {
-      year: "2022",
-      title: "Capes Sokol",
-      metric: "Complete Technical Rebuild",
-      description: "Enterprise legal firm frontend overhaul.",
-      tech: ["JavaScript", "Custom Theme", "PHP"],
-      link: "capes-sokol",
+      year: "2019",
+      title: "The Collection",
+      metric: "Sub-4s Page Loads",
+      description:
+        "Debugged and extended a US fashion store with lazy-loaded pages, fixed QuickView swatches, built Recently Viewed carousel, and enhanced search with subcategory showcases.",
+      tech: ["Shopify", "Liquid", "JavaScript"],
+      link: "Darkestfox",
     },
   ];
 
@@ -58,15 +53,15 @@ export default function Work() {
             <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3">
               Selected Work
             </h2>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
               <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
                 Revenue-driving{" "}
               </span>
-              web apps
+              Shopify experiences
             </h3>
           </div>
-          <p className="text-slate-500 text-lg md:text-right max-w-sm">
-            Results for global agencies and ambitious brands
+          <p className="text-base sm:text-lg text-slate-500 leading-relaxed md:text-right max-w-sm">
+            Custom builds for scaling Shopify merchants, B2B and DTC brands
           </p>
         </div>
 
@@ -87,7 +82,7 @@ export default function Work() {
                   <span className="text-sm font-medium text-slate-400 mb-1">
                     {project.year}
                   </span>
-                  <h4 className="text-2xl lg:text-3xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors duration-300">
                     {project.title}
                   </h4>
                 </div>
@@ -98,7 +93,7 @@ export default function Work() {
                   <span className="text-sm font-bold text-emerald-600 bg-emerald-50 w-fit px-3 py-1 rounded-full mb-2">
                     {project.metric}
                   </span>
-                  <span className="text-base text-slate-600">
+                  <span className="text-base text-slate-600 leading-relaxed">
                     {project.description}
                   </span>
                 </div>

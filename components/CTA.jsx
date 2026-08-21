@@ -12,24 +12,24 @@ export default function CTA() {
       {/* Subtle Indigo Glow in the center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
-          Looking for a developer who <br className="hidden sm:block" />
+      <div className="relative z-10 max-w-4xl mx-0 sm:mx-auto px-6 lg:px-8 text-left sm:text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
+          Ready to fix or scale your <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-blue-400">
-            gets how agencies work?
+            Shopify Plus store?
           </span>
         </h2>
 
-        <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:200ms]">
-          Stop rolling the dice on unreliable contractors. Let's build scalable,
-          high-performance sites that people love delivered on time, every time.
+        <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-0 sm:mx-auto leading-relaxed animate-fade-in-up [animation-delay:200ms]">
+          Stop losing sales to slow checkouts and fragile themes. Let's build
+          something that converts.
         </p>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:300ms]">
           {/* Primary High-Contrast Button */}
           <ContactModal
-            triggerText={<>Book a Free Call</>}
+            triggerText={<>Get a Shopify Plus Audit</>}
             triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors"
           />
 

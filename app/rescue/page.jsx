@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title:
@@ -9,17 +10,19 @@ export const metadata = {
   description:
     "Vibe coding cleanup, AI-generated code rescue, and Core Web Vitals optimization. I stabilize Cursor/Copilot MVPs and fix slow Shopify/WordPress sites. 48-hour audit available.",
   alternates: {
-    canonical: "https://deepslog.com/rescue",
+    canonical: "/rescue",
   },
   openGraph: {
     title: "Emergency Code Rescue | Vibe Coding Cleanup & Speed Optimization",
     description:
       "Rescue AI-generated codebases and fix slow websites. 4× speed improvements, production-ready results.",
-    url: "https://deepslog.com/rescue",
+    url: `${SITE_URL}/rescue`,
     siteName: "Deepak Jangra",
     images: [
       {
-        url: "https://deepslog.com/og-rescue.png", // Before/after visual
+        // TODO: og-rescue.png doesn't exist yet ("Before/after visual" in
+        // the original). Using a real screenshot as a stopgap.
+        url: `${SITE_URL}/merkbart.png`,
         width: 1200,
         height: 630,
         alt: "Code Rescue Services - AI Cleanup & Speed Optimization",
@@ -36,18 +39,19 @@ export default function RescueHub() {
     "@graph": [
       {
         "@type": "Service",
-        "@id": "https://deepslog.com/rescue#service",
+        "@id": `${SITE_URL}/rescue#service`,
         name: "Emergency Web Development & Code Rescue",
         description:
           "Specialized rescue services for broken codebases, AI-generated messes, and performance failures",
         provider: {
-          "@id": "https://deepslog.com/#person",
+          "@id": `${SITE_URL}/#person`,
         },
         serviceType: [
           "AI Code Rescue",
           "Vibe Coding Cleanup",
           "Performance Optimization",
           "Technical Debt Reduction",
+          "Shopify Store Rescue",
         ],
         areaServed: {
           "@type": "Place",
@@ -61,20 +65,23 @@ export default function RescueHub() {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                "@id": "https://deepslog.com/rescue/vibe-coding#service",
+                "@id": `${SITE_URL}/rescue/vibe-coding#service`,
                 name: "Vibe Coding Cleanup",
                 description:
                   "Refactor AI-generated code from Cursor, Copilot, v0 into production-ready applications",
               },
-              price: "2500.00",
+              price: "2000.00",
               priceCurrency: "USD",
               priceValidUntil: "2026-12-31",
+              availability: "https://schema.org/InStock",
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                "@id": "https://deepslog.com/rescue/speed#service",
+                // Was "rescue/speed#service" — didn't match any real page.
+                // The actual route is /rescue/performance.
+                "@id": `${SITE_URL}/rescue/performance#service`,
                 name: "Speed & Core Web Vitals Rescue",
                 description:
                   "Fix slow websites, optimize Shopify/WordPress, guarantee sub-2-second loads",
@@ -82,41 +89,34 @@ export default function RescueHub() {
               price: "1500.00",
               priceCurrency: "USD",
               priceValidUntil: "2026-12-31",
+              availability: "https://schema.org/InStock",
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${SITE_URL}/rescue#shopify-service`,
+                name: "Shopify Store Rescue",
+                description:
+                  "Audit, stabilize, and document broken checkouts, overloaded themes, and messy app stacks on Shopify Plus stores",
+              },
+              price: "1500.00",
+              priceCurrency: "USD",
+              priceValidUntil: "2026-12-31",
+              availability: "https://schema.org/InStock",
             },
           ],
         },
       },
       {
         "@type": "WebPage",
-        "@id": "https://deepslog.com/rescue#webpage",
+        "@id": `${SITE_URL}/rescue#webpage`,
         name: "Emergency Code Rescue Services",
         description: "Stabilize broken codebases and fix slow websites",
-        url: "https://deepslog.com/rescue",
+        url: `${SITE_URL}/rescue`,
         mainEntity: {
-          "@id": "https://deepslog.com/rescue#service",
+          "@id": `${SITE_URL}/rescue#service`,
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://deepslog.com/rescue#faq",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What is vibe coding cleanup?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Vibe coding cleanup is the process of refactoring AI-generated code from tools like Cursor, Copilot, or v0 into production-ready, scalable applications. I specialize in stabilizing these codebases without rebuilding from scratch.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How much does a codebase audit cost?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "My 48-hour codebase audit is $2,500. This includes a comprehensive review of your repository, identification of critical issues, and a step-by-step roadmap for remediation.",
-            },
-          },
-        ],
       },
     ],
   };
@@ -147,9 +147,9 @@ export default function RescueHub() {
           </h1>
 
           <p className="animate-fade-in-up [animation-delay:200ms] text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Whether your AI-generated MVP is collapsing, your site is failing
-            Core Web Vitals, or your previous agency vanished—I step in,
-            stabilize the codebase, and get you to production.
+            Whether your Shopify store is breaking at scale, your AI-generated
+            checkout extension is a mess, or your previous developer disappeared
+            — I step in, stabilize the codebase, and get you back to selling.
           </p>
         </div>
       </section>
@@ -161,22 +161,25 @@ export default function RescueHub() {
             TRUSTED BY TEAMS BUILDING AT SCALE
           </p>
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 lg:gap-x-16 mb-10 w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500 animate-fade-in-up [animation-delay:400ms]">
-            <div className="font-bold text-xl tracking-tighter text-slate-800">
-              NXPRO
+            <div className="font-semibold text-xl tracking-tight text-slate-800">
+              GRAYMATTERSNYC
             </div>
-            <div className="font-semibold text-xl text-slate-800">
-              GRAYMATTERS
+            <div className="font-serif italic text-xl text-slate-800">
+              TheBusinessFashion
+            </div>
+            <div className="font-black text-xl lowercase italic tracking-tight text-slate-800">
+              Chasin Unicorns
+            </div>
+            <div className="font-bold text-xl tracking-tighter text-slate-800 uppercase">
+              XIDE
             </div>
             <div className="font-light font-serif tracking-widest text-xl text-slate-800">
               FAIRE
             </div>
-            <div className="font-black text-xl text-slate-800 uppercase tracking-tight">
-              Merkbart
-            </div>
 
-            {/* "+50 more" Badge */}
+            {/* "+25 more" Badge */}
             <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500">
-              +50 MORE
+              +25 MORE
             </div>
           </div>
         </div>
@@ -185,7 +188,7 @@ export default function RescueHub() {
       {/* 2. THE PATHWAYS (Routing to the Sniper Pages) */}
       <section className="py-24 bg-slate-50 relative z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8">
             {/* Pathway 1: Vibe Coding / AI Rescue (Dark Theme Card) */}
             <div className="animate-fade-in-up [animation-delay:500ms] group relative bg-slate-950 p-10 lg:p-12 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl hover:shadow-[0_0_40px_rgba(99,102,241,0.15)] transition-all duration-500 flex flex-col h-full">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[2rem_2rem] opacity-20"></div>
@@ -290,6 +293,189 @@ export default function RescueHub() {
                   </svg>
                 </Link>
               </div>
+            </div>
+
+            {/* Pathway 3: Shopify Store Rescue (Light/Indigo Theme Card) */}
+            <div className="animate-fade-in-up [animation-delay:700ms] group relative bg-white p-10 lg:p-12 rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-xl hover:shadow-[0_20px_40px_rgba(99,102,241,0.1)] transition-all duration-500 flex flex-col h-full">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10 grow">
+                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-8 border border-indigo-100 text-indigo-600 group-hover:scale-110 transition-transform duration-300">
+                  <svg
+                    className="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
+                  Shopify Store Rescue
+                </h2>
+                <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                  Broken checkout? Theme falling apart after too many app
+                  installs? Previous developer used a page builder that slowed
+                  your store to a crawl? I audit, stabilize, and document — so
+                  your team can maintain it without me.
+                </p>
+              </div>
+
+              <div className="relative z-10 mt-auto pt-8 border-t border-slate-100">
+                <ContactModal
+                  triggerText={
+                    <>
+                      Get a Store Audit
+                      <svg
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        ></path>
+                      </svg>
+                    </>
+                  }
+                  triggerStyle="inline-flex items-center gap-2 text-indigo-600 font-bold hover:text-indigo-700 transition-colors text-lg cursor-pointer"
+                  title="Get a Store Audit."
+                  subtitle="Broken checkout, slow theme, or a messy app stack? Tell me what's going on."
+                  subject="Shopify Store Audit Request"
+                  inputLabel="Store URL & Issues"
+                  inputPlaceholder="What's your store URL, and what's currently broken or slow?"
+                  calTitle="Need immediate triage?"
+                  calSubtitle="Grab the next available slot on my calendar. Let's look at the store together."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5 PROOF: NAMED RESCUE-STYLE WORK */}
+      <section className="py-24 bg-white relative border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3">
+              Recent Work
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              This isn't theoretical.
+            </h3>
+          </div>
+
+          <div className="bg-slate-50 border border-slate-200 rounded-[2.5rem] p-10 lg:p-14 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex-1">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 tracking-widest uppercase bg-indigo-100 text-indigo-700">
+                WooCommerce, Norway
+              </span>
+              <h4 className="text-2xl font-extrabold text-slate-900 mb-4">
+                MerkBart's admin panel froze for minutes every time a customer
+                uploaded logos.
+              </h4>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                Invoice generation timed out on bigger orders. Setting a sale
+                price meant editing hundreds of variants by hand. I rebuilt the
+                store from scratch, moved it off shared hosting onto AWS, and
+                replaced the broken plugins with custom ones built around how
+                the team actually works.
+              </p>
+              <Link
+                href="/work/merkbart"
+                className="inline-flex items-center gap-2 text-indigo-600 font-bold hover:text-indigo-700 transition-colors"
+              >
+                Read the full case study
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </Link>
+            </div>
+            <div className="flex lg:flex-col gap-6 lg:gap-8 shrink-0">
+              <div className="text-center">
+                <div className="text-4xl font-black text-indigo-600">~4×</div>
+                <div className="text-sm text-slate-500 font-medium mt-1">
+                  faster page loads
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-black text-indigo-600">2×</div>
+                <div className="text-sm text-slate-500 font-medium mt-1">
+                  sales, 3 months post-launch
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.75 HOW A RESCUE ENGAGEMENT WORKS */}
+      <section className="py-24 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3">
+              The Process
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              How a rescue engagement actually works.
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+              <div className="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center mb-4">
+                1
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-2">Audit</h4>
+              <p className="text-slate-600 leading-relaxed">
+                A real review of your repo or store, not a sales call. You get a
+                written list of what's actually broken, ranked by what's costing
+                you the most.
+              </p>
+            </div>
+            <div>
+              <div className="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center mb-4">
+                2
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-2">
+                Stabilize
+              </h4>
+              <p className="text-slate-600 leading-relaxed">
+                I fix what's actively bleeding money or breaking first, without
+                a ground-up rewrite unless one is genuinely needed. You keep
+                selling while it happens.
+              </p>
+            </div>
+            <div>
+              <div className="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center mb-4">
+                3
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-2">
+                Document & Hand Off
+              </h4>
+              <p className="text-slate-600 leading-relaxed">
+                You get documentation and a staging environment either way,
+                whether we keep working together or your team takes it from
+                here.
+              </p>
             </div>
           </div>
         </div>
