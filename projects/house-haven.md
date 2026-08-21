@@ -1,6 +1,6 @@
 ---
 title: House Haven
-website: https://www.househaven.co
+website: https://househaven.store
 platform: Shopify
 location: USA
 featured_image: /house-haven.png
@@ -40,9 +40,9 @@ Montserrat headings, transparent product renders, and store policies for returns
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Store | Nonexistent | Full Shopify store |
-| Products | No pages | Two complete product pages with copy |
-| Social proof | No reviews | Integrated client reviews |
-| Customer support | No FAQ | Comprehensive, admin-editable FAQ |
+| What changed     | Before      | After                                |
+| ---------------- | ----------- | ------------------------------------ |
+| Store            | Nonexistent | Full Shopify store                   |
+| Products         | No pages    | Two complete product pages with copy |
+| Social proof     | No reviews  | Integrated client reviews            |
+| Customer support | No FAQ      | Comprehensive, admin-editable FAQ    |

@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function Work() {
-  // Array of your projects to map through, keeping the code clean
   const projects = [
     {
       year: "2026",
@@ -10,7 +9,7 @@ export default function Work() {
       description:
         "Rebuilt homepage with custom theme sections, and improved collection page load speed by 3x.",
       tech: ["Shopify", "Liquid", "JavaScript"],
-      link: "the-business-fashion",
+      link: "thebusinessfashion",
     },
     {
       year: "2026",
@@ -19,7 +18,7 @@ export default function Work() {
       description:
         "Created export runbook and migration plan for an acquired footwear brand's Shopify Plus store. Products, orders, customers, Klaviyo lists, SMS consent, and SEO redirects, all scoped for zero data loss.",
       tech: ["Shopify Plus", "Klaviyo", "Data Migration"],
-      link: "footware-brand-migration",
+      link: "footwear-acquisition-migration",
     },
     {
       year: "2023",
