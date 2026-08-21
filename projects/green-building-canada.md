@@ -1,6 +1,6 @@
 ---
 title: Green Building Canada
-website: (Not publicly listed)
+website: https://greenbuildingcanada.ca
 platform: WordPress, Custom Plugin Development, Theme Development
 location: Canada
 featured_image: /green-building-canada.png
@@ -37,12 +37,12 @@ Beyond the automated feed, I built custom submission forms, account management v
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Listings source | Manual only | Automated government feed sync + manual |
-| Job data | Messy, unstructured | Clean, structured, searchable custom fields |
-| Content moderation | Fully manual | Significantly automated |
-| Submissions | Admin-only | Frontend submission system with moderation tools |
+| What changed       | Before              | After                                            |
+| ------------------ | ------------------- | ------------------------------------------------ |
+| Listings source    | Manual only         | Automated government feed sync + manual          |
+| Job data           | Messy, unstructured | Clean, structured, searchable custom fields      |
+| Content moderation | Fully manual        | Significantly automated                          |
+| Submissions        | Admin-only          | Frontend submission system with moderation tools |
 
 ## What the client said
 

@@ -1,6 +1,6 @@
 ---
 title: Prime Peptides
-website: https://www.primepeptides.store
+website: /work
 platform: Wix, Wix Velo, Node.js, REST API, HMAC Security, Crypto-Fiat Gateway
 location: United States
 featured_image: /primepeptides.png
@@ -44,12 +44,12 @@ I implemented unique cryptographic hashes for every line item to prevent duplica
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Payment processing | Unavailable through standard gateways | Live, secure credit-card-via-crypto-on-ramp checkout |
-| Order management | Manual reconciliation | Automated webhook-to-order sync, 100% reduction in manual management time |
-| Fee handling | N/A | Dynamic 5% fee calculated without breaking price checksums |
-| Security | N/A | HMAC-SHA256 verified webhooks, idempotent charge protection |
+| What changed       | Before                                | After                                                                     |
+| ------------------ | ------------------------------------- | ------------------------------------------------------------------------- |
+| Payment processing | Unavailable through standard gateways | Live, secure credit-card-via-crypto-on-ramp checkout                      |
+| Order management   | Manual reconciliation                 | Automated webhook-to-order sync, 100% reduction in manual management time |
+| Fee handling       | N/A                                   | Dynamic 5% fee calculated without breaking price checksums                |
+| Security           | N/A                                   | HMAC-SHA256 verified webhooks, idempotent charge protection               |
 
 ## The result
 
