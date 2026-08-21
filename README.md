@@ -1,2 +1,2 @@
 --
-deepslog.com
+deepslog.com | deepakj.dev
