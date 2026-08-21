@@ -3,7 +3,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import { SITE_URL, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
+import { SITE_URL, CONTACT_EMAIL, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 export const metadata = {
   title: "Deepak Jangra | Shopify Plus Developer | 9 Years Experience",
@@ -425,7 +425,7 @@ export default function AboutPage() {
               calSubtitle="Grab 15 minutes and we'll go over what I'd fix first."
             />
             <a
-              href="mailto:howdy@deepslog.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-800/50 border border-slate-700 rounded-xl hover:bg-slate-700 hover:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2"

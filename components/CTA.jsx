@@ -1,4 +1,5 @@
 import ContactModal from "./ContactModal";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export default function CTA() {
   return (
@@ -35,7 +36,7 @@ export default function CTA() {
 
           {/* Secondary Button */}
           <a
-            href="mailto:howdy@deepslog.com"
+            href={`mailto:${CONTACT_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-800/50 border border-slate-700 rounded-xl hover:bg-slate-700 hover:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2"
