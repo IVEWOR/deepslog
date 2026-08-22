@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import ClientLogos from "@/components/ClientLogos";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -110,36 +111,40 @@ export default function VibeCodingRescue() {
               title="Book a Codebase Audit."
               subtitle="Let's review your AI-generated prototype and map out a production-ready architecture."
               subject="AI Codebase Audit Request"
-              inputLabel="Project Context"
-              inputPlaceholder="What tools did you use (Cursor, v0, etc.), and where is the app currently breaking?"
+              fields={[
+                { name: "name", label: "Name", type: "text", required: true },
+                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "website",
+                  label: "Repo or Live Demo URL",
+                  type: "text",
+                  placeholder: "https://github.com/you/repo or a live link",
+                  required: false,
+                },
+                {
+                  name: "message",
+                  label: "Project Context",
+                  type: "textarea",
+                  placeholder:
+                    "What tools did you use (Cursor, v0, etc.), and where is the app currently breaking?",
+                  required: true,
+                },
+              ]}
               calTitle="Need immediate triage?"
               calSubtitle="Grab a slot on my calendar to walk through the repo together."
             />
           </div>
-          <div className="animate-fade-in-up [animation-delay:400ms] flex flex-col gap-4 mt-20">
-            <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6 animate-fade-in-up [animation-delay:400ms]">
-              Trusted by teams building at scale
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 hover:opacity-100 transition-all duration-500 animate-fade-in-up [animation-delay:500ms]">
-              <span className="font-semibold text-xl tracking-tight text-slate-300 hover:text-white transition-colors">
-                GRAYMATTERSNYC
-              </span>
-              <span className="font-serif italic text-xl text-slate-300 hover:text-white transition-colors">
-                TheBusinessFashion
-              </span>
-              <span className="font-black text-xl lowercase italic tracking-tight text-slate-300 hover:text-white transition-colors">
-                Chasin Unicorns
-              </span>
-              <span className="font-bold text-xl tracking-tighter uppercase text-slate-300 hover:text-white transition-colors">
-                XIDE
-              </span>
-              <span className="font-light font-serif tracking-widest text-xl text-slate-300 hover:text-white transition-colors">
-                FAIRE
-              </span>
-              <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-xs font-bold text-slate-400">
-                +25 MORE
-              </span>
-            </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-4 mt-20 animate-fade-in-up [animation-delay:400ms]">
+          <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">
+            Trusted by teams building at scale
+          </p>
+          <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-6 md:gap-x-12 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-50 hover:opacity-100 transition-all duration-500">
+            <ClientLogos variant="dark" />
+            <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-xs font-bold text-slate-400 whitespace-nowrap shrink-0">
+              +30 MORE
+            </span>
           </div>
         </div>
       </section>
@@ -333,13 +338,29 @@ export default function VibeCodingRescue() {
             refactored for production scale.
           </p>
           <ContactModal
-            triggerText="Get Immediate Help"
+            triggerText="Book Your Codebase Audit"
             triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
-            title="Emergency Rescue."
-            subtitle="Stop the bleeding. Tell me what's going wrong."
-            subject="URGENT: General Rescue Request"
-            inputLabel="What is broken?"
-            inputPlaceholder="Share details about the bugs, security flaws, or bad migrations so I can review it ASAP."
+            title="48-Hour Codebase Audit."
+            subtitle="Send your repo and I'll map out what needs to be refactored for production."
+            subject="AI Codebase Audit Request (Final CTA)"
+            fields={[
+              { name: "name", label: "Name", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "website",
+                label: "Repo or Live Demo URL",
+                type: "text",
+                placeholder: "https://github.com/you/repo or a live link",
+                required: false,
+              },
+              {
+                name: "message",
+                label: "What is broken?",
+                type: "textarea",
+                placeholder: "What tools did you use, and where is the app currently breaking?",
+                required: true,
+              },
+            ]}
             calTitle="Need immediate triage?"
             calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
           />

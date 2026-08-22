@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import ClientLogos from "@/components/ClientLogos";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -92,53 +93,58 @@ export default function AgencyPage() {
               title="Discuss a Pilot Project."
               subtitle="Let's test the waters. Send me the details of a small, fixed-price build."
               subject="Agency Pilot Project Inquiry"
-              inputLabel="Pilot Scope & Tech Stack"
-              inputPlaceholder="What is the tech stack (Next.js, Shopify, etc.), and what is the expected timeline?"
+              fields={[
+                { name: "name", label: "Name / Agency", type: "text", required: true },
+                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "techStack",
+                  label: "Tech Stack",
+                  type: "text",
+                  placeholder: "Next.js, Shopify, WordPress, etc.",
+                  required: true,
+                },
+                {
+                  name: "message",
+                  label: "Pilot Scope",
+                  type: "textarea",
+                  placeholder: "What's the project, and what's the expected timeline?",
+                  required: true,
+                },
+              ]}
               calTitle="Skip to a quick chat."
               calSubtitle="Grab 15 minutes to discuss the pilot scope and my current availability."
             />
           </div>
+        </div>
 
-          {/* Social Proof Above the Fold */}
-          <div className="animate-fade-in-up [animation-delay:400ms] pt-8 border-t border-slate-200/60 flex flex-col items-center">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
-              Trusted by leading agencies
+        {/* Social Proof Above the Fold */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 animate-fade-in-up [animation-delay:400ms] pt-8 border-t border-slate-200/60 flex flex-col items-center">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
+            Trusted by leading agencies
+          </p>
+          <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-6 md:gap-x-12 mb-10 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <ClientLogos variant="light" />
+            <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-300 bg-slate-100 text-xs font-bold text-slate-500 whitespace-nowrap shrink-0">
+              +30 MORE
+            </span>
+          </div>
+
+          {/* Testimonial Card */}
+          <div className="relative max-w-2xl w-full bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-2xl p-6 sm:p-8 shadow-xl shadow-indigo-100/10 text-left sm:text-center">
+            <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed mb-4">
+              "3+ years working with Deepak. He converts vague client ideas
+              into functional websites—zero hand-holding required."
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 mb-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              <span className="font-semibold text-xl lowercase tracking-tight text-slate-800">
-                creative mischief
-              </span>
-              <span className="font-bold text-xl tracking-tighter uppercase text-slate-800">
-                NXPRO
-              </span>
-              <span className="font-light font-serif tracking-widest text-xl text-slate-800">
-                Kulture Media Group
-              </span>
-              <span className="font-black text-xl uppercase tracking-tight text-slate-800">
-                FLWMS
-              </span>
-              <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-300 bg-slate-100 text-xs font-bold text-slate-500">
-                +8 MORE
-              </span>
-            </div>
-
-            {/* Testimonial Card */}
-            <div className="relative max-w-2xl w-full bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-2xl p-6 sm:p-8 shadow-xl shadow-indigo-100/10 text-left sm:text-center">
-              <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed mb-4">
-                "3+ years working with Deepak. He converts vague client ideas
-                into functional websites—zero hand-holding required."
-              </p>
-              <div className="flex items-center gap-3 justify-start sm:justify-center">
-                <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs">
-                  DK
-                </div>
-                <p className="text-sm font-bold text-slate-900">
-                  Dev Kumar A.{" "}
-                  <span className="text-slate-400 font-normal">
-                    | Business Manager @ NXPRO
-                  </span>
-                </p>
+            <div className="flex items-center gap-3 justify-start sm:justify-center">
+              <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs">
+                DK
               </div>
+              <p className="text-sm font-bold text-slate-900">
+                Dev Kumar A.{" "}
+                <span className="text-slate-400 font-normal">
+                  | Business Manager @ NXPRO
+                </span>
+              </p>
             </div>
           </div>
         </div>
@@ -465,8 +471,25 @@ export default function AgencyPage() {
             title="Book an Alignment Call."
             subtitle="Let's discuss your agency's workflow and overflow needs."
             subject="Agency Alignment Call Request"
-            inputLabel="Agency Details & Volume"
-            inputPlaceholder="What is your current stack, and what kind of monthly volume are you looking to offload?"
+            fields={[
+              { name: "name", label: "Name / Agency", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "volume",
+                label: "Monthly Volume / Team Size",
+                type: "text",
+                placeholder: "e.g. 2-3 client builds per month",
+                required: false,
+              },
+              {
+                name: "message",
+                label: "Agency Details",
+                type: "textarea",
+                placeholder:
+                  "What is your current stack, and what kind of overflow work are you looking to offload?",
+                required: true,
+              },
+            ]}
             calTitle="Ready to lock in a time?"
             calSubtitle="Pick a slot on my calendar to discuss how I can slot in as your technical partner."
           />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import ClientLogos from "@/components/ClientLogos";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -160,26 +161,12 @@ export default function RescueHub() {
           <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8 animate-fade-in-up [animation-delay:300ms]">
             TRUSTED BY TEAMS BUILDING AT SCALE
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 lg:gap-x-16 mb-10 w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500 animate-fade-in-up [animation-delay:400ms]">
-            <div className="font-semibold text-xl tracking-tight text-slate-800">
-              GRAYMATTERSNYC
-            </div>
-            <div className="font-serif italic text-xl text-slate-800">
-              TheBusinessFashion
-            </div>
-            <div className="font-black text-xl lowercase italic tracking-tight text-slate-800">
-              Chasin Unicorns
-            </div>
-            <div className="font-bold text-xl tracking-tighter text-slate-800 uppercase">
-              XIDE
-            </div>
-            <div className="font-light font-serif tracking-widest text-xl text-slate-800">
-              FAIRE
-            </div>
+          <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-6 lg:gap-x-12 mb-10 w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500 animate-fade-in-up [animation-delay:400ms]">
+            <ClientLogos variant="light" />
 
-            {/* "+25 more" Badge */}
-            <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500">
-              +25 MORE
+            {/* "+30 more" Badge */}
+            <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 whitespace-nowrap shrink-0">
+              +30 MORE
             </div>
           </div>
         </div>
@@ -350,8 +337,24 @@ export default function RescueHub() {
                   title="Get a Store Audit."
                   subtitle="Broken checkout, slow theme, or a messy app stack? Tell me what's going on."
                   subject="Shopify Store Audit Request"
-                  inputLabel="Store URL & Issues"
-                  inputPlaceholder="What's your store URL, and what's currently broken or slow?"
+                  fields={[
+                    { name: "name", label: "Name", type: "text", required: true },
+                    { name: "email", label: "Email", type: "email", required: true },
+                    {
+                      name: "website",
+                      label: "Store URL",
+                      type: "url",
+                      placeholder: "https://yourstore.com",
+                      required: true,
+                    },
+                    {
+                      name: "message",
+                      label: "What's broken or slow?",
+                      type: "textarea",
+                      placeholder: "Broken checkout, overloaded theme, messy app stack — what's going on?",
+                      required: true,
+                    },
+                  ]}
                   calTitle="Need immediate triage?"
                   calSubtitle="Grab the next available slot on my calendar. Let's look at the store together."
                 />
@@ -499,8 +502,25 @@ export default function RescueHub() {
             title="Emergency Rescue."
             subtitle="Stop the bleeding. Tell me what's going wrong."
             subject="URGENT: General Rescue Request"
-            inputLabel="What is broken?"
-            inputPlaceholder="Share details about the bugs, security flaws, or bad migrations so I can review it ASAP."
+            fields={[
+              { name: "name", label: "Name", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "website",
+                label: "Site or Repo URL",
+                type: "text",
+                placeholder: "https://yoursite.com or a repo link",
+                required: false,
+              },
+              {
+                name: "message",
+                label: "What is broken?",
+                type: "textarea",
+                placeholder:
+                  "Share details about the bugs, security flaws, or bad migrations so I can review it ASAP.",
+                required: true,
+              },
+            ]}
             calTitle="Need immediate triage?"
             calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
           />

@@ -32,6 +32,30 @@ export default function CTA() {
           <ContactModal
             triggerText={<>Get a Shopify Plus Audit</>}
             triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors"
+            title="Get your free Shopify Plus audit."
+            subtitle="Send your store and I'll tell you what to fix first. No pitch, no obligation."
+            subject="Shopify Plus Audit Request"
+            fields={[
+              { name: "name", label: "Name", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "website",
+                label: "Store URL",
+                type: "url",
+                placeholder: "https://yourstore.com",
+                required: true,
+              },
+              {
+                name: "message",
+                label: "What's going on?",
+                type: "textarea",
+                placeholder:
+                  "Slow checkout, buggy theme, scaling issues — what's the priority?",
+                required: true,
+              },
+            ]}
+            calTitle="Want to talk it through instead?"
+            calSubtitle="Grab 15 minutes and we'll go over what I'd fix first."
           />
 
           {/* Secondary Button */}

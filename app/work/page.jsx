@@ -124,8 +124,25 @@ export default function WorkPage() {
             title="Let's build yours next."
             subtitle="Currently accepting new projects for Q1."
             subject="New Project Inquiry (From Portfolio)"
-            inputLabel="Project Overview"
-            inputPlaceholder="Are you an agency needing overflow help, or a brand needing a rebuild?"
+            fields={[
+              { name: "name", label: "Name / Agency", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "website",
+                label: "Current Site (if any)",
+                type: "url",
+                placeholder: "https://yourstore.com",
+                required: false,
+              },
+              {
+                name: "message",
+                label: "Project Overview",
+                type: "textarea",
+                placeholder:
+                  "Are you an agency needing overflow help, or a brand needing a rebuild?",
+                required: true,
+              },
+            ]}
           />
 
           <div className="mt-12 flex items-center justify-center gap-3">

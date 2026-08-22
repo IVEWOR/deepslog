@@ -17,7 +17,26 @@ export default function ContactModal({
   inputPlaceholder = "What are we building?",
   calTitle = "Ready to move fast?",
   calSubtitle = "Skip the email back-and-forth. Grab 15 minutes to see if we're a fit.",
+
+  // Dynamic form fields. Defaults to the classic Name / Email / Details
+  // trio (built from inputLabel/inputPlaceholder above) so existing call
+  // sites that don't pass `fields` keep working unchanged. Pass a custom
+  // array to match whatever a given CTA actually needs (e.g. a website
+  // field for audit requests).
+  fields,
 }) {
+  const formFields =
+    fields || [
+      { name: "name", label: "Name / Agency", type: "text", required: true },
+      { name: "email", label: "Email", type: "email", required: true },
+      {
+        name: "message",
+        label: inputLabel,
+        type: "textarea",
+        placeholder: inputPlaceholder,
+        required: true,
+      },
+    ];
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -155,42 +174,36 @@ export default function ContactModal({
                     style={{ display: "none" }}
                   />
 
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-                      Name / Agency
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      name="name"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-                      Email
-                    </label>
-                    <input
-                      required
-                      type="email"
-                      name="email"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-                      {inputLabel}
-                    </label>
-                    <textarea
-                      required
-                      name="message"
-                      rows="3"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
-                      placeholder={inputPlaceholder}
-                    ></textarea>
-                  </div>
+                  {formFields.map((field) => (
+                    <div key={field.name}>
+                      <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                        {field.label}
+                        {field.required === false && (
+                          <span className="normal-case font-normal text-slate-600">
+                            {" "}
+                            (optional)
+                          </span>
+                        )}
+                      </label>
+                      {field.type === "textarea" ? (
+                        <textarea
+                          required={field.required !== false}
+                          name={field.name}
+                          rows={field.rows || 3}
+                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+                          placeholder={field.placeholder}
+                        ></textarea>
+                      ) : (
+                        <input
+                          required={field.required !== false}
+                          type={field.type || "text"}
+                          name={field.name}
+                          placeholder={field.placeholder}
+                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                        />
+                      )}
+                    </div>
+                  ))}
 
                   <button
                     type="submit"

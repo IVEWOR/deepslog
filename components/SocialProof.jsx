@@ -1,3 +1,5 @@
+import ClientLogos from "./ClientLogos";
+
 export default function SocialProof() {
   return (
     <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20">
@@ -8,27 +10,12 @@ export default function SocialProof() {
         </p>
 
         {/* Middle: Logo Cloud */}
-        <div className="flex flex-wrap justify-start sm:justify-center items-center gap-x-6 gap-y-5 sm:gap-x-8 lg:gap-x-16 mb-10 w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          {/* Logo Placeholders (Replace text with your actual SVGs or Image tags later) */}
-          <div className="font-semibold text-xl tracking-tight text-slate-800">
-            GRAYMATTERSNYC
-          </div>
-          <div className="font-serif italic text-xl text-slate-800">
-            TheBusinessFashion
-          </div>
-          <div className="font-black text-xl lowercase italic tracking-tight text-slate-800">
-            Chasin Unicorns
-          </div>
-          <div className="font-bold text-xl tracking-tighter text-slate-800 uppercase">
-            XIDE
-          </div>
-          <div className="font-light font-serif tracking-widest text-xl text-slate-800">
-            FAIRE
-          </div>
+        <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-5 sm:gap-x-8 lg:gap-x-12 mb-10 w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <ClientLogos variant="light" />
 
-          {/* "+25 more" Badge */}
-          <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500">
-            +25 MORE
+          {/* "+30 more" Badge */}
+          <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 whitespace-nowrap shrink-0">
+            +30 MORE
           </div>
         </div>
 

@@ -419,8 +419,24 @@ export default function AboutPage() {
               title="Send me your store URL."
               subtitle="I'll reply with what I'd fix first. No pitch, no obligation."
               subject="Free Store Audit Request (From About Page)"
-              inputLabel="Store URL"
-              inputPlaceholder="https://yourstore.com. Anything else I should know?"
+              fields={[
+                { name: "name", label: "Name", type: "text", required: true },
+                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "website",
+                  label: "Store URL",
+                  type: "url",
+                  placeholder: "https://yourstore.com",
+                  required: true,
+                },
+                {
+                  name: "message",
+                  label: "Anything else I should know?",
+                  type: "textarea",
+                  placeholder: "Rescue, rebuild, or just not sure yet — tell me where you're at.",
+                  required: false,
+                },
+              ]}
               calTitle="Want to talk it through instead?"
               calSubtitle="Grab 15 minutes and we'll go over what I'd fix first."
             />

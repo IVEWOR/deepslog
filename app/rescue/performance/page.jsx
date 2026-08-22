@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import ClientLogos from "@/components/ClientLogos";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -129,8 +130,24 @@ export default function PerformanceRescue() {
               title="Book a Performance Audit."
               subtitle="Let's diagnose your Core Web Vitals and map out a sub-second optimization plan."
               subject="Performance Audit Request"
-              inputLabel="Website Details"
-              inputPlaceholder="What is your URL, and what specific metrics are failing (e.g., LCP, CLS)?"
+              fields={[
+                { name: "name", label: "Name", type: "text", required: true },
+                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "website",
+                  label: "Website URL",
+                  type: "url",
+                  placeholder: "https://yoursite.com",
+                  required: true,
+                },
+                {
+                  name: "message",
+                  label: "What's failing?",
+                  type: "textarea",
+                  placeholder: "Which metrics are failing (e.g., LCP, CLS), and any context that helps?",
+                  required: false,
+                },
+              ]}
               calTitle="Ready to review metrics?"
               calSubtitle="Grab a slot on my calendar so we can look at your Lighthouse scores together."
             />
@@ -150,28 +167,12 @@ export default function PerformanceRescue() {
           <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8 animate-fade-in-up [animation-delay:400ms]">
             TRUSTED BY TEAMS BUILDING AT SCALE
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 animate-fade-in-up [animation-delay:500ms]">
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 hover:opacity-100 transition-all duration-500 animate-fade-in-up [animation-delay:500ms]">
-              <div className="font-semibold text-xl tracking-tight text-slate-800">
-                GRAYMATTERSNYC
-              </div>
-              <div className="font-serif italic text-xl text-slate-800">
-                TheBusinessFashion
-              </div>
-              <div className="font-black text-xl lowercase italic tracking-tight text-slate-800">
-                Chasin Unicorns
-              </div>
-              <div className="font-bold text-xl tracking-tighter text-slate-800 uppercase">
-                XIDE
-              </div>
-              <div className="font-light font-serif tracking-widest text-xl text-slate-800">
-                FAIRE
-              </div>
+          <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-6 md:gap-x-12 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-50 hover:opacity-100 transition-all duration-500 animate-fade-in-up [animation-delay:500ms]">
+            <ClientLogos variant="light" />
 
-              {/* "+25 more" Badge */}
-              <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500">
-                +25 MORE
-              </div>
+            {/* "+30 more" Badge */}
+            <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 whitespace-nowrap shrink-0">
+              +30 MORE
             </div>
           </div>
         </div>
@@ -490,8 +491,25 @@ export default function PerformanceRescue() {
             title="Emergency Speed Rescue."
             subtitle="Stop bleeding conversions. Let's fix your frontend."
             subject="URGENT: Performance Rescue Request"
-            inputLabel="Performance Bottlenecks"
-            inputPlaceholder="Share your URL and any specific issues (e.g., bloated JavaScript, slow third-party scripts)..."
+            fields={[
+              { name: "name", label: "Name", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "website",
+                label: "Website URL",
+                type: "url",
+                placeholder: "https://yoursite.com",
+                required: true,
+              },
+              {
+                name: "message",
+                label: "Bottlenecks",
+                type: "textarea",
+                placeholder:
+                  "Any specific issues (e.g., bloated JavaScript, slow third-party scripts)...",
+                required: false,
+              },
+            ]}
             calTitle="Need immediate triage?"
             calSubtitle="Grab the next available slot on my calendar to look at the codebase together."
           />

@@ -62,13 +62,30 @@ export default function Hero() {
             <ContactModal
               triggerText="Get a Shopify Audit"
               triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30"
-              title="Discuss a partnership."
-              subtitle="Let's scale your capacity. All work is strictly NDA."
-              subject="Agency Partnership Inquiry"
-              inputLabel="Agency Details & Needs"
-              inputPlaceholder="What is your current tech stack, and what kind of overflow volume are you looking to offload?"
-              calTitle="Book an alignment call."
-              calSubtitle="Let's discuss your agency's workflow and how I can slot in."
+              title="Get a free Shopify audit."
+              subtitle="Send your store and I'll tell you what to fix first. No pitch, no obligation."
+              subject="Shopify Audit Request (Homepage Hero)"
+              fields={[
+                { name: "name", label: "Name", type: "text", required: true },
+                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "website",
+                  label: "Shopify Store URL",
+                  type: "url",
+                  placeholder: "https://yourstore.com",
+                  required: true,
+                },
+                {
+                  name: "message",
+                  label: "What's going on?",
+                  type: "textarea",
+                  placeholder:
+                    "Slow checkout, buggy theme, scaling issues — what's the priority?",
+                  required: true,
+                },
+              ]}
+              calTitle="Want to talk it through instead?"
+              calSubtitle="Grab 15 minutes and we'll go over what I'd fix first."
             />
 
             <Link
