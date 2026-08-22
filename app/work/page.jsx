@@ -6,18 +6,18 @@ import { featuredProjects, additionalProjects } from "@/lib/work-projects";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Work & Case Studies | Deepak Jangra | 100+ Projects",
+  title: "Work & Case Studies | deepakj. | 100+ Projects",
   description:
     "Production-grade Shopify, Next.js, and WordPress builds for agencies. 4× speed improvements, 2× conversion increases. 9 years, 100+ projects delivered.",
   alternates: {
     canonical: "/work",
   },
   openGraph: {
-    title: "Portfolio | Deepak Jangra | High-Performance Web Apps",
+    title: "Portfolio | deepakj. | High-Performance Web Apps",
     description:
       "Case studies: 4× faster loads, 2× sales increases. Shopify, Next.js, WordPress for ambitious brands.",
     url: `${SITE_URL}/work`,
-    siteName: "Deepak Jangra",
+    siteName: "deepakj.",
     images: [
       {
         // TODO: og-work.png doesn't exist yet ("Create this: collage of
@@ -27,7 +27,7 @@ export const metadata = {
         url: `${SITE_URL}/merkbart.png`,
         width: 1200,
         height: 630,
-        alt: "Deepak Jangra Portfolio - 100+ Projects",
+        alt: "deepakj. Portfolio - 100+ Projects",
       },
     ],
     locale: "en_US",
@@ -44,7 +44,7 @@ export default function WorkPage() {
       {
         "@type": "CollectionPage",
         "@id": `${SITE_URL}/work#webpage`,
-        name: "Selected Work & Portfolio | Deepak Jangra",
+        name: "Selected Work & Portfolio | deepakj.",
         description:
           "Production-grade web applications built for agencies and startups",
         url: `${SITE_URL}/work`,
@@ -125,7 +125,12 @@ export default function WorkPage() {
             subtitle="Currently accepting new projects for Q1."
             subject="New Project Inquiry (From Portfolio)"
             fields={[
-              { name: "name", label: "Name / Agency", type: "text", required: true },
+              {
+                name: "name",
+                label: "Name / Agency",
+                type: "text",
+                required: true,
+              },
               { name: "email", label: "Email", type: "email", required: true },
               {
                 name: "website",

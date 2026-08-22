@@ -6,8 +6,7 @@ import ClientLogos from "@/components/ClientLogos";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title:
-    "Emergency Code Rescue | AI Cleanup & Speed Optimization | Deepak Jangra",
+  title: "Emergency Code Rescue | AI Cleanup & Speed Optimization | deepakj.",
   description:
     "Vibe coding cleanup, AI-generated code rescue, and Core Web Vitals optimization. I stabilize Cursor/Copilot MVPs and fix slow Shopify/WordPress sites. 48-hour audit available.",
   alternates: {
@@ -18,7 +17,7 @@ export const metadata = {
     description:
       "Rescue AI-generated codebases and fix slow websites. 4× speed improvements, production-ready results.",
     url: `${SITE_URL}/rescue`,
-    siteName: "Deepak Jangra",
+    siteName: "deepakj.",
     images: [
       {
         // TODO: og-rescue.png doesn't exist yet ("Before/after visual" in
@@ -338,8 +337,18 @@ export default function RescueHub() {
                   subtitle="Broken checkout, slow theme, or a messy app stack? Tell me what's going on."
                   subject="Shopify Store Audit Request"
                   fields={[
-                    { name: "name", label: "Name", type: "text", required: true },
-                    { name: "email", label: "Email", type: "email", required: true },
+                    {
+                      name: "name",
+                      label: "Name",
+                      type: "text",
+                      required: true,
+                    },
+                    {
+                      name: "email",
+                      label: "Email",
+                      type: "email",
+                      required: true,
+                    },
                     {
                       name: "website",
                       label: "Store URL",
@@ -351,7 +360,8 @@ export default function RescueHub() {
                       name: "message",
                       label: "What's broken or slow?",
                       type: "textarea",
-                      placeholder: "Broken checkout, overloaded theme, messy app stack — what's going on?",
+                      placeholder:
+                        "Broken checkout, overloaded theme, messy app stack — what's going on?",
                       required: true,
                     },
                   ]}

@@ -10,7 +10,7 @@ export default function AboutMe() {
           <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
             <Image
               src="/AAdeepak.png"
-              alt="Deepak Jangra, Shopify Plus developer"
+              alt="deepakj., Shopify Plus developer"
               fill
               className="object-cover"
             />

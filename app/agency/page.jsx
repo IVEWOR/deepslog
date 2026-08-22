@@ -13,7 +13,7 @@ export const metadata = {
     canonical: "/agency",
   },
   openGraph: {
-    title: "White-Label Development Services | Deepak Jangra",
+    title: "White-Label Development Services | deepakj.",
     description:
       "Scale your agency's development capacity with Next.js and Shopify, strictly under NDA.",
     url: "/agency",
@@ -94,8 +94,18 @@ export default function AgencyPage() {
               subtitle="Let's test the waters. Send me the details of a small, fixed-price build."
               subject="Agency Pilot Project Inquiry"
               fields={[
-                { name: "name", label: "Name / Agency", type: "text", required: true },
-                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "name",
+                  label: "Name / Agency",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "email",
+                  label: "Email",
+                  type: "email",
+                  required: true,
+                },
                 {
                   name: "techStack",
                   label: "Tech Stack",
@@ -107,7 +117,8 @@ export default function AgencyPage() {
                   name: "message",
                   label: "Pilot Scope",
                   type: "textarea",
-                  placeholder: "What's the project, and what's the expected timeline?",
+                  placeholder:
+                    "What's the project, and what's the expected timeline?",
                   required: true,
                 },
               ]}
@@ -132,8 +143,8 @@ export default function AgencyPage() {
           {/* Testimonial Card */}
           <div className="relative max-w-2xl w-full bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-2xl p-6 sm:p-8 shadow-xl shadow-indigo-100/10 text-left sm:text-center">
             <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed mb-4">
-              "3+ years working with Deepak. He converts vague client ideas
-              into functional websites—zero hand-holding required."
+              "3+ years working with Deepak. He converts vague client ideas into
+              functional websites—zero hand-holding required."
             </p>
             <div className="flex items-center gap-3 justify-start sm:justify-center">
               <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs">
@@ -472,7 +483,12 @@ export default function AgencyPage() {
             subtitle="Let's discuss your agency's workflow and overflow needs."
             subject="Agency Alignment Call Request"
             fields={[
-              { name: "name", label: "Name / Agency", type: "text", required: true },
+              {
+                name: "name",
+                label: "Name / Agency",
+                type: "text",
+                required: true,
+              },
               { name: "email", label: "Email", type: "email", required: true },
               {
                 name: "volume",

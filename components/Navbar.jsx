@@ -10,36 +10,8 @@ function ModernSparkLogo() {
   return (
     <div className="group flex items-baseline gap-0.5">
       <span className="text-2xl md:text-3xl font-black tracking-tighter text-slate-950 transition-colors">
-        deepak
+        deepakj
       </span>
-      <svg
-        className="w-5 h-5 md:w-6 md:h-6 transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] group-hover:rotate-90 group-hover:scale-110"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient
-            id="iridescent-spark"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="100%"
-          >
-            <stop offset="0%" stopColor="lab(54.1736% 13.3369 -74.6839)" />
-            <stop offset="100%" stopColor="lab(38.4009% 52.6132 -92.3857)" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0Z"
-          fill="url(#iridescent-spark)"
-        />
-        <path
-          d="M12 6C12 9.31371 14.6863 12 18 12C14.6863 12 12 14.6863 12 18C12 14.6863 9.31371 12 6 12C9.31371 12 12 9.31371 12 6Z"
-          fill="white"
-          className="opacity-40"
-        />
-      </svg>
     </div>
   );
 }

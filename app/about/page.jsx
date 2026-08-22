@@ -6,24 +6,24 @@ import ContactModal from "@/components/ContactModal";
 import { SITE_URL, CONTACT_EMAIL, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 export const metadata = {
-  title: "Deepak Jangra | Shopify Plus Developer | 9 Years Experience",
+  title: "deepakj. | Shopify Plus Developer | 9 Years Experience",
   description:
-    "Deepak Jangra is a Shopify Plus developer with 9 years of experience. Custom apps, checkout extensions, headless storefronts, and store rescues for scaling merchants.",
+    "deepakj. is a Shopify Plus developer with 9 years of experience. Custom apps, checkout extensions, headless storefronts, and store rescues for scaling merchants.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "Deepak Jangra | Shopify Plus Developer",
+    title: "deepakj. | Shopify Plus Developer",
     description:
       "9 years building custom apps, checkout extensions, and headless storefronts for scaling Shopify Plus merchants.",
     url: `${SITE_URL}/about`,
-    siteName: "Deepak Jangra",
+    siteName: "deepakj.",
     images: [
       {
         url: `${SITE_URL}/headshot.png`,
         width: 800,
         height: 800,
-        alt: "Deepak Jangra - Shopify Plus Developer",
+        alt: "deepakj. - Shopify Plus Developer",
       },
     ],
     locale: "en_US",
@@ -35,7 +35,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deepak Jangra | Shopify Plus Developer",
+    title: "deepakj. | Shopify Plus Developer",
     description: "9 years, 100+ projects, Shopify Plus merchants",
     images: [`${SITE_URL}/headshot.png`],
   },
@@ -48,7 +48,7 @@ export default function AboutPage() {
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
-        name: "Deepak Jangra",
+        name: "deepakj.",
         givenName: "Deepak",
         familyName: "Jangra",
         jobTitle: "Shopify Plus Developer",
@@ -74,7 +74,7 @@ export default function AboutPage() {
       {
         "@type": "WebPage",
         "@id": `${SITE_URL}/about#webpage`,
-        name: "About Deepak Jangra",
+        name: "About deepakj.",
         description:
           "9+ year journey building high-performance web applications",
         url: `${SITE_URL}/about`,
@@ -164,7 +164,7 @@ export default function AboutPage() {
               <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 md:shadow-2xl bg-white">
                 <Image
                   src="/AAdeepak.png"
-                  alt="Deepak Jangra"
+                  alt="deepakj."
                   fill
                   className="object-cover"
                   priority
@@ -195,7 +195,7 @@ export default function AboutPage() {
             <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
               <Image
                 src="/AAdeepak.png"
-                alt="Deepak Jangra"
+                alt="deepakj."
                 fill
                 className="object-cover"
                 priority
@@ -206,8 +206,8 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        I'm Deepak Jangra, a Shopify Plus developer with 9 years of experience.
-        I help merchants who've outgrown their theme fix what's broken, scale
+        I'm deepakj., a Shopify Plus developer with 9 years of experience. I
+        help merchants who've outgrown their theme fix what's broken, scale
         what's working, and build custom apps, checkout extensions, and headless
         storefronts that off-the-shelf apps can't touch.
       </span>
@@ -272,7 +272,7 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        Deepak Jangra is a Shopify Plus developer specializing in custom apps,
+        deepakj. is a Shopify Plus developer specializing in custom apps,
         checkout extensions, headless storefronts, and store rescues. 9 years
         experience. 100+ projects delivered.
       </span>
@@ -421,7 +421,12 @@ export default function AboutPage() {
               subject="Free Store Audit Request (From About Page)"
               fields={[
                 { name: "name", label: "Name", type: "text", required: true },
-                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "email",
+                  label: "Email",
+                  type: "email",
+                  required: true,
+                },
                 {
                   name: "website",
                   label: "Store URL",
@@ -433,7 +438,8 @@ export default function AboutPage() {
                   name: "message",
                   label: "Anything else I should know?",
                   type: "textarea",
-                  placeholder: "Rescue, rebuild, or just not sure yet — tell me where you're at.",
+                  placeholder:
+                    "Rescue, rebuild, or just not sure yet — tell me where you're at.",
                   required: false,
                 },
               ]}

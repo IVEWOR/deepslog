@@ -11,18 +11,18 @@ import Footer from "@/components/Footer";
 import { SITE_URL, ORG_NAME, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 export const metadata = {
-  title: "Deepak Jangra — Independent Shopify Plus Developer",
+  title: "deepakj. — Independent Shopify Plus Developer",
   description:
-    "Deepak Jangra is an independent contractor and Shopify Plus developer with 9+ years of experience building fast, revenue-driving Shopify stores for merchants and agencies. Available for new projects.",
+    "deepakj. is an independent contractor and Shopify Plus developer with 9+ years of experience building fast, revenue-driving Shopify stores for merchants and agencies. Available for new projects.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Deepak Jangra — Independent Shopify Plus Developer",
+    title: "deepakj. — Independent Shopify Plus Developer",
     description:
       "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
     url: SITE_URL,
-    siteName: "Deepak Jangra",
+    siteName: "deepakj.",
     images: [
       {
         // TODO: og-image.jpg doesn't exist yet (was marked "pending" in
@@ -32,7 +32,7 @@ export const metadata = {
         url: `${SITE_URL}/deepak.jpg`,
         width: 1200,
         height: 630,
-        alt: "Deepak Jangra - Independent Shopify Plus Developer",
+        alt: "deepakj. - Independent Shopify Plus Developer",
       },
     ],
     locale: "en_US",
@@ -40,7 +40,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deepak Jangra — Independent Shopify Plus Developer",
+    title: "deepakj. — Independent Shopify Plus Developer",
     description:
       "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
     images: [`${SITE_URL}/deepak.jpg`],
@@ -64,7 +64,7 @@ export default function Home() {
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
-        name: "Deepak Jangra",
+        name: "deepakj.",
         jobTitle: "Independent Shopify Plus Developer",
         description:
           "Independent contractor and Shopify Plus developer with 9+ years of experience building and rescuing high-performance Shopify stores for merchants and agencies.",
@@ -121,9 +121,9 @@ export default function Home() {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: "Deepak Jangra — Independent Shopify Plus Developer",
+        name: "deepakj. — Independent Shopify Plus Developer",
         description:
-          "Portfolio and services of Deepak Jangra, independent Shopify Plus developer.",
+          "Portfolio and services of deepakj., independent Shopify Plus developer.",
         inLanguage: "en-US",
         publisher: {
           "@id": `${SITE_URL}/#organization`,

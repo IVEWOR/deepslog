@@ -49,7 +49,7 @@ export default function Hero() {
             <div className="relative aspect-square rounded-full overflow-hidden border border-slate-100 bg-white">
               <Image
                 src="/AAdeepak.png"
-                alt="Deepak Jangra"
+                alt="deepakj."
                 fill
                 className="object-cover"
                 priority
@@ -67,7 +67,12 @@ export default function Hero() {
               subject="Shopify Audit Request (Homepage Hero)"
               fields={[
                 { name: "name", label: "Name", type: "text", required: true },
-                { name: "email", label: "Email", type: "email", required: true },
+                {
+                  name: "email",
+                  label: "Email",
+                  type: "email",
+                  required: true,
+                },
                 {
                   name: "website",
                   label: "Shopify Store URL",
@@ -116,7 +121,7 @@ export default function Hero() {
             <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400">
               <Image
                 src="/AAdeepak.png"
-                alt="Deepak Jangra"
+                alt="deepakj."
                 fill
                 className="object-cover"
                 priority
