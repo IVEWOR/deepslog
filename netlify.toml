@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://deepslog.com/*"
+  to = "https://deepakj.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://deepslog.com/*"
+  to = "https://deepakj.dev/:splat"
+  status = 301
+  force = true
