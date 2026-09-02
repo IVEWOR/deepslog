@@ -10,7 +10,7 @@ export default function Process() {
       number: "02",
       title: "Staging & Setup",
       description:
-        "I review your current storefront, theme, and apps, and flag performance and conversion bottlenecks before writing a line of code.",
+        "I set up a clean staging environment and confirm scope, timeline, and rollback plan before touching the live store.",
     },
     {
       number: "03",
@@ -26,64 +26,52 @@ export default function Process() {
     },
   ];
 
+  // Fixed per column — mobile stacks 1-up, sm pairs 2-up, lg is a single row of 4.
+  const stepBorders = [
+    "border-b lg:border-b-0",
+    "border-b sm:border-l lg:border-b-0",
+    "border-b sm:border-b-0 lg:border-l",
+    "sm:border-l",
+  ];
+
   return (
-    <section id="process" className="py-24 lg:py-32 bg-white relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-left sm:text-center max-w-3xl mx-0 sm:mx-auto mb-16 lg:mb-24">
-          <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3 animate-fade-in-up [animation-delay:100ms]">
+    <section
+      id="process"
+      className="bg-[var(--color-paper)] border-b border-[color:var(--color-line)]"
+    >
+      {/* Header */}
+      <div className="flex flex-col gap-6 px-[clamp(1.5rem,4vw,4rem)] py-14 lg:flex-row lg:items-end lg:justify-between lg:py-20">
+        <div>
+          <span className="label animate-fade-in-up [animation-delay:100ms]">
             How I Work
+          </span>
+          <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:200ms]">
+            A transparent process,{" "}
+            <span className="accent">zero surprises.</span>
           </h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight animate-fade-in-up [animation-delay:200ms]">
-            A transparent process <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
-              with zero surprises.
-            </span>
-          </h3>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed animate-fade-in-up [animation-delay:300ms]">
-            I don't disappear for weeks and deliver spaghetti code. My workflow
-            is designed for merchants who need to keep selling while their store
-            gets rebuilt.
-          </p>
         </div>
+        <p className="body-sm max-w-sm text-[color:var(--color-muted)] lg:text-right animate-fade-in-up [animation-delay:300ms]">
+          I don&rsquo;t disappear for weeks and deliver spaghetti code. My
+          workflow is designed for merchants who need to keep selling while
+          their store gets rebuilt.
+        </p>
+      </div>
 
-        {/* Process Steps */}
-        <div className="relative">
-          {/* Desktop Connecting Line */}
-          <div className="hidden lg:block absolute top-[2.75rem] left-0 w-full h-[2px] bg-slate-100 z-0"></div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8 relative z-10">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="animate-fade-in-up group relative flex flex-col items-start text-left"
-                style={{ animationDelay: `${400 + index * 150}ms` }}
-              >
-                {/* Step Number Badge */}
-                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white border-[6px] border-white shadow-xl shadow-slate-200/50 flex items-center justify-center mb-6 lg:mb-8 relative z-10 group-hover:-translate-y-2 transition-transform duration-300">
-                  <div className="w-full h-full rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-colors duration-300">
-                    <span className="text-2xl font-bold text-slate-400 group-hover:text-white transition-colors duration-300">
-                      {step.number}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-indigo-600 transition-colors duration-300">
-                  {step.title}
-                </h4>
-                <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
-                  {step.description}
-                </p>
-
-                {/* Mobile Connecting Line (Downwards arrow on small screens) */}
-                {index !== steps.length - 1 && (
-                  <div className="lg:hidden mt-8 ml-10 w-[2px] h-12 bg-gradient-to-b from-slate-200 to-transparent"></div>
-                )}
-              </div>
-            ))}
+      {/* Steps */}
+      <div className="grid grid-cols-1 border-t border-[color:var(--color-border-light)] sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step, index) => (
+          <div
+            key={step.number}
+            className={`animate-fade-in-up border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${stepBorders[index]}`}
+            style={{ animationDelay: `${400 + index * 150}ms` }}
+          >
+            <span className="stat-number text-[1.5rem]">{step.number}</span>
+            <h4 className="mt-4">{step.title}</h4>
+            <p className="body-sm mt-3 text-[color:var(--color-muted)]">
+              {step.description}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

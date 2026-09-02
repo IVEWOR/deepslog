@@ -1,65 +1,58 @@
-import ClientLogos from "./ClientLogos";
+import Link from "next/link";
+
+// Placeholder routes — confirm real case-study slugs, use null for clients
+// without a live case study page.
+const CLIENTS = [
+  { name: "Merkbart", href: "/work/merkbart" },
+  { name: "Gray _Matters", href: "/work/graymattersnyc" },
+  { name: "The Business Fashion", href: "/work/thebusinessfashion" },
+  { name: "Faire", href: "/work/faire" },
+  { name: "Chasin' Unicorns", href: "/work/chasin-unicorns" },
+  { name: "The Collection", href: "/work/darkestfox" },
+  { name: "LEO Eyewear", href: "/work/leoeyewear" },
+];
+
+const nameClasses =
+  "text-[clamp(0.8rem,2vw,0.8rem)] font-[family-name:var(--font-display)]  uppercase text-[var(--color-paper)]/90! font-[600]";
+
+function MarqueeTrack() {
+  return (
+    <>
+      {CLIENTS.map((client, i) =>
+        client.href ? (
+          <Link
+            key={`${client.name}-${i}`}
+            href={client.href}
+            className={`${nameClasses}`}
+          >
+            {client.name}
+          </Link>
+        ) : (
+          <span key={`${client.name}-${i}`} className={`${nameClasses}`}>
+            {client.name}
+          </span>
+        ),
+      )}
+    </>
+  );
+}
 
 export default function SocialProof() {
   return (
-    <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-      <div className="animate-fade-in-up [animation-delay:700ms] flex flex-col items-start sm:items-center">
-        {/* Top: Trusted By Text */}
-        <p className="text-sm font-semibold text-slate-400 uppercase tracking-wide sm:tracking-widest mb-6 text-left sm:text-center">
+    <section className="bg-(--color-ink) md:flex items-center md:h-10 py-2">
+      <div className="px-[clamp(1.5rem,4vw,4rem)] md:border-r border-r-(--color-ink-surface-line) hidden md:block">
+        <span className="label md:block md:w-max text-(--color-ink-surface-muted)!">
           Trusted by Shopify Merchants
-        </p>
+        </span>
+      </div>
 
-        {/* Middle: Logo Cloud */}
-        <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-5 sm:gap-x-8 lg:gap-x-12 mb-10 w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          <ClientLogos variant="light" />
-
-          {/* "+30 more" Badge */}
-          <div className="flex items-center justify-center px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 whitespace-nowrap shrink-0">
-            +30 MORE
-          </div>
-        </div>
-
-        {/* Bottom: Testimonial Card */}
-        <div className="relative max-w-3xl w-full bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-2xl p-6 sm:p-8 shadow-xl shadow-indigo-100/10">
-          {/* Decorative Quote Icon in the background */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 text-indigo-100 opacity-50 pointer-events-none">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
-            </svg>
-          </div>
-
-          <div className="relative z-10 flex flex-col items-start sm:items-center text-left sm:text-center">
-            <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed mb-4">
-              "He built our web app from scratch, both backend and frontend.
-              Very happy with the result—quick and excellent at finding
-              solutions to complex issues."
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs">
-                FJ
-              </div>
-              <p className="text-sm font-bold text-slate-900">
-                Filip J{" "}
-                <span className="text-slate-400 font-normal">| MERKBART</span>
-              </p>
-            </div>
-
-            {/* Result Badge */}
-            <div className="mt-5 pt-5 border-t border-slate-200/60 flex items-center gap-2">
-              <span className="text-xl sm:text-2xl font-black text-indigo-600">
-                2X
-              </span>
-              <span className="text-sm font-semibold text-slate-600 text-left">
-                conversion rate within 90 days of re-launch
-              </span>
-            </div>
-          </div>
+      <div className="relative flex items-center overflow-hidden">
+        <div
+          className="animate-marquee motion-reduce:animate-none flex w-max items-center gap-x-10 whitespace-nowrap hover:[animation-play-state:paused] sm:gap-x-20"
+          style={{ animationDuration: "55s" }}
+        >
+          <MarqueeTrack />
+          <MarqueeTrack />
         </div>
       </div>
     </section>

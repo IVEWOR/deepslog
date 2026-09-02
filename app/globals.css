@@ -7,8 +7,17 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans:
+    var(--font-pp-text), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:
+    var(--font-geist-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+  --font-display:
+    var(--font-pp-display), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -44,10 +53,8 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* === THE FIX: Custom Animations === */
 @layer utilities {
   .animate-fade-in-up {
-    /* 'forwards' ensures it stays visible at 100% opacity */
     animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
@@ -77,7 +84,6 @@
     transform: scale(1);
   }
 }
-/* ================================== */
 
 :root {
   --radius: 0.625rem;
@@ -152,9 +158,329 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
+}
+
+/* Design tokens — Swiss / International Typographic Style
+   Fonts: PP Neue Montreal (display + text), Geist Mono (UI/mono) */
+:root {
+  --color-paper: #f8f5f0;
+  --color-ink: #17140f;
+  --color-muted: #6b6255;
+  --color-border-light: #cdcdcd;
+  --color-accent: #9a3a24;
+  --color-accent-dim: #b8543a;
+  --color-line: var(--color-ink);
+  --color-status-live: #6db06a;
+
+  --color-ink-surface: #17140f;
+  --color-ink-surface-text: var(--color-paper);
+  --color-ink-surface-muted: #a89f8f;
+  --color-ink-surface-line: #3a352a;
+
+  --font-display:
+    var(--font-pp-display), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body:
+    var(--font-pp-text), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:
+    var(--font-geist-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+
+  /* PP Neue Montreal ships 400/600/800 — no true 700, so
+     display-bold maps to 600 and display-black to 800.
+     Body (PP Neue Montreal Text) ships 400 only. */
+  --weight-display-bold: 600;
+  --weight-display-black: 800;
+  --weight-body-regular: 400;
+  --weight-body-medium: 400;
+  --weight-mono-regular: 400;
+  --weight-mono-medium: 500;
+  --weight-mono-bold: 600;
+
+  /* Tracking is the hierarchy signal: tight on display type,
+     natural on body, wide on mono labels/UI. Don't flatten this. */
+  --tracking-display-lg: -0.02em;
+  --tracking-display: -0.01em;
+  --tracking-body: 0em;
+  --tracking-label: 0.14em;
+  --tracking-ui: 0.05em;
+  --tracking-stat: 0.02em;
+
+  --text-display-xl: clamp(2.2rem, 5vw, 3.75rem);
+  --leading-display-xl: 1.4;
+
+  --text-display-lg: clamp(1.8rem, 3.4vw, 2.625rem);
+  --leading-display-lg: 1.3;
+
+  --text-display-md: 1.375rem;
+  --leading-display-md: 1.2;
+
+  --text-display-sm: 1.125rem;
+  --leading-display-sm: 1.25;
+
+  --text-stat-lg: 2rem;
+  --leading-stat-lg: 1;
+
+  --text-body-lg: 0.9375rem;
+  --leading-body-lg: 1.7;
+
+  --text-body-md: 0.875rem;
+  --leading-body-md: 1.65;
+
+  --text-body-sm: 0.8125rem;
+  --leading-body-sm: 1.6;
+
+  --text-label: 0.6875rem;
+  --leading-label: 1.4;
+
+  --text-ui: 0.75rem;
+  --leading-ui: 1;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  --content-max-width: 1240px;
+  --border-width: 1px;
+  --border-width-heavy: 2px;
+
+  --radius: 0px;
+  --shadow: none;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 120ms;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-regular);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body-md);
+  letter-spacing: var(--tracking-body);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display-bold);
+  font-size: var(--text-display-xl);
+  line-height: var(--leading-display-xl);
+  letter-spacing: var(--tracking-display-lg);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display-bold);
+  font-size: var(--text-display-lg);
+  line-height: var(--leading-display-lg);
+  letter-spacing: var(--tracking-display);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display-bold);
+  font-size: var(--text-display-md);
+  line-height: var(--leading-display-md);
+  letter-spacing: var(--tracking-display);
+}
+
+h4 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display-bold);
+  font-size: var(--text-display-sm);
+  line-height: var(--leading-display-sm);
+  letter-spacing: var(--tracking-display);
+}
+
+p {
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-regular);
+  color: var(--color-muted);
+  letter-spacing: var(--tracking-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono-medium);
+  font-size: var(--text-label);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.ui-text {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono-bold);
+  font-size: var(--text-ui);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-ui);
+  text-transform: uppercase;
+}
+
+.stat-caption {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono-regular);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-stat);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display-black);
+  font-size: var(--text-stat-lg);
+  line-height: var(--leading-stat-lg);
+  color: var(--color-accent);
+}
+
+.body-lg {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+}
+.body-md {
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body-md);
+}
+.body-sm {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body-sm);
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.hairline-border {
+  border: var(--border-width) solid var(--color-line);
+}
+.hairline-border-top {
+  border-top: var(--border-width) solid var(--color-line);
+}
+.hairline-border-right {
+  border-right: var(--border-width) solid var(--color-line);
+}
+.hairline-border-bottom {
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+
+.wrap {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  border-left: var(--border-width) solid var(--color-line);
+  border-right: var(--border-width) solid var(--color-line);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono-bold);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-ui);
+  text-transform: uppercase;
+  padding: var(--space-4) var(--space-7);
+  border-radius: var(--radius);
+  border: var(--border-width) solid transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease),
+    border-color var(--duration-fast) var(--ease);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-paper);
+  border-color: var(--color-accent);
+}
+.btn-primary:hover {
+  background: var(--color-paper);
+  color: var(--color-accent);
+}
+
+.btn-secondary {
+  border-color: var(--color-line);
+  color: var(--color-ink);
+}
+.btn-secondary:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Slide-in underline for text links (nav, "See Case Studies", footer) */
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms var(--ease);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.surface-inverted {
+  background: var(--color-ink-surface);
+  color: var(--color-ink-surface-text);
+}
+.surface-inverted p {
+  color: var(--color-ink-surface-muted);
+}
+.surface-inverted .hairline-border,
+.surface-inverted .hairline-border-top,
+.surface-inverted .hairline-border-bottom,
+.surface-inverted .hairline-border-right {
+  border-color: var(--color-ink-surface-line);
 }
 
 @keyframes gradientAnimation {
@@ -169,7 +495,6 @@
   }
 }
 
-/* === Marquee Animation Keyframes === */
 @keyframes marquee {
   from {
     transform: translateX(0%);

@@ -1,11 +1,13 @@
-import { Funnel_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { ppNeueMontreal, ppNeueMontrealText, geistMono } from "./fonts";
 import { SITE_URL } from "@/lib/site";
 
-const funnelDisplay = Funnel_Display({
-  subsets: ["latin"],
-});
+const fontVars = [
+  ppNeueMontreal.variable,
+  ppNeueMontrealText.variable,
+  geistMono.variable,
+].join(" ");
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -47,8 +49,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
-      <body className={funnelDisplay.className}>
+    <html
+      lang="en"
+      className={`${fontVars} scroll-smooth`}
+      data-scroll-behavior="smooth"
+    >
+      <body>
         {children}
         <Script
           src="https://static.cloudflareinsights.com/beacon.min.js"

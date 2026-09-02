@@ -1,70 +1,42 @@
 import Link from "next/link";
-import Image from "next/image";
 import ContactModal from "./ContactModal";
+
+const STATS = [
+  { value: "9+", label: "Years of Experience" },
+  { value: "30+", label: "Shopify Stores Shipped" },
+  { value: "40+", label: "Checkout Optimizations" },
+];
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      {/* Subtle Background Grid & Glow */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-size-[4rem_4rem]">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_600px_at_50%_100px,#e0e7ff,transparent)]"></div>
-      </div>
+    <section className="bg-(--color-paper) border-b border-[color:var(--color-line)]">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        {/* LEFT: pitch */}
+        <div className="flex flex-col border-b border-[color:var(--color-line)] py-6 sm:py-10 lg:border-b-0 lg:border-r border-r-(--color-border-light) lg:py-14 px-[clamp(1.5rem,4vw,4rem)]">
+          <span className="label animate-fade-in-up [animation-delay:100ms]">
+            Shopify Development
+          </span>
 
-      {/* Changed flex-col-reverse to flex-col to allow custom ordering */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
-        {/* Left Column: Copy & Buttons (Kept flex-3, added flex-col for ordering) */}
-        <div className="flex-3 text-left flex flex-col w-full">
-          {/* 1. TEXT SECTION (order-1) */}
-          <div className="order-1">
-            <h1 className="animate-fade-in-up [animation-delay:100ms] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight mb-5 sm:mb-6 leading-[1.1]">
-              I build
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
-                &nbsp;Shopify Plus stores{" "}
-              </span>
-              <br className="hidden sm:block" />
-              that scale.
-            </h1>
+          <h1
+            className="mt-6 max-w-[820px] animate-fade-in-up [animation-delay:150ms] uppercase"
+            style={{ fontWeight: "var(--weight-display-black)" }}
+          >
+            I build <span className="accent block">Shopify stores</span> that
+            scale.
+          </h1>
 
-            <p className="animate-fade-in-up [animation-delay:250ms] text-base sm:text-lg lg:text-xl text-slate-600 mb-8 max-w-2xl mx-0 leading-relaxed">
-              Senior full-stack engineering for Shopify merchants who need
-              speed, checkout conversion, and code that holds up at Plus-level
-              traffic.
-            </p>
+          <p className="body-lg mt-6 max-w-[560px] animate-fade-in-up [animation-delay:250ms]">
+            I help Shopify merchants build, rebuild, and fix stores where
+            performance, conversion, and custom functionality actually matter.
+          </p>
 
-            <div className="animate-fade-in-up [animation-delay:400ms] flex items-center justify-start gap-2.5 sm:gap-3 mb-10 text-sm font-medium text-slate-500 flex-wrap">
-              <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700">
-                9 Years
-              </span>
-              <span>•</span>
-              <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700">
-                Shopify Plus
-              </span>
-              <span>•</span>
-              <span>Hydrogen, Checkout Extensibility, Liquid</span>
-            </div>
-          </div>
-
-          {/* 2. MOBILE IMAGE (order-2: Visible only on mobile, hidden on lg screens) */}
-          {/* <div className="order-2 lg:hidden animate-fade-in [animation-delay:300ms] w-full max-w-60 mx-auto mb-10 relative">
-            <div className="relative aspect-square rounded-full overflow-hidden border border-slate-100 bg-white">
-              <Image
-                src="/AAdeepak.png"
-                alt="deepakj."
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div> */}
-
-          {/* 3. ACTION BUTTONS (order-3: Kept your exact classes and SVG updates) */}
-          <div className="order-3 animate-fade-in-up [animation-delay:550ms] flex flex-col sm:flex-row items-center justify-start gap-4">
+          <div className="mt-10 flex flex-col items-start gap-6 animate-fade-in-up [animation-delay:350ms] sm:flex-row sm:items-center">
             <ContactModal
-              triggerText="Get a Shopify Audit"
-              triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30"
-              title="Get a free Shopify audit."
-              subtitle="Send your store and I'll tell you what to fix first. No pitch, no obligation."
-              subject="Shopify Audit Request (Homepage Hero)"
+              triggerText="Start a Project"
+              triggerStyle="btn btn-primary w-full sm:w-auto"
+              title="Start a project."
+              subtitle="Tell me what you're building or what's broken. I'll reply within a day."
+              subject="New Project Inquiry (Homepage Hero)"
               fields={[
                 { name: "name", label: "Name", type: "text", required: true },
                 {
@@ -78,57 +50,116 @@ export default function Hero() {
                   label: "Shopify Store URL",
                   type: "url",
                   placeholder: "https://yourstore.com",
-                  required: true,
+                  required: false,
                 },
                 {
                   name: "message",
-                  label: "What's going on?",
+                  label: "What do you need?",
                   type: "textarea",
                   placeholder:
-                    "Slow checkout, buggy theme, scaling issues — what's the priority?",
+                    "New build, replatform, performance, checkout, custom app — what's the priority?",
                   required: true,
                 },
               ]}
-              calTitle="Want to talk it through instead?"
-              calSubtitle="Grab 15 minutes and we'll go over what I'd fix first."
+              calTitle="Rather talk it through?"
+              calSubtitle="Grab 15 minutes and we'll go over what to tackle first."
             />
 
             <Link
               href="/work"
-              className="w-full sm:w-auto px-8 py-4 text-base font-medium text-slate-600 hover:text-slate-900 transition-colors underline-offset-4 hover:underline flex gap-2 items-center justify-center border border-transparent"
+              className="ui-text link-underline text-[color:var(--color-ink)]"
             >
-              <span>See Case Studies</span>
+              See Case Studies
+            </Link>
+          </div>
+
+          <div className="md:mt-12 flex md:items-end gap-3 pt-8 lg:mt-auto">
+            <svg
+              className="mt-px h-4 w-4 shrink-0 text-[color:var(--color-ink)]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span className="font-[family-name:var(--font-mono)] text-[length:var(--text-label)] uppercase leading-[var(--leading-label)] tracking-[var(--tracking-label)] text-[color:var(--color-ink)]">
+              For DTC brands and growing stores that have outgrown their current
+              setup
+            </span>
+          </div>
+        </div>
+
+        {/* RIGHT: proof */}
+        <div className="flex flex-col py-6 sm:py-10 lg:py-14 px-[clamp(1.5rem,4vw,4rem)]">
+          <span className="label animate-fade-in-up [animation-delay:200ms]">
+            Client Note
+          </span>
+
+          <blockquote className="mt-6 max-w-[560px] font-[family-name:var(--font-body)] text-[length:var(--text-display-sm)] leading-[1.6] text-[color:var(--color-ink)] animate-fade-in-up [animation-delay:300ms]">
+            &ldquo;He understood the problem quickly, solved the complex parts,
+            and delivered exactly what we needed. The result: a store
+            that&rsquo;s faster, easier to manage, and built to scale.&rdquo;
+          </blockquote>
+
+          <p className="mt-5 text-[length:var(--text-body-md)] animate-fade-in-up [animation-delay:350ms]">
+            <span className="font-[family-name:var(--font-body)] font-medium text-[color:var(--color-ink)]">
+              Filip J.
+            </span>
+            <span className="text-[color:var(--color-muted)]"> — Merkbart</span>
+          </p>
+
+          <div className="mt-12 grid grid-cols-3 border-y border-(--color-border-light) mx-[-1.5rem] md:mx-0">
+            {STATS.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={`py-7 px-4 md:pr-4 ${
+                  i > 0 ? "border-l border-(--color-border-light)" : ""
+                }`}
+              >
+                <div className="stat-number">{stat.value}</div>
+                <div className="stat-caption mt-4 leading-[1.5]">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-8">
+            <div className="flex items-end gap-4">
+              <div className="stat-number text-[2.75rem] leading-none">
+                2&times;
+              </div>
+              <div className="uppercase text-sm">
+                Conversion rate in 90 days
+              </div>
+            </div>
+            <Link
+              href="/work/merkbart"
+              className="ui-text link-underline mt-12 text-[color:var(--color-accent)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-ink)]"
+            >
+              View Case Study
               <svg
-                className="w-4 h-4"
+                className="h-3.5 w-3.5"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
+                <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
         </div>
-
-        {/* Right Column: DESKTOP IMAGE (Kept flex-2, hidden on mobile) */}
-        {/* <div className="hidden lg:block animate-fade-in [animation-delay:300ms] flex-2 w-full max-w-md lg:max-w-none relative">
-          <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-100 bg-white">
-            <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400">
-              <Image
-                src="/AAdeepak.png"
-                alt="deepakj."
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );

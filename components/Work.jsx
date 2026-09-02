@@ -1,160 +1,139 @@
 import Link from "next/link";
 
-export default function Work() {
-  const projects = [
-    {
-      year: "2026",
-      title: "The Business Fashion",
-      metric: "+3x Collection Speed",
-      description:
-        "Rebuilt homepage with custom theme sections, and improved collection page load speed by 3x.",
-      tech: ["Shopify", "Liquid", "JavaScript"],
-      link: "thebusinessfashion",
-    },
-    {
-      year: "2026",
-      title: "Footware Brand Migration",
-      metric: "Full Data Preserved",
-      description:
-        "Created export runbook and migration plan for an acquired footwear brand's Shopify Plus store. Products, orders, customers, Klaviyo lists, SMS consent, and SEO redirects, all scoped for zero data loss.",
-      tech: ["Shopify Plus", "Klaviyo", "Data Migration"],
-      link: "footwear-acquisition-migration",
-    },
-    {
-      year: "2023",
-      title: "Chasin Unicorns",
-      metric: "Subscription Live",
-      description:
-        "Configured Recharge prepaid tiers, built Klaviyo lifecycle flows, and implemented GA4 + Meta Pixel tracking for a wellness subscription box brand.",
-      tech: ["Shopify", "Recharge", "Klaviyo", "GA4"],
-      link: "chasin-unicorns",
-    },
-    {
-      year: "2019",
-      title: "The Collection",
-      metric: "Sub-4s Page Loads",
-      description:
-        "Debugged and extended a US fashion store with lazy-loaded pages, fixed QuickView swatches, built Recently Viewed carousel, and enhanced search with subcategory showcases.",
-      tech: ["Shopify", "Liquid", "JavaScript"],
-      link: "Darkestfox",
-    },
-  ];
+const PROJECTS = [
+  {
+    year: "2026",
+    metric: "+3× Collection Speed",
+    title: "The Business Fashion",
+    description:
+      "Rebuilt the homepage with custom theme sections and tripled collection page load speed.",
+    stack: ["Shopify", "Liquid", "JavaScript"],
+    link: "thebusinessfashion",
+  },
+  {
+    year: "2026",
+    metric: "Zero Data Loss",
+    title: "Footwear Brand Migration",
+    description:
+      "Migrated an acquired Shopify Plus store without losing products, orders, customers, marketing data, or SEO equity.",
+    stack: ["Shopify Plus", "Klaviyo", "Data Migration"],
+    link: "footwear-acquisition-migration",
+  },
+  {
+    year: "2023",
+    metric: "Subscription Live",
+    title: "Chasin Unicorns",
+    description:
+      "Launched Recharge subscriptions with Klaviyo lifecycle flows and full funnel tracking for a wellness brand.",
+    stack: ["Shopify", "Recharge", "Klaviyo", "GA4"],
+    link: "chasin-unicorns",
+  },
+  {
+    year: "2019",
+    metric: "Sub-4s Page Loads",
+    title: "The Collection",
+    description:
+      "Rebuilt a slow fashion storefront: faster page loads, working product previews, and smarter product discovery.",
+    stack: ["Shopify", "Liquid", "JavaScript"],
+    link: "darkestfox",
+  },
+];
 
+export default function Work() {
   return (
     <section
       id="work"
-      className="py-24 lg:py-32 bg-white relative border-t border-slate-100"
+      className="bg-[var(--color-paper)] border-y border-[color:var(--color-line)]"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3">
-              Selected Work
-            </h2>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
-                Revenue-driving{" "}
-              </span>
-              Shopify experiences
-            </h3>
-          </div>
-          <p className="text-base sm:text-lg text-slate-500 leading-relaxed md:text-right max-w-sm">
-            Custom builds for scaling Shopify merchants, B2B and DTC brands
-          </p>
+      {/* Header */}
+      <div className="flex flex-col gap-6 border-b border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:flex-row lg:items-end lg:justify-between lg:py-20">
+        <div>
+          <span className="label">Selected Work</span>
+          <h2 className="mt-4 max-w-xl">
+            <span className="accent">Revenue-driving</span> Shopify experiences.
+          </h2>
         </div>
+        <p className="body-sm max-w-xs text-[color:var(--color-muted)] lg:text-right">
+          Custom builds for scaling Shopify merchants, B2B and DTC brands.
+        </p>
+      </div>
 
-        {/* Projects List Container */}
-        <div className="flex flex-col border-t border-slate-200">
-          {projects.map((project, index) => (
-            <Link
-              href={`/work/${project.link}`}
-              key={index}
-              className="group block border-b border-slate-200 py-8 lg:py-10 hover:bg-slate-50 transition-colors duration-300 relative overflow-hidden"
-            >
-              {/* Subtle indigo gradient that fades in on hover */}
-              <div className="absolute inset-0 bg-linear-to-r from-indigo-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      {/* Column labels — desktop only */}
+      <div className="hidden lg:grid lg:grid-cols-[64px_260px_1fr_200px_32px] lg:gap-8 border-b border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-4">
+        <span className="stat-caption">Year</span>
+        <span className="stat-caption">Project</span>
+        <span className="stat-caption">Result</span>
+        <span className="stat-caption">Stack</span>
+        <span />
+      </div>
 
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start md:items-center px-4">
-                {/* 1. Year & Title (Col span 4) */}
-                <div className="md:col-span-4 flex flex-col">
-                  <span className="text-sm font-medium text-slate-400 mb-1">
-                    {project.year}
-                  </span>
-                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors duration-300">
-                    {project.title}
-                  </h4>
-                </div>
-
-                {/* 2. Metric & Description (Col span 4) */}
-                <div className="md:col-span-4 flex flex-col">
-                  {/* The exact detail agencies want to see */}
-                  <span className="text-sm font-bold text-emerald-600 bg-emerald-50 w-fit px-3 py-1 rounded-full mb-2">
-                    {project.metric}
-                  </span>
-                  <span className="text-base text-slate-600 leading-relaxed">
-                    {project.description}
-                  </span>
-                </div>
-
-                {/* 3. Tech Stack & Arrow (Col span 4) */}
-                <div className="md:col-span-4 flex flex-wrap items-center justify-start md:justify-end gap-2 lg:gap-3">
-                  <div className="flex flex-wrap gap-2 mr-auto md:mr-4">
-                    {project.tech.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="text-xs font-medium px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Animated Arrow */}
-                  <div className="hidden sm:flex items-center justify-center w-12 h-12 rounded-full border border-slate-200 bg-white group-hover:border-indigo-600 group-hover:bg-indigo-600 transition-all duration-300">
-                    <svg
-                      className="w-5 h-5 text-slate-400 group-hover:text-white transform group-hover:-rotate-45 transition-all duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="mt-16 text-center">
+      {/* Rows */}
+      <div className="flex flex-col">
+        {PROJECTS.map((project) => (
           <Link
-            href="/work"
-            className="inline-flex items-center gap-2 text-base font-semibold text-slate-600 hover:text-indigo-600 transition-colors underline-offset-4 hover:underline"
+            key={project.link}
+            href={`/work/${project.link}`}
+            className="group flex flex-col gap-4 border-b border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-8 transition-colors duration-[var(--duration-fast)] hover:bg-[color:var(--color-ink)]/[0.03] lg:grid lg:grid-cols-[64px_260px_1fr_200px_32px] lg:items-start lg:gap-8 lg:py-10"
           >
-            View More Work
+            {/* Year */}
+            <span className="stat-caption tabular-nums lg:pt-1">
+              {project.year}
+            </span>
+
+            {/* Metric + title */}
+            <div className="flex flex-col gap-2">
+              <span className="label">{project.metric}</span>
+              <h4 className="transition-transform duration-[var(--duration-fast)] group-hover:translate-x-1">
+                {project.title}
+              </h4>
+            </div>
+
+            {/* Description */}
+            <p className="body-sm max-w-md text-[color:var(--color-muted)] lg:pt-1">
+              {project.description}
+            </p>
+
+            {/* Stack */}
+            <span className="ui-text font-normal tracking-normal normal-case text-[color:var(--color-muted)] lg:pt-1">
+              {project.stack.join(" / ")}
+            </span>
+
+            {/* Arrow */}
             <svg
-              className="w-4 h-4"
+              className="hidden h-4 w-4 text-[color:var(--color-muted)] transition-all duration-[var(--duration-fast)] group-hover:translate-x-1 group-hover:text-[color:var(--color-accent)] lg:block lg:pt-1"
               fill="none"
               stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
+              <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
           </Link>
-        </div>
+        ))}
       </div>
+
+      {/* View all */}
+      <Link
+        href="/work"
+        className="ui-text link-underline flex items-center gap-2 px-[clamp(1.5rem,4vw,4rem)] py-8 text-[color:var(--color-ink)]"
+      >
+        View All Work
+        <svg
+          className="h-3.5 w-3.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 5l7 7-7 7" />
+        </svg>
+      </Link>
     </section>
   );
 }

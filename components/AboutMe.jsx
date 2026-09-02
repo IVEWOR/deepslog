@@ -3,61 +3,62 @@ import Image from "next/image";
 
 export default function AboutMe() {
   return (
-    <section className="py-24 lg:py-32 bg-slate-50 relative border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
-        {/* Left Column: Photo */}
-        <div className="animate-fade-in-up [animation-delay:100ms] flex-1 w-full max-w-sm lg:max-w-none mx-0 relative">
-          <div className="relative aspect-square rounded-4xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
+    <section className="bg-[var(--color-paper)] border-b border-[color:var(--color-line)]">
+      <div className="grid grid-cols-1 lg:grid-cols-[42%_58%]">
+        {/* LEFT: photo */}
+        <div className="animate-fade-in-up [animation-delay:100ms] border-b border-[color:var(--color-border-light)] p-6 sm:p-10 lg:border-b-0 lg:border-r lg:p-14">
+          <div className="relative aspect-[100/95] overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
             <Image
               src="/AAdeepak.png"
-              alt="deepakj., Shopify Plus developer"
+              alt="Deepak Jangra, Shopify Plus developer"
               fill
-              className="object-cover"
+              className="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
             />
           </div>
         </div>
 
-        {/* Right Column: Content */}
-        <div className="flex-1 text-left">
-          <h2 className="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-3 animate-fade-in-up [animation-delay:200ms]">
-            Who You're Working With
-          </h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight animate-fade-in-up [animation-delay:300ms]">
-            You're not hiring an agency.
-            <br className="hidden sm:block" /> You're{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
-              hiring me.
-            </span>
-          </h3>
+        {/* RIGHT: content */}
+        <div className="flex flex-col justify-center px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+          <span className="label animate-fade-in-up [animation-delay:200ms]">
+            Who You&rsquo;re Working With
+          </span>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 animate-fade-in-up [animation-delay:400ms]">
-            I'm Deepak, a Shopify Plus developer with 9 years of experience.
-            I've rebuilt luxury fashion stores, migrated acquired brands, and
-            fixed checkouts that were losing thousands in revenue.
+          <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:300ms]">
+            You&rsquo;re not hiring an agency. You&rsquo;re{" "}
+            <span className="accent">hiring me.</span>
+          </h2>
+
+          <p className="body-lg mt-6 max-w-md animate-fade-in-up [animation-delay:400ms]">
+            I&rsquo;m Deepak, a Shopify Plus developer with 9 years of
+            experience. I&rsquo;ve rebuilt luxury fashion stores, migrated
+            acquired brands, and fixed checkouts that were losing thousands in
+            revenue.
           </p>
 
-          <p className="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed mb-8 animate-fade-in-up [animation-delay:500ms]">
-            I don't outsource your project to a junior team. When you hire me,
-            you get me.
+          <p
+            className="body-lg mt-5 max-w-md text-[color:var(--color-ink)] animate-fade-in-up [animation-delay:500ms]"
+            style={{ fontWeight: "var(--weight-body-medium)" }}
+          >
+            I don&rsquo;t outsource your project to a junior team. When you hire
+            me, you get me.
           </p>
 
           <Link
             href="/about"
-            className="animate-fade-in-up [animation-delay:600ms] inline-flex items-center justify-center gap-2 text-base font-medium text-slate-600 hover:text-slate-900 transition-colors underline-offset-4 hover:underline"
+            className="ui-text mt-8 inline-flex items-center gap-2 text-[color:var(--color-ink)] animate-fade-in-up [animation-delay:600ms]"
           >
-            <span>Read my full story</span>
+            <span className="link-underline">Read My Full Story</span>
             <svg
-              className="w-4 h-4"
+              className="h-3.5 w-3.5"
               fill="none"
               stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
+              <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
           </Link>
         </div>

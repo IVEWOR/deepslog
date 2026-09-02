@@ -20,10 +20,8 @@ export const metadata = {
     siteName: "deepakj.",
     images: [
       {
-        // TODO: og-work.png doesn't exist yet ("Create this: collage of
-        // project screenshots" in the original). Using a real project
-        // screenshot as a stopgap instead of a broken image link — swap
-        // this back once the actual collage exists.
+        // TODO: og-work.png doesn't exist yet. Using a real project
+        // screenshot as a stopgap — swap back once the actual collage exists.
         url: `${SITE_URL}/merkbart.png`,
         width: 1200,
         height: 630,
@@ -50,12 +48,8 @@ export default function WorkPage() {
         url: `${SITE_URL}/work`,
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#person` },
-        creator: {
-          "@id": `${SITE_URL}/#person`,
-        },
-        copyrightHolder: {
-          "@id": `${SITE_URL}/#person`,
-        },
+        creator: { "@id": `${SITE_URL}/#person` },
+        copyrightHolder: { "@id": `${SITE_URL}/#person` },
         mainEntity: {
           "@type": "ItemList",
           "@id": `${SITE_URL}/work#projects`,
@@ -72,90 +66,105 @@ export default function WorkPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
+    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
 
-      {/* 1. HEADER SECTION */}
-      <section className="pt-40 pb-20 lg:pt-48 lg:pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="max-w-3xl">
-          <h1 className="animate-fade-in-up [animation-delay:100ms] text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1]">
-            Code that <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-blue-500">
-              drives revenue.
-            </span>
-          </h1>
-          <p className="animate-fade-in-up [animation-delay:200ms] text-lg md:text-xl text-slate-600 leading-relaxed">
-            A selection of production-grade Shopify and custom web applications
-            built for agencies, startups, and ambitious brands over the last 9
-            years.
-          </p>
-        </div>
+      {/* Header */}
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+        <span className="label animate-fade-in-up [animation-delay:100ms]">
+          Portfolio
+        </span>
+        <h1
+          className="mt-4 max-w-2xl animate-fade-in-up [animation-delay:200ms]"
+          style={{ fontWeight: "var(--weight-display-black)" }}
+        >
+          Code that <span className="accent">drives revenue.</span>
+        </h1>
+        <p className="body-lg mt-6 max-w-md animate-fade-in-up [animation-delay:300ms]">
+          A selection of production-grade Shopify and custom web applications
+          built for agencies, startups, and ambitious brands over the last 9
+          years.
+        </p>
       </section>
 
-      {/* 2. THE PORTFOLIO GRID */}
-      <section className="pb-32 px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Portfolio grid — WorkGrid.jsx still needs its own pass; see note above */}
+      <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-20">
         <WorkGrid projects={projects} initialVisible={8} />
       </section>
 
-      {/* 3. FINAL CTA (Umbrella Style - Dark) */}
-      <section className="relative py-24 lg:py-32 bg-slate-950 overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      {/* Closing CTA — single inverted surface, no gradient/grid decoration */}
+      <section className="surface-inverted">
+        <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+          <span className="label animate-fade-in-up [animation-delay:100ms]">
+            Get In Touch
+          </span>
 
-        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
-            Like what you see? <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-blue-400">
-              Let's build yours next.
-            </span>
+          <h2 className="mx-auto mt-4 max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:200ms]">
+            Like what you see?{" "}
+            <span className="accent">Let&rsquo;s build yours next.</span>
           </h2>
-          <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-xl mx-auto">
-            Currently accepting new projects for Q1. Whether you are an agency
-            needing overflow help or a brand needing a rebuild, I'm ready to
-            ship.
-          </p>
-          <ContactModal
-            triggerText="Start Conversation"
-            triggerStyle="w-full sm:w-auto min-w-[200px] flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
-            title="Let's build yours next."
-            subtitle="Currently accepting new projects for Q1."
-            subject="New Project Inquiry (From Portfolio)"
-            fields={[
-              {
-                name: "name",
-                label: "Name / Agency",
-                type: "text",
-                required: true,
-              },
-              { name: "email", label: "Email", type: "email", required: true },
-              {
-                name: "website",
-                label: "Current Site (if any)",
-                type: "url",
-                placeholder: "https://yourstore.com",
-                required: false,
-              },
-              {
-                name: "message",
-                label: "Project Overview",
-                type: "textarea",
-                placeholder:
-                  "Are you an agency needing overflow help, or a brand needing a rebuild?",
-                required: true,
-              },
-            ]}
-          />
 
-          <div className="mt-12 flex items-center justify-center gap-3">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:300ms]">
+            Currently accepting new projects for Q1. Whether you&rsquo;re an
+            agency needing overflow help or a brand needing a rebuild, I&rsquo;m
+            ready to ship.
+          </p>
+
+          <div className="mt-10 flex justify-center animate-fade-in-up [animation-delay:400ms]">
+            <ContactModal
+              triggerText="Start Conversation"
+              triggerStyle="btn btn-primary"
+              title="Let's build yours next."
+              subtitle="Currently accepting new projects for Q1."
+              subject="New Project Inquiry (From Portfolio)"
+              fields={[
+                {
+                  name: "name",
+                  label: "Name / Agency",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "email",
+                  label: "Email",
+                  type: "email",
+                  required: true,
+                },
+                {
+                  name: "website",
+                  label: "Current Site (if any)",
+                  type: "url",
+                  placeholder: "https://yourstore.com",
+                  required: false,
+                },
+                {
+                  name: "message",
+                  label: "Project Overview",
+                  type: "textarea",
+                  placeholder:
+                    "Are you an agency needing overflow help, or a brand needing a rebuild?",
+                  required: true,
+                },
+              ]}
+            />
+          </div>
+
+          <div className="mt-12 flex items-center justify-center gap-3 animate-fade-in-up [animation-delay:500ms]">
+            <span className="relative flex h-2.5 w-2.5">
+              <span
+                className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+                style={{ background: "var(--color-status-live)" }}
+              />
+              <span
+                className="relative inline-flex h-2.5 w-2.5 rounded-full"
+                style={{ background: "var(--color-status-live)" }}
+              />
             </span>
-            <span className="text-sm font-medium text-slate-300 tracking-wide uppercase">
+            <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
               Available for new projects
             </span>
           </div>

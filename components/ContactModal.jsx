@@ -7,7 +7,7 @@ import Cal, { getCalApi } from "@calcom/embed-react";
 export default function ContactModal({
   // Trigger Button Props
   triggerText = "Let's Talk",
-  triggerStyle = "px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-xl flex items-center gap-2",
+  triggerStyle = "btn btn-primary",
 
   // OVERRIDE PROPS (With Standard Defaults)
   title = "Send a brief.",
@@ -25,18 +25,17 @@ export default function ContactModal({
   // field for audit requests).
   fields,
 }) {
-  const formFields =
-    fields || [
-      { name: "name", label: "Name / Agency", type: "text", required: true },
-      { name: "email", label: "Email", type: "email", required: true },
-      {
-        name: "message",
-        label: inputLabel,
-        type: "textarea",
-        placeholder: inputPlaceholder,
-        required: true,
-      },
-    ];
+  const formFields = fields || [
+    { name: "name", label: "Name / Agency", type: "text", required: true },
+    { name: "email", label: "Email", type: "email", required: true },
+    {
+      name: "message",
+      label: inputLabel,
+      type: "textarea",
+      placeholder: inputPlaceholder,
+      required: true,
+    },
+  ];
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -53,7 +52,7 @@ export default function ContactModal({
         const cal = await getCalApi();
         cal("ui", {
           theme: "light",
-          styles: { branding: { brandColor: "#4F46E5" } },
+          styles: { branding: { brandColor: "#9a3a24" } },
           hideEventTypeDetails: false,
           layout: "month_view",
         });
@@ -108,65 +107,81 @@ export default function ContactModal({
       style={{ position: "fixed" }}
     >
       <div
-        className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 backdrop-blur-sm transition-opacity"
+        style={{ background: "rgba(23, 20, 15, 0.6)" }}
         onClick={() => setIsOpen(false)}
       ></div>
 
       <div className="flex min-h-full flex-col justify-center p-4 sm:p-8 relative">
-        <div className="relative w-full max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl flex flex-col md:flex-row animate-fade-in-up my-auto overflow-hidden md:h-150 md:max-h-[85vh]">
+        <div
+          className="surface-inverted relative mx-auto my-auto flex w-full max-w-4xl animate-fade-in-up flex-col overflow-hidden border md:h-150 md:max-h-[85vh] md:flex-row"
+          style={{ borderColor: "var(--color-ink-surface-line)" }}
+        >
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-3 right-4 p-2 text-slate-300 hover:text-white bg-slate-800/80 rounded-full hover:bg-slate-700 transition-colors z-30 backdrop-blur-sm cursor-pointer"
+            className="absolute top-3 right-4 z-30 p-2 text-[color:var(--color-ink-surface-muted)] transition-colors hover:text-[color:var(--color-ink-surface-text)] cursor-pointer"
+            aria-label="Close"
           >
             <svg
-              className="w-4 h-4"
+              className="h-4 w-4"
               fill="none"
               stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
+              <path d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
           {/* LEFT SIDE: Form */}
           <div
-            className={`w-full md:w-1/2 p-6 md:p-8 border-b md:border-b-0 md:border-r border-slate-800 relative z-10 bg-slate-900 flex-col justify-center md:h-full overflow-y-auto ${showCalendar ? "hidden md:flex" : "flex"}`}
+            className={`relative z-10 w-full flex-col justify-center overflow-y-auto border-b p-6 md:h-full md:w-1/2 md:border-b-0 md:border-r md:p-8 ${
+              showCalendar ? "hidden md:flex" : "flex"
+            }`}
+            style={{ borderColor: "var(--color-ink-surface-line)" }}
           >
             {isSuccess ? (
-              <div className="flex flex-col items-center justify-center text-center h-full animate-fade-in-up">
-                <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mb-6 text-emerald-400">
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
+              <div className="flex h-full animate-fade-in-up flex-col items-center justify-center text-center">
+                <svg
+                  className="mb-6 h-10 w-10"
+                  style={{ color: "var(--color-status-live)" }}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                <h3
+                  className="text-[length:var(--text-display-md)]"
+                  style={{ color: "var(--color-ink-surface-text)" }}
+                >
                   Message Received
                 </h3>
-                <p className="text-slate-400 text-sm max-w-62.5">
-                  I'll review the details and get back to you shortly.
+                <p
+                  className="stat-caption mt-3 max-w-[250px] normal-case tracking-normal"
+                  style={{ color: "var(--color-ink-surface-muted)" }}
+                >
+                  I&rsquo;ll review the details and get back to you shortly.
                 </p>
               </div>
             ) : (
               <>
-                <h3 className="text-2xl font-bold text-white mb-1">{title}</h3>
-                <p className="text-slate-400 mb-5 text-sm">{subtitle}</p>
+                <h3 style={{ color: "var(--color-ink-surface-text)" }}>
+                  {title}
+                </h3>
+                <p
+                  className="stat-caption mt-2 mb-6 normal-case tracking-normal"
+                  style={{ color: "var(--color-ink-surface-muted)" }}
+                >
+                  {subtitle}
+                </p>
 
-                <form onSubmit={handleSubmit} className="space-y-3">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <input
                     type="checkbox"
                     name="botcheck"
@@ -176,13 +191,13 @@ export default function ContactModal({
 
                   {formFields.map((field) => (
                     <div key={field.name}>
-                      <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                      <label
+                        className="stat-caption mb-2 block"
+                        style={{ color: "var(--color-ink-surface-muted)" }}
+                      >
                         {field.label}
                         {field.required === false && (
-                          <span className="normal-case font-normal text-slate-600">
-                            {" "}
-                            (optional)
-                          </span>
+                          <span className="normal-case"> (optional)</span>
                         )}
                       </label>
                       {field.type === "textarea" ? (
@@ -190,7 +205,20 @@ export default function ContactModal({
                           required={field.required !== false}
                           name={field.name}
                           rows={field.rows || 3}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+                          className="w-full border px-4 py-3 text-[length:var(--text-body-md)] outline-none transition-colors resize-none"
+                          style={{
+                            background: "var(--color-ink)",
+                            borderColor: "var(--color-ink-surface-line)",
+                            color: "var(--color-ink-surface-text)",
+                          }}
+                          onFocus={(e) =>
+                            (e.target.style.borderColor =
+                              "var(--color-accent-dim)")
+                          }
+                          onBlur={(e) =>
+                            (e.target.style.borderColor =
+                              "var(--color-ink-surface-line)")
+                          }
                           placeholder={field.placeholder}
                         ></textarea>
                       ) : (
@@ -199,7 +227,20 @@ export default function ContactModal({
                           type={field.type || "text"}
                           name={field.name}
                           placeholder={field.placeholder}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                          className="w-full border px-4 py-3 text-[length:var(--text-body-md)] outline-none transition-colors"
+                          style={{
+                            background: "var(--color-ink)",
+                            borderColor: "var(--color-ink-surface-line)",
+                            color: "var(--color-ink-surface-text)",
+                          }}
+                          onFocus={(e) =>
+                            (e.target.style.borderColor =
+                              "var(--color-accent-dim)")
+                          }
+                          onBlur={(e) =>
+                            (e.target.style.borderColor =
+                              "var(--color-ink-surface-line)")
+                          }
                         />
                       )}
                     </div>
@@ -208,9 +249,9 @@ export default function ContactModal({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 mt-3 bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-600/50 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-colors shrink-0 flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn btn-primary mt-2 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Sending…" : "Send Message"}
                   </button>
                 </form>
               </>
@@ -219,28 +260,37 @@ export default function ContactModal({
 
           {/* RIGHT SIDE: Calendar */}
           <div
-            className={`w-full bg-slate-950 flex flex-col justify-center items-center relative z-10 transition-all duration-500 ${showCalendar ? "p-0 h-[85vh] md:h-full md:w-1/2" : "p-6 md:p-8 text-center md:w-1/2 md:h-full"}`}
+            className={`relative z-10 flex w-full flex-col items-center justify-center transition-all duration-500 ${
+              showCalendar
+                ? "h-[85vh] p-0 md:h-full md:w-1/2"
+                : "p-6 text-center md:h-full md:w-1/2 md:p-8"
+            }`}
+            style={{ background: "var(--color-ink)" }}
           >
             {showCalendar ? (
-              <div className="w-full h-full bg-white animate-fade-in-up md:rounded-r-3xl flex flex-col relative overflow-hidden">
-                <div className="md:hidden w-full bg-slate-50 border-b border-slate-200 p-4 flex items-center z-20 absolute top-0 left-0 right-0 shadow-sm">
+              <div className="relative flex h-full w-full animate-fade-in-up flex-col overflow-hidden bg-white">
+                <div
+                  className="absolute top-0 left-0 right-0 z-20 flex items-center border-b p-4 md:hidden"
+                  style={{
+                    background: "var(--color-paper)",
+                    borderColor: "var(--color-line)",
+                  }}
+                >
                   <button
                     onClick={() => setShowCalendar(false)}
-                    className="text-sm font-bold text-slate-600 flex items-center gap-1.5 hover:text-indigo-600 transition-colors"
+                    className="ui-text flex items-center gap-1.5 transition-colors hover:text-[color:var(--color-accent)]"
                   >
                     <svg
-                      className="w-4 h-4"
+                      className="h-3.5 w-3.5"
                       fill="none"
                       stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       viewBox="0 0 24 24"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                      ></path>
-                    </svg>{" "}
+                      <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
                     Back
                   </button>
                 </div>
@@ -257,30 +307,42 @@ export default function ContactModal({
               </div>
             ) : (
               <>
-                <div className="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-4 text-indigo-400 border border-indigo-500/20">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <svg
+                  className="mb-5 h-6 w-6"
+                  style={{ color: "var(--color-accent-dim)" }}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <h3 style={{ color: "var(--color-ink-surface-text)" }}>
                   {calTitle}
                 </h3>
-                <p className="text-slate-400 mb-6 text-sm max-w-xs">
+                <p
+                  className="stat-caption mt-3 mb-6 max-w-xs normal-case tracking-normal"
+                  style={{ color: "var(--color-ink-surface-muted)" }}
+                >
                   {calSubtitle}
                 </p>
                 <button
                   onClick={() => setShowCalendar(true)}
-                  className="px-8 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 transition-colors w-full max-w-60 cursor-pointer"
+                  className="btn w-full max-w-60 cursor-pointer"
+                  style={{
+                    background: "var(--color-paper)",
+                    color: "var(--color-ink)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "var(--color-accent)";
+                    e.currentTarget.style.color = "var(--color-paper)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "var(--color-paper)";
+                    e.currentTarget.style.color = "var(--color-ink)";
+                  }}
                 >
                   Load Calendar
                 </button>
@@ -297,17 +359,15 @@ export default function ContactModal({
       <button onClick={() => setIsOpen(true)} className={triggerStyle}>
         {triggerText}
         <svg
-          className="w-4 h-4"
+          className="h-3.5 w-3.5"
           fill="none"
           stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          ></path>
+          <path d="M5 12h14M13 5l7 7-7 7" />
         </svg>
       </button>
       {mounted && createPortal(modalUI, document.body)}

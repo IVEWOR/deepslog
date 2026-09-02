@@ -39,7 +39,7 @@ export default function WorkGrid({ projects, initialVisible }) {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
+      <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
         {visibleProjects.map((project, index) => (
           <Link
             href={`/work/${project.link}`}
@@ -47,86 +47,71 @@ export default function WorkGrid({ projects, initialVisible }) {
             className="group animate-fade-in-up flex flex-col"
             style={{ animationDelay: `${200 + (index % 4) * 100}ms` }}
           >
-            {/* Image Container */}
-            <div className="relative w-full aspect-5/3 rounded-3xl overflow-hidden mb-6 bg-slate-100 border border-slate-200 shadow-sm group-hover:shadow-2xl group-hover:shadow-indigo-500/10 transition-all duration-500">
+            {/* Image */}
+            <div className="relative aspect-[5/3] w-full overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
               <Image
                 src={project.image}
-                alt={`${project.title} Preview`}
+                alt={`${project.title} preview`}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
-
-              {/* Overlay "View Project" Button that slides up on hover */}
-              <div className="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white text-slate-900 px-6 py-3 rounded-full font-bold text-sm shadow-xl flex items-center gap-2">
-                  View Project Details
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
             </div>
 
-            {/* Meta Information */}
-            <div className="flex flex-col grow">
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">
-                  {project.title}
-                </h2>
-                <span className="text-sm font-mono font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                  {project.year}
-                </span>
-              </div>
+            {/* Meta */}
+            <div className="mt-5 flex grow flex-col">
+              <span className="stat-caption tabular-nums">{project.year}</span>
 
-              <p className="text-slate-600 mb-6 line-clamp-2">
-                {project.description}
-              </p>
+              <h4 className="mt-2 transition-transform duration-[var(--duration-fast)] group-hover:translate-x-1">
+                {project.title}
+              </h4>
 
-              {/* Tech Stack Pills */}
+              <p className="body-sm mt-2 line-clamp-2">{project.description}</p>
+
               {project.tech.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tech.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <span className="ui-text mt-auto pt-4 font-normal! tracking-normal! normal-case! text-[color:var(--color-muted)]">
+                  {project.tech.join(" / ")}
+                </span>
               )}
+
+              <span className="ui-text mt-5 flex items-center gap-2 transition-colors duration-[var(--duration-fast)] group-hover:text-[color:var(--color-accent)]">
+                View Project
+                <svg
+                  className="h-3.5 w-3.5 transition-transform duration-[var(--duration-fast)] group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
             </div>
           </Link>
         ))}
       </div>
 
-      {/* Sentinel: crossing into view triggers the next batch to load */}
+      {/* Sentinel */}
       {hasMore && (
-        <div ref={sentinelRef} className="mt-16 flex justify-center">
-          <div className="flex items-center gap-3 text-sm text-slate-400">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-400"></span>
-            </span>
-            Loading more projects…
-          </div>
+        <div
+          ref={sentinelRef}
+          className="mt-16 flex justify-center border-t border-[color:var(--color-line)] pt-8"
+        >
+          <span className="stat-caption animate-pulse">
+            Loading more projects&hellip;
+          </span>
         </div>
       )}
 
       {reachedEnd && (
-        <div className="mt-16 text-center text-sm text-slate-400">
-          You've reached the end — that's all {projects.length} projects.
+        <div className="mt-16 border-t border-[color:var(--color-line)] pt-8 text-center">
+          <span className="stat-caption">
+            You&rsquo;ve reached the end &mdash; that&rsquo;s all{" "}
+            {projects.length} projects.
+          </span>
         </div>
       )}
     </>

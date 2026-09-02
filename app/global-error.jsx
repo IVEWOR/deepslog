@@ -1,47 +1,120 @@
 "use client";
 
-import { Funnel_Display } from "next/font/google";
+import { ppNeueMontreal, ppNeueMontrealText, geistMono } from "./fonts";
+import "./globals.css";
 
-const funnelDisplay = Funnel_Display({ subsets: ["latin"] });
+const fontVars = [
+  ppNeueMontreal.variable,
+  ppNeueMontrealText.variable,
+  geistMono.variable,
+].join(" ");
 
 export default function GlobalError({ error, reset }) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontVars}>
       <body
-        className={`${funnelDisplay.className} bg-slate-950 text-white min-h-screen flex items-center justify-center px-6`}
+        className={ppNeueMontrealText.className}
+        style={{
+          background: "#17140f",
+          color: "#f6f3ec",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "0 24px",
+        }}
       >
-        <div className="text-center max-w-md">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 font-semibold text-sm mb-6">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+        <div style={{ textAlign: "center", maxWidth: "420px" }}>
+          <span
+            style={{
+              fontFamily: "var(--font-mono, monospace)",
+              fontSize: "11px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#b8543a",
+            }}
+          >
             Critical Error
-          </div>
+          </span>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          <h1
+            style={{
+              fontFamily: "var(--font-display, sans-serif)",
+              fontWeight: 800,
+              fontSize: "clamp(1.75rem, 5vw, 2.25rem)",
+              lineHeight: 1.1,
+              marginTop: "16px",
+              marginBottom: "16px",
+            }}
+          >
             Something went seriously wrong.
           </h1>
 
-          <p className="text-slate-400 mb-8 leading-relaxed">
-            The app failed to load. It's been logged — try reloading, or
+          <p
+            style={{ color: "#a89f8f", lineHeight: 1.7, marginBottom: "32px" }}
+          >
+            The app failed to load. It&rsquo;s been logged — try reloading, or
             check back in a few minutes.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "12px",
+              alignItems: "center",
+            }}
+          >
             <button
               onClick={() => reset()}
-              className="w-full sm:w-auto cursor-pointer px-6 py-3 text-sm font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors"
+              style={{
+                cursor: "pointer",
+                width: "100%",
+                padding: "14px 28px",
+                fontFamily: "var(--font-mono, monospace)",
+                fontWeight: 600,
+                fontSize: "12px",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                background: "#f6f3ec",
+                color: "#17140f",
+                border: "1px solid #f6f3ec",
+              }}
             >
               Reload
             </button>
             <a
               href="/"
-              className="w-full sm:w-auto px-6 py-3 text-sm font-bold text-white bg-slate-800 border border-slate-700 rounded-xl hover:bg-slate-700 transition-colors"
+              style={{
+                width: "100%",
+                padding: "14px 28px",
+                fontFamily: "var(--font-mono, monospace)",
+                fontWeight: 600,
+                fontSize: "12px",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                background: "transparent",
+                color: "#f6f3ec",
+                border: "1px solid #3a352a",
+                textAlign: "center",
+                display: "block",
+                textDecoration: "none",
+              }}
             >
               Go Home
             </a>
           </div>
 
           {error?.digest && (
-            <p className="mt-6 text-xs text-slate-600 font-mono">
+            <p
+              style={{
+                marginTop: "24px",
+                fontFamily: "var(--font-mono, monospace)",
+                fontSize: "11px",
+                letterSpacing: "0.02em",
+                color: "#3a352a",
+              }}
+            >
               Reference: {error.digest}
             </p>
           )}

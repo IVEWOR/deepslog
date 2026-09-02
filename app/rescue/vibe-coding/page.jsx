@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import ClientLogos from "@/components/ClientLogos";
+import SocialProof from "@/components/SocialProof";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -35,8 +35,6 @@ export default function VibeCodingRescue() {
         serviceType: "Software Architecture Refactoring",
         offers: {
           "@type": "Offer",
-          // Was "1000.00" ("Example audit/starting price"). Confirmed
-          // final price: $2,000.
           price: "2000.00",
           priceCurrency: "USD",
           priceValidUntil: "2026-12-31",
@@ -67,193 +65,208 @@ export default function VibeCodingRescue() {
       },
     ],
   };
+
+  const symptoms = [
+    {
+      number: "01",
+      title: "The Monolith",
+      description:
+        "Your entire app logic is stuffed into a single, terrifyingly large file.",
+    },
+    {
+      number: "02",
+      title: "Hydration Errors",
+      description:
+        "React complains about UI mismatches every time you reload the page.",
+    },
+    {
+      number: "03",
+      title: "Laggy State",
+      description:
+        "You type in an input field and the whole page re-renders and lags.",
+    },
+    {
+      number: "04",
+      title: "Ghost Packages",
+      description:
+        "AI imported libraries that don't exist, are deprecated, or conflict.",
+    },
+  ];
+
+  const fixes = [
+    {
+      title: "Component Extraction",
+      description:
+        "Breaking massive files into clean, reusable React components.",
+    },
+    {
+      title: "State Management",
+      description:
+        "Implementing proper Context, Zustand, or Redux to fix performance bottlenecks.",
+    },
+    {
+      title: "Database Optimization",
+      description:
+        "Rewriting hallucinated database queries into secure, efficient Prisma/Drizzle calls.",
+    },
+    {
+      title: "Security Patching",
+      description:
+        "Fixing exposed API keys, insecure routes, and authentication flaws.",
+    },
+  ];
+
+  const faqs = [
+    {
+      q: "What is vibe coding cleanup?",
+      a: "Refactoring AI-generated code from tools like Cursor, Copilot, or v0 into production-ready, scalable applications. I specialize in stabilizing these codebases without rebuilding from scratch.",
+    },
+    {
+      q: "How much does a codebase audit cost?",
+      a: "The 48-hour codebase audit is $2,000. That includes a full review of your repository, identification of critical issues, and a step-by-step roadmap for remediation.",
+    },
+  ];
+
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50 selection:bg-indigo-500/30 selection:text-indigo-200">
+    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
 
-      {/* 1. HERO SECTION (Dark & Technical Theme) */}
-      <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-800/30">
-        {/* Hacker/Code aesthetic background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+      {/* Hero */}
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+        <span className="label animate-fade-in-up">
+          System Architecture Rescue
+        </span>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-indigo-500/30 text-indigo-300 font-mono text-sm mb-8 animate-fade-in-up">
-            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-            System Architecture Rescue
-          </div>
+        <h1
+          className="mt-4 max-w-3xl animate-fade-in-up [animation-delay:100ms]"
+          style={{ fontWeight: "var(--weight-display-black)" }}
+        >
+          AI built your prototype.{" "}
+          <span className="accent">I build the production app.</span>
+        </h1>
 
-          <h1 className="animate-fade-in-up [animation-delay:100ms] text-[38px] md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-white">
-            <span>AI built your prototype. </span>
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-cyan-400">
-              I build the production app.
-            </span>
-          </h1>
+        <p className="body-lg mt-6 max-w-xl animate-fade-in-up [animation-delay:200ms]">
+          Tools like Cursor and v0 are incredible for getting off the ground.
+          But when your 2,000-line{" "}
+          <code className="font-[family-name:var(--font-mono)] text-[color:var(--color-accent)]">
+            page.tsx
+          </code>{" "}
+          file starts crashing and features become impossible to add, you need a
+          senior engineer.
+        </p>
 
-          <p className="animate-fade-in-up [animation-delay:200ms] text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Tools like Cursor and v0 are incredible for getting off the ground.
-            But when your 2,000-line{" "}
-            <code className="text-indigo-300 bg-slate-900 px-1 py-0.5 rounded">
-              page.tsx
-            </code>{" "}
-            file starts crashing and features become impossible to add, you need
-            a senior engineer.
-          </p>
-
-          <div className="animate-fade-in-up [animation-delay:300ms] flex flex-col sm:flex-row items-center justify-center gap-4">
-            <ContactModal
-              triggerText="Book Codebase Audit"
-              triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-dark bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/20"
-              title="Book a Codebase Audit."
-              subtitle="Let's review your AI-generated prototype and map out a production-ready architecture."
-              subject="AI Codebase Audit Request"
-              fields={[
-                { name: "name", label: "Name", type: "text", required: true },
-                { name: "email", label: "Email", type: "email", required: true },
-                {
-                  name: "website",
-                  label: "Repo or Live Demo URL",
-                  type: "text",
-                  placeholder: "https://github.com/you/repo or a live link",
-                  required: false,
-                },
-                {
-                  name: "message",
-                  label: "Project Context",
-                  type: "textarea",
-                  placeholder:
-                    "What tools did you use (Cursor, v0, etc.), and where is the app currently breaking?",
-                  required: true,
-                },
-              ]}
-              calTitle="Need immediate triage?"
-              calSubtitle="Grab a slot on my calendar to walk through the repo together."
-            />
-          </div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-4 mt-20 animate-fade-in-up [animation-delay:400ms]">
-          <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">
-            Trusted by teams building at scale
-          </p>
-          <div className="flex flex-nowrap justify-start sm:justify-center items-center gap-x-6 md:gap-x-12 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden opacity-50 hover:opacity-100 transition-all duration-500">
-            <ClientLogos variant="dark" />
-            <span className="flex items-center justify-center px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-xs font-bold text-slate-400 whitespace-nowrap shrink-0">
-              +30 MORE
-            </span>
-          </div>
+        <div className="mt-10 animate-fade-in-up [animation-delay:300ms]">
+          <ContactModal
+            triggerText="Book Codebase Audit"
+            triggerStyle="btn btn-primary"
+            title="Book a Codebase Audit."
+            subtitle="Let's review your AI-generated prototype and map out a production-ready architecture."
+            subject="AI Codebase Audit Request"
+            fields={[
+              { name: "name", label: "Name", type: "text", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              {
+                name: "website",
+                label: "Repo or Live Demo URL",
+                type: "text",
+                placeholder: "https://github.com/you/repo or a live link",
+                required: false,
+              },
+              {
+                name: "message",
+                label: "Project Context",
+                type: "textarea",
+                placeholder:
+                  "What tools did you use (Cursor, v0, etc.), and where is the app currently breaking?",
+                required: true,
+              },
+            ]}
+            calTitle="Need immediate triage?"
+            calSubtitle="Grab a slot on my calendar to walk through the repo together."
+          />
         </div>
       </section>
 
-      {/* 2. THE DIAGNOSIS (Symptom Checker) */}
-      <section className="py-24 bg-slate-950 border-b border-slate-800 relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Does your codebase look like this?
-            </h2>
-            <p className="text-lg text-slate-400">
-              The classic symptoms of "Vibe Coding" hitting a wall.
-            </p>
-          </div>
+      <SocialProof />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "🤯",
-                title: "The Monolith",
-                desc: "Your entire app logic is stuffed into a single, terrifyingly large file.",
-              },
-              {
-                icon: "🔄",
-                title: "Hydration Errors",
-                desc: "React complains about UI mismatches every time you reload the page.",
-              },
-              {
-                icon: "🐢",
-                title: "Laggy State",
-                desc: "You type in an input field and the whole page re-renders and lags.",
-              },
-              {
-                icon: "👻",
-                title: "Ghost Packages",
-                desc: "AI imported libraries that don't exist, are deprecated, or conflict.",
-              },
-            ].map((symptom, idx) => (
-              <div
-                key={idx}
-                className="bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500/50 transition-colors"
-              >
-                <div className="text-3xl mb-4">{symptom.icon}</div>
-                <h3 className="text-xl font-bold text-slate-200 mb-2">
-                  {symptom.title}
-                </h3>
-                <p className="text-slate-400 text-sm">{symptom.desc}</p>
-              </div>
-            ))}
-          </div>
+      {/* Diagnosis */}
+      <section className="border-b border-[color:var(--color-line)]">
+        <div className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20">
+          <span className="label animate-fade-in-up">The Diagnosis</span>
+          <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+            Does your codebase look like this?
+          </h2>
+          <p className="body-lg mt-4 max-w-md animate-fade-in-up [animation-delay:200ms]">
+            The classic symptoms of &ldquo;vibe coding&rdquo; hitting a wall.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {symptoms.map((symptom, index) => (
+            <div
+              key={symptom.number}
+              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-10 md:px-10 lg:py-14 ${
+                index % 2 === 0 ? "md:border-r" : ""
+              } ${index < 2 ? "border-b md:border-b-0" : ""} ${
+                index % 4 !== 0 ? "lg:border-l" : ""
+              }`}
+              style={{ animationDelay: `${300 + index * 100}ms` }}
+            >
+              <span className="stat-number text-[1.5rem] text-[color:var(--color-muted)]">
+                {symptom.number}
+              </span>
+              <h4 className="mt-4">{symptom.title}</h4>
+              <p className="body-sm mt-3">{symptom.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* 3. THE SOLUTION (How I fix it) */}
-      <section className="py-24 bg-slate-900 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-16 items-center">
-          <div className="flex-1 lg:pr-8">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-              I untangle the mess without <br className="hidden sm:block" />{" "}
-              breaking the features.
+      {/* Solution + code panel */}
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="animate-fade-in-up">
+            <span className="label">The Fix</span>
+            <h2 className="mt-4 max-w-md">
+              I untangle the mess without{" "}
+              <span className="accent">breaking the features.</span>
             </h2>
-            <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-              You don't need to throw the MVP away. I take your AI-generated
-              codebase and systematically refactor it into a scalable,
-              enterprise-grade architecture.
+            <p className="body-lg mt-6 max-w-md">
+              You don&rsquo;t need to throw the MVP away. I take your
+              AI-generated codebase and systematically refactor it into a
+              scalable, enterprise-grade architecture.
             </p>
 
-            <ul className="space-y-6">
-              {[
-                "Component Extraction: Breaking massive files into clean, reusable React components.",
-                "State Management: Implementing proper Context, Zustand, or Redux to fix performance bottlenecks.",
-                "Database Optimization: Rewriting hallucinated database queries into secure, efficient Prisma/Drizzle calls.",
-                "Security Patching: Fixing exposed API keys, insecure routes, and authentication flaws.",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <div className="mt-1 shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span className="text-slate-300">{item}</span>
+            <ul className="mt-10 flex flex-col gap-6">
+              {fixes.map((fix) => (
+                <li
+                  key={fix.title}
+                  className="border-t border-[color:var(--color-line)] pt-4"
+                >
+                  <span style={{ fontWeight: "var(--weight-display-bold)" }}>
+                    {fix.title}:
+                  </span>{" "}
+                  <span className="body-md">{fix.description}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Code comparison visual */}
-          <div className="flex-1 w-full max-w-lg mx-auto bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-800 bg-slate-900">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <span className="ml-2 text-xs text-slate-500 font-mono">
+          {/* Code comparison — the only intentionally dark surface on this
+              page, since it's literally rendering as a code editor, not
+              decorative theming. */}
+          <div className="animate-fade-in-up [animation-delay:150ms] surface-inverted mx-auto w-full max-w-lg self-start border border-[color:var(--color-ink-surface-line)]">
+            <div className="flex items-center gap-2 border-b border-[color:var(--color-ink-surface-line)] px-4 py-3">
+              <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
                 refactor.tsx
               </span>
             </div>
-            <div className="p-6 font-mono text-sm text-slate-400 overflow-x-auto">
-              <div className="text-red-400 line-through opacity-70 mb-4">
+            <div className="overflow-x-auto p-6 font-[family-name:var(--font-mono)] text-[length:var(--text-body-sm)] leading-relaxed">
+              <div className="mb-4 text-[color:var(--color-ink-surface-muted)] line-through opacity-70">
                 // AI generated code (1,200 lines)
                 <br />
                 export default function App() &#123;
@@ -266,17 +279,19 @@ export default function VibeCodingRescue() {
                 <br />
                 &#125;
               </div>
-              <div className="text-emerald-400">
+              <div className="text-[color:var(--color-ink-surface-text)]">
                 // Senior refactor
                 <br />
-                import &#123; useStore &#125; from '@/store';
+                import &#123; useStore &#125; from &apos;@/store&apos;;
                 <br />
-                import &#123; DashboardLayout &#125; from '@/components';
+                import &#123; DashboardLayout &#125; from
+                &apos;@/components&apos;;
                 <br />
                 <br />
                 export default function App() &#123;
                 <br />
-                &nbsp;&nbsp;return (<br />
+                &nbsp;&nbsp;return (
+                <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;DashboardLayout&gt;
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DataGrid /&gt;
@@ -292,79 +307,73 @@ export default function VibeCodingRescue() {
         </div>
       </section>
 
-      {/* 3.5 FAQ (moved here from the rescue hub — this is where these
-          two questions topically belong, and now the visible content
-          matches the FAQPage schema instead of the schema being the only
-          place this content existed) */}
-      <section className="py-24 bg-slate-900 border-b border-slate-800">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-12 text-center">
-            Questions people actually ask.
-          </h2>
-          <div className="space-y-6">
-            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8">
-              <h3 className="text-lg font-bold text-white mb-3">
-                What is vibe coding cleanup?
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Refactoring AI-generated code from tools like Cursor, Copilot,
-                or v0 into production-ready, scalable applications. I specialize
-                in stabilizing these codebases without rebuilding from scratch.
-              </p>
+      {/* FAQ */}
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20">
+        <span className="label animate-fade-in-up">
+          Questions People Actually Ask
+        </span>
+        <div className="mt-10 max-w-2xl border-t border-[color:var(--color-line)]">
+          {faqs.map((faq, index) => (
+            <div
+              key={faq.q}
+              className="animate-fade-in-up border-b border-[color:var(--color-line)] py-8"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <h3>{faq.q}</h3>
+              <p className="body-md mt-3">{faq.a}</p>
             </div>
-            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8">
-              <h3 className="text-lg font-bold text-white mb-3">
-                How much does a codebase audit cost?
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                The 48-hour codebase audit is $2,000. That includes a full
-                review of your repository, identification of critical issues,
-                and a step-by-step roadmap for remediation.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* 4. FINAL CTA (Audit Focus) */}
-      <section id="audit" className="relative py-24 bg-slate-950 text-center">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
-            Stop fighting the AI. Let's fix the foundation.
+      {/* Final CTA */}
+      <section id="audit" className="surface-inverted">
+        <div className="px-[clamp(2.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+            Stop fighting the AI.{" "}
+            <span className="accent">Let&rsquo;s fix the foundation.</span>
           </h2>
-          <p className="text-lg text-slate-400 mb-10">
+          <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
             Book a 48-hour codebase audit. I will review your repository and
             give you a step-by-step roadmap of exactly what needs to be
             refactored for production scale.
           </p>
-          <ContactModal
-            triggerText="Book Your Codebase Audit"
-            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
-            title="48-Hour Codebase Audit."
-            subtitle="Send your repo and I'll map out what needs to be refactored for production."
-            subject="AI Codebase Audit Request (Final CTA)"
-            fields={[
-              { name: "name", label: "Name", type: "text", required: true },
-              { name: "email", label: "Email", type: "email", required: true },
-              {
-                name: "website",
-                label: "Repo or Live Demo URL",
-                type: "text",
-                placeholder: "https://github.com/you/repo or a live link",
-                required: false,
-              },
-              {
-                name: "message",
-                label: "What is broken?",
-                type: "textarea",
-                placeholder: "What tools did you use, and where is the app currently breaking?",
-                required: true,
-              },
-            ]}
-            calTitle="Need immediate triage?"
-            calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
-          />
-          <p className="mt-8 text-sm text-slate-500">
+          <div className="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+            <ContactModal
+              triggerText="Book Your Codebase Audit"
+              triggerStyle="btn btn-primary"
+              title="48-Hour Codebase Audit."
+              subtitle="Send your repo and I'll map out what needs to be refactored for production."
+              subject="AI Codebase Audit Request (Final CTA)"
+              fields={[
+                { name: "name", label: "Name", type: "text", required: true },
+                {
+                  name: "email",
+                  label: "Email",
+                  type: "email",
+                  required: true,
+                },
+                {
+                  name: "website",
+                  label: "Repo or Live Demo URL",
+                  type: "text",
+                  placeholder: "https://github.com/you/repo or a live link",
+                  required: false,
+                },
+                {
+                  name: "message",
+                  label: "What is broken?",
+                  type: "textarea",
+                  placeholder:
+                    "What tools did you use, and where is the app currently breaking?",
+                  required: true,
+                },
+              ]}
+              calTitle="Need immediate triage?"
+              calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
+            />
+          </div>
+          <p className="stat-caption mt-8 animate-fade-in-up [animation-delay:400ms]">
             This service also covers Shopify Hydrogen and custom app codebases
             built with AI tools like Cursor or v0.
           </p>

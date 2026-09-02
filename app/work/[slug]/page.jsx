@@ -284,134 +284,93 @@ export default async function ProjectPage(props) {
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
+    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
 
-      {/* BACK LINK + BREADCRUMB */}
-      <div className="pt-28 pb-6 px-6 lg:px-8 max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 animate-fade-in-up">
+      {/* Back link + breadcrumb */}
+      <div className="animate-fade-in-up flex flex-wrap items-center justify-between gap-4 border-b border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-4">
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-indigo-600 transition-colors"
+          className="ui-text link-row text-[color:var(--color-muted)]! flex gap-1"
         >
           <svg
-            className="w-4 h-4"
+            className="h-3.5 w-3.5"
             fill="none"
             stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          Back to All Work
+          <span className="link-underline">Back to All Work</span>
         </Link>
 
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 text-sm text-slate-400">
+          <ol className="ui-text flex items-center gap-2 text-[color:var(--color-muted)]!">
             <li>
               <Link
                 href="/"
-                className="hover:text-indigo-600 transition-colors"
+                className="link-underline hover:text-[color:var(--color-ink)]!"
               >
-                <span>Home</span>
+                Home
               </Link>
             </li>
-            <li className="text-slate-300">/</li>
+            <li aria-hidden="true">/</li>
             <li>
               <Link
                 href="/work"
-                className="hover:text-indigo-600 transition-colors"
+                className="link-underline hover:text-[color:var(--color-ink)]!"
               >
-                <span>Work</span>
+                Work
               </Link>
             </li>
-            <li className="text-slate-300">/</li>
-            <li>
-              <span className="text-slate-600 font-medium" aria-current="page">
-                {meta.title}
-              </span>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-[color:var(--color-ink)]!">
+              {meta.title}
             </li>
           </ol>
         </nav>
       </div>
 
-      {/* 1. PROJECT HEADER */}
-      <header className="pt-2 pb-10 lg:pb-16 px-6 lg:px-8 max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.1] animate-fade-in-up [animation-delay:100ms]">
+      {/* Header */}
+      <header className="px-[clamp(1.5rem,4vw,4rem)] py-8 lg:py-20">
+        <h1
+          className="max-w-3xl animate-fade-in-up [animation-delay:100ms]"
+          style={{ fontWeight: "var(--weight-display-black)" }}
+        >
           {meta.title}
         </h1>
 
         <div
           id="project-summary"
-          className="flex flex-wrap items-center gap-4 text-slate-500 font-medium animate-fade-in-up [animation-delay:200ms]"
+          className="ui-text mt-6 flex flex-wrap items-center gap-3 text-[color:var(--color-muted)] animate-fade-in-up [animation-delay:200ms]"
         >
           {publishYear && (
             <>
-              <time
-                dateTime={publishedISO}
-                className="flex items-center gap-1.5"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                {publishYear}
-              </time>
-              <span className="text-slate-300">•</span>
+              <time dateTime={publishedISO}>{publishYear}</time>
+              <span aria-hidden="true">/</span>
             </>
           )}
-          <span className="flex items-center gap-1.5">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            {meta.location}
-          </span>
+          <span>{meta.location}</span>
           {meta.result_summary && (
             <>
-              <span className="text-slate-300">•</span>
-              <span className="text-indigo-600 font-semibold">
-                {meta.result_summary}
-              </span>
+              <span aria-hidden="true">/</span>
+              <span className="accent">{meta.result_summary}</span>
             </>
           )}
         </div>
       </header>
 
-      {/* 2. HERO IMAGE */}
-      <section className="px-6 lg:px-8 max-w-7xl mx-auto mb-10 lg:mb-20 animate-fade-in-up [animation-delay:300ms]">
-        <figure className="relative w-full aspect-[16/9] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+      {/* Hero image */}
+      <section className="px-[clamp(1.5rem,4vw,4rem)] pb-14 lg:pb-20 animate-fade-in-up [animation-delay:300ms]">
+        <figure className="relative aspect-[16/9] w-full overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
           {meta.featured_image ? (
             <Image
               src={meta.featured_image}
@@ -423,163 +382,144 @@ export default async function ProjectPage(props) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-slate-400">
-              <span className="text-lg font-medium">Project preview</span>
+            <div className="flex h-full w-full items-center justify-center">
+              <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
+                Project preview
+              </span>
             </div>
           )}
         </figure>
       </section>
 
-      {/* 3. CONTENT GRID */}
-      <section className="px-6 lg:px-8 max-w-7xl mx-auto pb-24 lg:pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          {/* Left Sidebar */}
-          <aside className="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1 lg:sticky lg:top-24">
+      {/* Content grid */}
+      <section className="border-t border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Sidebar */}
+          <aside className="order-2 flex flex-col gap-10 lg:sticky lg:top-24 lg:order-1 lg:col-span-4">
             {meta.website && (
               <a
                 href={meta.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 bg-slate-900 text-white text-center font-bold rounded-xl hover:bg-indigo-600 transition-colors shadow-lg shadow-slate-900/10 flex items-center justify-center gap-2 group"
+                className="btn btn-primary w-full"
               >
                 Visit Live Site
                 <svg
-                  className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"
+                  className="h-3.5 w-3.5"
                   fill="none"
                   stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
+                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
             )}
 
-            <div className="p-8 bg-slate-50 border border-slate-100 rounded-2xl space-y-8">
-              <div>
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
-                  Client
-                </h3>
-                <p className="text-slate-900 font-bold">{meta.client}</p>
+            <div className="border-t border-[color:var(--color-border-light)]">
+              <div className="border-b border-[color:var(--color-border-light)] py-5">
+                <span className="stat-caption">Client</span>
+                <p
+                  className="mt-2"
+                  style={{ fontWeight: "var(--weight-display-bold)" }}
+                >
+                  {meta.client}
+                </p>
               </div>
 
               {techStack.length > 0 && (
-                <div>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
-                    Tech Stack
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {techStack.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className="border-b border-[color:var(--color-border-light)] py-5">
+                  <span className="stat-caption">Tech Stack</span>
+                  <p className="ui-text mt-2 font-normal tracking-normal normal-case text-[color:var(--color-muted)]">
+                    {techStack.join(" / ")}
+                  </p>
                 </div>
               )}
 
               {meta.industry && (
-                <div>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
-                    Industry
-                  </h3>
-                  <p className="text-slate-900 font-medium">{meta.industry}</p>
+                <div className="border-b border-[color:var(--color-border-light)] py-5">
+                  <span className="stat-caption">Industry</span>
+                  <p className="body-sm mt-2 text-[color:var(--color-ink)]">
+                    {meta.industry}
+                  </p>
                 </div>
               )}
 
               {meta.duration && (
-                <div>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
-                    Duration
-                  </h3>
-                  <p className="text-slate-900 font-medium">{meta.duration}</p>
+                <div className="py-5">
+                  <span className="stat-caption">Duration</span>
+                  <p className="body-sm mt-2 text-[color:var(--color-ink)]">
+                    {meta.duration}
+                  </p>
                 </div>
               )}
             </div>
 
             {meta.testimonial && (
-              <blockquote className="p-8 bg-indigo-50 border border-indigo-100 rounded-2xl relative overflow-hidden">
-                <svg
-                  className="absolute top-4 left-4 w-12 h-12 text-indigo-200 opacity-40"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
-                </svg>
-                <div className="relative z-10">
-                  <p className="text-indigo-900 font-medium leading-relaxed mb-4">
-                    &ldquo;{meta.testimonial}&rdquo;
-                  </p>
-                  <footer>
-                    <p className="text-sm font-bold text-indigo-700">
-                      — {meta.client}
-                    </p>
-                  </footer>
-                </div>
+              <blockquote className="border-t border-[color:var(--color-line)] pt-6">
+                <p className="text-[length:var(--text-display-sm)] leading-[1.6] text-[color:var(--color-ink)]">
+                  &ldquo;{meta.testimonial}&rdquo;
+                </p>
+                <footer className="body-sm mt-4">&mdash; {meta.client}</footer>
               </blockquote>
             )}
           </aside>
 
-          {/* Right Column: Parsed Markdown Content */}
-          <article className="lg:col-span-8 order-1 lg:order-2 case-study-content">
+          {/* Article body */}
+          <article className="order-1 lg:order-2 lg:col-span-8 case-study-content">
             <div
-              className="prose prose-slate prose-lg max-w-none
-                         prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-slate-900
-                         prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-6
-                         prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4
-                         prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-5
-                         prose-a:text-indigo-600 hover:prose-a:text-indigo-500 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
-                         prose-img:rounded-xl prose-img:shadow-md prose-img:border prose-img:border-slate-200
+              className="prose max-w-none
+                         prose-headings:font-[family-name:var(--font-display)] prose-headings:font-semibold prose-headings:tracking-[-0.01em] prose-headings:text-[color:var(--color-ink)]
+                         prose-h2:text-[length:var(--text-display-lg)] prose-h2:mt-14 prose-h2:mb-6
+                         prose-h3:text-[length:var(--text-display-md)] prose-h3:mt-10 prose-h3:mb-4
+                         prose-p:text-[color:var(--color-muted)] prose-p:leading-[1.7] prose-p:mb-5
+                         prose-a:text-[color:var(--color-accent)] prose-a:font-medium prose-a:no-underline hover:prose-a:text-[color:var(--color-ink)]
+                         prose-img:border prose-img:border-[color:var(--color-border-light)] prose-img:rounded-none
                          prose-figure:my-8
-                         prose-figcaption:text-sm prose-figcaption:text-slate-500 prose-figcaption:mt-2 prose-figcaption:text-center
-                         prose-blockquote:border-l-4 prose-blockquote:border-indigo-500 prose-blockquote:bg-indigo-50/50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl
-                         prose-strong:text-slate-900 prose-strong:font-bold
-                         prose-code:text-indigo-700 prose-code:bg-indigo-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-sm prose-code:font-mono
-                         prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl prose-pre:p-5
-                         prose-ul:space-y-2 prose-li:marker:text-indigo-400
-                         prose-ol:space-y-2
+                         prose-figcaption:stat-caption prose-figcaption:mt-2 prose-figcaption:text-center
+                         prose-blockquote:border-l prose-blockquote:border-l-[color:var(--color-line)] prose-blockquote:bg-transparent prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-[color:var(--color-ink)]
+                         prose-strong:text-[color:var(--color-ink)] prose-strong:font-medium
+                         prose-code:font-[family-name:var(--font-mono)] prose-code:text-[color:var(--color-accent)] prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
+                         prose-pre:bg-[var(--color-ink-surface)] prose-pre:text-[color:var(--color-ink-surface-text)] prose-pre:rounded-none prose-pre:border prose-pre:border-[color:var(--color-line)]
+                         prose-ul:marker:text-[color:var(--color-accent)] prose-ol:marker:text-[color:var(--color-accent)]
                          prose-table:border-collapse prose-table:w-full
-                         prose-th:bg-slate-50 prose-th:font-bold prose-th:text-slate-700 prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-slate-200
-                         prose-td:p-3 prose-td:border prose-td:border-slate-200 prose-td:text-slate-600"
+                         prose-th:font-[family-name:var(--font-mono)] prose-th:text-[length:var(--text-label)] prose-th:uppercase prose-th:tracking-[var(--tracking-label)] prose-th:text-[color:var(--color-muted)] prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-[color:var(--color-line)]
+                         prose-td:p-3 prose-td:border prose-td:border-[color:var(--color-line)] prose-td:text-[color:var(--color-muted)]"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </article>
         </div>
       </section>
 
-      {/* 4. BOTTOM CTA — heading/body/modal title are per-project via
-          frontmatter (cta_heading, cta_body, cta_modal_title), each with a
-          sane generic fallback so older .md files without these fields
-          still render fine. */}
-      <section className="py-24 bg-slate-950 text-center border-t border-slate-900 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none" />
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] leading-tight">
+      {/* Bottom CTA — per-project copy via frontmatter (cta_heading,
+          cta_body, cta_modal_title), falls back to generic copy for
+          older .md files that don't set these fields. */}
+      <section className="surface-inverted">
+        <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
             {meta.cta_heading || "Building something similar?"}
           </h2>
-          <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
+          <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
             {meta.cta_body ||
               "I help businesses fix slow, broken websites and turn them into something their team can actually run. Let's talk about your project."}
           </p>
-          <ContactModal
-            triggerText="Start a Project"
-            triggerStyle="w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-200 transition-colors mx-auto"
-            title={
-              meta.cta_modal_title ||
-              `Interested in a ${meta.title}-style build?`
-            }
-            subtitle="Tell me about your project and I'll respond within 24 hours."
-            subject={`Project Inquiry: Similar to ${meta.title}`}
-            inputLabel="Your Project"
-            inputPlaceholder="What are we building? Share your timeline, budget, and must-have features."
-          />
+          <div className="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+            <ContactModal
+              triggerText="Start a Project"
+              triggerStyle="btn btn-primary"
+              title={
+                meta.cta_modal_title ||
+                `Interested in a ${meta.title}-style build?`
+              }
+              subtitle="Tell me about your project and I'll respond within 24 hours."
+              subject={`Project Inquiry: Similar to ${meta.title}`}
+              inputLabel="Your Project"
+              inputPlaceholder="What are we building? Share your timeline, budget, and must-have features."
+            />
+          </div>
         </div>
       </section>
 
