@@ -89,12 +89,12 @@ export default function WorkPage() {
         </p>
       </section>
 
-      {/* Portfolio grid — WorkGrid.jsx still needs its own pass; see note above */}
+      {/* Portfolio grid - WorkGrid.jsx still needs its own pass; see note above */}
       <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-20">
         <WorkGrid projects={projects} initialVisible={8} />
       </section>
 
-      {/* Closing CTA — single inverted surface, no gradient/grid decoration */}
+      {/* Closing CTA - single inverted surface, no gradient/grid decoration */}
       <section className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
           <span className="label animate-fade-in-up [animation-delay:100ms]">

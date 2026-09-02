@@ -12,7 +12,7 @@ client: Faire
 role: WordPress Developer
 excerpt: Built a standalone blog and community learning hub for a YC-backed wholesale marketplace on a custom WordPress child theme, with scoped search, a related-content system, and PageSpeed scores above 85, from designs delivered by Faire's in-house team.
 cta_heading: Need a content hub that matches the rest of your product?
-cta_body: I build blog and community hubs on custom WordPress themes — scoped search, related content, and performance tuned to match the standards of the rest of your product.
+cta_body: I build blog and community hubs on custom WordPress themes - scoped search, related content, and performance tuned to match the standards of the rest of your product.
 result_summary: Scoped search built, related content modules added, PageSpeed above 85.
 ---
 
@@ -40,9 +40,9 @@ I built custom meta fields for the editorial team and a related content box that
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Search | Site-wide, cluttered | Scoped to blog content only |
-| PageSpeed | Baseline | 85+ |
-| Content management | Static | Custom meta fields, reusable components |
-| Reader retention | No related content | Related content modules on every post |
+| What changed       | Before               | After                                   |
+| ------------------ | -------------------- | --------------------------------------- |
+| Search             | Site-wide, cluttered | Scoped to blog content only             |
+| PageSpeed          | Baseline             | 85+                                     |
+| Content management | Static               | Custom meta fields, reusable components |
+| Reader retention   | No related content   | Related content modules on every post   |

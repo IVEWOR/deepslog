@@ -11,28 +11,24 @@ import Footer from "@/components/Footer";
 import { SITE_URL, ORG_NAME, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 export const metadata = {
-  title: "Deepak Jangra — Independent Shopify Plus Developer",
+  title: "Deepak Jangra - Independent Shopify Developer",
   description:
     "Deepak Jangra is an independent contractor and Shopify Plus developer with 9+ years of experience building fast, revenue-driving Shopify stores for merchants and agencies. Available for new projects.",
   alternates: {
-    canonical: "/",
+    canonical: "https://deepakj.dev",
   },
   openGraph: {
-    title: "Deepak Jangra — Independent Shopify Plus Developer",
+    title: "Deepak Jangra - Independent Shopify Developer",
     description:
       "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
     url: SITE_URL,
     siteName: "Deepak Jangra",
     images: [
       {
-        // TODO: og-image.jpg doesn't exist yet (was marked "pending" in
-        // the original). Falling back to /deepak.jpg, which is real and
-        // already used as the fallback elsewhere. Swap this back to a
-        // dedicated OG image once one exists.
-        url: `${SITE_URL}/deepak.jpg`,
+        url: `${SITE_URL}/og-about.jpg`,
         width: 1200,
         height: 630,
-        alt: "Deepak Jangra - Independent Shopify Plus Developer",
+        alt: "Deepak Jangra - Independent Shopify Developer",
       },
     ],
     locale: "en_US",
@@ -40,10 +36,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deepak Jangra — Independent Shopify Plus Developer",
+    title: "Deepak Jangra - Independent Shopify Developer",
     description:
-      "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
-    images: [`${SITE_URL}/deepak.jpg`],
+      "Independent contractor specializing in Shopify: custom builds, performance optimization, store rescue, and subscription commerce.",
+    images: [`${SITE_URL}/og-about.png`],
   },
   robots: {
     index: true,
@@ -118,7 +114,7 @@ export default function Home() {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: "Deepak Jangra — Independent Shopify Developer",
+        name: "Deepak Jangra - Independent Shopify Developer",
         description:
           "Portfolio and services of Deepak Jangra, independent Shopify developer.",
         inLanguage: "en-US",

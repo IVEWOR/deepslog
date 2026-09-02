@@ -9,7 +9,7 @@ import ContactModal from "@/components/ContactModal";
 import { SITE_URL, DEFAULT_ROLE, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 // Normalizes a date value from frontmatter into a full ISO 8601 datetime
-// with a UTC offset — Google's Rich Results validator flags bare dates
+// with a UTC offset - Google's Rich Results validator flags bare dates
 // (e.g. "2024-01-15") as missing a time zone. Accepts a bare 4-digit year
 // ("2024"), a full date ("2024-01-15"), or an already-complete datetime
 // (left untouched if it contains "T").
@@ -61,7 +61,7 @@ export async function generateMetadata(props) {
     ].filter(Boolean);
 
     return {
-      title: `${meta.title} — Case Study | Deepak Jangra`,
+      title: `${meta.title} - Case Study | Deepak Jangra`,
       description,
       keywords: keywords.join(", "),
       authors: [{ name: "Deepak Jangra", url: SITE_URL }],
@@ -81,7 +81,7 @@ export async function generateMetadata(props) {
         title: `${meta.title} Case Study | Deepak Jangra`,
         description,
         url: `${SITE_URL}/work/${params.slug}`,
-        siteName: `Deepak Jangra — ${meta.role || DEFAULT_ROLE}`,
+        siteName: `Deepak Jangra - ${meta.role || DEFAULT_ROLE}`,
         type: "article",
         publishedTime: publishedISO,
         modifiedTime: modifiedISO,
@@ -95,7 +95,7 @@ export async function generateMetadata(props) {
               : `${SITE_URL}/deepak.jpg`,
             width: 1200,
             height: 630,
-            alt: `${meta.title} project preview — built with ${meta.platform}`,
+            alt: `${meta.title} project preview - built with ${meta.platform}`,
             type: "image/png",
           },
         ],
@@ -149,14 +149,14 @@ export default async function ProjectPage(props) {
     : [];
 
   // Build comprehensive JSON-LD schemas. This is the ONLY structured
-  // data on the page — the JSX below has zero itemScope/itemType/
+  // data on the page - the JSX below has zero itemScope/itemType/
   // itemProp microdata left in it on purpose. Having both was producing
   // duplicate Article/Breadcrumb items in Google's Rich Results test,
   // and the microdata copy was misattributing the article's author to
   // the client's name via a stray itemProp="author" that was only ever
   // meant to visually label the sidebar. If you ever add a new visible
   // itemProp/itemScope to this file for some reason, it'll create the
-  // same duplication again — don't.
+  // same duplication again - don't.
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -177,7 +177,7 @@ export default async function ProjectPage(props) {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     "@id": `${SITE_URL}/work/${params.slug}#article`,
-    headline: `${meta.title} — Web Development Case Study`,
+    headline: `${meta.title} - Web Development Case Study`,
     description:
       meta.excerpt ||
       `Read how ${meta.title} was rebuilt with ${meta.platform}.`,
@@ -211,7 +211,7 @@ export default async function ProjectPage(props) {
         url: meta.website,
       },
     }),
-    // Generic "Thing" rather than "SoftwareApplication" — the latter
+    // Generic "Thing" rather than "SoftwareApplication" - the latter
     // requires at least two of offers/aggregateRating/applicationCategory/
     // operatingSystem to validate, which a bare tech-stack name will
     // never have. That mismatch was exactly what Google's Rich Results
@@ -374,7 +374,7 @@ export default async function ProjectPage(props) {
           {meta.featured_image ? (
             <Image
               src={meta.featured_image}
-              alt={`${meta.title} project preview — ${meta.platform} development by Deepak Jangra`}
+              alt={`${meta.title} project preview - ${meta.platform} development by Deepak Jangra`}
               fill
               className="object-cover object-top"
               priority
@@ -494,7 +494,7 @@ export default async function ProjectPage(props) {
         </div>
       </section>
 
-      {/* Bottom CTA — per-project copy via frontmatter (cta_heading,
+      {/* Bottom CTA - per-project copy via frontmatter (cta_heading,
           cta_body, cta_modal_title), falls back to generic copy for
           older .md files that don't set these fields. */}
       <section className="surface-inverted">

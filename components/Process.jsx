@@ -26,7 +26,7 @@ export default function Process() {
     },
   ];
 
-  // Fixed per column — mobile stacks 1-up, sm pairs 2-up, lg is a single row of 4.
+  // Fixed per column - mobile stacks 1-up, sm pairs 2-up, lg is a single row of 4.
   const stepBorders = [
     "border-b lg:border-b-0",
     "border-b sm:border-l lg:border-b-0",

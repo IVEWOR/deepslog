@@ -10,9 +10,9 @@ date: "2026"
 date_published: "2026-06"
 client: Christian
 role: Shopify Plus Consultant
-excerpt: Selected as one of three finalists for a paid 8-hour Shopify Plus consolidation assessment across four regional stores — real Klaviyo data, a per-store app matrix, and a migration risk register — plus a separate Shopify Scripts migration completed ahead of Shopify's June 30, 2026 checkout.liquid deprecation deadline.
+excerpt: Selected as one of three finalists for a paid 8-hour Shopify Plus consolidation assessment across four regional stores - real Klaviyo data, a per-store app matrix, and a migration risk register - plus a separate Shopify Scripts migration completed ahead of Shopify's June 30, 2026 checkout.liquid deprecation deadline.
 cta_heading: Weighing a Shopify Plus multi-store consolidation?
-cta_body: I deliver data-backed Shopify Plus assessments — real API counts, per-store app matrices, and a migration risk register — not a quote based on a five-minute look at your storefronts.
+cta_body: I deliver data-backed Shopify Plus assessments - real API counts, per-store app matrices, and a migration risk register - not a quote based on a five-minute look at your storefronts.
 result_summary: Delivered a full consolidation assessment (audit, risk register, migration plan, timeline & budget) across 4 Shopify Plus stores; completed the store's Shopify Scripts → Checkout Blocks migration ahead of the June 30, 2026 deprecation deadline.
 ---
 
@@ -36,12 +36,12 @@ Separately from the consolidation assessment, I migrated the stores' active Shop
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Consolidation risk | Unknown, assumed similar across 4 stores | Quantified: Klarna, KNO surveys, and a 69% Klaviyo suppression rate identified as the real risks |
-| Klaviyo visibility | Scattered across 5 accounts | Consolidated profile counts and suppression data in one document |
-| Shopify Scripts | Active, on a hard June 30, 2026 deprecation deadline | Migrated to Checkout Blocks, deadline met |
-| Checkout customizations | Running on deprecated checkout.liquid | Migrated off ahead of cutoff |
+| What changed            | Before                                               | After                                                                                            |
+| ----------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Consolidation risk      | Unknown, assumed similar across 4 stores             | Quantified: Klarna, KNO surveys, and a 69% Klaviyo suppression rate identified as the real risks |
+| Klaviyo visibility      | Scattered across 5 accounts                          | Consolidated profile counts and suppression data in one document                                 |
+| Shopify Scripts         | Active, on a hard June 30, 2026 deprecation deadline | Migrated to Checkout Blocks, deadline met                                                        |
+| Checkout customizations | Running on deprecated checkout.liquid                | Migrated off ahead of cutoff                                                                     |
 
 ## Where this landed
 

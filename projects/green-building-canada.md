@@ -48,4 +48,4 @@ Beyond the automated feed, I built custom submission forms, account management v
 
 "It was a joy working with Deepak. He delivered what I asked for, patiently working through all issues to arrive at the desired outcome. He is thorough and cares about his work."
 
-— Kiva B, Green Building Canada
+- Kiva B, Green Building Canada

@@ -10,9 +10,9 @@ date: "2023"
 date_published: "2023-01-20"
 client: Teri
 role: Shopify Developer
-excerpt: Complete product page redesign for a size-inclusive bra brand — visible size selector, size-guide modal, Shop Pay integration, tabbed content, and a reusable theme template.
+excerpt: Complete product page redesign for a size-inclusive bra brand - visible size selector, size-guide modal, Shop Pay integration, tabbed content, and a reusable theme template.
 cta_heading: Is your Shopify product page losing conversions?
-cta_body: I redesign Shopify product pages with size selectors, guide modals, and payment integrations that turn browsers into buyers — all in a reusable template your team can apply to any product.
+cta_body: I redesign Shopify product pages with size selectors, guide modals, and payment integrations that turn browsers into buyers - all in a reusable template your team can apply to any product.
 result_summary: Custom PDP template, visible size selector, size-guide modal, Shop Pay, tabbed content.
 ---
 
@@ -40,11 +40,11 @@ Rather than hand-coding this as a single product page, I built it as a "New Prod
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Size selection | Dropdown | Visible selector |
-| Size guidance | No guide | Modal with fit-guide link |
-| Reviews | Buried | Prominent section |
-| Payment | Standard only | Shop Pay added |
-| Content | Scattered | Tabbed, organized |
+| What changed    | Before              | After                          |
+| --------------- | ------------------- | ------------------------------ |
+| Size selection  | Dropdown            | Visible selector               |
+| Size guidance   | No guide            | Modal with fit-guide link      |
+| Reviews         | Buried              | Prominent section              |
+| Payment         | Standard only       | Shop Pay added                 |
+| Content         | Scattered           | Tabbed, organized              |
 | Maintainability | Developer-dependent | Reusable, per-product template |

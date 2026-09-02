@@ -53,7 +53,7 @@ export default function GlobalError({ error, reset }) {
           <p
             style={{ color: "#a89f8f", lineHeight: 1.7, marginBottom: "32px" }}
           >
-            The app failed to load. It&rsquo;s been logged — try reloading, or
+            The app failed to load. It&rsquo;s been logged - try reloading, or
             check back in a few minutes.
           </p>
 

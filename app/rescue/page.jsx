@@ -21,9 +21,7 @@ export const metadata = {
     siteName: "Deepak Jangra",
     images: [
       {
-        // TODO: og-rescue.png doesn't exist yet. Using a real screenshot
-        // as a stopgap.
-        url: `${SITE_URL}/merkbart.png`,
+        url: `${SITE_URL}/og-rescue.png`,
         width: 1200,
         height: 630,
         alt: "Code Rescue Services - AI Cleanup & Speed Optimization",
@@ -141,7 +139,7 @@ export default function RescueHub() {
       number: "03",
       title: "Shopify Store Rescue",
       description:
-        "Broken checkout? Theme falling apart after too many app installs? Previous developer used a page builder that slowed your store to a crawl? I audit, stabilize, and document — so your team can maintain it without me.",
+        "Broken checkout? Theme falling apart after too many app installs? Previous developer used a page builder that slowed your store to a crawl? I audit, stabilize, and document - so your team can maintain it without me.",
       cta: "Get a Store Audit",
       modal: true,
     },
@@ -191,12 +189,12 @@ export default function RescueHub() {
 
         <p className="body-lg mt-6 max-w-xl animate-fade-in-up [animation-delay:200ms]">
           Whether your Shopify store is breaking at scale, your AI-generated
-          checkout extension is a mess, or your previous developer disappeared —
+          checkout extension is a mess, or your previous developer disappeared -
           I step in, stabilize the codebase, and get you back to selling.
         </p>
       </section>
 
-      {/* Reuses the homepage marquee component for consistency —
+      {/* Reuses the homepage marquee component for consistency -
           see note below the code about why this replaced ClientLogos. */}
       <SocialProof />
 
@@ -250,7 +248,7 @@ export default function RescueHub() {
                         label: "What's broken or slow?",
                         type: "textarea",
                         placeholder:
-                          "Broken checkout, overloaded theme, messy app stack — what's going on?",
+                          "Broken checkout, overloaded theme, messy app stack - what's going on?",
                         required: true,
                       },
                     ]}

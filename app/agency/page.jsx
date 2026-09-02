@@ -195,7 +195,7 @@ export default function AgencyPage() {
           <span className="label">Client Note</span>
           <p className="mt-4 text-[length:var(--text-display-sm)] leading-[1.6]">
             &ldquo;3+ years working with Deepak. He converts vague client ideas
-            into functional websites — zero hand-holding required.&rdquo;
+            into functional websites - zero hand-holding required.&rdquo;
           </p>
           <p className="body-sm mt-4">
             <span

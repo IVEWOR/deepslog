@@ -57,7 +57,7 @@ export default function Hero() {
                   label: "What do you need?",
                   type: "textarea",
                   placeholder:
-                    "New build, replatform, performance, checkout, custom app — what's the priority?",
+                    "New build, replatform, performance, checkout, custom app - what's the priority?",
                   required: true,
                 },
               ]}
@@ -112,7 +112,7 @@ export default function Hero() {
             <span className="font-[family-name:var(--font-body)] font-medium text-[color:var(--color-ink)]">
               Filip J.
             </span>
-            <span className="text-[color:var(--color-muted)]"> — Merkbart</span>
+            <span className="text-[color:var(--color-muted)]"> - Merkbart</span>
           </p>
 
           <div className="mt-12 grid grid-cols-3 border-y border-(--color-border-light) mx-[-1.5rem] md:mx-0">

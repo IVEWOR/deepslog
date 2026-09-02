@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-// Placeholder routes — confirm real case-study slugs, use null for clients
+// Placeholder routes - confirm real case-study slugs, use null for clients
 // without a live case study page.
 const CLIENTS = [
   { name: "Merkbart", href: "/work/merkbart" },

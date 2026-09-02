@@ -10,10 +10,10 @@ date: "2022"
 date_published: "2022-10-06"
 client: Lydia Gall
 role: WordPress Developer
-excerpt: Complete WordPress rebuild for a women's cannabis nonprofit — color overhaul, custom team post type, volunteer portal, partner integrations, and 8+ content pages built from scratch under a tight deadline.
+excerpt: Complete WordPress rebuild for a women's cannabis nonprofit - color overhaul, custom team post type, volunteer portal, partner integrations, and 8+ content pages built from scratch under a tight deadline.
 testimonial: "I love it! The About Us looks fantastic. Our team page looks great."
 cta_heading: Need a nonprofit site that actually represents your mission?
-cta_body: I build nonprofit websites with custom post types for team management, donation flows, and event pages — all editable by non-technical staff.
+cta_body: I build nonprofit websites with custom post types for team management, donation flows, and event pages - all editable by non-technical staff.
 result_summary: Full rebuild from black background to pastel feminine palette, 8+ pages, custom team post type, volunteer portal.
 ---
 
@@ -45,15 +45,15 @@ I added Advocacy, Support, and Education tabs to the top navigation, and built o
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Site aesthetic | Dark, harsh, black background | Light, feminine, mission-aligned |
-| Team management | Manual code edits | Self-service custom post type |
-| Volunteer engagement | No portal | Dedicated section with Connecteam integration |
-| Partner visibility | No showcase | Featured partner callout |
+| What changed         | Before                        | After                                         |
+| -------------------- | ----------------------------- | --------------------------------------------- |
+| Site aesthetic       | Dark, harsh, black background | Light, feminine, mission-aligned              |
+| Team management      | Manual code edits             | Self-service custom post type                 |
+| Volunteer engagement | No portal                     | Dedicated section with Connecteam integration |
+| Partner visibility   | No showcase                   | Featured partner callout                      |
 
 ## What the client said
 
 "I love it! The About Us looks fantastic. Our team page looks great."
 
-— Lydia Gall, WomenCann
+- Lydia Gall, WomenCann

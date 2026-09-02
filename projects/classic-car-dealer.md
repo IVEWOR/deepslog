@@ -1,6 +1,6 @@
 ---
 title: Classic Car Dealer
-website: (Final domain not confirmed — built on a development subdomain)
+website: (Final domain not confirmed - built on a development subdomain)
 platform: WordPress, Custom Post Types
 location: USA
 featured_image: /classic-car-dealer.png
@@ -40,9 +40,9 @@ There wasn't a plugin that supported mass upload into the custom post type, so I
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Listings | No system | Custom post type with self-service admin |
-| Pricing | No field | Flat price, clearly displayed |
-| Design | Generic | Dealer-inspired, custom color scheme |
-| Admin | Developer-dependent | Self-service car addition |
+| What changed | Before              | After                                    |
+| ------------ | ------------------- | ---------------------------------------- |
+| Listings     | No system           | Custom post type with self-service admin |
+| Pricing      | No field            | Flat price, clearly displayed            |
+| Design       | Generic             | Dealer-inspired, custom color scheme     |
+| Admin        | Developer-dependent | Self-service car addition                |

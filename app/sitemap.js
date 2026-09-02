@@ -37,11 +37,11 @@ export default function sitemap() {
   ];
 
   // One entry per case study, generated from the same list that drives
-  // the /work grid (lib/work-projects.js) — add a project there once,
+  // the /work grid (lib/work-projects.js) - add a project there once,
   // it shows up here automatically, no manual sitemap edits needed.
   const workPages = workProjects.map((project) => ({
     url: `https://deepakj.dev/work/${project.link}`,
-    // Case studies are static once published — using Jan 1 of the
+    // Case studies are static once published - using Jan 1 of the
     // project's year as a stand-in "last changed" date is more honest
     // than stamping every single one with today's build time. Swap in
     // a real per-project updated date later if you start tracking one.

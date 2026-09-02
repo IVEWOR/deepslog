@@ -56,7 +56,7 @@ export default function CTA() {
                 label: "What's going on?",
                 type: "textarea",
                 placeholder:
-                  "Slow checkout, buggy theme, scaling issues — what's the priority?",
+                  "Slow checkout, buggy theme, scaling issues - what's the priority?",
                 required: true,
               },
             ]}

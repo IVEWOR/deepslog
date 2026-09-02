@@ -58,7 +58,7 @@ export default function Work() {
         </p>
       </div>
 
-      {/* Column labels — desktop only */}
+      {/* Column labels - desktop only */}
       <div className="hidden lg:grid lg:grid-cols-[64px_260px_1fr_200px_32px] lg:gap-8 border-b border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-4">
         <span className="stat-caption">Year</span>
         <span className="stat-caption">Project</span>

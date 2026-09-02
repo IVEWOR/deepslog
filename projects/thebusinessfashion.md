@@ -10,9 +10,9 @@ date: "2024"
 date_published: "2024-12"
 client: Nick karageorge
 role: Shopify Developer
-excerpt: An ongoing Shopify relationship with a UK luxury multi-brand retailer, comparable in category to Farfetch — a transparent adaptive header that survives a mega menu, a homepage the team can update themselves, collection pages rebuilt for infinite scroll and 3x+ faster loads, correct filter counts under progressive loading, a pricing bug traced to stock data instead of code, and a custom booking page with a working native contact form.
+excerpt: An ongoing Shopify relationship with a UK luxury multi-brand retailer, comparable in category to Farfetch - a transparent adaptive header that survives a mega menu, a homepage the team can update themselves, collection pages rebuilt for infinite scroll and 3x+ faster loads, correct filter counts under progressive loading, a pricing bug traced to stock data instead of code, and a custom booking page with a working native contact form.
 cta_heading: Failed a Google indexing appeal and not sure why?
-cta_body: I diagnose crawlability issues that aren't obvious from the front end — JS-intercepted links, malformed markup, anything that looks fine to a shopper but reads wrong to a reviewer or a crawler.
+cta_body: I diagnose crawlability issues that aren't obvious from the front end - JS-intercepted links, malformed markup, anything that looks fine to a shopper but reads wrong to a reviewer or a crawler.
 result_summary: Collection page load speed improved 3x+, infinite scroll replacing full-catalog page loads, mega-menu contrast bug fixed, product pricing bug traced to stock data, Boutique booking page built with a working native contact form, resolved a rejected Google indexing appeal.
 ---
 
@@ -76,7 +76,7 @@ Separately, the footer carried five required policy links, Contact, Terms & Cond
 
 "Great progress, by the way! At first look, it looks very consistent."
 
-— Nick karageorge, The Business Fashion
+- Nick karageorge, The Business Fashion
 
 ## The engagement
 

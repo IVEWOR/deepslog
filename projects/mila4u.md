@@ -10,9 +10,9 @@ date: "2022"
 date_published: "2022-09-08"
 client: Mila4u.com
 role: Shopify Developer
-excerpt: Safari-specific bug diagnosis for a leather bag brand — white page on navigation from product to homepage, reproduced and scoped for fix.
+excerpt: Safari-specific bug diagnosis for a leather bag brand - white page on navigation from product to homepage, reproduced and scoped for fix.
 cta_heading: Got a browser-specific bug you can't reproduce?
-cta_body: I diagnose browser-specific issues — especially Safari quirks on Shopify — and provide scoped fixes that don't break other browsers.
+cta_body: I diagnose browser-specific issues - especially Safari quirks on Shopify - and provide scoped fixes that don't break other browsers.
 result_summary: Safari white-page bug diagnosed, scoped for fix.
 ---
 
@@ -26,7 +26,7 @@ I worked through reproducing the issue specifically in Safari rather than assumi
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Bug | Reported but unconfirmed | Diagnosed and scoped |
+| What changed     | Before                       | After                             |
+| ---------------- | ---------------------------- | --------------------------------- |
+| Bug              | Reported but unconfirmed     | Diagnosed and scoped              |
 | Browser behavior | Safari-specific, unexplained | Identified as targeted fix needed |

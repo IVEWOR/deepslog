@@ -10,10 +10,10 @@ date: "2026"
 date_published: "2026"
 client: LEO Eyewear
 role: Shopify Developer
-excerpt: A two-phase relationship — a full Shopify storefront build in 2020, then a complete redesign in 2026 once the brand narrowed to tech eyewear exclusively, a fixed 100vh video homepage, an adaptive transparent header, full pixel tracking, real SEO, and Razorpay and Shiprocket integration for the Indian market.
+excerpt: A two-phase relationship - a full Shopify storefront build in 2020, then a complete redesign in 2026 once the brand narrowed to tech eyewear exclusively, a fixed 100vh video homepage, an adaptive transparent header, full pixel tracking, real SEO, and Razorpay and Shiprocket integration for the Indian market.
 cta_heading: Pivoted your business and your site hasn't caught up?
-cta_body: I redesign Shopify stores end-to-end when the business has moved on from the site it's still running — new homepage concept, tracking, SEO, payments, and fulfillment, handled together instead of patched in one at a time.
-result_summary: Full 2020 storefront build, then a 2026 ground-up redesign for a pivot to tech eyewear — fixed-viewport video homepage, adaptive header, Meta/Google/Instagram pixel tracking, technical and on-page SEO, a full CRO pass, and Razorpay plus Shiprocket integration.
+cta_body: I redesign Shopify stores end-to-end when the business has moved on from the site it's still running - new homepage concept, tracking, SEO, payments, and fulfillment, handled together instead of patched in one at a time.
+result_summary: Full 2020 storefront build, then a 2026 ground-up redesign for a pivot to tech eyewear - fixed-viewport video homepage, adaptive header, Meta/Google/Instagram pixel tracking, technical and on-page SEO, a full CRO pass, and Razorpay plus Shiprocket integration.
 ---
 
 ## The problem

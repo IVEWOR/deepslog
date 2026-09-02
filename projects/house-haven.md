@@ -10,9 +10,9 @@ date: "2022"
 date_published: "2022-10-01"
 client: House Haven
 role: Shopify Developer
-excerpt: Full Shopify store build for a home goods brand — homepage, two products with custom descriptions, review integration, FAQ section, and benefit-icon ribbon design.
+excerpt: Full Shopify store build for a home goods brand - homepage, two products with custom descriptions, review integration, FAQ section, and benefit-icon ribbon design.
 cta_heading: Launching a new product on Shopify?
-cta_body: I build complete Shopify stores from scratch — product pages, reviews, FAQs, and conversion-focused design that sells.
+cta_body: I build complete Shopify stores from scratch - product pages, reviews, FAQs, and conversion-focused design that sells.
 result_summary: Full store build, 2 products, custom reviews, FAQ, benefit icons.
 ---
 

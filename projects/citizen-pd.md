@@ -12,7 +12,7 @@ client: Citizen PD
 role: WordPress Developer
 excerpt: Attempted multiple-image upload integration for a citizen journalism video platform. Diagnosed Contact Form 7 limitations and recommended ACF Pro for repeater fields. Scope was limited by a 10-hour cap and complex legacy code.
 cta_heading: Have a complex form that needs custom fields?
-cta_body: I diagnose form limitations and recommend the right architecture — whether that's custom code, ACF Pro, or a complete rebuild.
+cta_body: I diagnose form limitations and recommend the right architecture - whether that's custom code, ACF Pro, or a complete rebuild.
 result_summary: Diagnosed CF7 limitations, recommended ACF Pro, scoped custom rebuild approach.
 ---
 
@@ -36,8 +36,8 @@ This engagement was explicitly capped at 10 hours, and the legacy codebase made 
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Diagnosis | Unclear why uploads failed | Root cause identified (CF7 limitations) |
-| Recommendation | No clear path | ACF Pro + custom rebuild scoped |
-| Scope | Unbounded risk | Honest assessment of time and risk constraints |
+| What changed   | Before                     | After                                          |
+| -------------- | -------------------------- | ---------------------------------------------- |
+| Diagnosis      | Unclear why uploads failed | Root cause identified (CF7 limitations)        |
+| Recommendation | No clear path              | ACF Pro + custom rebuild scoped                |
+| Scope          | Unbounded risk             | Honest assessment of time and risk constraints |

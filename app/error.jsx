@@ -15,7 +15,7 @@ export default function Error({ error, reset }) {
       eyebrow="System Error"
       title="Something broke."
       titleAccent="Not on your end."
-      description="An unexpected error occurred while rendering this page. It's been logged — try again, or head back home."
+      description="An unexpected error occurred while rendering this page. It's been logged - try again, or head back home."
       primaryAction={
         <button
           onClick={() => reset()}

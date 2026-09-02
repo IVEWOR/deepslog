@@ -117,7 +117,7 @@ Three months after launch, Filip told me sales had doubled.
 
 "He made our website from the bottom, both backend and front end. Very happy with the result. Quick and very good at finding solutions for the issues we found."
 
-— Filip J, MerkBart
+- Filip J, MerkBart
 
 ## Still working together
 

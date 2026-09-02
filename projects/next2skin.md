@@ -10,9 +10,9 @@ date: "2021"
 date_published: "2021"
 client: Next2Skin
 role: Shopify Developer
-excerpt: Full custom Shopify build for an Indian hosiery and legwear brand — every core page built from scratch across Women's, Kids', and Men's categories, with Shiprocket integrated for fulfillment and customer-facing order tracking.
+excerpt: Full custom Shopify build for an Indian hosiery and legwear brand - every core page built from scratch across Women's, Kids', and Men's categories, with Shiprocket integrated for fulfillment and customer-facing order tracking.
 cta_heading: Need a Shopify store built for real logistics, not just checkout?
-cta_body: I build custom Shopify storefronts with the fulfillment side handled properly — Shiprocket integration, COD support, and order tracking your customers can actually use.
+cta_body: I build custom Shopify storefronts with the fulfillment side handled properly - Shiprocket integration, COD support, and order tracking your customers can actually use.
 result_summary: Fully custom Shopify store across three category verticals, Shiprocket integrated for fulfillment and tracking, reviews live via Judge.me.
 ---
 
@@ -36,10 +36,10 @@ I set up Judge.me for product reviews, so social proof shows up directly on each
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Store | None | Fully custom Shopify store, every core page built |
-| Collection structure | None | Women's / Kids' / Men's, split correctly by product type |
-| Fulfillment & tracking | None | Shiprocket integrated, customer-facing tracking portal |
-| Shipping | N/A | COD supported, pan-India delivery |
-| Reviews | None | Judge.me live on every product page |
+| What changed           | Before | After                                                    |
+| ---------------------- | ------ | -------------------------------------------------------- |
+| Store                  | None   | Fully custom Shopify store, every core page built        |
+| Collection structure   | None   | Women's / Kids' / Men's, split correctly by product type |
+| Fulfillment & tracking | None   | Shiprocket integrated, customer-facing tracking portal   |
+| Shipping               | N/A    | COD supported, pan-India delivery                        |
+| Reviews                | None   | Judge.me live on every product page                      |

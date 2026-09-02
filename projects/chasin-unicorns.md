@@ -12,7 +12,7 @@ client: Samantha
 role: Shopify Developer
 excerpt: Rebuilt a crystal lifestyle brand's Shopify store with custom subscription checkout routing, automated monthly countdown timers, and fixed broken social-share previews that were showing the wrong brand image.
 cta_heading: Running a subscription business on Shopify?
-cta_body: I build custom Shopify flows for subscription brands — checkout routing, automated timers, and social-share fixes that actually represent your brand.
+cta_body: I build custom Shopify flows for subscription brands - checkout routing, automated timers, and social-share fixes that actually represent your brand.
 result_summary: Custom subscription checkout, automated monthly timers, fixed social-share previews.
 ---
 
@@ -44,9 +44,9 @@ I connected the Instagram account for an API-based feed display on the site, and
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Subscription checkout | Broken routing to default checkout | Direct Recharge checkout |
-| Social-share preview | Wrong brand image ("girl meets box") | Correct brand metadata |
-| Monthly countdown & box name | Manual update every month | Automated |
-| Mobile homepage | Breaking on Zipify Pages | Stable on native theme |
+| What changed                 | Before                               | After                    |
+| ---------------------------- | ------------------------------------ | ------------------------ |
+| Subscription checkout        | Broken routing to default checkout   | Direct Recharge checkout |
+| Social-share preview         | Wrong brand image ("girl meets box") | Correct brand metadata   |
+| Monthly countdown & box name | Manual update every month            | Automated                |
+| Mobile homepage              | Breaking on Zipify Pages             | Stable on native theme   |

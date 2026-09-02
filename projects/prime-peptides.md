@@ -12,7 +12,7 @@ client: Michael DuFresne
 role: Full-Stack Developer (Wix Velo / Node.js)
 excerpt: Engineered a custom payment bridge for a high-risk Wix merchant, connecting Wix E-commerce to the PsiFi/Simplex crypto-on-ramp so customers could pay by credit card despite standard processors refusing the industry, with HMAC-verified webhooks and fully automated order sync.
 cta_heading: Locked out of standard payment processors?
-cta_body: I build custom payment bridges for high-risk merchants — crypto on-ramps, dynamic fee logic, and secure webhook architecture that keeps your order system in sync automatically.
+cta_body: I build custom payment bridges for high-risk merchants - crypto on-ramps, dynamic fee logic, and secure webhook architecture that keeps your order system in sync automatically.
 result_summary: Live, secure credit-card-via-crypto checkout; manual order management time reduced by 100%.
 ---
 

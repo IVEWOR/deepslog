@@ -255,10 +255,6 @@ export default function VibeCodingRescue() {
               ))}
             </ul>
           </div>
-
-          {/* Code comparison — the only intentionally dark surface on this
-              page, since it's literally rendering as a code editor, not
-              decorative theming. */}
           <div className="animate-fade-in-up [animation-delay:150ms] surface-inverted mx-auto w-full max-w-lg self-start border border-[color:var(--color-ink-surface-line)]">
             <div className="flex items-center gap-2 border-b border-[color:var(--color-ink-surface-line)] px-4 py-3">
               <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">

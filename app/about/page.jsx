@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "Deepak Jangra",
     images: [
       {
-        url: `${SITE_URL}/headshot.png`,
+        url: `${SITE_URL}/og-about.png`,
         width: 800,
         height: 800,
         alt: "Deepak Jangra - Shopify Plus Developer",
@@ -35,12 +35,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deepak Jangra | Shopify Plus Developer",
-    // TODO: "100+ projects" — same unverified claim flagged on /work.
-    // Confirm the real count before this ships; keep it consistent across
-    // every page that states it.
-    description: "9 years, 100+ projects, Shopify Plus merchants",
-    images: [`${SITE_URL}/headshot.png`],
+    title: "Deepak Jangra | Shopify Developer",
+    description: "9 years, 30+ projects, Shopify merchants",
+    images: [`${SITE_URL}/og-about.png`],
   },
 };
 
@@ -54,13 +51,13 @@ export default function AboutPage() {
         name: "Deepak Jangra",
         givenName: "Deepak",
         familyName: "Jangra",
-        jobTitle: "Shopify Plus Developer",
+        jobTitle: "Shopify Developer",
         description:
           "Shopify Plus developer with 9+ years of experience building custom apps, checkout extensions, and headless storefronts for scaling merchants.",
         url: SITE_URL,
         image: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/headshot.png`,
+          url: `${SITE_URL}/og-about.png`,
           width: 800,
           height: 800,
         },
@@ -90,20 +87,20 @@ export default function AboutPage() {
 
   const timeline = [
     {
-      year: "2023 — Present",
-      role: "Independent Shopify Plus Developer",
+      year: "2023 - Present",
+      role: "Independent Shopify Developer",
       description:
         "Working directly with scaling merchants on custom builds, checkout extensions, and store rescues. Building GearSync, a Shopify app for auto parts merchants. Supporting select agency partners on Plus-level projects.",
       current: true,
     },
     {
-      year: "2022 — 2023",
+      year: "2022 - 2023",
       role: "Senior Web Developer @ NXPRO",
       description:
         "Led a team of 3 and oversaw high-stakes Shopify and WordPress projects. Introduced Git-based workflows and improved delivery speed by 40%.",
     },
     {
-      year: "2019 — 2021",
+      year: "2019 - 2021",
       role: "White-Label Partner @ NXPRO",
       description:
         "Built 50+ projects using Shopify and WordPress. Custom themes, plugins, and reusable components. Scaled the development offering from 1 to 5 simultaneous projects.",
@@ -115,7 +112,7 @@ export default function AboutPage() {
         "Delivered 15+ websites for local businesses. Expanded into Shopify, custom PHP, and JavaScript. Built ecommerce stores, landing pages, and business sites, handling everything from UI to deployment.",
     },
     {
-      year: "2017 — 2018",
+      year: "2017 - 2018",
       role: "Junior Web Developer",
       description:
         "Created 10+ responsive WordPress websites from scratch. Custom PHP and JavaScript features. Deep exposure to theme and plugin development.",
@@ -133,7 +130,7 @@ export default function AboutPage() {
       number: "01",
       title: "I don't install apps and hope.",
       description:
-        "Most Shopify merchants hit a wall where themes and apps can't do what they need. I build the custom layer — private apps, checkout extensions, headless architectures — that lets them scale without replatforming.",
+        "Most Shopify merchants hit a wall where themes and apps can't do what they need. I build the custom layer - private apps, checkout extensions, headless architectures - that lets them scale without replatforming.",
     },
     {
       number: "02",
@@ -145,7 +142,7 @@ export default function AboutPage() {
       number: "03",
       title: "I document everything.",
       description:
-        "You shouldn't be dependent on me forever. I write clean code, set up staging environments, and hand over documentation so your team — or the next developer — can pick up where I left off.",
+        "You shouldn't be dependent on me forever. I write clean code, set up staging environments, and hand over documentation so your team - or the next developer - can pick up where I left off.",
     },
     {
       number: "04",
@@ -191,7 +188,7 @@ export default function AboutPage() {
               and select agency partners.
             </p>
 
-            {/* Photo — mobile only, sits between copy and links */}
+            {/* Photo - mobile only, sits between copy and links */}
             <div className="mt-10 flex justify-center lg:hidden animate-fade-in-up [animation-delay:400ms]">
               <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-[color:var(--color-line)] bg-[var(--color-ink-surface)]">
                 <Image
@@ -224,7 +221,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Photo — desktop only */}
+          {/* Photo - desktop only */}
           <div className="hidden items-center justify-center p-14 lg:flex animate-fade-in-up [animation-delay:400ms]">
             <div className="relative aspect-[3/4] w-full max-w-[360px] overflow-hidden border border-[color:var(--color-line)] bg-[var(--color-ink-surface)]">
               <Image
@@ -240,11 +237,11 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        I&rsquo;m Deepak Jangra, a Shopify Plus developer with 9 years of experience.
-        I help merchants who&rsquo;ve outgrown their theme fix what&rsquo;s
-        broken, scale what&rsquo;s working, and build custom apps, checkout
-        extensions, and headless storefronts that off-the-shelf apps can&rsquo;t
-        touch.
+        I&rsquo;m Deepak Jangra, a Shopify Plus developer with 9 years of
+        experience. I help merchants who&rsquo;ve outgrown their theme fix
+        what&rsquo;s broken, scale what&rsquo;s working, and build custom apps,
+        checkout extensions, and headless storefronts that off-the-shelf apps
+        can&rsquo;t touch.
       </span>
 
       {/* Timeline */}
@@ -348,7 +345,7 @@ export default function AboutPage() {
                   label: "Anything else I should know?",
                   type: "textarea",
                   placeholder:
-                    "Rescue, rebuild, or just not sure yet — tell me where you're at.",
+                    "Rescue, rebuild, or just not sure yet - tell me where you're at.",
                   required: false,
                 },
               ]}

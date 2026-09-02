@@ -10,7 +10,7 @@ date: "2022"
 date_published: "2022-09-01"
 client: Maria
 role: WordPress Developer
-excerpt: Full site rebuild for a roofing company on Divi — four service pages, interactive service-area map, financing calculator, and GoDaddy migration with performance optimization.
+excerpt: Full site rebuild for a roofing company on Divi - four service pages, interactive service-area map, financing calculator, and GoDaddy migration with performance optimization.
 cta_heading: Is your contractor website losing leads?
 cta_body: I build contractor websites with service-area maps, financing calculators, and fast hosting that turns visitors into calls.
 result_summary: Full Divi rebuild, 4 service pages, interactive map, financing application, GoDaddy migration.
@@ -44,10 +44,10 @@ I moved the site off its previous host onto GoDaddy, backing everything up throu
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Service clarity | No differentiation | Four dedicated service pages |
-| Service area | Text-only | Interactive map with hover states |
-| Customer financing | No option | WP Forms calculator |
-| Hosting | Unreliable | GoDaddy with caching |
-| Performance | Slow | Optimized, plugin cleanup |
+| What changed       | Before             | After                             |
+| ------------------ | ------------------ | --------------------------------- |
+| Service clarity    | No differentiation | Four dedicated service pages      |
+| Service area       | Text-only          | Interactive map with hover states |
+| Customer financing | No option          | WP Forms calculator               |
+| Hosting            | Unreliable         | GoDaddy with caching              |
+| Performance        | Slow               | Optimized, plugin cleanup         |

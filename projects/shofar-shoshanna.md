@@ -10,7 +10,7 @@ date: "2022"
 date_published: "2022-10-01"
 client: Emily
 role: WordPress Developer & SEO Specialist
-excerpt: Homepage rebuild and comprehensive SEO fix for a Judaica brand — resolved Google mobile usability errors, reindexed site with new metadata, and removed empty content frames.
+excerpt: Homepage rebuild and comprehensive SEO fix for a Judaica brand - resolved Google mobile usability errors, reindexed site with new metadata, and removed empty content frames.
 cta_heading: Is Google flagging your site for mobile usability errors?
 cta_body: I fix mobile usability issues, rebuild slow homepages, and reindex sites with proper metadata so Google sees your content correctly.
 result_summary: Homepage rebuilt, mobile usability errors resolved, site reindexed with new metadata.
@@ -36,9 +36,9 @@ Every page title and meta description got rewritten from scratch instead of carr
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| PageSpeed | No score returned | Rebuilt for performance |
-| Mobile usability | Google-flagged errors | Resolved |
-| Metadata | Old, reused from prior site | Fresh, rewritten |
-| Indexing | Stale | Reindexed with new data |
+| What changed     | Before                      | After                   |
+| ---------------- | --------------------------- | ----------------------- |
+| PageSpeed        | No score returned           | Rebuilt for performance |
+| Mobile usability | Google-flagged errors       | Resolved                |
+| Metadata         | Old, reused from prior site | Fresh, rewritten        |
+| Indexing         | Stale                       | Reindexed with new data |

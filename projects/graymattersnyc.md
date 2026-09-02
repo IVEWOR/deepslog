@@ -10,7 +10,7 @@ date: "2021"
 date_published: "2021"
 client: Gray Matters NYC
 role: Shopify Developer
-excerpt: Built a pixel-perfect custom Shopify theme from design files for a globally recognized footwear brand made in Italy — multi-location and multi-currency support, dynamic theme blocks, and custom theme extensions for seasonal and localized content.
+excerpt: Built a pixel-perfect custom Shopify theme from design files for a globally recognized footwear brand made in Italy - multi-location and multi-currency support, dynamic theme blocks, and custom theme extensions for seasonal and localized content.
 cta_heading: Need a Shopify store that handles real global complexity?
 cta_body: I build pixel-perfect custom Shopify themes from your design files, with multi-currency, multi-location, and dynamic content blocks your team can manage without touching code.
 result_summary: Pixel-perfect custom theme, multi-currency and multi-location support, fully dynamic content blocks.
@@ -40,9 +40,9 @@ I built custom theme extensions and Shopify app blocks for layout enhancements, 
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Theme | None | Fully custom, pixel-perfect from design files |
-| Content editing | Would require a developer | Dynamic blocks, no developer needed |
-| Global support | None | Multi-currency and multi-location |
-| Architecture | N/A | Stable, scalable, built for new products and pages |
+| What changed    | Before                    | After                                              |
+| --------------- | ------------------------- | -------------------------------------------------- |
+| Theme           | None                      | Fully custom, pixel-perfect from design files      |
+| Content editing | Would require a developer | Dynamic blocks, no developer needed                |
+| Global support  | None                      | Multi-currency and multi-location                  |
+| Architecture    | N/A                       | Stable, scalable, built for new products and pages |

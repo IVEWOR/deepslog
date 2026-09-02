@@ -10,10 +10,10 @@ date: "2022"
 date_published: "2022-04"
 client: Ty Thomas, Creative Mischief
 role: WordPress Developer (Beaver Builder / ACF)
-excerpt: Started as a 3-page trial for a law firm site under construction — attorney and practice-area templates, content-relationship architecture, and a custom mega menu that replaced a plugin crashing the site — and grew into a full site-wide engagement covering performance, navigation, and dynamic content templates.
+excerpt: Started as a 3-page trial for a law firm site under construction - attorney and practice-area templates, content-relationship architecture, and a custom mega menu that replaced a plugin crashing the site - and grew into a full site-wide engagement covering performance, navigation, and dynamic content templates.
 testimonial: "Great progress! It looks very consistent. Glad to hear everything is working again."
 cta_heading: Need someone who thinks through the data model before writing code?
-cta_body: I don't just build the pages you show me — I ask what's actually driving the content underneath them, so the site holds up as it grows instead of needing a rebuild in a year.
+cta_body: I don't just build the pages you show me - I ask what's actually driving the content underneath them, so the site holds up as it grows instead of needing a rebuild in a year.
 result_summary: 2 of 3 initial pages delivered within 24 hours, custom mega menu replacing a crashing plugin, later performance overhaul. PageSpeed 49 → 84, CLS 2.8 → 0, LCP 5.28s → 300ms.
 ---
 
@@ -32,11 +32,11 @@ Show: Full-page or above-the-fold screenshot of capessokol.com homepage, desktop
 
 ### Phase 1: Attorney and Practice templates, built from design files
 
-**Attorney Detail Page** — a custom post type template with dynamic fields for each attorney, an accordion section breaking down practice areas and services per person, and tiered search and filtering surfacing related content, articles, blogs, podcasts, tied to that specific person.
+**Attorney Detail Page** - a custom post type template with dynamic fields for each attorney, an accordion section breaking down practice areas and services per person, and tiered search and filtering surfacing related content, articles, blogs, podcasts, tied to that specific person.
 
-**Practice Detail Page** — an individual practice-area template (Business and Finance was the first built), with relationship mapping connecting practice areas to services to the attorneys who provide them.
+**Practice Detail Page** - an individual practice-area template (Business and Finance was the first built), with relationship mapping connecting practice areas to services to the attorneys who provide them.
 
-**Practice Archive Page** — an archive template listing every practice area, built to match the global design system Ty's team had already established, so it read as part of the same site rather than a bolted-on addition.
+**Practice Archive Page** - an archive template listing every practice area, built to match the global design system Ty's team had already established, so it read as part of the same site rather than a bolted-on addition.
 
 Two of the three pages were delivered within 24 hours of the contract starting, with all three fully responsive shortly after.
 
@@ -100,7 +100,7 @@ Show: PageSpeed score, CLS, and LCP figures, before vs. after.
 
 "Great progress! It looks very consistent. Glad to hear everything is working again."
 
-— Ty Thomas, Creative Mischief
+- Ty Thomas, Creative Mischief
 
 ## The engagement
 

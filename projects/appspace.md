@@ -10,9 +10,9 @@ date: "2022"
 date_published: "2022-10-01"
 client: Appspace Team
 role: WordPress/Elementor Developer
-excerpt: A long-term engagement building, maintaining, and scaling an enterprise workplace-software company's WordPress marketing site — dozens of pages, a custom quiz system with real scoring and redirect logic, reusable pricing and CTA modules, and a hand-built homepage slider with drag support.
+excerpt: A long-term engagement building, maintaining, and scaling an enterprise workplace-software company's WordPress marketing site - dozens of pages, a custom quiz system with real scoring and redirect logic, reusable pricing and CTA modules, and a hand-built homepage slider with drag support.
 cta_heading: Need custom interactive elements on your WordPress site?
-cta_body: I build complex interactive components — quizzes with real scoring logic, reusable pricing and CTA modules, and sliders with drag support — that go beyond what page builders offer out of the box.
+cta_body: I build complex interactive components - quizzes with real scoring logic, reusable pricing and CTA modules, and sliders with drag support - that go beyond what page builders offer out of the box.
 result_summary: Dozens of pages shipped over nine months, a fully custom quiz-based lead gen system, and reusable Elementor modules that took layout changes off the dev queue entirely.
 ---
 
@@ -54,7 +54,7 @@ Every plugin, template, and page went through testing across browsers and device
 | Quiz                     | No feedback on wrong answers, no lead-gen system | Fully custom quiz system with scoring and dynamic redirects, used for lead generation |
 | Layout & content changes | Developer-dependent for every tweak              | Editors manage layout via reusable Elementor modules, no dev support needed           |
 | Homepage slider          | Basic fade, no drag, breaking on mobile          | Drag support, timed auto-play, fully mobile-responsive                                |
-| Pages delivered          | —                                                | Dozens of new, fully responsive pages shipped over nine months                        |
+| Pages delivered          | -                                                | Dozens of new, fully responsive pages shipped over nine months                        |
 
 ## The engagement
 

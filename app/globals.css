@@ -160,7 +160,7 @@
   }
 }
 
-/* Design tokens — Swiss / International Typographic Style
+/* Design tokens - Swiss / International Typographic Style
    Fonts: PP Neue Montreal (display + text), Geist Mono (UI/mono) */
 :root {
   --color-paper: #f8f5f0;
@@ -187,7 +187,7 @@
     var(--font-geist-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
     Menlo, Consolas, monospace;
 
-  /* PP Neue Montreal ships 400/600/800 — no true 700, so
+  /* PP Neue Montreal ships 400/600/800 - no true 700, so
      display-bold maps to 600 and display-black to 800.
      Body (PP Neue Montreal Text) ships 400 only. */
   --weight-display-bold: 600;

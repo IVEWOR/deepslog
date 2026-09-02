@@ -12,7 +12,7 @@ client: Darkest Fox
 role: Shopify Developer
 excerpt: Mega-menu and homepage rebuild for a New York luxury lingerie brand, plus a gamified spin-to-win newsletter capture and a 35% site speed increase, all without compromising the brand's bold, editorial aesthetic.
 cta_heading: Want gamified engagement that still looks premium?
-cta_body: I build interactive Shopify features — spin-to-win wheels, custom mega-menus, performance tuning — that drive engagement without cheapening a high-end brand.
+cta_body: I build interactive Shopify features - spin-to-win wheels, custom mega-menus, performance tuning - that drive engagement without cheapening a high-end brand.
 result_summary: Mega-menu and homepage rebuilt, gamified newsletter capture added, 35% increase in site speed.
 ---
 
@@ -36,12 +36,12 @@ I compressed and resized image assets, reduced unnecessary JavaScript, and refin
 
 ## What actually changed
 
-| What changed | Before | After |
-| --- | --- | --- |
-| Mega-menu | Standard dropdown | Structured, showcases categories & collections |
-| Newsletter capture | Standard signup form | Gamified spin-to-win wheel, higher engagement |
-| Site speed | Baseline | 35% faster |
-| Asset & JS handling | Bloated | Optimized, reduced frontend bloat |
+| What changed        | Before               | After                                          |
+| ------------------- | -------------------- | ---------------------------------------------- |
+| Mega-menu           | Standard dropdown    | Structured, showcases categories & collections |
+| Newsletter capture  | Standard signup form | Gamified spin-to-win wheel, higher engagement  |
+| Site speed          | Baseline             | 35% faster                                     |
+| Asset & JS handling | Bloated              | Optimized, reduced frontend bloat              |
 
 ## The engagement
 
