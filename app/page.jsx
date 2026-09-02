@@ -25,7 +25,7 @@ export const metadata = {
     siteName: "Deepak Jangra",
     images: [
       {
-        url: `${SITE_URL}/og-about.jpg`,
+        url: `${SITE_URL}/og-about.png`,
         width: 1200,
         height: 630,
         alt: "Deepak Jangra - Independent Shopify Developer",
