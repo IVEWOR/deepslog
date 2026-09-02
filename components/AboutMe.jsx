@@ -7,12 +7,12 @@ export default function AboutMe() {
       <div className="grid grid-cols-1 lg:grid-cols-[42%_58%]">
         {/* LEFT: photo */}
         <div className="animate-fade-in-up [animation-delay:100ms] border-b border-[color:var(--color-border-light)] p-6 sm:p-10 lg:border-b-0 lg:border-r lg:p-14">
-          <div className="relative aspect-[100/95] overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
+          <div className="relative aspect-[100/110] overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
             <Image
-              src="/AAdeepak.png"
+              src="/deepak.jpeg"
               alt="Deepak Jangra, Shopify Plus developer"
               fill
-              className="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
+              className="object-cover center-top grayscale transition-[filter] duration-500 hover:grayscale-0"
             />
           </div>
         </div>

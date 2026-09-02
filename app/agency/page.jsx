@@ -126,7 +126,7 @@ export default function AgencyPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <div className="flex items-center gap-3 animate-fade-in-up">
           <span className="relative flex h-2.5 w-2.5">
             <span
@@ -219,7 +219,7 @@ export default function AgencyPage() {
           {features.map((feature, index) => (
             <div
               key={feature.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20 ${
+              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
                 index < 2 ? "border-b md:border-b-0 md:border-r" : ""
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
@@ -235,7 +235,7 @@ export default function AgencyPage() {
       </section>
 
       {/* Process */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">The Process</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           How the Pilot Project works.
@@ -266,7 +266,7 @@ export default function AgencyPage() {
       </section>
 
       {/* Pricing */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">Transparent Engagement</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           No hidden hours, no bloated agency fees.
@@ -304,7 +304,7 @@ export default function AgencyPage() {
 
       {/* Final CTA */}
       <section id="contact" className="surface-inverted">
-        <div className="px-[clamp(2.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+        <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
           <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
             Ready to scale <span className="accent">without hiring?</span>
           </h2>

@@ -14,7 +14,7 @@ export default function ErrorPage({
   return (
     <main className="flex min-h-screen flex-col bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
       <Navbar />
-      <section className="flex flex-1 items-center justify-center px-[clamp(2.5rem,4vw,4rem)] py-24 lg:py-32">
+      <section className="flex flex-1 items-center justify-center px-[clamp(1.5rem,4vw,4rem)] py-24 lg:py-32">
         <div className="mx-auto max-w-lg text-center">
           <div
             aria-hidden="true"

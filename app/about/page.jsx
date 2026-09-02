@@ -163,7 +163,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="border-b border-[color:var(--color-line)]">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="flex flex-col justify-center border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:border-b-0 lg:border-r lg:py-20">
+          <div className="flex flex-col justify-center border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:border-b-0 lg:border-r lg:py-20">
             <span className="label animate-fade-in-up [animation-delay:100ms]">
               About
             </span>
@@ -190,10 +190,10 @@ export default function AboutPage() {
 
             {/* Photo - mobile only, sits between copy and links */}
             <div className="mt-10 flex justify-center lg:hidden animate-fade-in-up [animation-delay:400ms]">
-              <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-[color:var(--color-line)] bg-[var(--color-ink-surface)]">
+              <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
                 <Image
-                  src="/AAdeepak.png"
-                  alt="Deepak Jangra, Shopify Plus developer"
+                  src="/deepak.jpeg"
+                  alt="Deepak Jangra, Shopify developer"
                   fill
                   priority
                   className="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
@@ -223,10 +223,10 @@ export default function AboutPage() {
 
           {/* Photo - desktop only */}
           <div className="hidden items-center justify-center p-14 lg:flex animate-fade-in-up [animation-delay:400ms]">
-            <div className="relative aspect-[3/4] w-full max-w-[360px] overflow-hidden border border-[color:var(--color-line)] bg-[var(--color-ink-surface)]">
+            <div className="relative aspect-[3/4] max-w-[500] w-full overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
               <Image
-                src="/AAdeepak.png"
-                alt="Deepak Jangra, Shopify Plus developer"
+                src="/deepak.jpeg"
+                alt="Deepak Jangra, Shopify developer"
                 fill
                 priority
                 className="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
@@ -237,21 +237,21 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        I&rsquo;m Deepak Jangra, a Shopify Plus developer with 9 years of
-        experience. I help merchants who&rsquo;ve outgrown their theme fix
-        what&rsquo;s broken, scale what&rsquo;s working, and build custom apps,
-        checkout extensions, and headless storefronts that off-the-shelf apps
-        can&rsquo;t touch.
+        I&rsquo;m Deepak Jangra, a Shopify developer with 9 years of experience.
+        I help merchants who&rsquo;ve outgrown their theme fix what&rsquo;s
+        broken, scale what&rsquo;s working, and build custom apps, checkout
+        extensions, and headless storefronts that off-the-shelf apps can&rsquo;t
+        touch.
       </span>
 
       {/* Timeline */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">The Journey</span>
         <h2 className="mt-4 max-w-lg animate-fade-in-up [animation-delay:100ms]">
           A decade of building the web.
         </h2>
 
-        <div className="mt-12 max-w-3xl border-t border-[color:var(--color-line)]">
+        <div className="mt-12 border-t border-[color:var(--color-line)]">
           {timeline.map((item, index) => (
             <div
               key={item.year}
@@ -272,14 +272,14 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        Deepak Jangra is a Shopify Plus developer specializing in custom apps,
+        Deepak Jangra is a Shopify developer specializing in custom apps,
         checkout extensions, headless storefronts, and store rescues. 9 years
         experience. 100+ projects delivered.
       </span>
 
       {/* What I actually do */}
       <section className="border-b border-[color:var(--color-line)]">
-        <div className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20">
+        <div className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
           <span className="label animate-fade-in-up">How I Work</span>
           <h2 className="mt-4 max-w-lg animate-fade-in-up [animation-delay:100ms]">
             What I actually do.
@@ -290,7 +290,7 @@ export default function AboutPage() {
           {principles.map((item, index) => (
             <div
               key={item.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-10 lg:py-14 ${
+              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
                 index % 2 === 0 ? "md:border-r" : ""
               } ${index < 2 ? "border-b" : ""}`}
               style={{ animationDelay: `${index * 100}ms` }}
@@ -307,7 +307,7 @@ export default function AboutPage() {
 
       {/* Final CTA */}
       <section className="surface-inverted">
-        <div className="px-[clamp(2.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+        <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
           <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
             Ready to fix or scale your{" "}
             <span className="accent">Shopify Plus store?</span>

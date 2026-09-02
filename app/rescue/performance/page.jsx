@@ -81,7 +81,7 @@ export default function PerformanceRescue() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">
           Core Web Vitals Optimization
         </span>
@@ -143,7 +143,7 @@ export default function PerformanceRescue() {
       {/* Before / After */}
       <section
         id="proof"
-        className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20"
+        className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20"
       >
         <span className="label animate-fade-in-up">The Difference</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
@@ -212,7 +212,7 @@ export default function PerformanceRescue() {
 
       {/* Diagnosis */}
       <section className="border-b border-[color:var(--color-line)]">
-        <div className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20">
+        <div className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
           <span className="label animate-fade-in-up">The Diagnosis</span>
           <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
             Why your current setup is failing Core Web Vitals.
@@ -223,7 +223,7 @@ export default function PerformanceRescue() {
           {diagnosis.map((item, index) => (
             <div
               key={item.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-10 lg:py-14 ${
+              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
                 index < 2 ? "border-b md:border-b-0 md:border-r" : ""
               }`}
               style={{ animationDelay: `${200 + index * 100}ms` }}
@@ -239,7 +239,7 @@ export default function PerformanceRescue() {
       </section>
 
       {/* Named proof: MerkBart */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
         <span className="label animate-fade-in-up">
           Same Pattern, Different Platform
         </span>
@@ -288,7 +288,7 @@ export default function PerformanceRescue() {
 
       {/* Final CTA */}
       <section id="audit" className="surface-inverted">
-        <div className="px-[clamp(2.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+        <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
           <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
             Let&rsquo;s <span className="accent">find the bottlenecks.</span>
           </h2>

@@ -175,7 +175,7 @@ export default function RescueHub() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">
           Emergency Development Services
         </span>
@@ -204,7 +204,7 @@ export default function RescueHub() {
           {pathways.map((path, index) => (
             <div
               key={path.number}
-              className={`animate-fade-in-up flex flex-col border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-14 lg:py-20 ${
+              className={`animate-fade-in-up flex flex-col border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
                 index < 2 ? "border-b lg:border-b-0 lg:border-r" : ""
               }`}
               style={{ animationDelay: `${300 + index * 100}ms` }}
@@ -282,7 +282,7 @@ export default function RescueHub() {
       </section>
 
       {/* Proof: MerkBart */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">Recent Work</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           This isn&rsquo;t theoretical.
@@ -338,7 +338,7 @@ export default function RescueHub() {
       </section>
 
       {/* Process */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(2.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">The Process</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           How a rescue engagement actually works.
@@ -365,7 +365,7 @@ export default function RescueHub() {
 
       {/* Closing CTA */}
       <section className="surface-inverted">
-        <div className="px-[clamp(2.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+        <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
           <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
             Have a <span className="accent">different kind</span> of emergency?
           </h2>
