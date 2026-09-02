@@ -12,7 +12,7 @@ const fontVars = [
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "deepakj. | Shopify Plus Developer",
+    default: "Deepak Jangra | Shopify Developer",
     template: "%s",
   },
   description:
@@ -21,29 +21,29 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "deepakj. | Shopify Plus Developer",
+    title: "Deepak Jangra | Shopify Developer",
     description:
       "Senior full-stack engineering for Shopify merchants who need speed, checkout conversion, and code that holds up at Plus-level traffic.",
     url: SITE_URL,
-    siteName: "deepakj.",
+    siteName: "Deepak Jangra",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/deepak.jpg", // Default OG image (Make sure this exists in your /public folder)
+        url: "/og-about.png",
         width: 1200,
         height: 630,
-        alt: "deepakj. - Shopify Plus Developer",
+        alt: "Deepak Jangra - Shopify Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "deepakj. | Shopify Plus Developer",
+    title: "Deepak Jangra | Shopify Developer",
     description:
       "Senior full-stack engineering for Shopify merchants who need speed, checkout conversion, and code that holds up at Plus-level traffic.",
-    creator: "@deepakjangra",
-    images: ["/deepak.jpg"],
+    creator: "@deepakjdev",
+    images: ["/og-about.png"],
   },
 };
 

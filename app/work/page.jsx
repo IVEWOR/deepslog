@@ -6,26 +6,24 @@ import { featuredProjects, additionalProjects } from "@/lib/work-projects";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Work & Case Studies | deepakj. | 100+ Projects",
+  title: "Work & Case Studies | Deepak Jangra | 100+ Projects",
   description:
     "Production-grade Shopify, Next.js, and WordPress builds for agencies. 4× speed improvements, 2× conversion increases. 9 years, 100+ projects delivered.",
   alternates: {
     canonical: "/work",
   },
   openGraph: {
-    title: "Portfolio | deepakj. | High-Performance Web Apps",
+    title: "Portfolio | Deepak Jangra | High-Performance Web Apps",
     description:
       "Case studies: 4× faster loads, 2× sales increases. Shopify, Next.js, WordPress for ambitious brands.",
     url: `${SITE_URL}/work`,
-    siteName: "deepakj.",
+    siteName: "Deepak Jangra",
     images: [
       {
-        // TODO: og-work.png doesn't exist yet. Using a real project
-        // screenshot as a stopgap — swap back once the actual collage exists.
-        url: `${SITE_URL}/merkbart.png`,
+        url: `${SITE_URL}/og-work.png`,
         width: 1200,
         height: 630,
-        alt: "deepakj. Portfolio - 100+ Projects",
+        alt: "Deepak Jangra Portfolio - 100+ Projects",
       },
     ],
     locale: "en_US",
@@ -42,7 +40,7 @@ export default function WorkPage() {
       {
         "@type": "CollectionPage",
         "@id": `${SITE_URL}/work#webpage`,
-        name: "Selected Work & Portfolio | deepakj.",
+        name: "Selected Work & Portfolio | Deepak Jangra",
         description:
           "Production-grade web applications built for agencies and startups",
         url: `${SITE_URL}/work`,

@@ -6,24 +6,24 @@ import ContactModal from "@/components/ContactModal";
 import { SITE_URL, CONTACT_EMAIL, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 export const metadata = {
-  title: "deepakj. | Shopify Plus Developer | 9 Years Experience",
+  title: "Deepak Jangra | Shopify Plus Developer | 9 Years Experience",
   description:
-    "deepakj. is a Shopify Plus developer with 9 years of experience. Custom apps, checkout extensions, headless storefronts, and store rescues for scaling merchants.",
+    "Deepak Jangra is a Shopify Plus developer with 9 years of experience. Custom apps, checkout extensions, headless storefronts, and store rescues for scaling merchants.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "deepakj. | Shopify Plus Developer",
+    title: "Deepak Jangra | Shopify Plus Developer",
     description:
       "9 years building custom apps, checkout extensions, and headless storefronts for scaling Shopify Plus merchants.",
     url: `${SITE_URL}/about`,
-    siteName: "deepakj.",
+    siteName: "Deepak Jangra",
     images: [
       {
         url: `${SITE_URL}/headshot.png`,
         width: 800,
         height: 800,
-        alt: "deepakj. - Shopify Plus Developer",
+        alt: "Deepak Jangra - Shopify Plus Developer",
       },
     ],
     locale: "en_US",
@@ -35,7 +35,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "deepakj. | Shopify Plus Developer",
+    title: "Deepak Jangra | Shopify Plus Developer",
     // TODO: "100+ projects" — same unverified claim flagged on /work.
     // Confirm the real count before this ships; keep it consistent across
     // every page that states it.
@@ -51,7 +51,7 @@ export default function AboutPage() {
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
-        name: "deepakj.",
+        name: "Deepak Jangra",
         givenName: "Deepak",
         familyName: "Jangra",
         jobTitle: "Shopify Plus Developer",
@@ -77,7 +77,7 @@ export default function AboutPage() {
       {
         "@type": "WebPage",
         "@id": `${SITE_URL}/about#webpage`,
-        name: "About deepakj.",
+        name: "About Deepak Jangra",
         description:
           "9+ year journey building high-performance web applications",
         url: `${SITE_URL}/about`,
@@ -240,7 +240,7 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        I&rsquo;m deepakj., a Shopify Plus developer with 9 years of experience.
+        I&rsquo;m Deepak Jangra, a Shopify Plus developer with 9 years of experience.
         I help merchants who&rsquo;ve outgrown their theme fix what&rsquo;s
         broken, scale what&rsquo;s working, and build custom apps, checkout
         extensions, and headless storefronts that off-the-shelf apps can&rsquo;t
@@ -275,7 +275,7 @@ export default function AboutPage() {
       </section>
 
       <span className="sr-only">
-        deepakj. is a Shopify Plus developer specializing in custom apps,
+        Deepak Jangra is a Shopify Plus developer specializing in custom apps,
         checkout extensions, headless storefronts, and store rescues. 9 years
         experience. 100+ projects delivered.
       </span>

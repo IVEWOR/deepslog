@@ -4,14 +4,19 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContactModal from "./ContactModal";
+import Image from "next/image";
 
 function Wordmark() {
   return (
     <span className="accent ui-text">
-      Deepak Jangra
-      <span className="sr-only">
-        Independent Shopify Developer, helping Shopify stores
-      </span>
+      <Image
+        src="/logo.png"
+        width={70}
+        height={70}
+        alt="Deepak Jangra Independent Shopify Developer"
+        className="mt-8"
+      />
+      <span className="sr-only">Independent Shopify Developer</span>
     </span>
   );
 }
@@ -32,10 +37,14 @@ export default function Navbar() {
   ];
 
   return (
-    // sticky (not fixed) — reserves its own space, no compensating padding needed elsewhere
     <header className="sticky top-0 z-50 bg-[var(--color-paper)] border-b border-[color:var(--color-line)]">
       <div className="flex items-center justify-between h-14 px-[clamp(1.5rem,4vw,4rem)]">
-        <Link href="/" aria-label="Home" onClick={() => setIsOpen(false)}>
+        <Link
+          href="/"
+          aria-label="Home"
+          onClick={() => setIsOpen(false)}
+          className=""
+        >
           <Wordmark />
         </Link>
 

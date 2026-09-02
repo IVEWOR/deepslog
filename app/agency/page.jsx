@@ -13,7 +13,7 @@ export const metadata = {
     canonical: "/agency",
   },
   openGraph: {
-    title: "White-Label Development Services | deepakj.",
+    title: "White-Label Development Services | Deepak Jangra",
     description:
       "Scale your agency's development capacity with Next.js and Shopify, strictly under NDA.",
     url: "/agency",
@@ -31,9 +31,6 @@ export default function AgencyPage() {
     },
     areaServed: "Global",
     serviceType: "White-Label Web Development",
-    // Hourly rate, expressed as a proper UnitPriceSpecification rather
-    // than a flat price — a bare `price` field would tell Google the
-    // whole service costs $45, not that it's the hourly rate.
     offers: {
       "@type": "Offer",
       priceSpecification: {
@@ -45,13 +42,6 @@ export default function AgencyPage() {
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
     },
-    // aggregateRating and review removed. reviewCount: "50" had no basis
-    // anywhere in this project, and the one review was a quote attributed
-    // to Filip J (MerkBart's founder, a direct e-commerce client) that
-    // doesn't match his real, documented testimonial and doesn't fit an
-    // agency-partnership context at all. Fabricating structured review
-    // data, or misattributing a real quote out of context to a real
-    // named person, isn't a "fix it later" issue — see the note in chat.
   };
 
   const features = [

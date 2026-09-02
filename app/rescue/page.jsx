@@ -6,7 +6,8 @@ import SocialProof from "@/components/SocialProof";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Emergency Code Rescue | AI Cleanup & Speed Optimization | deepakj.",
+  title:
+    "Emergency Code Rescue | AI Cleanup & Speed Optimization | Deepak Jangra",
   description:
     "Vibe coding cleanup, AI-generated code rescue, and Core Web Vitals optimization. I stabilize Cursor/Copilot MVPs and fix slow Shopify/WordPress sites. 48-hour audit available.",
   alternates: {
@@ -17,7 +18,7 @@ export const metadata = {
     description:
       "Rescue AI-generated codebases and fix slow websites. 4× speed improvements, production-ready results.",
     url: `${SITE_URL}/rescue`,
-    siteName: "deepakj.",
+    siteName: "Deepak Jangra",
     images: [
       {
         // TODO: og-rescue.png doesn't exist yet. Using a real screenshot

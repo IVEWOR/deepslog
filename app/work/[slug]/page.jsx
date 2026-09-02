@@ -61,12 +61,12 @@ export async function generateMetadata(props) {
     ].filter(Boolean);
 
     return {
-      title: `${meta.title} — Case Study | deepakj.`,
+      title: `${meta.title} — Case Study | Deepak Jangra`,
       description,
       keywords: keywords.join(", "),
-      authors: [{ name: "deepakj.", url: SITE_URL }],
-      creator: "deepakj.",
-      publisher: "deepakj.",
+      authors: [{ name: "Deepak Jangra", url: SITE_URL }],
+      creator: "Deepak Jangra",
+      publisher: "Deepak Jangra",
       robots: {
         index: true,
         follow: true,
@@ -78,10 +78,10 @@ export async function generateMetadata(props) {
         canonical: `/work/${params.slug}`,
       },
       openGraph: {
-        title: `${meta.title} Case Study | deepakj.`,
+        title: `${meta.title} Case Study | Deepak Jangra`,
         description,
         url: `${SITE_URL}/work/${params.slug}`,
-        siteName: `deepakj. — ${meta.role || DEFAULT_ROLE}`,
+        siteName: `Deepak Jangra — ${meta.role || DEFAULT_ROLE}`,
         type: "article",
         publishedTime: publishedISO,
         modifiedTime: modifiedISO,
@@ -102,7 +102,7 @@ export async function generateMetadata(props) {
       },
       twitter: {
         card: "summary_large_image",
-        title: `${meta.title} Case Study | deepakj.`,
+        title: `${meta.title} Case Study | Deepak Jangra`,
         description,
         creator: "@deepakjangra",
         images: [
@@ -112,7 +112,7 @@ export async function generateMetadata(props) {
         ],
       },
       other: {
-        "article:author": "deepakj.",
+        "article:author": "Deepak Jangra",
         "article:section": "Portfolio",
         "article:tag": keywords.join(", "),
         ...(publishedISO ? { "article:published_time": publishedISO } : {}),
@@ -161,12 +161,12 @@ export default async function ProjectPage(props) {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${SITE_URL}/#person`,
-    name: "deepakj.",
+    name: "Deepak Jangra",
     url: SITE_URL,
     jobTitle: meta.role || DEFAULT_ROLE,
     worksFor: {
       "@type": "Organization",
-      name: "deepakj. Independent Developer",
+      name: "Deepak Jangra Independent Developer",
       url: SITE_URL,
     },
     knowsAbout: KNOWS_ABOUT,
@@ -374,7 +374,7 @@ export default async function ProjectPage(props) {
           {meta.featured_image ? (
             <Image
               src={meta.featured_image}
-              alt={`${meta.title} project preview — ${meta.platform} development by deepakj.`}
+              alt={`${meta.title} project preview — ${meta.platform} development by Deepak Jangra`}
               fill
               className="object-cover object-top"
               priority

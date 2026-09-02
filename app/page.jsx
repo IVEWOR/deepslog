@@ -11,18 +11,18 @@ import Footer from "@/components/Footer";
 import { SITE_URL, ORG_NAME, SAME_AS, KNOWS_ABOUT } from "@/lib/site";
 
 export const metadata = {
-  title: "deepakj. — Independent Shopify Plus Developer",
+  title: "Deepak Jangra — Independent Shopify Plus Developer",
   description:
-    "deepakj. is an independent contractor and Shopify Plus developer with 9+ years of experience building fast, revenue-driving Shopify stores for merchants and agencies. Available for new projects.",
+    "Deepak Jangra is an independent contractor and Shopify Plus developer with 9+ years of experience building fast, revenue-driving Shopify stores for merchants and agencies. Available for new projects.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "deepakj. — Independent Shopify Plus Developer",
+    title: "Deepak Jangra — Independent Shopify Plus Developer",
     description:
       "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
     url: SITE_URL,
-    siteName: "deepakj.",
+    siteName: "Deepak Jangra",
     images: [
       {
         // TODO: og-image.jpg doesn't exist yet (was marked "pending" in
@@ -32,7 +32,7 @@ export const metadata = {
         url: `${SITE_URL}/deepak.jpg`,
         width: 1200,
         height: 630,
-        alt: "deepakj. - Independent Shopify Plus Developer",
+        alt: "Deepak Jangra - Independent Shopify Plus Developer",
       },
     ],
     locale: "en_US",
@@ -40,7 +40,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "deepakj. — Independent Shopify Plus Developer",
+    title: "Deepak Jangra — Independent Shopify Plus Developer",
     description:
       "Independent contractor specializing in Shopify Plus: custom builds, performance optimization, store rescue, and subscription commerce.",
     images: [`${SITE_URL}/deepak.jpg`],
@@ -64,12 +64,12 @@ export default function Home() {
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
-        name: "deepakj.",
-        jobTitle: "Independent Shopify Plus Developer",
+        name: "Deepak Jangra",
+        jobTitle: "Independent Shopify Developer",
         description:
-          "Independent contractor and Shopify Plus developer with 9+ years of experience building and rescuing high-performance Shopify stores for merchants and agencies.",
+          "Independent contractor and Shopify developer with 9+ years of experience building and rescuing high-performance Shopify stores for merchants and agencies.",
         url: SITE_URL,
-        image: `${SITE_URL}/deepak.jpg`,
+        image: `${SITE_URL}/og-about.png`,
         sameAs: SAME_AS,
         knowsAbout: KNOWS_ABOUT,
         worksFor: {
@@ -84,18 +84,15 @@ export default function Home() {
         logo: `${SITE_URL}/logo.png`,
         founder: { "@id": `${SITE_URL}/#person` },
         employee: { "@id": `${SITE_URL}/#person` },
-        // Excludes the Wikipedia link on purpose — that's Deepak's
-        // personal contributor page, not something an organization
-        // entity should claim as its own "sameAs".
         sameAs: SAME_AS.filter((url) => !url.includes("wikipedia")),
         makesOffer: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Shopify Plus Development",
+              name: "Shopify Development",
               description:
-                "Custom Shopify Plus builds, Hydrogen storefronts, checkout extensibility, and performance optimization.",
+                "Custom Shopify builds, Hydrogen storefronts, checkout extensibility, and performance optimization.",
             },
           },
           {
@@ -121,9 +118,9 @@ export default function Home() {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: "deepakj. — Independent Shopify Plus Developer",
+        name: "Deepak Jangra — Independent Shopify Developer",
         description:
-          "Portfolio and services of deepakj., independent Shopify Plus developer.",
+          "Portfolio and services of Deepak Jangra, independent Shopify developer.",
         inLanguage: "en-US",
         publisher: {
           "@id": `${SITE_URL}/#organization`,
