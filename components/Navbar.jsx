@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContactModal from "./ContactModal";
@@ -25,19 +25,26 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
+  // Close the mobile menu on route change. Adjusted during render (React's
+  // recommended pattern for "reset state when a prop changes") instead of
+  // a useEffect, which would call setState synchronously post-commit and
+  // trigger an extra cascading render.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setIsOpen(false);
-  }, [pathname]);
+  }
 
   const navLinks = [
-    { name: "Shopify", href: "/" },
+    { name: "Home", href: "/" },
     { name: "Work", href: "/work" },
     { name: "Rescue", href: "/rescue" },
     { name: "About", href: "/about" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--color-paper)] border-b border-[color:var(--color-line)]">
+    <header className="sticky top-0 z-50 bg-(--color-paper) border-b border-(--color-line)">
       <div className="flex items-center justify-between h-14 px-[clamp(1.5rem,4vw,4rem)]">
         <Link
           href="/"
@@ -58,7 +65,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="ui-text link-underline transition-colors duration-[var(--duration-fast)]"
+                className="ui-text link-underline transition-colors duration-(--duration-fast)"
                 style={{
                   color: isActive ? "var(--color-accent)" : "var(--color-ink)",
                 }}
@@ -113,7 +120,7 @@ export default function Navbar() {
 
       {isOpen && (
         <div
-          className="md:hidden border-t border-[color:var(--color-line)] animate-fade-in-up"
+          className="md:hidden border-t border-(--color-line) animate-fade-in-up"
           style={{ background: "var(--color-paper)" }}
         >
           <div className="px-6 py-8 flex flex-col gap-6">

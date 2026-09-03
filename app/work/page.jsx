@@ -64,7 +64,7 @@ export default function WorkPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -72,7 +72,7 @@ export default function WorkPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up [animation-delay:100ms]">
           Portfolio
         </span>
@@ -89,7 +89,6 @@ export default function WorkPage() {
         </p>
       </section>
 
-      {/* Portfolio grid - WorkGrid.jsx still needs its own pass; see note above */}
       <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-20">
         <WorkGrid projects={projects} initialVisible={8} />
       </section>
@@ -101,7 +100,7 @@ export default function WorkPage() {
             Get In Touch
           </span>
 
-          <h2 className="mx-auto mt-4 max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:200ms]">
+          <h2 className="mx-auto mt-4 max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:200ms]">
             Like what you see?{" "}
             <span className="accent">Let&rsquo;s build yours next.</span>
           </h2>
@@ -162,7 +161,7 @@ export default function WorkPage() {
                 style={{ background: "var(--color-status-live)" }}
               />
             </span>
-            <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
+            <span className="stat-caption text-(--color-ink-surface-muted)">
               Available for new projects
             </span>
           </div>

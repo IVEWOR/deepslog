@@ -284,7 +284,7 @@ export default async function ProjectPage(props) {
   };
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -292,10 +292,10 @@ export default async function ProjectPage(props) {
       <Navbar />
 
       {/* Back link + breadcrumb */}
-      <div className="animate-fade-in-up flex flex-wrap items-center justify-between gap-4 border-b border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-4">
+      <div className="animate-fade-in-up flex flex-wrap items-center justify-between gap-4 border-b border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-4">
         <Link
           href="/work"
-          className="ui-text link-row text-[color:var(--color-muted)]! flex gap-1"
+          className="ui-text link-row text-(--color-muted)! flex gap-1"
         >
           <svg
             className="h-3.5 w-3.5"
@@ -313,11 +313,11 @@ export default async function ProjectPage(props) {
         </Link>
 
         <nav aria-label="Breadcrumb">
-          <ol className="ui-text flex items-center gap-2 text-[color:var(--color-muted)]!">
+          <ol className="ui-text flex items-center gap-2 text-(--color-muted)!">
             <li>
               <Link
                 href="/"
-                className="link-underline hover:text-[color:var(--color-ink)]!"
+                className="link-underline hover:text-(--color-ink)!"
               >
                 Home
               </Link>
@@ -326,13 +326,13 @@ export default async function ProjectPage(props) {
             <li>
               <Link
                 href="/work"
-                className="link-underline hover:text-[color:var(--color-ink)]!"
+                className="link-underline hover:text-(--color-ink)!"
               >
                 Work
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-[color:var(--color-ink)]!">
+            <li aria-current="page" className="text-(--color-ink)!">
               {meta.title}
             </li>
           </ol>
@@ -350,7 +350,7 @@ export default async function ProjectPage(props) {
 
         <div
           id="project-summary"
-          className="ui-text mt-6 flex flex-wrap items-center gap-3 text-[color:var(--color-muted)] animate-fade-in-up [animation-delay:200ms]"
+          className="ui-text mt-6 flex flex-wrap items-center gap-3 text-(--color-muted) animate-fade-in-up [animation-delay:200ms]"
         >
           {publishYear && (
             <>
@@ -370,7 +370,7 @@ export default async function ProjectPage(props) {
 
       {/* Hero image */}
       <section className="px-[clamp(1.5rem,4vw,4rem)] pb-14 lg:pb-20 animate-fade-in-up [animation-delay:300ms]">
-        <figure className="relative aspect-[16/9] w-full overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
+        <figure className="relative aspect-[16/9] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
           {meta.featured_image ? (
             <Image
               src={meta.featured_image}
@@ -383,7 +383,7 @@ export default async function ProjectPage(props) {
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
-              <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
+              <span className="stat-caption text-(--color-ink-surface-muted)">
                 Project preview
               </span>
             </div>
@@ -392,7 +392,7 @@ export default async function ProjectPage(props) {
       </section>
 
       {/* Content grid */}
-      <section className="border-t border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-t border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Sidebar */}
           <aside className="order-2 flex flex-col gap-10 lg:sticky lg:top-24 lg:order-1 lg:col-span-4">
@@ -419,8 +419,8 @@ export default async function ProjectPage(props) {
               </a>
             )}
 
-            <div className="border-t border-[color:var(--color-border-light)]">
-              <div className="border-b border-[color:var(--color-border-light)] py-5">
+            <div className="border-t border-(--color-border-light)">
+              <div className="border-b border-(--color-border-light) py-5">
                 <span className="stat-caption">Client</span>
                 <p
                   className="mt-2"
@@ -431,18 +431,18 @@ export default async function ProjectPage(props) {
               </div>
 
               {techStack.length > 0 && (
-                <div className="border-b border-[color:var(--color-border-light)] py-5">
+                <div className="border-b border-(--color-border-light) py-5">
                   <span className="stat-caption">Tech Stack</span>
-                  <p className="ui-text mt-2 font-normal tracking-normal normal-case text-[color:var(--color-muted)]">
+                  <p className="ui-text mt-2 font-normal tracking-normal normal-case text-(--color-muted)">
                     {techStack.join(" / ")}
                   </p>
                 </div>
               )}
 
               {meta.industry && (
-                <div className="border-b border-[color:var(--color-border-light)] py-5">
+                <div className="border-b border-(--color-border-light) py-5">
                   <span className="stat-caption">Industry</span>
-                  <p className="body-sm mt-2 text-[color:var(--color-ink)]">
+                  <p className="body-sm mt-2 text-(--color-ink)">
                     {meta.industry}
                   </p>
                 </div>
@@ -451,7 +451,7 @@ export default async function ProjectPage(props) {
               {meta.duration && (
                 <div className="py-5">
                   <span className="stat-caption">Duration</span>
-                  <p className="body-sm mt-2 text-[color:var(--color-ink)]">
+                  <p className="body-sm mt-2 text-(--color-ink)">
                     {meta.duration}
                   </p>
                 </div>
@@ -459,8 +459,8 @@ export default async function ProjectPage(props) {
             </div>
 
             {meta.testimonial && (
-              <blockquote className="border-t border-[color:var(--color-line)] pt-6">
-                <p className="text-[length:var(--text-display-sm)] leading-[1.6] text-[color:var(--color-ink)]">
+              <blockquote className="border-t border-(--color-line) pt-6">
+                <p className="text-(length:--text-display-sm) leading-[1.6] text-(--color-ink)">
                   &ldquo;{meta.testimonial}&rdquo;
                 </p>
                 <footer className="body-sm mt-4">&mdash; {meta.client}</footer>
@@ -472,22 +472,22 @@ export default async function ProjectPage(props) {
           <article className="order-1 lg:order-2 lg:col-span-8 case-study-content">
             <div
               className="prose max-w-none
-                         prose-headings:font-[family-name:var(--font-display)] prose-headings:font-semibold prose-headings:tracking-[-0.01em] prose-headings:text-[color:var(--color-ink)]
-                         prose-h2:text-[length:var(--text-display-lg)] prose-h2:mt-14 prose-h2:mb-6
-                         prose-h3:text-[length:var(--text-display-md)] prose-h3:mt-10 prose-h3:mb-4
-                         prose-p:text-[color:var(--color-muted)] prose-p:leading-[1.7] prose-p:mb-5
-                         prose-a:text-[color:var(--color-accent)] prose-a:font-medium prose-a:no-underline hover:prose-a:text-[color:var(--color-ink)]
-                         prose-img:border prose-img:border-[color:var(--color-border-light)] prose-img:rounded-none
+                         prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-[-0.01em] prose-headings:text-(--color-ink)
+                         prose-h2:text-(length:--text-display-lg) prose-h2:mt-14 prose-h2:mb-6
+                         prose-h3:text-(length:--text-display-md) prose-h3:mt-10 prose-h3:mb-4
+                         prose-p:text-(--color-muted) prose-p:leading-[1.7] prose-p:mb-5
+                         prose-a:text-(--color-accent) prose-a:font-medium prose-a:no-underline hover:prose-a:text-(--color-ink)
+                         prose-img:border prose-img:border-(--color-border-light) prose-img:rounded-none
                          prose-figure:my-8
                          prose-figcaption:stat-caption prose-figcaption:mt-2 prose-figcaption:text-center
-                         prose-blockquote:border-l prose-blockquote:border-l-[color:var(--color-line)] prose-blockquote:bg-transparent prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-[color:var(--color-ink)]
-                         prose-strong:text-[color:var(--color-ink)] prose-strong:font-medium
-                         prose-code:font-[family-name:var(--font-mono)] prose-code:text-[color:var(--color-accent)] prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
-                         prose-pre:bg-[var(--color-ink-surface)] prose-pre:text-[color:var(--color-ink-surface-text)] prose-pre:rounded-none prose-pre:border prose-pre:border-[color:var(--color-line)]
-                         prose-ul:marker:text-[color:var(--color-accent)] prose-ol:marker:text-[color:var(--color-accent)]
+                         prose-blockquote:border-l prose-blockquote:border-l-(--color-line) prose-blockquote:bg-transparent prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-(--color-ink)
+                         prose-strong:text-(--color-ink) prose-strong:font-medium
+                         prose-code:font-mono prose-code:text-(--color-accent) prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
+                         prose-pre:bg-(--color-ink-surface) prose-pre:text-(--color-ink-surface-text) prose-pre:rounded-none prose-pre:border prose-pre:border-(--color-line)
+                         prose-ul:marker:text-(--color-accent) prose-ol:marker:text-(--color-accent)
                          prose-table:border-collapse prose-table:w-full
-                         prose-th:font-[family-name:var(--font-mono)] prose-th:text-[length:var(--text-label)] prose-th:uppercase prose-th:tracking-[var(--tracking-label)] prose-th:text-[color:var(--color-muted)] prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-[color:var(--color-line)]
-                         prose-td:p-3 prose-td:border prose-td:border-[color:var(--color-line)] prose-td:text-[color:var(--color-muted)]"
+                         prose-th:font-mono prose-th:text-(length:--text-label) prose-th:uppercase prose-th:tracking-(--tracking-label) prose-th:text-(--color-muted) prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-(--color-line)
+                         prose-td:p-3 prose-td:border prose-td:border-(--color-line) prose-td:text-(--color-muted)"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </article>
@@ -499,7 +499,7 @@ export default async function ProjectPage(props) {
           older .md files that don't set these fields. */}
       <section className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
-          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+          <h2 className="mx-auto max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:100ms]">
             {meta.cta_heading || "Building something similar?"}
           </h2>
           <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">

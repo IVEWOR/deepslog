@@ -153,7 +153,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -161,9 +161,9 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)]">
+      <section className="border-b border-(--color-line)">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="flex flex-col justify-center border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:border-b-0 lg:border-r lg:py-20">
+          <div className="flex flex-col justify-center border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:border-b-0 lg:border-r lg:py-20">
             <span className="label animate-fade-in-up [animation-delay:100ms]">
               About
             </span>
@@ -190,7 +190,7 @@ export default function AboutPage() {
 
             {/* Photo - mobile only, sits between copy and links */}
             <div className="mt-10 flex justify-center lg:hidden animate-fade-in-up [animation-delay:400ms]">
-              <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
+              <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
                 <Image
                   src="/deepak.jpeg"
                   alt="Deepak Jangra, Shopify developer"
@@ -206,7 +206,7 @@ export default function AboutPage() {
                 href="https://linkedin.com/in/thedeepakjangra/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ui-text link-row link-underline text-[color:var(--color-ink)]"
+                className="ui-text link-row link-underline text-(--color-ink)"
               >
                 <svg
                   className="h-4 w-4"
@@ -223,7 +223,7 @@ export default function AboutPage() {
 
           {/* Photo - desktop only */}
           <div className="hidden items-center justify-center p-14 lg:flex animate-fade-in-up [animation-delay:400ms]">
-            <div className="relative aspect-[3/4] max-w-[500] w-full overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
+            <div className="relative aspect-[3/4] max-w-[500] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
               <Image
                 src="/deepak.jpeg"
                 alt="Deepak Jangra, Shopify developer"
@@ -245,17 +245,17 @@ export default function AboutPage() {
       </span>
 
       {/* Timeline */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">The Journey</span>
         <h2 className="mt-4 max-w-lg animate-fade-in-up [animation-delay:100ms]">
           A decade of building the web.
         </h2>
 
-        <div className="mt-12 border-t border-[color:var(--color-line)]">
+        <div className="mt-12 border-t border-(--color-line)">
           {timeline.map((item, index) => (
             <div
               key={item.year}
-              className="animate-fade-in-up grid grid-cols-1 gap-2 border-b border-[color:var(--color-line)] py-8 sm:grid-cols-[180px_1fr] sm:gap-8"
+              className="animate-fade-in-up grid grid-cols-1 gap-2 border-b border-(--color-line) py-8 sm:grid-cols-[180px_1fr] sm:gap-8"
               style={{ animationDelay: `${150 + index * 80}ms` }}
             >
               <span className={item.current ? "label" : "stat-caption"}>
@@ -278,8 +278,8 @@ export default function AboutPage() {
       </span>
 
       {/* What I actually do */}
-      <section className="border-b border-[color:var(--color-line)]">
-        <div className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-(--color-line)">
+        <div className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
           <span className="label animate-fade-in-up">How I Work</span>
           <h2 className="mt-4 max-w-lg animate-fade-in-up [animation-delay:100ms]">
             What I actually do.
@@ -290,12 +290,12 @@ export default function AboutPage() {
           {principles.map((item, index) => (
             <div
               key={item.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
+              className={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
                 index % 2 === 0 ? "md:border-r" : ""
               } ${index < 2 ? "border-b" : ""}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <span className="stat-number text-[1.5rem] text-[color:var(--color-muted)]">
+              <span className="stat-number text-[1.5rem] text-(--color-muted)">
                 {item.number}
               </span>
               <h3 className="mt-5 max-w-sm">{item.title}</h3>
@@ -308,7 +308,7 @@ export default function AboutPage() {
       {/* Final CTA */}
       <section className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
-          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+          <h2 className="mx-auto max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:100ms]">
             Ready to fix or scale your{" "}
             <span className="accent">Shopify Plus store?</span>
           </h2>
@@ -356,7 +356,7 @@ export default function AboutPage() {
               href={`mailto:${CONTACT_EMAIL}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="ui-text link-underline text-[color:var(--color-ink-surface-text)]"
+              className="ui-text link-underline text-(--color-ink-surface-text)"
             >
               Email Me Directly
             </a>
@@ -364,7 +364,7 @@ export default function AboutPage() {
 
           <Link
             href="/agency"
-            className="ui-text link-underline mt-10 inline-block text-[color:var(--color-ink-surface-muted)] animate-fade-in-up [animation-delay:400ms]"
+            className="ui-text link-underline mt-10 inline-block text-(--color-ink-surface-muted) animate-fade-in-up [animation-delay:400ms]"
           >
             I also partner with select agencies on white-label development.
           </Link>

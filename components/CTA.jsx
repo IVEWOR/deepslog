@@ -19,12 +19,12 @@ export default function CTA() {
               style={{ background: "var(--color-status-live)" }}
             />
           </span>
-          <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
+          <span className="stat-caption text-(--color-ink-surface-muted)">
             Available for new projects
           </span>
         </div>
 
-        <h2 className="mt-4 max-w-7xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:200ms] md:text-8xl! leading-tight">
+        <h2 className="mt-4 max-w-7xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:200ms] md:text-8xl! leading-tight">
           Ready to fix or scale your{" "}
           <span className="accent">Shopify store?</span>
         </h2>

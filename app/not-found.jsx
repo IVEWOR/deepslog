@@ -23,7 +23,7 @@ export default function NotFound() {
       secondaryAction={
         <Link
           href="/work"
-          className="ui-text link-underline text-[color:var(--color-ink)]"
+          className="ui-text link-underline text-(--color-ink)"
         >
           See Case Studies
         </Link>
@@ -31,7 +31,7 @@ export default function NotFound() {
       extra={
         <ContactModal
           triggerText="Report a Broken Link"
-          triggerStyle="ui-text link-underline text-[color:var(--color-muted)] cursor-pointer"
+          triggerStyle="ui-text link-underline text-(--color-muted) cursor-pointer"
           title="Report a broken link."
           subtitle="Tell me what page you were trying to reach and I'll get it fixed."
           subject="Broken Link Report (404)"

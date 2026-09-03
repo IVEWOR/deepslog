@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import SocialProof from "@/components/SocialProof";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, priceValidUntil } from "@/lib/site";
 
 export const metadata = {
   title: "Core Web Vitals & Speed Optimization",
@@ -16,7 +16,25 @@ export const metadata = {
     title: "Core Web Vitals Optimization Expert",
     description:
       "Guarantee sub-2-second load times for your Shopify or Custom site.",
-    url: "/rescue/performance",
+    url: `${SITE_URL}/rescue/performance`,
+    siteName: "Deepak Jangra",
+    images: [
+      {
+        url: `${SITE_URL}/og-performace.png`,
+        width: 1200,
+        height: 630,
+        alt: "Core Web Vitals Optimization - Deepak Jangra",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Core Web Vitals Optimization Expert",
+    description:
+      "Guarantee sub-2-second load times for your Shopify or Custom site.",
+    images: [`${SITE_URL}/og-performace.png`],
   },
 };
 
@@ -35,7 +53,7 @@ export default function PerformanceRescue() {
       "@type": "Offer",
       price: "1500.00",
       priceCurrency: "USD",
-      priceValidUntil: "2026-12-31",
+      priceValidUntil: priceValidUntil(),
       availability: "https://schema.org/InStock",
     },
   };
@@ -73,7 +91,7 @@ export default function PerformanceRescue() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -81,7 +99,7 @@ export default function PerformanceRescue() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">
           Core Web Vitals Optimization
         </span>
@@ -131,7 +149,7 @@ export default function PerformanceRescue() {
           />
           <Link
             href="/work"
-            className="ui-text link-underline text-[color:var(--color-ink)]"
+            className="ui-text link-underline text-(--color-ink)"
           >
             See Case Studies
           </Link>
@@ -143,7 +161,7 @@ export default function PerformanceRescue() {
       {/* Before / After */}
       <section
         id="proof"
-        className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20"
+        className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20"
       >
         <span className="label animate-fade-in-up">The Difference</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
@@ -153,24 +171,24 @@ export default function PerformanceRescue() {
           Actual results from a recent Shopify headless migration.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 border-t border-[color:var(--color-line)] md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 border-t border-(--color-line) md:grid-cols-2">
           {/* Before */}
-          <div className="animate-fade-in-up border-b border-[color:var(--color-line)] py-10 md:border-b-0 md:border-r md:py-14 md:pr-12">
+          <div className="animate-fade-in-up border-b border-(--color-line) py-10 md:border-b-0 md:border-r md:py-14 md:pr-12">
             <span className="stat-caption">Before Audit</span>
             <div className="mt-6 flex items-baseline gap-3">
-              <span className="stat-number text-[3.5rem] text-[color:var(--color-muted)]">
+              <span className="stat-number text-[3.5rem] text-(--color-muted)">
                 32
               </span>
               <span className="stat-caption">Lighthouse Score</span>
             </div>
-            <div className="mt-8 flex flex-col gap-3 border-t border-[color:var(--color-line)] pt-6">
+            <div className="mt-8 flex flex-col gap-3 border-t border-(--color-line) pt-6">
               {beforeMetrics.map((m) => (
                 <div
                   key={m.label}
                   className="flex items-center justify-between"
                 >
                   <span className="body-sm">{m.label}</span>
-                  <span className="ui-text font-normal tracking-normal normal-case text-[color:var(--color-muted)]">
+                  <span className="ui-text font-normal tracking-normal normal-case text-(--color-muted)">
                     {m.value}
                   </span>
                 </div>
@@ -185,16 +203,16 @@ export default function PerformanceRescue() {
               <span className="stat-number text-[3.5rem]">99</span>
               <span className="stat-caption">Lighthouse Score</span>
             </div>
-            <div className="mt-8 flex flex-col gap-3 border-t border-[color:var(--color-line)] pt-6">
+            <div className="mt-8 flex flex-col gap-3 border-t border-(--color-line) pt-6">
               {afterMetrics.map((m) => (
                 <div
                   key={m.label}
                   className="flex items-center justify-between"
                 >
-                  <span className="body-sm text-[color:var(--color-ink)]">
+                  <span className="body-sm text-(--color-ink)">
                     {m.label}
                   </span>
-                  <span className="ui-text font-normal tracking-normal normal-case text-[color:var(--color-accent)]">
+                  <span className="ui-text font-normal tracking-normal normal-case text-(--color-accent)">
                     {m.value}
                   </span>
                 </div>
@@ -211,8 +229,8 @@ export default function PerformanceRescue() {
       </section>
 
       {/* Diagnosis */}
-      <section className="border-b border-[color:var(--color-line)]">
-        <div className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-(--color-line)">
+        <div className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
           <span className="label animate-fade-in-up">The Diagnosis</span>
           <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
             Why your current setup is failing Core Web Vitals.
@@ -223,12 +241,12 @@ export default function PerformanceRescue() {
           {diagnosis.map((item, index) => (
             <div
               key={item.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
+              className={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
                 index < 2 ? "border-b md:border-b-0 md:border-r" : ""
               }`}
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
-              <span className="stat-number text-[1.5rem] text-[color:var(--color-muted)]">
+              <span className="stat-number text-[1.5rem] text-(--color-muted)">
                 {item.number}
               </span>
               <h4 className="mt-4">{item.title}</h4>
@@ -239,7 +257,7 @@ export default function PerformanceRescue() {
       </section>
 
       {/* Named proof: MerkBart */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
         <span className="label animate-fade-in-up">
           Same Pattern, Different Platform
         </span>
@@ -261,7 +279,7 @@ export default function PerformanceRescue() {
             </p>
             <Link
               href="/work/merkbart"
-              className="ui-text link-row link-underline mt-6 text-[color:var(--color-accent)] hover:text-[color:var(--color-ink)]"
+              className="ui-text link-row link-underline mt-6 text-(--color-accent) hover:text-(--color-ink)"
             >
               Read the Full Case Study
               <svg
@@ -279,7 +297,7 @@ export default function PerformanceRescue() {
             </Link>
           </div>
 
-          <div className="animate-fade-in-up [animation-delay:300ms] border-t border-[color:var(--color-line)] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <div className="animate-fade-in-up [animation-delay:300ms] border-t border-(--color-line) pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <div className="stat-number">~4&times;</div>
             <div className="stat-caption mt-2">Faster page loads</div>
           </div>
@@ -289,7 +307,7 @@ export default function PerformanceRescue() {
       {/* Final CTA */}
       <section id="audit" className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
-          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+          <h2 className="mx-auto max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:100ms]">
             Let&rsquo;s <span className="accent">find the bottlenecks.</span>
           </h2>
           <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">

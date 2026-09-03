@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import SocialProof from "@/components/SocialProof";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, priceValidUntil } from "@/lib/site";
 
 export const metadata = {
   title: "White-Label Development Services",
@@ -16,7 +16,25 @@ export const metadata = {
     title: "White-Label Development Services | Deepak Jangra",
     description:
       "Scale your agency's development capacity with Next.js and Shopify, strictly under NDA.",
-    url: "/agency",
+    url: `${SITE_URL}/agency`,
+    siteName: "Deepak Jangra",
+    images: [
+      {
+        url: `${SITE_URL}/og-agency.png`,
+        width: 1200,
+        height: 630,
+        alt: "White-Label Development Services - Deepak Jangra",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "White-Label Development Services | Deepak Jangra",
+    description:
+      "Scale your agency's development capacity with Next.js and Shopify, strictly under NDA.",
+    images: [`${SITE_URL}/og-agency.png`],
   },
 };
 
@@ -39,7 +57,7 @@ export default function AgencyPage() {
         priceCurrency: "USD",
         unitCode: "HUR",
       },
-      priceValidUntil: "2026-12-31",
+      priceValidUntil: priceValidUntil(),
       availability: "https://schema.org/InStock",
     },
   };
@@ -118,7 +136,7 @@ export default function AgencyPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -126,7 +144,7 @@ export default function AgencyPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <div className="flex items-center gap-3 animate-fade-in-up">
           <span className="relative flex h-2.5 w-2.5">
             <span
@@ -191,9 +209,9 @@ export default function AgencyPage() {
         </div>
 
         {/* Testimonial */}
-        <div className="mt-16 max-w-xl border-t border-[color:var(--color-line)] pt-8 animate-fade-in-up [animation-delay:400ms]">
+        <div className="mt-16 max-w-xl border-t border-(--color-line) pt-8 animate-fade-in-up [animation-delay:400ms]">
           <span className="label">Client Note</span>
-          <p className="mt-4 text-[length:var(--text-display-sm)] leading-[1.6]">
+          <p className="mt-4 text-(length:--text-display-sm) leading-[1.6]">
             &ldquo;3+ years working with Deepak. He converts vague client ideas
             into functional websites - zero hand-holding required.&rdquo;
           </p>
@@ -214,17 +232,17 @@ export default function AgencyPage() {
       <SocialProof />
 
       {/* Why me */}
-      <section className="border-b border-[color:var(--color-line)]">
+      <section className="border-b border-(--color-line)">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {features.map((feature, index) => (
             <div
               key={feature.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
+              className={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
                 index < 2 ? "border-b md:border-b-0 md:border-r" : ""
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <span className="stat-number text-[1.5rem] text-[color:var(--color-muted)]">
+              <span className="stat-number text-[1.5rem] text-(--color-muted)">
                 {feature.number}
               </span>
               <h3 className="mt-5">{feature.title}</h3>
@@ -235,7 +253,7 @@ export default function AgencyPage() {
       </section>
 
       {/* Process */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">The Process</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           How the Pilot Project works.
@@ -244,15 +262,15 @@ export default function AgencyPage() {
           Testing the waters with zero long-term risk.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 border-t border-[color:var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 border-t border-(--color-line) sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div
               key={step.number}
               className={`animate-fade-in-up py-8 ${
                 index % 2 !== 0
-                  ? "sm:border-l sm:border-[color:var(--color-line)] sm:pl-8"
+                  ? "sm:border-l sm:border-(--color-line) sm:pl-8"
                   : ""
-              } ${index < steps.length - 2 ? "border-b sm:border-b-0 border-[color:var(--color-line)]" : ""} ${
+              } ${index < steps.length - 2 ? "border-b sm:border-b-0 border-(--color-line)" : ""} ${
                 index === 2 ? "lg:border-l lg:pl-8" : ""
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
@@ -266,17 +284,17 @@ export default function AgencyPage() {
       </section>
 
       {/* Pricing */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">Transparent Engagement</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           No hidden hours, no bloated agency fees.
         </h2>
 
-        <div className="mt-12 grid grid-cols-1 border-t border-[color:var(--color-line)] md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 border-t border-(--color-line) md:grid-cols-2">
           {tiers.map((tier, index) => (
             <div
               key={tier.title}
-              className={`animate-fade-in-up border-[color:var(--color-line)] py-10 md:py-14 ${
+              className={`animate-fade-in-up border-(--color-line) py-10 md:py-14 ${
                 index === 0
                   ? "border-b md:border-b-0 md:border-r md:pr-12"
                   : "md:pl-12"
@@ -287,10 +305,10 @@ export default function AgencyPage() {
               <h3 className={tier.label ? "mt-3" : ""}>{tier.title}</h3>
               <p className="body-md mt-3 max-w-sm">{tier.description}</p>
 
-              <ul className="mt-8 flex flex-col gap-3 border-t border-[color:var(--color-line)] pt-6">
+              <ul className="mt-8 flex flex-col gap-3 border-t border-(--color-line) pt-6">
                 {tier.points.map((point) => (
                   <li key={point} className="body-sm flex items-baseline gap-3">
-                    <span className="font-[family-name:var(--font-mono)] text-[color:var(--color-accent)]">
+                    <span className="font-mono text-(--color-accent)">
                       &mdash;
                     </span>
                     {point}
@@ -305,7 +323,7 @@ export default function AgencyPage() {
       {/* Final CTA */}
       <section id="contact" className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
-          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+          <h2 className="mx-auto max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:100ms]">
             Ready to scale <span className="accent">without hiring?</span>
           </h2>
           <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">

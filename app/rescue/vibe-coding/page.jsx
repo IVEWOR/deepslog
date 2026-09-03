@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import SocialProof from "@/components/SocialProof";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, priceValidUntil } from "@/lib/site";
 
 export const metadata = {
   title: "AI Codebase Rescue & Refactoring",
@@ -16,7 +16,25 @@ export const metadata = {
     title: "AI Codebase Refactoring Services",
     description:
       "Turn your AI-generated prototype into a scalable production app.",
-    url: "/rescue/vibe-coding",
+    url: `${SITE_URL}/rescue/vibe-coding`,
+    siteName: "Deepak Jangra",
+    images: [
+      {
+        url: `${SITE_URL}/og-vibe-coding.png`,
+        width: 1200,
+        height: 630,
+        alt: "AI Codebase Refactoring Services - Deepak Jangra",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Codebase Refactoring Services",
+    description:
+      "Turn your AI-generated prototype into a scalable production app.",
+    images: [`${SITE_URL}/og-vibe-coding.png`],
   },
 };
 
@@ -37,7 +55,7 @@ export default function VibeCodingRescue() {
           "@type": "Offer",
           price: "2000.00",
           priceCurrency: "USD",
-          priceValidUntil: "2026-12-31",
+          priceValidUntil: priceValidUntil(),
           availability: "https://schema.org/InStock",
         },
       },
@@ -128,7 +146,7 @@ export default function VibeCodingRescue() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -136,7 +154,7 @@ export default function VibeCodingRescue() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">
           System Architecture Rescue
         </span>
@@ -152,7 +170,7 @@ export default function VibeCodingRescue() {
         <p className="body-lg mt-6 max-w-xl animate-fade-in-up [animation-delay:200ms]">
           Tools like Cursor and v0 are incredible for getting off the ground.
           But when your 2,000-line{" "}
-          <code className="font-[family-name:var(--font-mono)] text-[color:var(--color-accent)]">
+          <code className="font-mono text-(--color-accent)">
             page.tsx
           </code>{" "}
           file starts crashing and features become impossible to add, you need a
@@ -194,8 +212,8 @@ export default function VibeCodingRescue() {
       <SocialProof />
 
       {/* Diagnosis */}
-      <section className="border-b border-[color:var(--color-line)]">
-        <div className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-(--color-line)">
+        <div className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
           <span className="label animate-fade-in-up">The Diagnosis</span>
           <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
             Does your codebase look like this?
@@ -209,14 +227,14 @@ export default function VibeCodingRescue() {
           {symptoms.map((symptom, index) => (
             <div
               key={symptom.number}
-              className={`animate-fade-in-up border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-10 md:px-10 lg:py-14 ${
+              className={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-10 md:px-10 lg:py-14 ${
                 index % 2 === 0 ? "md:border-r" : ""
               } ${index < 2 ? "border-b md:border-b-0" : ""} ${
                 index % 4 !== 0 ? "lg:border-l" : ""
               }`}
               style={{ animationDelay: `${300 + index * 100}ms` }}
             >
-              <span className="stat-number text-[1.5rem] text-[color:var(--color-muted)]">
+              <span className="stat-number text-[1.5rem] text-(--color-muted)">
                 {symptom.number}
               </span>
               <h4 className="mt-4">{symptom.title}</h4>
@@ -227,7 +245,7 @@ export default function VibeCodingRescue() {
       </section>
 
       {/* Solution + code panel */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="animate-fade-in-up">
             <span className="label">The Fix</span>
@@ -245,7 +263,7 @@ export default function VibeCodingRescue() {
               {fixes.map((fix) => (
                 <li
                   key={fix.title}
-                  className="border-t border-[color:var(--color-line)] pt-4"
+                  className="border-t border-(--color-line) pt-4"
                 >
                   <span style={{ fontWeight: "var(--weight-display-bold)" }}>
                     {fix.title}:
@@ -255,15 +273,15 @@ export default function VibeCodingRescue() {
               ))}
             </ul>
           </div>
-          <div className="animate-fade-in-up [animation-delay:150ms] surface-inverted mx-auto w-full max-w-lg self-start border border-[color:var(--color-ink-surface-line)]">
-            <div className="flex items-center gap-2 border-b border-[color:var(--color-ink-surface-line)] px-4 py-3">
-              <span className="stat-caption text-[color:var(--color-ink-surface-muted)]">
+          <div className="animate-fade-in-up [animation-delay:150ms] surface-inverted mx-auto w-full max-w-lg self-start border border-(--color-ink-surface-line)">
+            <div className="flex items-center gap-2 border-b border-(--color-ink-surface-line) px-4 py-3">
+              <span className="stat-caption text-(--color-ink-surface-muted)">
                 refactor.tsx
               </span>
             </div>
-            <div className="overflow-x-auto p-6 font-[family-name:var(--font-mono)] text-[length:var(--text-body-sm)] leading-relaxed">
-              <div className="mb-4 text-[color:var(--color-ink-surface-muted)] line-through opacity-70">
-                // AI generated code (1,200 lines)
+            <div className="overflow-x-auto p-6 font-mono text-(length:--text-body-sm) leading-relaxed">
+              <div className="mb-4 text-(--color-ink-surface-muted) line-through opacity-70">
+                {"// AI generated code (1,200 lines)"}
                 <br />
                 export default function App() &#123;
                 <br />
@@ -275,8 +293,8 @@ export default function VibeCodingRescue() {
                 <br />
                 &#125;
               </div>
-              <div className="text-[color:var(--color-ink-surface-text)]">
-                // Senior refactor
+              <div className="text-(--color-ink-surface-text)">
+                {"// Senior refactor"}
                 <br />
                 import &#123; useStore &#125; from &apos;@/store&apos;;
                 <br />
@@ -304,15 +322,15 @@ export default function VibeCodingRescue() {
       </section>
 
       {/* FAQ */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
         <span className="label animate-fade-in-up">
           Questions People Actually Ask
         </span>
-        <div className="mt-10 max-w-2xl border-t border-[color:var(--color-line)]">
+        <div className="mt-10 max-w-2xl border-t border-(--color-line)">
           {faqs.map((faq, index) => (
             <div
               key={faq.q}
-              className="animate-fade-in-up border-b border-[color:var(--color-line)] py-8"
+              className="animate-fade-in-up border-b border-(--color-line) py-8"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3>{faq.q}</h3>
@@ -325,7 +343,7 @@ export default function VibeCodingRescue() {
       {/* Final CTA */}
       <section id="audit" className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
-          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+          <h2 className="mx-auto max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:100ms]">
             Stop fighting the AI.{" "}
             <span className="accent">Let&rsquo;s fix the foundation.</span>
           </h2>

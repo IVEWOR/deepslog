@@ -26,7 +26,7 @@ export default function ContactModal({
   fields,
 }) {
   const formFields = fields || [
-    { name: "name", label: "Name / Agency", type: "text", required: true },
+    { name: "name", label: "Name", type: "text", required: true },
     { name: "email", label: "Email", type: "email", required: true },
     {
       name: "message",
@@ -41,6 +41,7 @@ export default function ContactModal({
   const [showCalendar, setShowCalendar] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     setMounted(true);
@@ -68,6 +69,7 @@ export default function ContactModal({
       setTimeout(() => {
         setShowCalendar(false);
         setIsSuccess(false);
+        setErrorMessage(null);
       }, 300);
     }
     return () => {
@@ -78,6 +80,7 @@ export default function ContactModal({
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
 
     const formData = new FormData(e.target);
     formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY);
@@ -92,10 +95,14 @@ export default function ContactModal({
       if (data.success) {
         setIsSuccess(true);
       } else {
-        alert("Something went wrong. Please try again.");
+        setErrorMessage(
+          "Something went wrong on my end. Try again, or email me directly.",
+        );
       }
     } catch (error) {
-      alert("Something went wrong. Please try again.");
+      setErrorMessage(
+        "Couldn't reach the server. Check your connection and try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -119,7 +126,7 @@ export default function ContactModal({
         >
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-3 right-4 z-30 p-2 text-[color:var(--color-ink-surface-muted)] transition-colors hover:text-[color:var(--color-ink-surface-text)] cursor-pointer"
+            className="absolute top-3 right-4 z-30 p-2 text-(--color-ink-surface-muted) transition-colors hover:text-(--color-ink-surface-text) cursor-pointer"
             aria-label="Close"
           >
             <svg
@@ -157,7 +164,7 @@ export default function ContactModal({
                   <path d="M5 13l4 4L19 7" />
                 </svg>
                 <h3
-                  className="text-[length:var(--text-display-md)]"
+                  className="text-(length:--text-display-md)"
                   style={{ color: "var(--color-ink-surface-text)" }}
                 >
                   Message Received
@@ -205,7 +212,7 @@ export default function ContactModal({
                           required={field.required !== false}
                           name={field.name}
                           rows={field.rows || 3}
-                          className="w-full border px-4 py-3 text-[length:var(--text-body-md)] outline-none transition-colors resize-none"
+                          className="w-full border px-4 py-3 text-(length:--text-body-md) outline-none transition-colors resize-none"
                           style={{
                             background: "var(--color-ink)",
                             borderColor: "var(--color-ink-surface-line)",
@@ -227,7 +234,7 @@ export default function ContactModal({
                           type={field.type || "text"}
                           name={field.name}
                           placeholder={field.placeholder}
-                          className="w-full border px-4 py-3 text-[length:var(--text-body-md)] outline-none transition-colors"
+                          className="w-full border px-4 py-3 text-(length:--text-body-md) outline-none transition-colors"
                           style={{
                             background: "var(--color-ink)",
                             borderColor: "var(--color-ink-surface-line)",
@@ -245,6 +252,31 @@ export default function ContactModal({
                       )}
                     </div>
                   ))}
+
+                  {errorMessage && (
+                    <div
+                      className="flex items-start gap-2 border-l-2 py-2 pl-3 text-(length:--text-body-sm)"
+                      style={{
+                        borderColor: "var(--color-accent-dim)",
+                        color: "var(--color-ink-surface-muted)",
+                      }}
+                      role="alert"
+                    >
+                      <svg
+                        className="mt-0.5 h-3.5 w-3.5 shrink-0"
+                        style={{ color: "var(--color-accent-dim)" }}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 9v4m0 4h.01M10.29 3.86l-8.18 14.18A2 2 0 003.82 21h16.36a2 2 0 001.71-2.96L13.71 3.86a2 2 0 00-3.42 0z" />
+                      </svg>
+                      {errorMessage}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
@@ -278,7 +310,7 @@ export default function ContactModal({
                 >
                   <button
                     onClick={() => setShowCalendar(false)}
-                    className="ui-text flex items-center gap-1.5 transition-colors hover:text-[color:var(--color-accent)]"
+                    className="ui-text flex items-center gap-1.5 transition-colors hover:text-(--color-accent)"
                   >
                     <svg
                       className="h-3.5 w-3.5"

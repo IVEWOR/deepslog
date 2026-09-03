@@ -3,11 +3,11 @@ import Image from "next/image";
 
 export default function AboutMe() {
   return (
-    <section className="bg-[var(--color-paper)] border-b border-[color:var(--color-line)]">
+    <section className="bg-(--color-paper) border-b border-(--color-line)">
       <div className="grid grid-cols-1 lg:grid-cols-[42%_58%]">
         {/* LEFT: photo */}
-        <div className="animate-fade-in-up [animation-delay:100ms] border-b border-[color:var(--color-border-light)] p-6 sm:p-10 lg:border-b-0 lg:border-r lg:p-14">
-          <div className="relative aspect-[100/110] overflow-hidden border border-[color:var(--color-border-light)] bg-[var(--color-ink-surface)]">
+        <div className="animate-fade-in-up [animation-delay:100ms] border-b border-(--color-border-light) p-6 sm:p-10 lg:border-b-0 lg:border-r lg:p-14">
+          <div className="relative aspect-[100/110] overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
             <Image
               src="/deepak.jpeg"
               alt="Deepak Jangra, Shopify Plus developer"
@@ -36,7 +36,7 @@ export default function AboutMe() {
           </p>
 
           <p
-            className="body-lg mt-5 max-w-md text-[color:var(--color-ink)] animate-fade-in-up [animation-delay:500ms]"
+            className="body-lg mt-5 max-w-md text-(--color-ink) animate-fade-in-up [animation-delay:500ms]"
             style={{ fontWeight: "var(--weight-body-medium)" }}
           >
             I don&rsquo;t outsource your project to a junior team. When you hire
@@ -45,7 +45,7 @@ export default function AboutMe() {
 
           <Link
             href="/about"
-            className="ui-text mt-8 inline-flex items-center gap-2 text-[color:var(--color-ink)] animate-fade-in-up [animation-delay:600ms]"
+            className="ui-text mt-8 inline-flex items-center gap-2 text-(--color-ink) animate-fade-in-up [animation-delay:600ms]"
           >
             <span className="link-underline">Read My Full Story</span>
             <svg

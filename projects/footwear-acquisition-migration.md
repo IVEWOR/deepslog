@@ -1,19 +1,18 @@
 ---
 title: Footwear Brand Acquisition - Migration Plan & Runbook
-website: (Confidential - acquisition still under negotiation)
 platform: Shopify Plus, Klaviyo, Attentive, Judge.me, Shopify Flow, SPS Commerce EDI
-location: (Not confirmed)
+location: EU
 featured_image: /footwear-acquisition-migration.png
 industry: Fashion / Footwear E-commerce (Acquisition Due Diligence)
-duration: Paid test task, 2026
+duration: 48 hours
 date: "2026"
-date_published: "2026-07"
+date_published: "2026-07-2"
 client: Alex
 role: Shopify Plus Migration Consultant
 excerpt: A paid test task for a Shopify Plus store acquisition - a pre-close migration plan and an hour-by-hour 48-hour go-live runbook covering roughly 1,200 SKUs, 450K Klaviyo profiles, 80K Attentive SMS subscribers, and two active SPS Commerce EDI retail partner integrations, built so the buyer knew exactly what a cutover would cost before owning it.
 cta_heading: Acquiring a Shopify Plus store and need to know what actually breaks?
 cta_body: I build pre-close migration plans and hour-by-hour runbooks for Shopify Plus acquisitions - completeness manifests and a non-exportable items list included, so you know the real risk before you own it, not after.
-result_summary: Delivered a pre-close migration plan, a 48-hour go-live runbook with a built-in contingency checkpoint, a completeness manifest template, and a non-exportable items list, as a paid test task.
+result_summary: Delivered a pre-close migration plan, a 48-hour go-live runbook with a built-in contingency checkpoint, a completeness manifest template, and a non-exportable items list.
 ---
 
 ## The problem
@@ -46,7 +45,3 @@ Some data simply doesn't carry across cleanly in any Shopify-to-Shopify migratio
 | 48-hour go-live runbook        | Hour-by-hour task/tool/validation structure, hour-30 contingency, documented rollback point |
 | Completeness manifest template | 15 data objects tracked from source count through sign-off                                  |
 | Non-exportable items list      | What doesn't migrate cleanly, and the mitigation for each                                   |
-
-## Where this stands
-
-This was delivered as a paid test task while the underlying acquisition was still being negotiated. The plan and runbook are built and ready to execute, but the live migration hasn't happened, since it depends on a deal that hadn't closed as of the last update from Alex.

@@ -37,7 +37,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="bg-[var(--color-paper)] border-b border-[color:var(--color-line)]"
+      className="bg-(--color-paper) border-b border-(--color-line)"
     >
       {/* Header */}
       <div className="flex flex-col gap-6 px-[clamp(1.5rem,4vw,4rem)] py-14 lg:flex-row lg:items-end lg:justify-between lg:py-20">
@@ -50,7 +50,7 @@ export default function Process() {
             <span className="accent">zero surprises.</span>
           </h2>
         </div>
-        <p className="body-sm max-w-sm text-[color:var(--color-muted)] lg:text-right animate-fade-in-up [animation-delay:300ms]">
+        <p className="body-sm max-w-sm text-(--color-muted) lg:text-right animate-fade-in-up [animation-delay:300ms]">
           I don&rsquo;t disappear for weeks and deliver spaghetti code. My
           workflow is designed for merchants who need to keep selling while
           their store gets rebuilt.
@@ -58,16 +58,16 @@ export default function Process() {
       </div>
 
       {/* Steps */}
-      <div className="grid grid-cols-1 border-t border-[color:var(--color-border-light)] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 border-t border-(--color-border-light) sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, index) => (
           <div
             key={step.number}
-            className={`animate-fade-in-up border-[color:var(--color-border-light)] px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${stepBorders[index]}`}
+            className={`animate-fade-in-up border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${stepBorders[index]}`}
             style={{ animationDelay: `${400 + index * 150}ms` }}
           >
             <span className="stat-number text-[1.5rem]">{step.number}</span>
             <h4 className="mt-4">{step.title}</h4>
-            <p className="body-sm mt-3 text-[color:var(--color-muted)]">
+            <p className="body-sm mt-3 text-(--color-muted)">
               {step.description}
             </p>
           </div>

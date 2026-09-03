@@ -5,12 +5,12 @@ platform: Shopify Plus, Klaviyo, Shopify Flow, Checkout Blocks, SPY ERP, Webship
 location: Denmark
 featured_image: /petitnord.png
 industry: Fashion / Premium Children's Footwear
-duration: 8-hour paid assessment, plus a separate Shopify Scripts migration (June 2026)
+duration: 8-hour assessment, plus a separate Shopify Scripts migration (June 2026)
 date: "2026"
-date_published: "2026-06"
+date_published: "2026-06-18"
 client: Christian
 role: Shopify Plus Consultant
-excerpt: Selected as one of three finalists for a paid 8-hour Shopify Plus consolidation assessment across four regional stores - real Klaviyo data, a per-store app matrix, and a migration risk register - plus a separate Shopify Scripts migration completed ahead of Shopify's June 30, 2026 checkout.liquid deprecation deadline.
+excerpt: An 8-hour Shopify Plus consolidation assessment across four regional stores - real Klaviyo data, a per-store app matrix, and a migration risk register - plus a separate Shopify Scripts migration completed ahead of Shopify's June 30, 2026 checkout.liquid deprecation deadline.
 cta_heading: Weighing a Shopify Plus multi-store consolidation?
 cta_body: I deliver data-backed Shopify Plus assessments - real API counts, per-store app matrices, and a migration risk register - not a quote based on a five-minute look at your storefronts.
 result_summary: Delivered a full consolidation assessment (audit, risk register, migration plan, timeline & budget) across 4 Shopify Plus stores; completed the store's Shopify Scripts → Checkout Blocks migration ahead of the June 30, 2026 deprecation deadline.
@@ -24,7 +24,7 @@ Petit Nord is a Danish premium children's footwear brand running four separate S
 
 ### An audit built on real numbers, not a five-minute look
 
-I was one of three candidates selected for a paid, fixed eight-hour assessment. Rather than working from screenshots or assumptions, I got direct access to all four stores and pulled real data: Klaviyo profile counts across all five accounts (Global 61,001, EU 38,390, France 25,479, Denmark 10,406, 135,276 profiles total), a per-store app matrix that surfaced France running Klarna Payments and Global running KNO Post Purchase Surveys, neither present on the other stores, and confirmation that all four stores actually route through Cozy GeoIP rather than Shopify Markets natively, despite looking market-segmented on the surface.
+I did eight-hour assessment. Rather than working from screenshots or assumptions, I got direct access to all four stores and pulled real data: Klaviyo profile counts across all five accounts (Global 61,001, EU 38,390, France 25,479, Denmark 10,406, 135,276 profiles total), a per-store app matrix that surfaced France running Klarna Payments and Global running KNO Post Purchase Surveys, neither present on the other stores, and confirmation that all four stores actually route through Cozy GeoIP rather than Shopify Markets natively, despite looking market-segmented on the surface.
 
 ### A full assessment: audit, risk register, migration plan, timeline and budget
 
@@ -45,4 +45,4 @@ Separately from the consolidation assessment, I migrated the stores' active Shop
 
 ## Where this landed
 
-The assessment was delivered in full, and Christian was clear the choice came down to relationship as much as anything. In the end, the main consolidation build went to a different vendor who came in at a lower rate. The separately-agreed Shopify Scripts migration was completed as scoped, and the contract closed cleanly with payment released.
+The assessment was delivered in full, and Christian was clear the choice came down to relationship as much as anything.

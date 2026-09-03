@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-// Placeholder routes - confirm real case-study slugs, use null for clients
-// without a live case study page.
 const CLIENTS = [
   { name: "Merkbart", href: "/work/merkbart" },
   { name: "Gray _Matters", href: "/work/graymattersnyc" },
@@ -13,7 +11,7 @@ const CLIENTS = [
 ];
 
 const nameClasses =
-  "text-[clamp(0.8rem,2vw,0.8rem)] font-[family-name:var(--font-display)]  uppercase text-[var(--color-paper)]/90! font-[600]";
+  "text-[clamp(0.8rem,2vw,0.8rem)] font-display  uppercase text-(--color-paper)/90! font-[600]";
 
 function MarqueeTrack() {
   return (

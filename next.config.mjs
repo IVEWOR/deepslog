@@ -3,10 +3,24 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        // Redirects any traffic from the old /projects/ slug to the new /work/ slug
         source: "/projects/:slug*",
         destination: "/work/:slug*",
-        permanent: true, // Triggers a 301 redirect (Crucial for SEO link juice)
+        permanent: true,
+      },
+      {
+        source: "/work/womencann",
+        destination: "/work",
+        permanent: true,
+      },
+      {
+        source: "/work/solutions-by-it-works",
+        destination: "/work",
+        permanent: true,
+      },
+      {
+        source: "/work/classic-car-dealer",
+        destination: "/work",
+        permanent: true,
       },
       {
         source: "/#work",

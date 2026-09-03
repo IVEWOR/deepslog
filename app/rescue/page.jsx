@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import SocialProof from "@/components/SocialProof";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, priceValidUntil } from "@/lib/site";
 
 export const metadata = {
   title:
@@ -71,7 +71,7 @@ export default function RescueHub() {
               },
               price: "2000.00",
               priceCurrency: "USD",
-              priceValidUntil: "2026-12-31",
+              priceValidUntil: priceValidUntil(),
               availability: "https://schema.org/InStock",
             },
             {
@@ -85,7 +85,7 @@ export default function RescueHub() {
               },
               price: "1500.00",
               priceCurrency: "USD",
-              priceValidUntil: "2026-12-31",
+              priceValidUntil: priceValidUntil(),
               availability: "https://schema.org/InStock",
             },
             {
@@ -99,7 +99,7 @@ export default function RescueHub() {
               },
               price: "1500.00",
               priceCurrency: "USD",
-              priceValidUntil: "2026-12-31",
+              priceValidUntil: priceValidUntil(),
               availability: "https://schema.org/InStock",
             },
           ],
@@ -167,7 +167,7 @@ export default function RescueHub() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-paper)]">
+    <main className="min-h-screen bg-(--color-paper) text-(--color-ink) selection:bg-(--color-accent) selection:text-(--color-paper)">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -175,7 +175,7 @@ export default function RescueHub() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">
           Emergency Development Services
         </span>
@@ -194,32 +194,30 @@ export default function RescueHub() {
         </p>
       </section>
 
-      {/* Reuses the homepage marquee component for consistency -
-          see note below the code about why this replaced ClientLogos. */}
       <SocialProof />
 
       {/* Pathways */}
-      <section className="border-b border-[color:var(--color-line)]">
+      <section className="border-b border-(--color-line)">
         <div className="grid grid-cols-1 lg:grid-cols-3">
           {pathways.map((path, index) => (
             <div
               key={path.number}
-              className={`animate-fade-in-up flex flex-col border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
+              className={`animate-fade-in-up flex flex-col border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
                 index < 2 ? "border-b lg:border-b-0 lg:border-r" : ""
               }`}
               style={{ animationDelay: `${300 + index * 100}ms` }}
             >
-              <span className="stat-number text-[1.5rem] text-[color:var(--color-muted)]">
+              <span className="stat-number text-[1.5rem] text-(--color-muted)">
                 {path.number}
               </span>
               <h3 className="mt-5">{path.title}</h3>
               <p className="body-sm mt-3 grow">{path.description}</p>
 
-              <div className="mt-8 border-t border-[color:var(--color-line)] pt-6">
+              <div className="mt-8 border-t border-(--color-line) pt-6">
                 {path.modal ? (
                   <ContactModal
                     triggerText={path.cta}
-                    triggerStyle="ui-text link-underline text-[color:var(--color-ink)] cursor-pointer"
+                    triggerStyle="ui-text link-underline text-(--color-ink) cursor-pointer"
                     title="Get a Store Audit."
                     subtitle="Broken checkout, slow theme, or a messy app stack? Tell me what's going on."
                     subject="Shopify Store Audit Request"
@@ -258,7 +256,7 @@ export default function RescueHub() {
                 ) : (
                   <Link
                     href={path.href}
-                    className="ui-text link-row link-underline text-[color:var(--color-ink)]"
+                    className="ui-text link-row link-underline text-(--color-ink)"
                   >
                     {path.cta}
                     <svg
@@ -282,7 +280,7 @@ export default function RescueHub() {
       </section>
 
       {/* Proof: MerkBart */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">Recent Work</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           This isn&rsquo;t theoretical.
@@ -304,7 +302,7 @@ export default function RescueHub() {
             </p>
             <Link
               href="/work/merkbart"
-              className="ui-text link-row link-underline mt-6 text-[color:var(--color-accent)] hover:text-[color:var(--color-ink)]"
+              className="ui-text link-row link-underline mt-6 text-(--color-accent) hover:text-(--color-ink)"
             >
               Read the Full Case Study
               <svg
@@ -322,7 +320,7 @@ export default function RescueHub() {
             </Link>
           </div>
 
-          <div className="grid animate-fade-in-up grid-cols-2 gap-6 border-t border-[color:var(--color-line)] pt-6 [animation-delay:300ms] lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <div className="grid animate-fade-in-up grid-cols-2 gap-6 border-t border-(--color-line) pt-6 [animation-delay:300ms] lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <div>
               <div className="stat-number">~4&times;</div>
               <div className="stat-caption mt-2">Faster page loads</div>
@@ -338,21 +336,21 @@ export default function RescueHub() {
       </section>
 
       {/* Process */}
-      <section className="border-b border-[color:var(--color-line)] px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+      <section className="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
         <span className="label animate-fade-in-up">The Process</span>
         <h2 className="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
           How a rescue engagement actually works.
         </h2>
 
-        <div className="mt-12 grid grid-cols-1 border-t border-[color:var(--color-line)] sm:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 border-t border-(--color-line) sm:grid-cols-3">
           {steps.map((step, index) => (
             <div
               key={step.number}
               className={`animate-fade-in-up py-8 ${
                 index > 0
-                  ? "sm:border-l sm:border-[color:var(--color-line)] sm:pl-8"
+                  ? "sm:border-l sm:border-(--color-line) sm:pl-8"
                   : ""
-              } ${index < steps.length - 1 ? "border-b sm:border-b-0 border-[color:var(--color-line)]" : ""}`}
+              } ${index < steps.length - 1 ? "border-b sm:border-b-0 border-(--color-line)" : ""}`}
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
               <span className="stat-number text-[1.5rem]">{step.number}</span>
@@ -366,7 +364,7 @@ export default function RescueHub() {
       {/* Closing CTA */}
       <section className="surface-inverted">
         <div className="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
-          <h2 className="mx-auto max-w-2xl text-[color:var(--color-ink-surface-text)] animate-fade-in-up [animation-delay:100ms]">
+          <h2 className="mx-auto max-w-2xl text-(--color-ink-surface-text) animate-fade-in-up [animation-delay:100ms]">
             Have a <span className="accent">different kind</span> of emergency?
           </h2>
           <p className="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">

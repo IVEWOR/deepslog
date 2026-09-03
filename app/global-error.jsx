@@ -83,6 +83,10 @@ export default function GlobalError({ error, reset }) {
             >
               Reload
             </button>
+            {/* Plain <a>, not next/link: this replaces the whole root layout
+                when something has gone catastrophically wrong, so it can't
+                assume the router itself is in a working state. */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a
               href="/"
               style={{

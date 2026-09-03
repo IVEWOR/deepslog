@@ -9,10 +9,10 @@ const STATS = [
 
 export default function Hero() {
   return (
-    <section className="bg-(--color-paper) border-b border-[color:var(--color-line)]">
+    <section className="bg-(--color-paper) border-b border-(--color-line)">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* LEFT: pitch */}
-        <div className="flex flex-col border-b border-[color:var(--color-line)] py-6 sm:py-10 lg:border-b-0 lg:border-r border-r-(--color-border-light) lg:py-14 px-[clamp(1.5rem,4vw,4rem)]">
+        <div className="flex flex-col border-b border-(--color-line) py-6 sm:py-10 lg:border-b-0 lg:border-r border-r-(--color-border-light) lg:py-14 px-[clamp(1.5rem,4vw,4rem)]">
           <span className="label animate-fade-in-up [animation-delay:100ms]">
             Shopify Development
           </span>
@@ -67,7 +67,7 @@ export default function Hero() {
 
             <Link
               href="/work"
-              className="ui-text link-underline text-[color:var(--color-ink)]"
+              className="ui-text link-underline text-(--color-ink)"
             >
               See Case Studies
             </Link>
@@ -75,7 +75,7 @@ export default function Hero() {
 
           <div className="md:mt-12 flex md:items-end gap-3 pt-8 lg:mt-auto">
             <svg
-              className="mt-px h-4 w-4 shrink-0 text-[color:var(--color-ink)]"
+              className="mt-px h-4 w-4 shrink-0 text-(--color-ink)"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -89,7 +89,7 @@ export default function Hero() {
               <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
-            <span className="font-[family-name:var(--font-mono)] text-[length:var(--text-label)] uppercase leading-[var(--leading-label)] tracking-[var(--tracking-label)] text-[color:var(--color-ink)]">
+            <span className="font-mono text-(length:--text-label) uppercase leading-(--leading-label) tracking-(--tracking-label) text-(--color-ink)">
               For DTC brands and growing stores that have outgrown their current
               setup
             </span>
@@ -102,17 +102,17 @@ export default function Hero() {
             Client Note
           </span>
 
-          <blockquote className="mt-6 max-w-[560px] font-[family-name:var(--font-body)] text-[length:var(--text-display-sm)] leading-[1.6] text-[color:var(--color-ink)] animate-fade-in-up [animation-delay:300ms]">
+          <blockquote className="mt-6 max-w-[560px] font-body text-(length:--text-display-sm) leading-[1.6] text-(--color-ink) animate-fade-in-up [animation-delay:300ms]">
             &ldquo;He understood the problem quickly, solved the complex parts,
             and delivered exactly what we needed. The result: a store
             that&rsquo;s faster, easier to manage, and built to scale.&rdquo;
           </blockquote>
 
-          <p className="mt-5 text-[length:var(--text-body-md)] animate-fade-in-up [animation-delay:350ms]">
-            <span className="font-[family-name:var(--font-body)] font-medium text-[color:var(--color-ink)]">
+          <p className="mt-5 text-(length:--text-body-md) animate-fade-in-up [animation-delay:350ms]">
+            <span className="font-body font-medium text-(--color-ink)">
               Filip J.
             </span>
-            <span className="text-[color:var(--color-muted)]"> - Merkbart</span>
+            <span className="text-(--color-muted)"> - Merkbart</span>
           </p>
 
           <div className="mt-12 grid grid-cols-3 border-y border-(--color-border-light) mx-[-1.5rem] md:mx-0">
@@ -142,7 +142,7 @@ export default function Hero() {
             </div>
             <Link
               href="/work/merkbart"
-              className="ui-text link-underline mt-12 text-[color:var(--color-accent)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-ink)]"
+              className="ui-text link-underline mt-12 text-(--color-accent) transition-colors duration-(--duration-fast) hover:text-(--color-ink)"
             >
               View Case Study
               <svg

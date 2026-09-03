@@ -27,14 +27,14 @@ export default function Error({ error, reset }) {
       secondaryAction={
         <Link
           href="/"
-          className="ui-text link-underline text-[color:var(--color-ink)]"
+          className="ui-text link-underline text-(--color-ink)"
         >
           Back to Homepage
         </Link>
       }
       extra={
         error?.digest && (
-          <p className="stat-caption font-[family-name:var(--font-mono)]">
+          <p className="stat-caption font-mono">
             Reference: {error.digest}
           </p>
         )
