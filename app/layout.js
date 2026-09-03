@@ -2,6 +2,8 @@ import Script from "next/script";
 import "./globals.css";
 import { ppNeueMontreal, ppNeueMontrealText, geistMono } from "./fonts";
 import { SITE_URL } from "@/lib/site";
+import { Suspense } from "react";
+import GoogleAnalyticsPageview from "@/components/google-analytics";
 
 const fontVars = [
   ppNeueMontreal.variable,
@@ -85,16 +87,22 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
     >
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J88S018PRT"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-J88S018PRT', { send_page_view: false });
+          `}
+        </Script>
+        <Suspense fallback={null}>
+          <GoogleAnalyticsPageview />
+        </Suspense>
         {children}
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J88S018PRT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J88S018PRT');
-</script>
       </body>
     </html>
   );
