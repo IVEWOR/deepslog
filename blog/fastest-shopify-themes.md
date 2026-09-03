@@ -15,7 +15,7 @@ I went to Google expecting to find a definitive, data-backed answer comparing ho
 
 So, I built a controlled environment and tested 17 popular Shopify themes myself.
 
-I ran over 204 individual Lighthouse audits across 17 of the most used free and premium Shopify themes. I am making this data public so store owners and developers can choose their next theme based on real metrics—all raw audit reports are linked in the public repository.
+I ran over 204 individual Lighthouse audits across 17 of the most used free and premium Shopify themes. I am making this data public so store owners and developers can choose their next theme based on real metrics—all raw audit reports are linked in the [public repository](https://github.com/IVEWOR/shopify-theme-speed-benchmark).
 
 _**TL;DR:**_ _If you just want the final numbers,_ _**scroll straight down to the tables**_ _at the bottom of this post._
 
