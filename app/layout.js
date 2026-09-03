@@ -86,11 +86,15 @@ export default function RootLayout({ children }) {
     >
       <body>
         {children}
-        <Script
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "ea88142598b349b9b9c1682da19f3a0f"}'
-          strategy="lazyOnload"
-        />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J88S018PRT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J88S018PRT');
+</script>
       </body>
     </html>
   );
