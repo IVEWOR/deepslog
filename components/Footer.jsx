@@ -8,7 +8,7 @@ export default function Footer() {
           © 2026 Deepak Jangra - Shopify Developer
         </p>
 
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-6">
           <Link
             href="/rescue"
             className="ui-text link-underline text-(--color-ink-surface-muted)!"

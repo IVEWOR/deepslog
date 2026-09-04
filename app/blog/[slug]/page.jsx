@@ -175,60 +175,60 @@ export default async function BlogPostPage(props) {
 
       {/* Header */}
       <header className="px-[clamp(1.5rem,4vw,4rem)] pt-14 lg:pt-20">
-        <span className="label animate-fade-in-up">Blog</span>
-        <h1
-          className="mt-4 max-w-3xl animate-fade-in-up [animation-delay:100ms]"
-          style={{ fontWeight: "var(--weight-display-black)" }}
-        >
-          {meta.title}
-        </h1>
+        <div className="mx-auto max-w-4xl">
+          <span className="label animate-fade-in-up">Blog</span>
+          <h1
+            className="mt-4 animate-fade-in-up [animation-delay:100ms]"
+            style={{ fontWeight: "var(--weight-display-black)" }}
+          >
+            {meta.title}
+          </h1>
 
-        <div className="ui-text mt-6 flex flex-wrap items-center gap-3 text-(--color-muted) animate-fade-in-up [animation-delay:200ms]">
-          <time dateTime={meta.date}>
-            {new Date(meta.date).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </time>
-          <span aria-hidden="true">/</span>
-          <span>{post.readingTime} min read</span>
-          {meta.tags?.length > 0 && (
-            <>
-              <span aria-hidden="true">/</span>
-              <span className="text-(--color-accent)">
-                {meta.tags.join(" / ")}
-              </span>
-            </>
-          )}
+          <div className="ui-text mt-6 flex flex-wrap items-center gap-3 text-(--color-muted) animate-fade-in-up [animation-delay:200ms]">
+            <time dateTime={meta.date}>
+              {new Date(meta.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </time>
+            <span aria-hidden="true">/</span>
+            <span>{post.readingTime} min read</span>
+            {meta.tags?.length > 0 && (
+              <>
+                <span aria-hidden="true">/</span>
+                <span className="text-(--color-accent)">
+                  {meta.tags.join(" / ")}
+                </span>
+              </>
+            )}
+          </div>
         </div>
       </header>
 
-      {/* Featured image - one section carries both the "post intro" block's
-          bottom padding and its single closing hard rule, whether or not a
-          featured image is set, so the header above never doubles up on a
-          border like it used to. */}
       <section
         className={`border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] pb-14 lg:pb-20 animate-fade-in-up [animation-delay:300ms] ${
           meta.featured_image ? "pt-10 lg:pt-14" : "pt-8"
         }`}
       >
-        {meta.featured_image && (
-          <figure className="relative aspect-[21/9] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
-            <Image
-              src={meta.featured_image}
-              alt={meta.title}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-            />
-          </figure>
-        )}
+        <div className="mx-auto max-w-4xl">
+          {meta.featured_image && (
+            <figure className="relative aspect-[40/21] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
+              <Image
+                src={meta.featured_image}
+                alt={meta.title}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+              />
+            </figure>
+          )}
+        </div>
       </section>
 
       <section className="px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
-        <article className="mx-auto max-w-3xl">
+        <article className="mx-auto max-w-4xl">
           <div
             className="prose max-w-none
                        prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-[-0.01em] prose-headings:text-(--color-ink)
@@ -244,7 +244,7 @@ export default async function BlogPostPage(props) {
                        prose-code:font-mono prose-code:text-(--color-accent) prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
                        prose-pre:bg-(--color-ink-surface) prose-pre:text-(--color-ink-surface-text) prose-pre:rounded-none prose-pre:border prose-pre:border-(--color-border-light)
                        prose-ul:marker:text-(--color-accent) prose-ol:marker:text-(--color-accent)
-                       prose-table:block prose-table:overflow-x-auto prose-table:border-collapse prose-table:w-full prose-table:my-6
+                       prose-table:block md:prose-table:table prose-table:overflow-x-auto prose-table:border-collapse prose-table:w-full prose-table:my-6
                        prose-thead:bg-(--color-ink-surface)
                        prose-th:font-mono prose-th:text-(length:--text-label) prose-th:uppercase prose-th:tracking-(--tracking-label) prose-th:text-(--color-ink-surface-text)! prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-(--color-ink-surface-line) prose-th:whitespace-nowrap
                        prose-td:p-3 prose-td:border prose-td:border-(--color-border-light) prose-td:text-(--color-muted) prose-td:whitespace-nowrap 

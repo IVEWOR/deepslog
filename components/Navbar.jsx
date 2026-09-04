@@ -25,10 +25,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close the mobile menu on route change. Adjusted during render (React's
-  // recommended pattern for "reset state when a prop changes") instead of
-  // a useEffect, which would call setState synchronously post-commit and
-  // trigger an extra cascading render.
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
@@ -50,7 +46,7 @@ export default function Navbar() {
           href="/"
           aria-label="Home"
           onClick={() => setIsOpen(false)}
-          className=""
+          className="z-60"
         >
           <Wordmark />
         </Link>
