@@ -10,12 +10,12 @@
 !.yarn/releases
 !.yarn/versions
 
+# astro
+/dist/
+.astro/
+
 # testing
 /coverage
-
-# next.js
-/.next/
-/out/
 
 # production
 /build
@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .fonts-src/
+
+# private local audits - do not commit
+/AUDIT-*.md

@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactModal from "../components/ContactModal.astro";
+import { workProjects } from "../lib/work";
+import { getCollection } from "astro:content";
+import { SITE_URL } from "../lib/site";
+
+const title = "Work & Case Studies | Deepak Jangra | 30+ Projects";
+const description =
+  "30+ Shopify and custom builds: 4× faster loads, 2× sales lifts. Case studies from 9 years of production work for DTC brands.";
+
+const workEntries = await getCollection("work");
+const knownSlugs = new Set(workEntries.map((e) => e.id.replace(/\.md$/, "")));
+for (const p of workProjects) {
+  if (!knownSlugs.has(p.link)) {
+    console.warn(`[work] card "${p.link}" has no matching content entry`);
+  }
+}
+for (const slug of knownSlugs) {
+  if (!workProjects.some((p) => p.link === slug)) {
+    console.warn(`[work] content entry "${slug}" missing from grid curation`);
+  }
+}
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/work#webpage`,
+      name: "Selected Work & Portfolio | Deepak Jangra",
+      description:
+        "Shopify and custom web applications built for DTC brands and agencies",
+      url: `${SITE_URL}/work`,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#person` },
+      creator: { "@id": `${SITE_URL}/#person` },
+      copyrightHolder: { "@id": `${SITE_URL}/#person` },
+      mainEntity: {
+        "@type": "ItemList",
+        "@id": `${SITE_URL}/work#projects`,
+        itemListElement: workProjects.map((project, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: project.title,
+          description: project.description,
+          url: `${SITE_URL}/work/${project.link}`,
+        })),
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="/work"
+  ogImage={`${SITE_URL}/og-work.png`}
+  ogImageAlt="Deepak Jangra Portfolio - 30+ Shopify Projects"
+  schema={schema}
+>
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up [animation-delay:100ms]">
+      Portfolio
+    </span>
+    <h1
+      class="mt-4 max-w-2xl animate-fade-in-up [animation-delay:200ms]"
+      style="font-weight: var(--weight-display-black)"
+    >
+      Code that <span class="accent">drives revenue.</span>
+    </h1>
+    <p class="body-lg mt-6 max-w-md animate-fade-in-up [animation-delay:300ms]">
+      A selection of production-grade Shopify and custom web applications
+      built for agencies, startups, and ambitious brands over the last 9
+      years.
+    </p>
+  </section>
+
+  <section class="px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-20">
+    <div data-work-grid data-work-step="6" class="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
+      {workProjects.map((project, index) => (
+        <a
+          href={`/work/${project.link}`}
+          data-work-card
+          hidden={index >= 8}
+          class="group animate-fade-in-up flex flex-col"
+          style={`animation-delay: ${200 + (index % 4) * 100}ms`}
+        >
+          <span class="relative aspect-[5/3] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
+            <img
+              src={project.image}
+              alt={`${project.title} — ${project.tech.join(", ")} case study by Deepak Jangra`}
+              loading="lazy"
+              decoding="async"
+              class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+            />
+          </span>
+
+          <span class="mt-5 flex grow flex-col">
+            <span class="stat-caption tabular-nums">{project.year}</span>
+
+            <h3 class="mt-2 transition-transform duration-(--duration-fast) group-hover:translate-x-1">
+              {project.title}
+            </h3>
+
+            <span class="body-sm mt-2 line-clamp-2">{project.description}</span>
+
+            {project.tech.length > 0 && (
+              <span class="ui-text mt-auto pt-4 font-normal tracking-normal normal-case text-(--color-muted)">
+                {project.tech.join(" / ")}
+              </span>
+            )}
+
+            <span class="ui-text mt-5 flex items-center gap-2 transition-colors duration-(--duration-fast) group-hover:text-(--color-accent)">
+              View Project
+              <svg
+                class="h-3.5 w-3.5 transition-transform duration-(--duration-fast) group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <div data-work-sentinel class="mt-16 flex justify-center border-t border-(--color-line) pt-8">
+      <span class="stat-caption animate-pulse">Loading more projects&hellip;</span>
+    </div>
+
+    <div data-work-end hidden class="mt-16 border-t border-(--color-line) pt-8 text-center">
+      <span class="stat-caption">You&rsquo;ve reached the end &mdash; that&rsquo;s all.</span>
+    </div>
+  </section>
+
+  {/* Closing CTA */}
+  <section class="surface-inverted">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <span class="label animate-fade-in-up [animation-delay:100ms]">
+        Get In Touch
+      </span>
+
+      <h2 class="mx-auto mt-4 max-w-2xl animate-fade-in-up [animation-delay:200ms]" style="color: var(--color-ink-surface-text)">
+        Like what you see?{" "}
+        <span class="accent">Let&rsquo;s build yours next.</span>
+      </h2>
+
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:300ms]">
+        Currently accepting new projects for Q1. Whether you&rsquo;re an
+        agency needing overflow help or a brand needing a rebuild, I&rsquo;m
+        ready to ship.
+      </p>
+
+      <div class="mt-10 flex justify-center animate-fade-in-up [animation-delay:400ms]">
+        <ContactModal
+          triggerText="Start Conversation"
+          triggerStyle="btn btn-primary"
+          title="Let's build yours next."
+          subtitle="Currently accepting new projects for Q1."
+          subject="New Project Inquiry (From Portfolio)"
+          fields={[
+            { name: "name", label: "Name / Agency", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Current Site (if any)",
+              type: "url",
+              placeholder: "https://yourstore.com",
+              required: false,
+            },
+            {
+              name: "message",
+              label: "Project Overview",
+              type: "textarea",
+              placeholder:
+                "Are you an agency needing overflow help, or a brand needing a rebuild?",
+              required: true,
+            },
+          ]}
+          uid="work"
+        />
+      </div>
+
+      <div class="mt-12 flex items-center justify-center gap-3 animate-fade-in-up [animation-delay:500ms]">
+        <span class="relative flex h-2.5 w-2.5">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+            style="background: var(--color-status-live)"
+          ></span>
+          <span
+            class="relative inline-flex h-2.5 w-2.5 rounded-full"
+            style="background: var(--color-status-live)"
+          ></span>
+        </span>
+        <span class="stat-caption" style="color: var(--color-ink-surface-muted)">
+          Available for new projects
+        </span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

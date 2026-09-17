@@ -1,0 +1,147 @@
+---
+import ContactModal from "./ContactModal.astro";
+
+const STATS = [
+  { value: "9+", label: "Years of Experience" },
+  { value: "30+", label: "Shopify Stores Shipped" },
+  { value: "40+", label: "Checkout Optimizations" },
+];
+---
+
+<section class="bg-(--color-paper) border-b border-(--color-line)">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    {/* LEFT: pitch */}
+    <div class="flex flex-col border-b border-(--color-line) py-6 sm:py-10 lg:border-b-0 lg:border-r border-r-(--color-border-light) lg:py-14 px-[clamp(1.5rem,4vw,4rem)]">
+      <span class="label animate-fade-in-up [animation-delay:100ms]">
+        Shopify Development
+      </span>
+
+      <h1
+        class="mt-6 max-w-[820px] animate-fade-in-up [animation-delay:150ms] uppercase"
+        style="font-weight: var(--weight-display-black)"
+      >
+        I build <span class="accent block">Shopify stores</span> that scale.
+      </h1>
+
+      <p class="body-lg mt-6 max-w-[560px] animate-fade-in-up [animation-delay:250ms]">
+        I help Shopify merchants build, rebuild, and fix stores where
+        performance, conversion, and custom functionality actually matter.
+      </p>
+
+      <div class="mt-10 flex flex-col items-start gap-6 animate-fade-in-up [animation-delay:350ms] sm:flex-row sm:items-center">
+        <ContactModal
+          triggerText="Start a Project"
+          triggerStyle="btn btn-primary w-full sm:w-auto"
+          title="Start a project."
+          subtitle="Tell me what you're building or what's broken. I'll reply within a day."
+          subject="New Project Inquiry (Homepage Hero)"
+          fields={[
+            { name: "name", label: "Name", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Shopify Store URL",
+              type: "url",
+              placeholder: "https://yourstore.com",
+              required: false,
+            },
+            {
+              name: "message",
+              label: "What do you need?",
+              type: "textarea",
+              placeholder:
+                "New build, replatform, performance, checkout, custom app - what's the priority?",
+              required: true,
+            },
+          ]}
+          calTitle="Rather talk it through?"
+          calSubtitle="Grab 15 minutes and we'll go over what to tackle first."
+          uid="hero"
+        />
+
+        <a href="/work" class="ui-text link-underline text-(--color-ink)">
+          See Case Studies
+        </a>
+      </div>
+
+      <div class="md:mt-12 flex md:items-end gap-3 pt-8 lg:mt-auto">
+        <svg
+          class="mt-px h-4 w-4 shrink-0 text-(--color-ink)"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span
+          class="font-mono uppercase leading-(--leading-label) tracking-(--tracking-label) text-(--color-ink)"
+          style="font-size: var(--text-label)"
+        >
+          For DTC brands and growing stores that have outgrown their current
+          setup
+        </span>
+      </div>
+    </div>
+
+    {/* RIGHT: proof */}
+    <div class="flex flex-col py-6 sm:py-10 lg:py-14 px-[clamp(1.5rem,4vw,4rem)]">
+      <span class="label animate-fade-in-up [animation-delay:200ms]">
+        Client Note
+      </span>
+
+      <blockquote class="mt-6 max-w-[560px] font-body leading-[1.6] text-(--color-ink) animate-fade-in-up [animation-delay:300ms]" style="font-size: var(--text-display-sm)">
+        &ldquo;He understood the problem quickly, solved the complex parts,
+        and delivered exactly what we needed. The result: a store
+        that&rsquo;s faster, easier to manage, and built to scale.&rdquo;
+      </blockquote>
+
+      <p class="mt-5 animate-fade-in-up [animation-delay:350ms]" style="font-size: var(--text-body-md)">
+        <span class="font-body font-medium text-(--color-ink)">Filip J.</span>
+        <span class="text-(--color-muted)"> - Merkbart</span>
+      </p>
+
+      <div class="mt-12 grid grid-cols-3 max-[380px]:grid-cols-1 border-y border-(--color-border-light) mx-[-1.5rem] md:mx-0">
+        {STATS.map((stat, i) => (
+          <div
+            class={`py-7 px-4 md:pr-4 max-[380px]:py-5 ${i > 0 ? "border-l border-(--color-border-light) max-[380px]:border-l-0 max-[380px]:border-t" : ""}`}
+          >
+            <div class="stat-number">{stat.value}</div>
+            <div class="stat-caption mt-4 leading-[1.5]">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="pt-8">
+        <div class="flex items-end gap-4">
+          <div class="stat-number text-[2.75rem] leading-none">2&times;</div>
+          <div class="uppercase text-sm">Conversion rate in 90 days</div>
+        </div>
+        <a
+          href="/work/merkbart"
+          class="ui-text link-underline mt-12 text-(--color-accent) transition-colors duration-(--duration-fast) hover:text-(--color-ink)"
+        >
+          View Case Study
+          <svg
+            class="h-3.5 w-3.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,227 @@
+---
+import { CONTACT_EMAIL } from "../lib/site";
+
+export interface Field {
+  name: string;
+  label: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+  rows?: number;
+}
+
+export interface Props {
+  triggerText?: string;
+  triggerStyle?: string;
+  /** Inline style for the trigger button (e.g. dark nav button). */
+  triggerButtonStyle?: string;
+  title?: string;
+  subtitle?: string;
+  subject?: string;
+  inputLabel?: string;
+  inputPlaceholder?: string;
+  fields?: Field[];
+  /** Stable id suffix when several modals share a page. */
+  uid?: string;
+}
+
+const {
+  triggerText = "Let's Talk",
+  triggerStyle = "btn btn-primary",
+  triggerButtonStyle = "",
+  title = "Send a brief.",
+  subtitle = "I typically reply within 2-4 hours.",
+  subject = "New Project Inquiry via deepakj.dev",
+  inputLabel = "Project Details",
+  inputPlaceholder = "What are we building?",
+  fields,
+  uid = Math.random().toString(36).slice(2, 8),
+} = Astro.props;
+
+const formFields: Field[] = fields ?? [
+  { name: "name", label: "Name", type: "text", required: true },
+  { name: "email", label: "Email", type: "email", required: true },
+  {
+    name: "message",
+    label: inputLabel,
+    type: "textarea",
+    placeholder: inputPlaceholder,
+    required: true,
+  },
+];
+---
+
+<span
+  data-cm-root
+  data-cm-subject={subject}
+  data-cm-location={Astro.url.pathname}
+  data-cm-mailto={CONTACT_EMAIL}
+>
+  <button class={triggerStyle} style={triggerButtonStyle} data-cm-open>
+    {triggerText}
+    <svg
+      class="h-3.5 w-3.5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14M13 5l7 7-7 7"></path>
+    </svg>
+  </button>
+
+  <div data-cm-overlay hidden class="fixed inset-0 z-[9999] overflow-y-auto overscroll-none">
+    <div
+      data-cm-backdrop
+      class="fixed inset-0 backdrop-blur-sm"
+      style="background: rgba(23, 20, 15, 0.6)"
+    ></div>
+
+    {/* No justify-center here on purpose: with m-auto on the dialog,
+        short viewports scroll from the top instead of clipping it. */}
+    <div class="flex min-h-full flex-col p-4 sm:p-8 relative">
+      <div
+        class="surface-inverted relative mx-auto my-auto flex w-full max-w-xl animate-fade-in-up flex-col overflow-hidden border md:max-h-[85vh]"
+        style="border-color: var(--color-ink-surface-line)"
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+      >
+        <button
+          type="button"
+          data-cm-close
+          class="absolute top-3 right-4 z-30 p-2 transition-colors hover:text-(--color-ink-surface-text) cursor-pointer"
+          style="color: var(--color-ink-surface-muted)"
+          aria-label="Close dialog"
+        >
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        {/* Form */}
+        <div
+          class="relative z-10 w-full flex-col justify-center overflow-y-auto p-6 md:p-8 flex"
+          style="border-color: var(--color-ink-surface-line)"
+        >
+          <div data-cm-success-view hidden class="flex h-full animate-fade-in-up flex-col items-center justify-center text-center">
+            <svg
+              class="mb-6 h-10 w-10"
+              style="color: var(--color-status-live)"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 13l4 4L19 7"></path>
+            </svg>
+            <h3 style="color: var(--color-ink-surface-text)">Message Received</h3>
+            <p
+              class="stat-caption mt-3 max-w-[250px] normal-case tracking-normal"
+              style="color: var(--color-ink-surface-muted)"
+            >
+              I&rsquo;ll review the details and get back to you shortly.
+            </p>
+          </div>
+
+          <div data-cm-form-view>
+            <h3 style="color: var(--color-ink-surface-text)">{title}</h3>
+            <p
+              class="stat-caption mt-2 mb-6 normal-case tracking-normal"
+              style="color: var(--color-ink-surface-muted)"
+            >
+              {subtitle}
+            </p>
+
+            <form data-cm-form class="space-y-4" novalidate={false}>
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+              {formFields.map((field) => (
+                <div>
+                  <label
+                    class="stat-caption mb-2 block"
+                    style="color: var(--color-ink-surface-muted)"
+                    for={`cm-${uid}-${field.name}`}
+                  >
+                    {field.label}
+                    {field.required === false ? (
+                      <span class="normal-case"> (optional)</span>
+                    ) : (
+                      <span class="accent" aria-hidden="true"> *</span>
+                    )}
+                  </label>
+                  {field.type === "textarea" ? (
+                    <textarea
+                      id={`cm-${uid}-${field.name}`}
+                      required={field.required !== false}
+                      name={field.name}
+                      rows={field.rows || 3}
+                      class="w-full border px-4 py-3 outline-none transition-colors resize-none"
+                      style="background: var(--color-ink); border-color: var(--color-ink-surface-line); color: var(--color-ink-surface-text); font-size: 16px"
+                      placeholder={field.placeholder}
+                    ></textarea>
+                  ) : (
+                    <input
+                      id={`cm-${uid}-${field.name}`}
+                      required={field.required !== false}
+                      type={field.type || "text"}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      class="w-full border px-4 py-3 outline-none transition-colors"
+                      style="background: var(--color-ink); border-color: var(--color-ink-surface-line); color: var(--color-ink-surface-text); font-size: 16px"
+                    />
+                  )}
+                </div>
+              ))}
+
+              <div
+                data-cm-error
+                hidden
+                class="flex items-start gap-2 border-l-2 py-2 pl-3"
+                style="border-color: var(--color-accent-dim); color: var(--color-ink-surface-muted); font-size: var(--text-body-sm)"
+                role="alert"
+              >
+                <span>
+                  Something went wrong on my end. Try again, or email me directly at{" "}
+                  <a data-cm-error-mailto href={`mailto:${CONTACT_EMAIL}`} style="text-decoration: underline">
+                    {CONTACT_EMAIL}
+                  </a>.
+                </span>
+              </div>
+
+              <div
+                data-cm-nokey
+                hidden
+                class="border-l-2 py-2 pl-3"
+                style="border-color: var(--color-accent-dim); color: var(--color-ink-surface-muted); font-size: var(--text-body-sm)"
+                role="note"
+              >
+                <span>
+                  The form is temporarily offline — email me directly at{" "}
+                  <a href={`mailto:${CONTACT_EMAIL}`} style="text-decoration: underline">{CONTACT_EMAIL}</a>.
+                </span>
+              </div>
+
+              <button type="submit" data-cm-submit class="btn btn-primary mt-2 w-full disabled:opacity-50 disabled:cursor-not-allowed">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</span>

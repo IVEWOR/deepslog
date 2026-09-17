@@ -1,0 +1,320 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactModal from "../components/ContactModal.astro";
+import { SITE_URL, CONTACT_EMAIL, SAME_AS, KNOWS_ABOUT } from "../lib/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Deepak Jangra",
+      givenName: "Deepak",
+      familyName: "Jangra",
+      jobTitle: "Shopify Developer",
+      description:
+        "Shopify Plus developer with 9+ years of experience building custom apps, checkout extensions, and headless storefronts for scaling merchants.",
+      url: SITE_URL,
+      image: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/og-about.png`,
+        width: 1200,
+        height: 630,
+      },
+      knowsAbout: KNOWS_ABOUT,
+      worksFor: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      alumniOf: {
+        "@type": "Organization",
+        name: "NXPRO",
+      },
+      sameAs: SAME_AS,
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/about#webpage`,
+      name: "About Deepak Jangra",
+      description:
+        "9+ year journey building high-performance web applications",
+      url: `${SITE_URL}/about`,
+      mainEntity: {
+        "@id": `${SITE_URL}/#person`,
+      },
+    },
+  ],
+};
+
+const timeline = [
+  {
+    year: "2023 - Present",
+    role: "Independent Shopify Developer",
+    description:
+      "Working directly with scaling merchants on custom builds, checkout extensions, and store rescues. Building GearSync, a Shopify app for auto parts merchants. Supporting select agency partners on Plus-level projects.",
+    current: true,
+  },
+  {
+    year: "2022 - 2023",
+    role: "Senior Web Developer @ NXPRO",
+    description:
+      "Led a team of 3 and oversaw high-stakes Shopify and WordPress projects. Introduced Git-based workflows and improved delivery speed by 40%.",
+  },
+  {
+    year: "2019 - 2021",
+    role: "White-Label Partner @ NXPRO",
+    description:
+      "Built 50+ projects using Shopify and WordPress. Custom themes, plugins, and reusable components. Scaled the development offering from 1 to 5 simultaneous projects.",
+  },
+  {
+    year: "2019",
+    role: "Independent Freelancer",
+    description:
+      "Delivered 15+ websites for local businesses. Expanded into Shopify, custom PHP, and JavaScript. Built ecommerce stores, landing pages, and business sites, handling everything from UI to deployment.",
+  },
+  {
+    year: "2017 - 2018",
+    role: "Junior Web Developer",
+    description:
+      "Created 10+ responsive WordPress websites from scratch. Custom PHP and JavaScript features. Deep exposure to theme and plugin development.",
+  },
+  {
+    year: "2016",
+    role: "Where it began",
+    description:
+      "Discovered domain and hosting platforms. Built static sites with HTML and CSS. Realized I enjoyed making things that other people used to make money.",
+  },
+];
+
+const principles = [
+  {
+    number: "01",
+    title: "I don't install apps and hope.",
+    description:
+      "Most Shopify merchants hit a wall where themes and apps can't do what they need. I build the custom layer - private apps, checkout extensions, headless architectures - that lets them scale without replatforming.",
+  },
+  {
+    number: "02",
+    title: "I treat your store like it's mine.",
+    description:
+      "I've built my own Shopify app (GearSync) and managed stores that process real transactions. I understand that every millisecond of load time and every broken checkout flow costs you money.",
+  },
+  {
+    number: "03",
+    title: "I document everything.",
+    description:
+      "You shouldn't be dependent on me forever. I write clean code, set up staging environments, and hand over documentation so your team - or the next developer - can pick up where I left off.",
+  },
+  {
+    number: "04",
+    title: "I don't disappear.",
+    description:
+      'Weekly async updates. A staging link that always works. Direct communication, no account managers, no junior devs passed off as "the team."',
+  },
+];
+---
+
+<BaseLayout
+  title="Deepak Jangra | Shopify Plus Developer | 9 Years Experience"
+  description="Shopify Plus developer with 9 years of experience building custom apps, checkout extensions, and headless storefronts for scaling DTC merchants."
+  canonical="/about"
+  ogImage={`${SITE_URL}/og-about.png`}
+  ogImageAlt="Deepak Jangra - Shopify Plus Developer"
+  ogType="profile"
+  schema={schema}
+>
+  {/* Hero */}
+  <section class="border-b border-(--color-line)">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <div class="flex flex-col justify-center border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:border-b-0 lg:border-r lg:py-20">
+        <span class="label animate-fade-in-up [animation-delay:100ms]">
+          About
+        </span>
+        <h1
+          class="mt-4 max-w-lg animate-fade-in-up [animation-delay:200ms]"
+          style="font-weight: var(--weight-display-black)"
+        >
+          9 years of <span class="accent">engineering the web.</span>
+        </h1>
+
+        <p class="body-lg mt-6 max-w-md animate-fade-in-up [animation-delay:300ms]">
+          I&rsquo;m Deepak, a Shopify Plus developer with 9 years of
+          experience. I help merchants who&rsquo;ve outgrown their theme fix
+          what&rsquo;s broken, scale what&rsquo;s working, and build what
+          off-the-shelf apps can&rsquo;t touch.
+        </p>
+
+        <p class="body-lg mt-4 max-w-md animate-fade-in-up [animation-delay:350ms]">
+          Before going independent, I led development teams and shipped 100+
+          projects for agencies and direct clients across the UK, US,
+          Norway, and India. Now I work directly with Shopify Plus merchants
+          and select agency partners.
+        </p>
+
+        {/* Photo - mobile only, sits between copy and links.
+            Same URL as desktop: one cached download. Lazy here, eager on desktop. */}
+        <div class="mt-10 flex justify-center lg:hidden animate-fade-in-up [animation-delay:400ms]">
+          <div class="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
+            <img
+              src="/deepak.webp"
+              alt="Deepak Jangra, Shopify developer"
+              loading="lazy"
+              decoding="async"
+              class="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 w-full h-full"
+            />
+          </div>
+        </div>
+
+        <div class="mt-10 animate-fade-in-up [animation-delay:500ms]">
+          <a
+            href="https://linkedin.com/in/thedeepakjangra/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ui-text link-underline text-(--color-ink)"
+          >
+            <svg
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+            </svg>
+            <span class="link-underline">Connect on LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Photo - desktop only */}
+      <div class="hidden items-center justify-center p-14 lg:flex animate-fade-in-up [animation-delay:400ms]">
+        <div class="relative aspect-[3/4] max-w-[500px] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
+          <img
+            src="/deepak.webp"
+            alt="Deepak Jangra, Shopify developer"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="500"
+            height="667"
+            class="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 w-full h-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Timeline */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">The Journey</span>
+    <h2 class="mt-4 max-w-lg animate-fade-in-up [animation-delay:100ms]">
+      A decade of building the web.
+    </h2>
+
+    <div class="mt-12 border-t border-(--color-line)">
+      {timeline.map((item, index) => (
+        <div
+          class="animate-fade-in-up grid grid-cols-1 gap-2 border-b border-(--color-line) py-8 sm:grid-cols-[180px_1fr] sm:gap-8"
+          style={`animation-delay: ${150 + index * 80}ms`}
+        >
+          <span class={item.current ? "label" : "stat-caption"}>
+            {item.year}
+            {item.current ? " · Current" : ""}
+          </span>
+          <div>
+            <h3 style="font-size: var(--text-display-sm)">{item.role}</h3>
+            <p class="body-sm mt-2 max-w-lg">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* What I actually do */}
+  <section class="border-b border-(--color-line)">
+    <div class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <span class="label animate-fade-in-up">How I Work</span>
+      <h2 class="mt-4 max-w-lg animate-fade-in-up [animation-delay:100ms]">
+        What I actually do.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      {principles.map((item, index) => (
+        <div
+          class={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
+            index % 2 === 0 ? "md:border-r" : ""
+          } ${index < 2 ? "border-b" : ""}`}
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <span class="stat-number text-[1.5rem] text-(--color-muted)">
+            {item.number}
+          </span>
+          <h3 class="mt-5 max-w-sm">{item.title}</h3>
+          <p class="body-sm mt-3 max-w-sm">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <section class="surface-inverted">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <h2 class="mx-auto max-w-2xl animate-fade-in-up [animation-delay:100ms]" style="color: var(--color-ink-surface-text)">
+        Ready to fix or scale your{" "}
+        <span class="accent">Shopify Plus store?</span>
+      </h2>
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        Not sure if your store needs a rescue or a rebuild? I&rsquo;ll tell
+        you honestly. Send me your store URL and I&rsquo;ll reply with what
+        I&rsquo;d fix first, no pitch, no obligation.
+      </p>
+
+      <div class="mt-10 flex flex-col items-center gap-6 animate-fade-in-up [animation-delay:300ms] sm:flex-row sm:justify-center">
+        <ContactModal
+          triggerText="Get a Free Store Audit"
+          triggerStyle="btn btn-primary"
+          title="Send me your store URL."
+          subtitle="I'll reply with what I'd fix first. No pitch, no obligation."
+          subject="Free Store Audit Request (From About Page)"
+          fields={[
+            { name: "name", label: "Name", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Store URL",
+              type: "url",
+              placeholder: "https://yourstore.com",
+              required: true,
+            },
+            {
+              name: "message",
+              label: "Anything else I should know?",
+              type: "textarea",
+              placeholder:
+                "Rescue, rebuild, or just not sure yet - tell me where you're at.",
+              required: false,
+            },
+          ]}
+          calTitle="Want to talk it through instead?"
+          calSubtitle="Grab 15 minutes and we'll go over what I'd fix first."
+          uid="about"
+        />
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          class="ui-text link-underline"
+          style="color: var(--color-ink-surface-text)"
+        >
+          Email Me Directly
+        </a>
+      </div>
+
+      <a
+        href="/agency"
+        class="ui-text link-underline mt-10 inline-block animate-fade-in-up [animation-delay:400ms]"
+        style="color: var(--color-ink-surface-muted)"
+      >
+        I also partner with select agencies on white-label development.
+      </a>
+    </div>
+  </section>
+</BaseLayout>

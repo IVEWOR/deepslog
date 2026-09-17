@@ -1,0 +1,361 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactModal from "../../components/ContactModal.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import { SITE_URL, priceValidUntil } from "../../lib/site";
+
+const faqs = [
+  {
+    q: "What is vibe coding cleanup?",
+    a: "Refactoring AI-generated code from tools like Cursor, Copilot, or v0 into production-ready, scalable applications. I specialize in stabilizing these codebases without rebuilding from scratch.",
+  },
+  {
+    q: "How much does a codebase audit cost?",
+    a: "The 48-hour codebase audit is $2,000. That includes a full review of your repository, identification of critical issues, and a step-by-step roadmap for remediation.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/rescue/vibe-coding#service`,
+      name: "AI Codebase Refactoring",
+      provider: {
+        "@id": `${SITE_URL}/#person`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Software Architecture Refactoring",
+      offers: {
+        "@type": "Offer",
+        price: "2000.00",
+        priceCurrency: "USD",
+        priceValidUntil: priceValidUntil(),
+        availability: "https://schema.org/InStock",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/rescue/vibe-coding#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/rescue/vibe-coding#webpage`,
+      name: "AI Codebase Rescue & Refactoring",
+      url: `${SITE_URL}/rescue/vibe-coding`,
+      mainEntity: { "@id": `${SITE_URL}/rescue/vibe-coding#service` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Rescue", item: `${SITE_URL}/rescue` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Vibe Coding",
+          item: `${SITE_URL}/rescue/vibe-coding`,
+        },
+      ],
+    },
+  ],
+};
+
+const symptoms = [
+  {
+    number: "01",
+    title: "The Monolith",
+    description:
+      "Your entire app logic is stuffed into a single, terrifyingly large file.",
+  },
+  {
+    number: "02",
+    title: "Hydration Errors",
+    description:
+      "React complains about UI mismatches every time you reload the page.",
+  },
+  {
+    number: "03",
+    title: "Laggy State",
+    description:
+      "You type in an input field and the whole page re-renders and lags.",
+  },
+  {
+    number: "04",
+    title: "Ghost Packages",
+    description:
+      "AI imported libraries that don't exist, are deprecated, or conflict.",
+  },
+];
+
+const fixes = [
+  {
+    title: "Component Extraction",
+    description:
+      "Breaking massive files into clean, reusable React components.",
+  },
+  {
+    title: "State Management",
+    description:
+      "Implementing proper Context, Zustand, or Redux to fix performance bottlenecks.",
+  },
+  {
+    title: "Database Optimization",
+    description:
+      "Rewriting hallucinated database queries into secure, efficient Prisma/Drizzle calls.",
+  },
+  {
+    title: "Security Patching",
+    description:
+      "Fixing exposed API keys, insecure routes, and authentication flaws.",
+  },
+];
+---
+
+<BaseLayout
+  title="AI Codebase Rescue & Refactoring | Deepak Jangra"
+  description="AI built your prototype. I build the production app. Cursor, v0, or ChatGPT codebases refactored for production scale. 48-hour audit."
+  canonical="/rescue/vibe-coding"
+  ogImage={`${SITE_URL}/og-vibe-coding.png`}
+  ogImageAlt="AI Codebase Refactoring Services - Deepak Jangra"
+  schema={schema}
+>
+  {/* Hero */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">
+      System Architecture Rescue
+    </span>
+
+    <h1
+      class="mt-4 max-w-3xl animate-fade-in-up [animation-delay:100ms]"
+      style="font-weight: var(--weight-display-black)"
+    >
+      AI built your prototype.{" "}
+      <span class="accent">I build the production app.</span>
+    </h1>
+
+    <p class="body-lg mt-6 max-w-xl animate-fade-in-up [animation-delay:200ms]">
+      Tools like Cursor and v0 are incredible for getting off the ground.
+      But when your 2,000-line{" "}
+      <code class="font-mono text-(--color-accent)">
+        page.tsx
+      </code>{" "}
+      file starts crashing and features become impossible to add, you need a
+      senior engineer.
+    </p>
+
+    <div class="mt-10 animate-fade-in-up [animation-delay:300ms]">
+      <ContactModal
+        triggerText="Book Codebase Audit"
+        triggerStyle="btn btn-primary"
+        title="Book a Codebase Audit."
+        subtitle="Let's review your AI-generated prototype and map out a production-ready architecture."
+        subject="AI Codebase Audit Request"
+        fields={[
+          { name: "name", label: "Name", type: "text", required: true },
+          { name: "email", label: "Email", type: "email", required: true },
+          {
+            name: "website",
+            label: "Repo or Live Demo URL",
+            type: "text",
+            placeholder: "https://github.com/you/repo or a live link",
+            required: false,
+          },
+          {
+            name: "message",
+            label: "Project Context",
+            type: "textarea",
+            placeholder:
+              "What tools did you use (Cursor, v0, etc.), and where is the app currently breaking?",
+            required: true,
+          },
+        ]}
+        calTitle="Need immediate triage?"
+        calSubtitle="Grab a slot on my calendar to walk through the repo together."
+        uid="vibe-hero"
+      />
+    </div>
+  </section>
+
+  <SocialProof />
+
+  {/* Diagnosis */}
+  <section class="border-b border-(--color-line)">
+    <div class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <span class="label animate-fade-in-up">The Diagnosis</span>
+      <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+        Does your codebase look like this?
+      </h2>
+      <p class="body-lg mt-4 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        The classic symptoms of &ldquo;vibe coding&rdquo; hitting a wall.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {symptoms.map((symptom, index) => (
+        <div
+          class={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-10 md:px-10 lg:py-14 ${
+            index % 2 === 0 ? "md:border-r" : ""
+          } ${index < 2 ? "border-b md:border-b-0" : ""} ${
+            index % 4 !== 0 ? "lg:border-l" : ""
+          }`}
+          style={`animation-delay: ${300 + index * 100}ms`}
+        >
+          <span class="stat-number text-[1.5rem] text-(--color-muted)">
+            {symptom.number}
+          </span>
+          <h3 class="mt-4" style="font-size: var(--text-display-sm)">{symptom.title}</h3>
+          <p class="body-sm mt-3">{symptom.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Solution + code panel */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="animate-fade-in-up">
+        <span class="label">The Fix</span>
+        <h2 class="mt-4 max-w-md">
+          I untangle the mess without{" "}
+          <span class="accent">breaking the features.</span>
+        </h2>
+        <p class="body-lg mt-6 max-w-md">
+          You don&rsquo;t need to throw the MVP away. I take your
+          AI-generated codebase and systematically refactor it into a
+          scalable, production-ready architecture.
+        </p>
+
+        <ul class="mt-10 flex flex-col gap-6">
+          {fixes.map((fix) => (
+            <li class="border-t border-(--color-line) pt-4">
+              <span style="font-weight: var(--weight-display-bold)">
+                {fix.title}:
+              </span>{" "}
+              <span class="body-md">{fix.description}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="animate-fade-in-up [animation-delay:150ms] surface-inverted mx-auto w-full max-w-lg self-start border border-(--color-ink-surface-line)">
+        <div class="flex items-center gap-2 border-b border-(--color-ink-surface-line) px-4 py-3">
+          <span class="stat-caption" style="color: var(--color-ink-surface-muted)">
+            refactor.tsx
+          </span>
+        </div>
+        <div class="overflow-x-auto p-6 font-mono leading-relaxed" style="font-size: var(--text-body-sm)">
+          <div class="mb-4 text-(--color-ink-surface-muted) line-through opacity-70">
+            {"// AI generated code (1,200 lines)"}
+            <br />
+            export default function App() &#123;
+            <br />
+            &nbsp;&nbsp;const [data1, setData1] = useState();
+            <br />
+            &nbsp;&nbsp;const [data2, setData2] = useState();
+            <br />
+            &nbsp;&nbsp;/* 50 more unmanaged states */
+            <br />
+            &#125;
+          </div>
+          <div class="text-(--color-ink-surface-text)">
+            {"// Senior refactor"}
+            <br />
+            import &#123; useStore &#125; from &apos;@/store&apos;;
+            <br />
+            import &#123; DashboardLayout &#125; from
+            &apos;@/components&apos;;
+            <br />
+            <br />
+            export default function App() &#123;
+            <br />
+            &nbsp;&nbsp;return (
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;DashboardLayout&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DataGrid /&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/DashboardLayout&gt;
+            <br />
+            &nbsp;&nbsp;);
+            <br />
+            &#125;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+    <span class="label animate-fade-in-up">
+      Questions People Actually Ask
+    </span>
+    <div class="mt-10 max-w-2xl border-t border-(--color-line)">
+      {faqs.map((faq, index) => (
+        <div
+          class="animate-fade-in-up border-b border-(--color-line) py-8"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <h2 style="font-size: var(--text-display-md)">{faq.q}</h2>
+          <p class="body-md mt-3">{faq.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <section id="audit" class="surface-inverted">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <h2 class="mx-auto max-w-2xl animate-fade-in-up [animation-delay:100ms]" style="color: var(--color-ink-surface-text)">
+        Stop fighting the AI.{" "}
+        <span class="accent">Let&rsquo;s fix the foundation.</span>
+      </h2>
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        Book a 48-hour codebase audit. I will review your repository and
+        give you a step-by-step roadmap of exactly what needs to be
+        refactored for production scale.
+      </p>
+      <div class="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+        <ContactModal
+          triggerText="Book Your Codebase Audit"
+          triggerStyle="btn btn-primary"
+          title="48-Hour Codebase Audit."
+          subtitle="Send your repo and I'll map out what needs to be refactored for production."
+          subject="AI Codebase Audit Request (Final CTA)"
+          fields={[
+            { name: "name", label: "Name", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Repo or Live Demo URL",
+              type: "text",
+              placeholder: "https://github.com/you/repo or a live link",
+              required: false,
+            },
+            {
+              name: "message",
+              label: "What is broken?",
+              type: "textarea",
+              placeholder:
+                "What tools did you use, and where is the app currently breaking?",
+              required: true,
+            },
+          ]}
+          calTitle="Need immediate triage?"
+          calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
+          uid="vibe-cta"
+        />
+      </div>
+      <p class="stat-caption mt-8 animate-fade-in-up [animation-delay:400ms]">
+        This service also covers Shopify Hydrogen and custom app codebases
+        built with AI tools like Cursor or v0.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

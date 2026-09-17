@@ -1,0 +1,69 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Store Audit & Discovery",
+    description:
+      "I review your current storefront, theme, and apps, and flag performance and conversion bottlenecks before writing a line of code.",
+  },
+  {
+    number: "02",
+    title: "Staging & Setup",
+    description:
+      "I set up a clean staging environment and confirm scope, timeline, and rollback plan before touching the live store.",
+  },
+  {
+    number: "03",
+    title: "Agile Build",
+    description:
+      "Modular Liquid and Hydrogen components, weekly async updates, and a staging link that always works.",
+  },
+  {
+    number: "04",
+    title: "QA & Handoff",
+    description:
+      "Lighthouse auditing, cross-browser QA, and accessibility checks before I hand over fully documented code.",
+  },
+];
+
+const stepBorders = [
+  "border-b lg:border-b-0",
+  "border-b sm:border-l lg:border-b-0",
+  "border-b sm:border-b-0 lg:border-l",
+  "sm:border-l",
+];
+---
+
+<section id="process" class="bg-(--color-paper) border-b border-(--color-line)">
+  <div class="flex flex-col gap-6 px-[clamp(1.5rem,4vw,4rem)] py-14 lg:flex-row lg:items-end lg:justify-between lg:py-20">
+    <div>
+      <span class="label animate-fade-in-up [animation-delay:100ms]">
+        How I Work
+      </span>
+      <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:200ms]">
+        A transparent process,{" "}
+        <span class="accent">zero surprises.</span>
+      </h2>
+    </div>
+    <p class="body-sm max-w-sm text-(--color-muted) lg:text-right animate-fade-in-up [animation-delay:300ms]">
+      I don&rsquo;t disappear for weeks and deliver spaghetti code. My
+      workflow is designed for merchants who need to keep selling while
+      their store gets rebuilt.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 border-t border-(--color-border-light) sm:grid-cols-2 lg:grid-cols-4">
+    {steps.map((step, index) => (
+      <div
+        class={`animate-fade-in-up border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${stepBorders[index]}`}
+        style={`animation-delay: ${400 + index * 150}ms`}
+      >
+        <span class="stat-number text-[1.5rem]">{step.number}</span>
+        <h3 class="mt-4" style="font-size: var(--text-display-sm)">{step.title}</h3>
+        <p class="body-sm mt-3 text-(--color-muted)">
+          {step.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

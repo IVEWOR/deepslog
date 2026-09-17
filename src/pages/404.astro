@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactModal from "../components/ContactModal.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | Deepak Jangra"
+  description="The page you're looking for doesn't exist. Browse 30 Shopify case studies or get a free store audit."
+  canonical="/404"
+  noindex
+>
+  <section class="bg-(--color-paper) px-[clamp(1.5rem,4vw,4rem)] py-24 lg:py-32">
+    <span class="label">404 — Page not found</span>
+    <h1 class="mt-4 max-w-2xl">That page doesn&rsquo;t exist.</h1>
+    <p class="body-lg mt-6 max-w-md">
+      It may have moved. The case studies and rescue pages are a good place
+      to continue.
+    </p>
+    <div class="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+      <a href="/" class="btn btn-secondary">Back to Homepage</a>
+      <a href="/work" class="ui-text link-underline text-(--color-ink)">See Case Studies</a>
+    </div>
+    <div class="mt-12 border-t border-(--color-border-light) pt-8">
+      <p class="stat-caption mb-4">Spotted a broken link?</p>
+      <ContactModal
+        triggerText="Report Broken Link"
+        triggerStyle="btn btn-secondary"
+        title="Report a broken link."
+        subtitle="Tell me where you came from and I'll fix it."
+        subject="Broken Link Report"
+        fields={[
+          { name: "email", label: "Email", type: "email", required: true },
+          {
+            name: "message",
+            label: "Where did you find it?",
+            type: "textarea",
+            placeholder: "The page URL and what you clicked…",
+            required: true,
+          },
+        ]}
+        uid="404"
+      />
+    </div>
+  </section>
+</BaseLayout>
