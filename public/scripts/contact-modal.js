@@ -54,6 +54,14 @@
   document.querySelectorAll("[data-cm-root]").forEach(function (root, rootIndex) {
     var openBtn = root.querySelector("[data-cm-open]");
     var overlay = root.querySelector("[data-cm-overlay]");
+    // Portal the overlay to <body> (same as the old React createPortal).
+    // CTA triggers live inside `animate-fade-in-up` wrappers whose final
+    // `translateY(0)` transform would otherwise become the containing block
+    // for our `position: fixed` overlay, trapping the modal inside a
+    // button-height box instead of the viewport.
+    if (overlay && overlay.parentElement !== document.body) {
+      document.body.appendChild(overlay);
+    }
     var closeBtn = root.querySelector("[data-cm-close]");
     var form = root.querySelector("[data-cm-form]");
     var formView = root.querySelector("[data-cm-form-view]");
