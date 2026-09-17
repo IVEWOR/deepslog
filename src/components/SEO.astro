@@ -71,19 +71,33 @@ const imageUrl = ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`;
 <link rel="describedby" href="/llms.txt" />
 
 {!import.meta.env.DEV && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-    <script
-      is:inline
-      define:vars={{ gaId: GA_ID }}
-      data-ga-id={GA_ID}
-    >{`
+    <script is:inline define:vars={{ gaId: GA_ID }}>
+      {`
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', document.currentScript.dataset.gaId, {
-        page_path: location.pathname + location.search,
-      });
-    `}</script>
-  </>
-)}
+      window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+      (function () {
+        var loaded = false;
+        function load() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement("script");
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
+          s.async = true;
+          s.onload = function () {
+            gtag("js", new Date());
+            gtag("config", gaId, { page_path: location.pathname + location.search });
+          };
+          document.head.appendChild(s);
+        }
+        // Analytics must never block content: the gtag payload (188KB +
+        // long tasks per PSI) loads only after first paint signals, while
+        // the stub above keeps queuing events like generate_lead.
+        if (document.readyState === "complete") load();
+        else {
+          window.addEventListener("load", load);
+          setTimeout(load, 2500);
+        }
+      })();
+      `}
+    </script>
+  )}

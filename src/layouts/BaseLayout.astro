@@ -30,21 +30,8 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    {/* Geist Mono only — display/body type is self-hosted (see global.css) */}
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+    {/* All type is self-hosted (see global.css @font-face): zero
+        googleapis/gstatic requests in the critical path. */}
   </head>
   <body data-web3forms-key={web3formsKey}>
     <a href="#main" class="sr-only">Skip to content</a>

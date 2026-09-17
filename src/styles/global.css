@@ -62,6 +62,15 @@
   font-style: italic;
   font-display: swap;
 }
+/* Geist Mono (labels/UI): variable 100-900, latin subset, self-hosted so
+   no googleapis/gstatic round trips sit in the critical path. */
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Registers the site's own fonts under Tailwind's --font-* theme
    namespace, so `font-sans` / `font-mono` / `font-display` / `font-body`

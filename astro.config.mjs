@@ -101,6 +101,14 @@ export default defineConfig({
   site: "https://deepakj.dev",
   output: "static",
   trailingSlash: "never",
+  build: {
+    // Inline all CSS into each HTML file. Kills the render-blocking
+    // stylesheet request (~1.3s on Slow 4G per PSI): text paints as soon
+    // as the document arrives. Right trade at 60KB shared CSS on a
+    // 10-route static site — caching a separate file would cost a
+    // round trip on every first view instead.
+    inlineStylesheets: "always",
+  },
   // NOTE: no @astrojs/sitemap — it only emits sitemap-index.xml +
   // sitemap-0.xml. We serve a single hand-rolled /sitemap.xml instead
   // (src/pages/sitemap.xml.ts) with deliberate priorities.
