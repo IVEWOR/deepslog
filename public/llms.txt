@@ -1,0 +1,38 @@
+# Deepak Jangra — Independent Shopify Developer
+
+> Deepak Jangra is an independent Shopify Plus developer with 9+ years of experience. He builds, rebuilds, and rescues high-performance Shopify stores for DTC merchants, and partners white-label with agencies. Canonical site: https://deepakj.dev. Contact: howdy@deepakj.dev.
+
+## Services
+
+- Custom Shopify and Shopify Plus builds (Liquid, Checkout Extensibility, Hydrogen headless storefronts)
+- Performance and Core Web Vitals optimization (sub-2-second loads)
+- Store rescue: broken checkouts, overloaded themes, messy app stacks, post-acquisition migrations
+- Subscription commerce (Recharge) and retention (Klaviyo lifecycle flows, event tracking)
+- AI-codebase rescue: refactoring Cursor/Copilot/v0 prototypes into production apps
+- White-label development for agencies under NDA (pilot projects, fractional retainers)
+
+## Key pages
+
+- Homepage and services overview: https://deepakj.dev
+- Selected work and 30 case studies: https://deepakj.dev/work
+- About and background: https://deepakj.dev/about
+- Agency white-label partnerships: https://deepakj.dev/agency
+- Emergency store and code rescue hub: https://deepakj.dev/rescue
+- Speed and Core Web Vitals rescue: https://deepakj.dev/rescue/performance
+- AI-generated codebase rescue: https://deepakj.dev/rescue/vibe-coding
+- Field notes from client work: https://deepakj.dev/blog
+- Data-backed Shopify theme speed benchmark (17 themes tested): https://deepakj.dev/blog/fastest-shopify-themes
+- Flagship rescue case study (WooCommerce rebuild, 2x sales): https://deepakj.dev/work/merkbart
+
+## Working together
+
+- Free store audits and project inquiries via the contact form on any page, or email howdy@deepakj.dev
+- Typical engagements: fixed-price builds, 48-hour audits ($1,500–$2,000), agency pilots and retainers
+- Process: audit and discovery, staging environment, async agile build, QA and documented handoff
+
+## Identity and profiles
+
+- Name: Deepak Jangra. Role: Independent Shopify Developer.
+- GitHub: https://github.com/IVEWOR
+- LinkedIn: https://linkedin.com/in/thedeepakjangra
+- X: https://x.com/deepakjdev

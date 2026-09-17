@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -102,25 +101,10 @@ export default defineConfig({
   site: "https://deepakj.dev",
   output: "static",
   trailingSlash: "never",
-  integrations: [
-    sitemap({
-      filter: (page) => !page.includes("/404"),
-      serialize(item) {
-        // Case studies change rarely; section indexes a bit more often.
-        if (item.url.includes("/work/") || item.url.includes("/blog/")) {
-          item.changefreq = "monthly";
-          item.priority = 0.6;
-        } else if (item.url === "https://deepakj.dev/") {
-          item.changefreq = "weekly";
-          item.priority = 1.0;
-        } else {
-          item.changefreq = "monthly";
-          item.priority = 0.8;
-        }
-        return item;
-      },
-    }),
-  ],
+  // NOTE: no @astrojs/sitemap — it only emits sitemap-index.xml +
+  // sitemap-0.xml. We serve a single hand-rolled /sitemap.xml instead
+  // (src/pages/sitemap.xml.ts) with deliberate priorities.
+  integrations: [],
   vite: {
     plugins: [tailwindcss()],
   },
