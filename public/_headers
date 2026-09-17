@@ -1,0 +1,5 @@
+# Serve LLM-readable files as markdown so agents parse them as such.
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8

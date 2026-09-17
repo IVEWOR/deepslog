@@ -33,3 +33,7 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://deepakj.dev/sitemap.xml
+
+# LLM-readable site summary for AI assistants and agents.
+# Full reference: https://deepakj.dev/llms-full.txt
+# See https://llmstxt.org/ for the format.
