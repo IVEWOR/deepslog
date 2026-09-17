@@ -1,4 +1,5 @@
 ---
+import { IMG_DIMS } from "../lib/img-dims";
 ---
 
 <section class="bg-(--color-paper) border-b border-(--color-line)">
@@ -9,11 +10,11 @@
         <img
           src="/deepak.webp"
           alt="Deepak Jangra, Shopify Plus developer"
+          width={IMG_DIMS["/deepak.webp"]?.w}
+          height={IMG_DIMS["/deepak.webp"]?.h}
           class="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 w-full h-full"
           loading="lazy"
           decoding="async"
-          width="880"
-          height="968"
         />
       </div>
     </div>

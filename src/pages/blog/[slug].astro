@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactModal from "../../components/ContactModal.astro";
 import { readingTimeMinutes, shortMonthYear, truncate } from "../../lib/posts";
+import { IMG_DIMS } from "../../lib/img-dims";
 import { SITE_URL, DEFAULT_ROLE, SAME_AS, KNOWS_ABOUT } from "../../lib/site";
 
 export async function getStaticPaths() {
@@ -101,9 +102,9 @@ const schema = {
   schema={schema}
 >
   <div class="animate-fade-in-up border-b border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-6">
-    <a href="/blog" class="ui-text link-underline text-(--color-muted)">
+    <a href="/blog" class="ui-text link-underline text-(--color-muted) inline-flex py-2">
       <svg
-        class="h-3.5 w-3.5"
+        class="h-3.5 w-3.5 mt-px"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -153,6 +154,8 @@ const schema = {
           <img
             src={meta.featured_image}
             alt={meta.title}
+            width={meta.featured_image ? IMG_DIMS[meta.featured_image]?.w : undefined}
+            height={meta.featured_image ? IMG_DIMS[meta.featured_image]?.h : undefined}
             class="object-cover w-full h-full"
             loading="eager"
             fetchpriority="high"

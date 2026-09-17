@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactModal from "../components/ContactModal.astro";
 import { workProjects } from "../lib/work";
+import { IMG_DIMS } from "../lib/img-dims";
 import { getCollection } from "astro:content";
 import { SITE_URL } from "../lib/site";
 
@@ -91,6 +92,8 @@ const schema = {
             <img
               src={project.image}
               alt={`${project.title} — ${project.tech.join(", ")} case study by Deepak Jangra`}
+              width={IMG_DIMS[project.image]?.w}
+              height={IMG_DIMS[project.image]?.h}
               loading="lazy"
               decoding="async"
               class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"

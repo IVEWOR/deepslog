@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactModal from "../../components/ContactModal.astro";
 import { truncate } from "../../lib/posts";
+import { IMG_DIMS } from "../../lib/img-dims";
 import { SITE_URL, DEFAULT_ROLE, SAME_AS, KNOWS_ABOUT, X_HANDLE } from "../../lib/site";
 
 export async function getStaticPaths() {
@@ -144,7 +145,7 @@ const schema = {
 >
   {/* Back link + breadcrumb */}
   <div class="animate-fade-in-up flex flex-wrap items-center justify-between gap-4 border-b border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-4">
-    <a href="/work" class="ui-text flex gap-1" style="color: var(--color-muted)">
+    <a href="/work" class="ui-text flex gap-1 py-1" style="color: var(--color-muted)">
       <svg
         class="h-3.5 w-3.5"
         fill="none"
@@ -163,11 +164,11 @@ const schema = {
     <nav aria-label="Breadcrumb">
       <ol class="ui-text flex items-center gap-2" style="color: var(--color-muted)">
         <li>
-          <a href="/" class="link-underline hover:text-(--color-ink)">Home</a>
+          <a href="/" class="link-underline hover:text-(--color-ink) inline-block py-1">Home</a>
         </li>
         <li aria-hidden="true">/</li>
         <li>
-          <a href="/work" class="link-underline hover:text-(--color-ink)">Work</a>
+          <a href="/work" class="link-underline hover:text-(--color-ink) inline-block py-1">Work</a>
         </li>
         <li aria-hidden="true">/</li>
         <li aria-current="page" class="text-(--color-ink)">{meta.title}</li>
@@ -210,6 +211,8 @@ const schema = {
       <img
         src={ogImage}
         alt={`${meta.title} project preview - ${meta.platform} development by Deepak Jangra`}
+        width={IMG_DIMS[ogImage]?.w}
+        height={IMG_DIMS[ogImage]?.h}
         class="object-cover object-top w-full h-full"
         loading="eager"
         fetchpriority="high"

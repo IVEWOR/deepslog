@@ -134,7 +134,7 @@ Here is how they stack up when combining both mobile and desktop scores.
 The mobile speed test for these is where themes actually break. Overall scores are great for a quick glance, but mobile performance is the only metric that truly dictates your bounce rate.
 
 <figure>
-  <img src="/blog/fastest-shopify-themes/Expanse-Mobile-Speed.webp" alt="Shopify Theme Expanse LightHouse Score Report" loading="lazy">
+  <img src="/blog/fastest-shopify-themes/Expanse-Mobile-Speed.webp" alt="Shopify Theme Expanse LightHouse Score Report" loading="lazy" decoding="async" width="810" height="636">
   <figcaption class="stat-caption">
     <strong>The Proof is in the Data: Expanse's Perfect Mobile Score</strong>
     <p>If you have ever battled Shopify mobile optimization, you know how incredibly rare it is to see a perfect 100 Lighthouse score on a feature-heavy premium theme. The screenshot above is the raw mobile audit for our top performer, the Expanse theme.</p>

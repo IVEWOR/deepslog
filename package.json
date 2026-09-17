@@ -13,6 +13,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "astro": "^5.13.2",
+    "image-size": "^2.0.4",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "sharp": "^0.34.2",

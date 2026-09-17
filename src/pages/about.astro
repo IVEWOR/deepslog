@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactModal from "../components/ContactModal.astro";
 import { SITE_URL, CONTACT_EMAIL, SAME_AS, KNOWS_ABOUT } from "../lib/site";
+import { IMG_DIMS } from "../lib/img-dims";
 
 const schema = {
   "@context": "https://schema.org",
@@ -158,6 +159,8 @@ const principles = [
             <img
               src="/deepak.webp"
               alt="Deepak Jangra, Shopify developer"
+              width={IMG_DIMS["/deepak.webp"]?.w}
+              height={IMG_DIMS["/deepak.webp"]?.h}
               loading="lazy"
               decoding="async"
               class="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 w-full h-full"
@@ -188,16 +191,16 @@ const principles = [
       {/* Photo - desktop only */}
       <div class="hidden items-center justify-center p-14 lg:flex animate-fade-in-up [animation-delay:400ms]">
         <div class="relative aspect-[3/4] max-w-[500px] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
-          <img
-            src="/deepak.webp"
-            alt="Deepak Jangra, Shopify developer"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            width="500"
-            height="667"
-            class="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 w-full h-full"
-          />
+            <img
+              src="/deepak.webp"
+              alt="Deepak Jangra, Shopify developer"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width={IMG_DIMS["/deepak.webp"]?.w}
+              height={IMG_DIMS["/deepak.webp"]?.h}
+              class="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 w-full h-full"
+            />
         </div>
       </div>
     </div>

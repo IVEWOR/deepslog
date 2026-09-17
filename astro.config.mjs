@@ -2,6 +2,30 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
+import { readFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import { imageSize } from "image-size";
+
+// Project root: Astro always runs the build with cwd set to the project
+// directory. (import.meta.url is unreliable here because Vite may load
+// this config from a bundle, which silently broke dimension lookups.)
+
+// Real dimensions for local (/public) images so every content image gets
+// explicit width/height (no CLS, satisfies the Lighthouse check). Reads
+// from disk synchronously at build time; anything unreadable keeps its
+// attributes untouched rather than risking a wrong aspect ratio.
+function localDimensions(src) {
+  if (!src.startsWith("/") || src.startsWith("//")) return null;
+  try {
+    const file = join(process.cwd(), "public", src);
+    if (!existsSync(file)) return null;
+    const { width, height } = imageSize(readFileSync(file));
+    if (!width || !height) return null;
+    return { width, height };
+  } catch {
+    return null;
+  }
+}
 
 // Adds target/rel to external links in markdown content.
 function rehypeExternalLinks() {
@@ -42,6 +66,11 @@ function rehypeArticleMedia() {
           props.loading = "lazy";
           props.decoding = "async";
           props.className = ["border", "border-(--color-border-light)", "w-full", "h-auto"];
+          const dims = localDimensions(String(props.src || ""));
+          if (dims) {
+            props.width = dims.width;
+            props.height = dims.height;
+          }
           child.properties = props;
           if (caption.trim()) {
             children[i] = {
