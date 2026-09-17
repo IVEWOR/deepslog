@@ -218,240 +218,255 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 120ms;
 }
-
 @layer base {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-}
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: var(--font-body);
-  font-weight: var(--weight-body-regular);
-  font-size: var(--text-body-md);
-  line-height: var(--leading-body-md);
-  letter-spacing: var(--tracking-body);
-  background: var(--color-paper);
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-display-bold);
-  font-size: var(--text-display-xl);
-  line-height: var(--leading-display-xl);
-  letter-spacing: var(--tracking-display-lg);
-}
-
-h2 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-display-bold);
-  font-size: var(--text-display-lg);
-  line-height: var(--leading-display-lg);
-  letter-spacing: var(--tracking-display);
-}
-
-h3 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-display-bold);
-  font-size: var(--text-display-md);
-  line-height: var(--leading-display-md);
-  letter-spacing: var(--tracking-display);
-}
-
-h4 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-display-bold);
-  font-size: var(--text-display-sm);
-  line-height: var(--leading-display-sm);
-  letter-spacing: var(--tracking-display);
-}
-
-p {
-  font-family: var(--font-body);
-  font-weight: var(--weight-body-regular);
-  color: var(--color-muted);
-  letter-spacing: var(--tracking-body);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-img,
-svg {
-  max-width: 100%;
-  display: block;
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-weight: var(--weight-mono-medium);
-  font-size: var(--text-label);
-  line-height: var(--leading-label);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.ui-text {
-  font-family: var(--font-mono);
-  font-weight: var(--weight-mono-bold);
-  font-size: var(--text-ui);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-ui);
-  text-transform: uppercase;
-}
-
-.stat-caption {
-  font-family: var(--font-mono);
-  font-weight: var(--weight-mono-regular);
-  font-size: var(--text-label);
-  letter-spacing: var(--tracking-stat);
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-.stat-number {
-  font-family: var(--font-display);
-  font-weight: var(--weight-display-black);
-  font-size: var(--text-stat-lg);
-  line-height: var(--leading-stat-lg);
-  color: var(--color-accent);
-}
-
-.body-lg {
-  font-size: var(--text-body-lg);
-  line-height: var(--leading-body-lg);
-}
-.body-md {
-  font-size: var(--text-body-md);
-  line-height: var(--leading-body-md);
-}
-.body-sm {
-  font-size: var(--text-body-sm);
-  line-height: var(--leading-body-sm);
-}
-
-.accent {
-  color: var(--color-accent);
-}
-
-.hairline-border {
-  border: var(--border-width) solid var(--color-line);
-}
-.hairline-border-top {
-  border-top: var(--border-width) solid var(--color-line);
-}
-.hairline-border-right {
-  border-right: var(--border-width) solid var(--color-line);
-}
-.hairline-border-bottom {
-  border-bottom: var(--border-width) solid var(--color-line);
-}
-
-.wrap {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  border-left: var(--border-width) solid var(--color-line);
-  border-right: var(--border-width) solid var(--color-line);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  font-family: var(--font-mono);
-  font-weight: var(--weight-mono-bold);
-  font-size: var(--text-ui);
-  letter-spacing: var(--tracking-ui);
-  text-transform: uppercase;
-  padding: var(--space-4) var(--space-7);
-  border-radius: var(--radius);
-  border: var(--border-width) solid transparent;
-  transition:
-    background-color var(--duration-fast) var(--ease),
-    color var(--duration-fast) var(--ease),
-    border-color var(--duration-fast) var(--ease);
-}
-
-.btn-primary {
-  background: var(--color-accent);
-  color: var(--color-paper);
-  border-color: var(--color-accent);
-}
-.btn-primary:hover {
-  background: var(--color-paper);
-  color: var(--color-accent);
-}
-
-.btn-secondary {
-  border-color: var(--color-line);
-  color: var(--color-ink);
-}
-.btn-secondary:hover {
-  background: var(--color-ink);
-  color: var(--color-paper);
-}
-
-/* Slide-in underline for text links (nav, "See Case Studies", footer) */
-.link-underline {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.link-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 250ms var(--ease);
-}
-.link-underline:hover::after {
-  transform: scaleX(1);
-}
-
-.surface-inverted {
-  background: var(--color-ink-surface);
-  color: var(--color-ink-surface-text);
-}
-.surface-inverted p {
-  color: var(--color-ink-surface-muted);
-}
-.surface-inverted .hairline-border,
-.surface-inverted .hairline-border-top,
-.surface-inverted .hairline-border-bottom,
-.surface-inverted .hairline-border-right {
-  border-color: var(--color-ink-surface-line);
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0%);
+  html {
+    -webkit-text-size-adjust: 100%;
   }
-  to {
-    transform: translateX(-50%);
+
+  body {
+    font-family: var(--font-body);
+    font-weight: var(--weight-body-regular);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body-md);
+    letter-spacing: var(--tracking-body);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Guard against 1px horizontal scroll from full-bleed rows
+       (negative-margin stats, marquee) on narrow viewports. */
+    overflow-x: clip;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display-bold);
+    font-size: var(--text-display-xl);
+    line-height: var(--leading-display-xl);
+    letter-spacing: var(--tracking-display-lg);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display-bold);
+    font-size: var(--text-display-lg);
+    line-height: var(--leading-display-lg);
+    letter-spacing: var(--tracking-display);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display-bold);
+    font-size: var(--text-display-md);
+    line-height: var(--leading-display-md);
+    letter-spacing: var(--tracking-display);
+  }
+
+  h4 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display-bold);
+    font-size: var(--text-display-sm);
+    line-height: var(--leading-display-sm);
+    letter-spacing: var(--tracking-display);
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-weight: var(--weight-body-regular);
+    color: var(--color-muted);
+    letter-spacing: var(--tracking-body);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+    display: block;
   }
 }
 
-.animate-marquee {
-  animation: marquee 15s linear infinite;
-}
+@layer utilities {
+  /* Design-system classes live in the utilities layer (not components) on
+     purpose: Tailwind Typography emits tied-specificity rules like
+     `.prose :where(figcaption)` that would otherwise win by source order
+     and leak slate grays/blue-grays into the Swiss palette. Last layer
+     wins ties, so .stat-caption/.label/.btn etc. always beat the plugin. */
+  .label {
+    font-family: var(--font-mono);
+    font-weight: var(--weight-mono-medium);
+    font-size: var(--text-label);
+    line-height: var(--leading-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .ui-text {
+    font-family: var(--font-mono);
+    font-weight: var(--weight-mono-bold);
+    font-size: var(--text-ui);
+    line-height: var(--leading-ui);
+    letter-spacing: var(--tracking-ui);
+    text-transform: uppercase;
+  }
+
+  .stat-caption {
+    font-family: var(--font-mono);
+    font-weight: var(--weight-mono-regular);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-stat);
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display-black);
+    font-size: var(--text-stat-lg);
+    line-height: var(--leading-stat-lg);
+    color: var(--color-accent);
+  }
+
+  .body-lg {
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-body-lg);
+  }
+  .body-md {
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body-md);
+  }
+  .body-sm {
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body-sm);
+  }
+
+  .accent {
+    color: var(--color-accent);
+  }
+  /* On dark surfaces the base accent fails contrast (2.63:1 on ink), so the
+   lighter dim cut takes over there (3.82:1 — passes large-text 3:1). */
+  .surface-inverted .accent {
+    color: var(--color-accent-dim);
+  }
+
+  .hairline-border {
+    border: var(--border-width) solid var(--color-line);
+  }
+  .hairline-border-top {
+    border-top: var(--border-width) solid var(--color-line);
+  }
+  .hairline-border-right {
+    border-right: var(--border-width) solid var(--color-line);
+  }
+  .hairline-border-bottom {
+    border-bottom: var(--border-width) solid var(--color-line);
+  }
+
+  .wrap {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    border-left: var(--border-width) solid var(--color-line);
+    border-right: var(--border-width) solid var(--color-line);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-weight: var(--weight-mono-bold);
+    font-size: var(--text-ui);
+    letter-spacing: var(--tracking-ui);
+    text-transform: uppercase;
+    padding: var(--space-4) var(--space-7);
+    border-radius: var(--radius);
+    border: var(--border-width) solid transparent;
+    transition:
+      background-color var(--duration-fast) var(--ease),
+      color var(--duration-fast) var(--ease),
+      border-color var(--duration-fast) var(--ease);
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-paper);
+    border-color: var(--color-accent);
+  }
+  .btn-primary:hover {
+    background: var(--color-paper);
+    color: var(--color-accent);
+  }
+
+  .btn-secondary {
+    border-color: var(--color-line);
+    color: var(--color-ink);
+  }
+  .btn-secondary:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  /* Slide-in underline for text links (nav, "See Case Studies", footer) */
+  .link-underline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms var(--ease);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  .surface-inverted {
+    background: var(--color-ink-surface);
+    color: var(--color-ink-surface-text);
+  }
+  .surface-inverted p {
+    color: var(--color-ink-surface-muted);
+  }
+  .surface-inverted .hairline-border,
+  .surface-inverted .hairline-border-top,
+  .surface-inverted .hairline-border-bottom,
+  .surface-inverted .hairline-border-right {
+    border-color: var(--color-ink-surface-line);
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+  }
+} /* end design-system utilities */
 
 /* Prose (markdown case studies + blog posts) follows the same Swiss
    treatment: flat images, mono captions, ink headings. */
@@ -480,6 +495,33 @@ svg {
 .prose-swiss :where(pre) {
   border: 1px solid var(--color-border-light);
   border-radius: 0;
+}
+/* Data tables: dark thead, paper text. Plain CSS (not utilities) because
+   stacked `prose-th:` + important utilities don't compile in Tailwind v4. */
+.prose-swiss thead {
+  background: var(--color-ink-surface);
+}
+.prose-swiss thead th {
+  color: var(--color-ink-surface-text);
+  border-color: var(--color-ink-surface-line);
+}
+.prose-swiss th strong {
+  color: inherit;
+}
+.prose-swiss figcaption {
+  color: var(--color-muted);
+}
+.prose-swiss figcaption p {
+  margin-bottom: 0;
+}
+.prose-swiss hr {
+  border-color: var(--color-line);
+}
+.prose-swiss video {
+  border: 1px solid var(--color-border-light);
+  border-radius: 0;
+  width: 100%;
+  height: auto;
 }
 
 /* Visible focus for keyboard users (Swiss accent outline) */

@@ -19,7 +19,7 @@ function isActive(href: string): boolean {
 
 <header id="top" class="sticky top-0 z-50 bg-(--color-paper) border-b border-(--color-line)">
   <div class="flex items-center justify-between h-14 px-[clamp(1.5rem,4vw,4rem)]">
-    <a href="/" aria-label="Home — Deepak Jangra, Independent Shopify Developer">
+    <a href="/" aria-label="Home — Deepak Jangra, Independent Shopify Developer" class="relative z-[60]">
       <img
         src="/logo.png"
         width="70"
@@ -56,17 +56,27 @@ function isActive(href: string): boolean {
       />
     </div>
 
-    <button
-      class="md:hidden p-2 -mr-2"
-      style="color: var(--color-ink)"
-      data-nav-toggle
-      aria-label="Toggle menu"
-      aria-expanded="false"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+    <div class="flex items-center gap-2 md:hidden">
+      <ContactModal
+        triggerText="Let's Talk"
+        triggerStyle="btn"
+        triggerButtonStyle="padding: 10px 14px; background: var(--color-ink); color: var(--color-paper)"
+        title="Send a brief."
+        subject="New Project Inquiry via deepakj.dev (Navbar mobile)"
+        uid="nav-mobile"
+      />
+      <button
+        class="p-2 -mr-2"
+        style="color: var(--color-ink)"
+        data-nav-toggle
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div data-nav-menu hidden class="md:hidden border-t border-(--color-line) animate-fade-in-up" style="background: var(--color-paper)">
@@ -80,16 +90,6 @@ function isActive(href: string): boolean {
           {link.name}
         </a>
       ))}
-      <div class="pt-6 mt-2 border-t" style="border-color: var(--color-line)">
-        <ContactModal
-          triggerText="Let's Talk"
-          triggerStyle="btn w-full"
-          triggerButtonStyle="background: var(--color-accent); color: var(--color-paper)"
-          title="Send a brief."
-          subject="New Project Inquiry via deepakj.dev (Navbar mobile)"
-          uid="nav-mobile"
-        />
-      </div>
     </div>
   </div>
 </header>

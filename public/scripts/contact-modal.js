@@ -1,45 +1,21 @@
 /* Contact modal controller — vanilla JS, runs once per page.
- * Handles every [data-cm-root] instance: open/close, ESC, focus,
- * Web3Forms submit (with missing-key guard + mailto fallback),
- * lazy Cal.com embed, and GA4 generate_lead events.
+ *
+ * - Portals each overlay to <body> on init. CTA triggers live inside
+ *   `animate-fade-in-up` wrappers whose resting `translateY(0)` transform
+ *   would otherwise become the containing block for the `position: fixed`
+ *   overlay, trapping the dialog inside a button-height box.
+ * - One delegated click/submit/keydown layer (no per-instance listeners),
+ *   so open/close can never desync regardless of init order or instance
+ *   count. Each root and its overlay share a data-cm-id link.
+ * - Web3Forms submit with missing-key guard + mailto fallback, 12s
+ *   timeout, and GA4 generate_lead events on success.
  */
 (function () {
   if (window.__cmInit) return;
   window.__cmInit = true;
 
-  var CAL_SCRIPT = "https://app.cal.com/embed/embed.js";
-  var calLoading = null;
-
-  function loadCal() {
-    if (window.Cal) return Promise.resolve(window.Cal);
-    if (calLoading) return calLoading;
-    calLoading = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = CAL_SCRIPT;
-      s.async = true;
-      s.onload = function () { resolve(window.Cal); };
-      s.onerror = reject;
-      document.head.appendChild(s);
-    });
-    return calLoading;
-  }
-
-  function initCal(ns, container, calLink) {
-    return loadCal().then(function (Cal) {
-      Cal("init", ns, { origin: "https://app.cal.com" });
-      Cal.ns[ns]("inline", {
-        elementOrSelector: container,
-        config: { layout: "month_view" },
-        calLink: calLink,
-      });
-      Cal.ns[ns]("ui", {
-        theme: "light",
-        styles: { branding: { brandColor: "#9a3a24" } },
-        hideEventTypeDetails: false,
-        layout: "month_view",
-      });
-    });
-  }
+  var KEY =
+    (document.body && document.body.getAttribute("data-web3forms-key")) || "";
 
   function trackLead(formLocation) {
     try {
@@ -51,150 +27,169 @@
     }
   }
 
-  document.querySelectorAll("[data-cm-root]").forEach(function (root, rootIndex) {
-    var openBtn = root.querySelector("[data-cm-open]");
+  // Index + portal every instance. Overlays move to <body>; the trigger
+  // button stays in place. Node references stay valid across the move.
+  document.querySelectorAll("[data-cm-root]").forEach(function (root, i) {
     var overlay = root.querySelector("[data-cm-overlay]");
-    // Portal the overlay to <body> (same as the old React createPortal).
-    // CTA triggers live inside `animate-fade-in-up` wrappers whose final
-    // `translateY(0)` transform would otherwise become the containing block
-    // for our `position: fixed` overlay, trapping the modal inside a
-    // button-height box instead of the viewport.
-    if (overlay && overlay.parentElement !== document.body) {
+    if (!overlay) return;
+    var id = "cm" + i;
+    root.setAttribute("data-cm-id", id);
+    overlay.setAttribute("data-cm-id", id);
+    if (overlay.parentElement !== document.body) {
       document.body.appendChild(overlay);
     }
-    var closeBtn = root.querySelector("[data-cm-close]");
-    var form = root.querySelector("[data-cm-form]");
-    var formView = root.querySelector("[data-cm-form-view]");
-    var successView = root.querySelector("[data-cm-success-view]");
-    var errorBox = root.querySelector("[data-cm-error]");
-    var submitBtn = root.querySelector("[data-cm-submit]");
-    var noKeyNotice = root.querySelector("[data-cm-nokey]");
-    var calOpenBtn = root.querySelector("[data-cm-cal-open]");
-    var calBackBtn = root.querySelector("[data-cm-cal-back]");
-    var calPane = root.querySelector("[data-cm-cal-pane]");
-    var calContainer = root.querySelector("[data-cm-cal]");
-    var leftPane = root.querySelector("[data-cm-left]");
-
-    var subject = root.getAttribute("data-cm-subject") || "New Project Inquiry via deepakj.dev";
-    var formLocation = root.getAttribute("data-cm-location") || "unknown";
-    var calLink = root.getAttribute("data-cm-callink") || "deepslog/meet";
-    var mailto = root.getAttribute("data-cm-mailto") || "howdy@deepakj.dev";
-    var key = document.body.getAttribute("data-web3forms-key") || "";
-    var calNs = "cm" + rootIndex;
-    var calReady = false;
-
-    function open() {
-      overlay.hidden = false;
-      document.body.style.overflow = "hidden";
-      var first = form ? form.querySelector("input, textarea") : null;
-      if (first) first.focus({ preventScroll: true });
-    }
-
-    function close() {
-      overlay.hidden = true;
-      document.body.style.overflow = "";
-      // Reset transient UI after close animation
-      setTimeout(function () {
-        if (calPane) calPane.hidden = true;
-        if (leftPane) leftPane.classList.remove("cm-hidden-mobile");
-        if (successView) successView.hidden = true;
-        if (formView) formView.hidden = false;
-        if (errorBox) errorBox.hidden = true;
-      }, 250);
-    }
-
-    if (openBtn) openBtn.addEventListener("click", open);
-    if (closeBtn) closeBtn.addEventListener("click", close);
-    overlay.addEventListener("click", function (e) {
-      if (e.target.hasAttribute("data-cm-backdrop")) close();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !overlay.hidden) close();
-    });
-
     // Missing-key guard: honest disabled state, never a silent 401.
-    if (!key && form && submitBtn) {
-      submitBtn.disabled = true;
+    if (!KEY) {
+      var submitBtn = overlay.querySelector("[data-cm-submit]");
+      var noKeyNotice = overlay.querySelector("[data-cm-nokey]");
+      if (submitBtn) submitBtn.disabled = true;
       if (noKeyNotice) {
         noKeyNotice.hidden = false;
         var link = noKeyNotice.querySelector("a");
-        if (link) link.href = "mailto:" + mailto;
+        if (link) {
+          link.href =
+            "mailto:" + (root.getAttribute("data-cm-mailto") || "howdy@deepakj.dev");
+        }
       }
     }
+  });
 
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!key) return;
-        submitBtn.disabled = true;
-        var original = submitBtn.textContent;
-        submitBtn.textContent = "Sending…";
-        if (errorBox) errorBox.hidden = true;
+  function findOverlay(id) {
+    if (!id) return null;
+    return document.querySelector('[data-cm-overlay][data-cm-id="' + id + '"]');
+  }
 
-        var data = new FormData(form);
-        data.append("access_key", key);
-        data.append("subject", subject);
-        data.append("page_url", location.href);
-        data.append("form_location", formLocation);
-        var name = data.get("name");
-        var email = data.get("email");
-        if (name) data.append("from_name", name);
-        if (email) data.append("reply_to", email);
+  function overlayConfig(overlay) {
+    var id = overlay.getAttribute("data-cm-id");
+    var root = document.querySelector('[data-cm-root][data-cm-id="' + id + '"]');
+    return {
+      subject:
+        (root && root.getAttribute("data-cm-subject")) ||
+        "New Project Inquiry via deepakj.dev",
+      formLocation:
+        (root && root.getAttribute("data-cm-location")) || "unknown",
+      mailto:
+        (root && root.getAttribute("data-cm-mailto")) || "howdy@deepakj.dev",
+    };
+  }
 
-        var ctrl = new AbortController();
-        var timer = setTimeout(function () { ctrl.abort(); }, 12000);
+  function openOverlay(overlay) {
+    overlay.hidden = false;
+    document.body.style.overflow = "hidden";
+    var first = overlay.querySelector("form input, form textarea");
+    if (first && first.focus) first.focus({ preventScroll: true });
+  }
 
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: data,
-          signal: ctrl.signal,
-        })
-          .then(function (res) { return res.json(); })
-          .then(function (payload) {
-            if (payload && payload.success) {
-              formView.hidden = true;
-              successView.hidden = false;
-              trackLead(formLocation);
-            } else {
-              throw new Error("bad-response");
-            }
-          })
-          .catch(function () {
-            if (errorBox) {
-              errorBox.hidden = false;
-              var m = errorBox.querySelector("[data-cm-error-mailto]");
-              if (m) m.href = "mailto:" + mailto;
-            }
-          })
-          .finally(function () {
-            clearTimeout(timer);
-            submitBtn.disabled = false;
-            submitBtn.textContent = original;
-          });
+  function closeOverlay(overlay) {
+    overlay.hidden = true;
+    if (!document.querySelector("[data-cm-overlay]:not([hidden])")) {
+      document.body.style.overflow = "";
+    }
+    // Reset transient UI so the next open starts fresh.
+    setTimeout(function () {
+      var successView = overlay.querySelector("[data-cm-success-view]");
+      var formView = overlay.querySelector("[data-cm-form-view]");
+      var errorBox = overlay.querySelector("[data-cm-error]");
+      if (successView) successView.hidden = true;
+      if (formView) formView.hidden = false;
+      if (errorBox) errorBox.hidden = true;
+    }, 250);
+  }
+
+  function closest(el, selector) {
+    if (!el || !el.closest) return null;
+    return el.closest(selector);
+  }
+
+  document.addEventListener("click", function (e) {
+    var openBtn = closest(e.target, "[data-cm-open]");
+    if (openBtn) {
+      var root = closest(openBtn, "[data-cm-root]");
+      var overlay = root && findOverlay(root.getAttribute("data-cm-id"));
+      if (overlay) openOverlay(overlay);
+      return;
+    }
+    if (closest(e.target, "[data-cm-close]")) {
+      var toClose = closest(e.target, "[data-cm-overlay]");
+      if (toClose) closeOverlay(toClose);
+      return;
+    }
+    var t = e.target;
+    if (t && t.hasAttribute && t.hasAttribute("data-cm-backdrop")) {
+      var behind = closest(t, "[data-cm-overlay]");
+      if (behind) closeOverlay(behind);
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    document
+      .querySelectorAll("[data-cm-overlay]:not([hidden])")
+      .forEach(closeOverlay);
+  });
+
+  document.addEventListener("submit", function (e) {
+    var form = closest(e.target, "[data-cm-form]");
+    if (!form) return;
+    e.preventDefault();
+    if (!KEY) return;
+    var overlay = closest(form, "[data-cm-overlay]");
+    if (!overlay) return;
+    var cfg = overlayConfig(overlay);
+    var submitBtn = form.querySelector("[data-cm-submit]");
+    var errorBox = overlay.querySelector("[data-cm-error]");
+    var formView = overlay.querySelector("[data-cm-form-view]");
+    var successView = overlay.querySelector("[data-cm-success-view]");
+
+    if (submitBtn) submitBtn.disabled = true;
+    var original = submitBtn ? submitBtn.textContent : "";
+    if (submitBtn) submitBtn.textContent = "Sending…";
+    if (errorBox) errorBox.hidden = true;
+
+    var data = new FormData(form);
+    data.append("access_key", KEY);
+    data.append("subject", cfg.subject);
+    data.append("page_url", location.href);
+    data.append("form_location", cfg.formLocation);
+    var name = data.get("name");
+    var email = data.get("email");
+    if (name) data.append("from_name", name);
+    if (email) data.append("reply_to", email);
+
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () {
+      ctrl.abort();
+    }, 12000);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: data,
+      signal: ctrl.signal,
+    })
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (payload) {
+        if (payload && payload.success) {
+          if (formView) formView.hidden = true;
+          if (successView) successView.hidden = false;
+          trackLead(cfg.formLocation);
+        } else {
+          throw new Error("bad-response");
+        }
+      })
+      .catch(function () {
+        if (errorBox) {
+          errorBox.hidden = false;
+          var m = errorBox.querySelector("[data-cm-error-mailto]");
+          if (m) m.href = "mailto:" + cfg.mailto;
+        }
+      })
+      .finally(function () {
+        clearTimeout(timer);
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) submitBtn.textContent = original;
       });
-    }
-
-    function showCalendar() {
-      if (leftPane) leftPane.classList.add("cm-hidden-mobile");
-      calPane.hidden = false;
-      if (!calReady && calContainer) {
-        calReady = true;
-        initCal(calNs, calContainer, calLink).catch(function () {
-          calContainer.innerHTML =
-            '<p class="stat-caption" style="padding:2rem;text-align:center">Calendar failed to load. <a href="https://cal.com/' +
-            calLink +
-            '" target="_blank" rel="noopener" style="text-decoration:underline">Open booking page directly</a>.</p>';
-        });
-      }
-    }
-
-    function hideCalendar() {
-      calPane.hidden = true;
-      if (leftPane) leftPane.classList.remove("cm-hidden-mobile");
-    }
-
-    if (calOpenBtn) calOpenBtn.addEventListener("click", showCalendar);
-    if (calBackBtn) calBackBtn.addEventListener("click", hideCalendar);
   });
 
   // Mobile nav toggle (progressive enhancement)
@@ -211,15 +206,22 @@
   // Work grid: progressive "load more" (full list renders in HTML for SEO)
   document.querySelectorAll("[data-work-grid]").forEach(function (grid) {
     var step = parseInt(grid.getAttribute("data-work-step") || "6", 10);
-    var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-work-card]"));
+    var cards = Array.prototype.slice.call(
+      grid.querySelectorAll("[data-work-card]")
+    );
     var sentinel = grid.parentElement.querySelector("[data-work-sentinel]");
     var endnote = grid.parentElement.querySelector("[data-work-end]");
-    var visible = cards.filter(function (c) { return !c.hidden; }).length;
+    var visible = cards.filter(function (c) {
+      return !c.hidden;
+    }).length;
     function render() {
-      cards.forEach(function (c, i) { c.hidden = i >= visible; });
+      cards.forEach(function (c, i) {
+        c.hidden = i >= visible;
+      });
       var done = visible >= cards.length;
       if (sentinel) sentinel.hidden = done;
-      if (endnote) endnote.hidden = !done || visible === cards.length && cards.length <= step;
+      if (endnote)
+        endnote.hidden = !done || (visible === cards.length && cards.length <= step);
     }
     render();
     if (!("IntersectionObserver" in window) || !sentinel) {

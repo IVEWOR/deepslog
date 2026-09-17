@@ -47,7 +47,7 @@ const keywords = [
   "portfolio",
   meta.location || "",
 ].filter(Boolean);
-const ogImage = meta.featured_image || "/deepak.png";
+const ogImage = meta.featured_image || "/deepak.jpeg";
 const wordCount = entry.body ? entry.body.split(/\s+/).length : 500;
 const seoTitle = meta.seo_title || `${meta.title} - Case Study | Deepak Jangra`;
 
@@ -303,7 +303,11 @@ const schema = {
             prose-strong:text-(--color-ink) prose-strong:font-medium
             prose-code:font-mono prose-code:text-(--color-accent) prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
             prose-pre:bg-(--color-ink-surface) prose-pre:text-(--color-ink-surface-text) prose-pre:rounded-none prose-pre:border prose-pre:border-(--color-line)
-            prose-ul:marker:text-(--color-accent) prose-ol:marker:text-(--color-accent)"
+            prose-ul:marker:text-(--color-accent) prose-ol:marker:text-(--color-accent)
+            prose-table:block md:prose-table:table prose-table:overflow-x-auto prose-table:border-collapse prose-table:w-full prose-table:my-6
+            prose-thead:bg-(--color-ink-surface)
+            prose-th:font-mono prose-th:text-(length:--text-label) prose-th:uppercase prose-th:tracking-(--tracking-label) prose-th:p-3 prose-th:text-left prose-th:border prose-th:border-(--color-ink-surface-line) prose-th:whitespace-nowrap
+            prose-td:p-3 prose-td:border prose-td:border-(--color-border-light) prose-td:text-(--color-muted) prose-td:whitespace-nowrap"
         >
           <Content />
         </div>

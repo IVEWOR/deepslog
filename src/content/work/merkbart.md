@@ -48,10 +48,10 @@ The old discount plugin needed a separate discount tier typed in for every produ
 I replaced it with a plugin based on order value instead of per-product tiers: set "10% off orders over 1,000 NOK" or "20% off orders over 2,000 NOK," pick which products it applies to, and the system does the math. What used to take hours to configure now takes minutes, and it's correct every time.
 
 <figure class="my-8">
-  <video autoplay loop muted playsinline preload="metadata" class="rounded-xl shadow-md border border-slate-200 w-full h-auto">
+  <video autoplay loop muted playsinline preload="metadata" class="border border-(--color-border-light) w-full h-auto">
     <source src="/merkbart-discounts.mp4" type="video/mp4" />
   </video>
-  <figcaption class="text-sm text-slate-500 mt-2 text-center">The discount engine replaced hours of manual per-variant configuration with a simple rule-based system</figcaption>
+  <figcaption class="stat-caption mt-2 text-center">The discount engine replaced hours of manual per-variant configuration with a simple rule-based system</figcaption>
 </figure>
 
 ### Checkout that handles logos, discounts, and Nexi
@@ -63,10 +63,10 @@ I rebuilt the checkout to show the customer's uploaded logos directly on the car
 B2B customers need fields that don't exist in standard WooCommerce, Bedriftsnavn (company name), Kontaktperson (contact person), Organisasjonsnummer (organization number), and Fakturareferanse / Prosjekt-ID (invoice reference / project ID). I built a toggle: flip it on and those fields appear; leave it off and individual customers get the normal, uncluttered checkout.
 
 <figure class="my-8">
-  <video autoplay loop muted playsinline preload="metadata" class="rounded-xl shadow-md border border-slate-200 w-full h-auto">
+  <video autoplay loop muted playsinline preload="metadata" class="border border-(--color-border-light) w-full h-auto">
     <source src="/merkbart-business-checkout.mp4" type="video/mp4" />
   </video>
-  <figcaption class="text-sm text-slate-500 mt-2 text-center">B2B customers see relevant fields only when the business toggle is activated</figcaption>
+  <figcaption class="stat-caption mt-2 text-center">B2B customers see relevant fields only when the business toggle is activated</figcaption>
 </figure>
 
 ### Logo uploads that make sense

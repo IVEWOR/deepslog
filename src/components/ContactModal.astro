@@ -13,16 +13,13 @@ export interface Field {
 export interface Props {
   triggerText?: string;
   triggerStyle?: string;
-  /** Inline style for the trigger button (e.g. dark nav button). Replaces the dead triggerStyleOverride prop. */
+  /** Inline style for the trigger button (e.g. dark nav button). */
   triggerButtonStyle?: string;
   title?: string;
   subtitle?: string;
   subject?: string;
   inputLabel?: string;
   inputPlaceholder?: string;
-  calTitle?: string;
-  calSubtitle?: string;
-  calLink?: string;
   fields?: Field[];
   /** Stable id suffix when several modals share a page. */
   uid?: string;
@@ -37,9 +34,6 @@ const {
   subject = "New Project Inquiry via deepakj.dev",
   inputLabel = "Project Details",
   inputPlaceholder = "What are we building?",
-  calTitle = "Ready to move fast?",
-  calSubtitle = "Skip the email back-and-forth. Grab 15 minutes to see if we're a fit.",
-  calLink = "deepslog/meet",
   fields,
   uid = Math.random().toString(36).slice(2, 8),
 } = Astro.props;
@@ -61,7 +55,6 @@ const formFields: Field[] = fields ?? [
   data-cm-root
   data-cm-subject={subject}
   data-cm-location={Astro.url.pathname}
-  data-cm-callink={calLink}
   data-cm-mailto={CONTACT_EMAIL}
 >
   <button class={triggerStyle} style={triggerButtonStyle} data-cm-open>
@@ -89,13 +82,14 @@ const formFields: Field[] = fields ?? [
 
     <div class="flex min-h-full flex-col justify-center p-4 sm:p-8 relative">
       <div
-        class="surface-inverted relative mx-auto my-auto flex w-full max-w-4xl animate-fade-in-up flex-col overflow-hidden border md:h-[600px] md:max-h-[85vh] md:flex-row"
+        class="surface-inverted relative mx-auto my-auto flex w-full max-w-xl animate-fade-in-up flex-col overflow-hidden border md:max-h-[85vh]"
         style="border-color: var(--color-ink-surface-line)"
         role="dialog"
         aria-modal="true"
         aria-label={title}
       >
         <button
+          type="button"
           data-cm-close
           class="absolute top-3 right-4 z-30 p-2 transition-colors hover:text-(--color-ink-surface-text) cursor-pointer"
           style="color: var(--color-ink-surface-muted)"
@@ -114,10 +108,9 @@ const formFields: Field[] = fields ?? [
           </svg>
         </button>
 
-        {/* LEFT: form */}
+        {/* Form */}
         <div
-          data-cm-left
-          class="relative z-10 w-full flex-col justify-center overflow-y-auto border-b p-6 md:h-full md:w-1/2 md:border-b-0 md:border-r md:p-8 flex"
+          class="relative z-10 w-full flex-col justify-center overflow-y-auto p-6 md:p-8 flex"
           style="border-color: var(--color-ink-surface-line)"
         >
           <div data-cm-success-view hidden class="flex h-full animate-fade-in-up flex-col items-center justify-center text-center">
@@ -222,61 +215,7 @@ const formFields: Field[] = fields ?? [
             </form>
           </div>
         </div>
-
-        {/* RIGHT: calendar */}
-        <div
-          class="relative z-10 flex w-full flex-col items-center justify-center md:h-full md:w-1/2 md:p-8 p-6 text-center"
-          style="background: var(--color-ink)"
-        >
-          <div data-cm-cal-pane hidden class="absolute inset-0 flex flex-col overflow-hidden bg-white">
-            <div class="flex items-center border-b p-4 md:hidden" style="background: var(--color-paper)">
-              <button data-cm-cal-back class="ui-text flex items-center gap-1.5">
-                <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                Back
-              </button>
-            </div>
-            <div data-cm-cal class="grow w-full h-full overflow-y-auto overscroll-contain" style="min-height: 420px"></div>
-          </div>
-
-          <svg
-            class="mb-5 h-6 w-6"
-            style="color: var(--color-accent-dim)"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          <h3 style="color: var(--color-ink-surface-text)">{calTitle}</h3>
-          <p
-            class="stat-caption mt-3 mb-6 max-w-xs normal-case tracking-normal"
-            style="color: var(--color-ink-surface-muted)"
-          >
-            {calSubtitle}
-          </p>
-          <button
-            data-cm-cal-open
-            class="btn w-full max-w-60 cursor-pointer"
-            style="background: var(--color-paper); color: var(--color-ink)"
-          >
-            Load Calendar
-          </button>
-        </div>
       </div>
     </div>
   </div>
 </span>
-
-<style>
-  @media (max-width: 767px) {
-    [data-cm-left].cm-hidden-mobile {
-      display: none;
-    }
-  }
-</style>
