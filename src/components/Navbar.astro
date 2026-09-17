@@ -1,0 +1,95 @@
+---
+import ContactModal from "./ContactModal.astro";
+
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Work", href: "/work" },
+  { name: "Rescue", href: "/rescue" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
+];
+
+function isActive(href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+}
+---
+
+<header id="top" class="sticky top-0 z-50 bg-(--color-paper) border-b border-(--color-line)">
+  <div class="flex items-center justify-between h-14 px-[clamp(1.5rem,4vw,4rem)]">
+    <a href="/" aria-label="Home — Deepak Jangra, Independent Shopify Developer">
+      <img
+        src="/logo.png"
+        width="70"
+        height="70"
+        alt="Deepak Jangra Independent Shopify Developer"
+        class="mt-8"
+        loading="eager"
+        decoding="async"
+      />
+      <span class="sr-only">Independent Shopify Developer</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-10" aria-label="Primary">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? "page" : undefined}
+          class="ui-text link-underline transition-colors duration-(--duration-fast)"
+          style={isActive(link.href) ? "color: var(--color-accent)" : "color: var(--color-ink)"}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden md:block">
+      <ContactModal
+        triggerText="Let's Talk"
+        triggerStyle="btn"
+        triggerButtonStyle="background: var(--color-ink); color: var(--color-paper)"
+        title="Send a brief."
+        subject="New Project Inquiry via deepakj.dev (Navbar)"
+        uid="nav-desktop"
+      />
+    </div>
+
+    <button
+      class="md:hidden p-2 -mr-2"
+      style="color: var(--color-ink)"
+      data-nav-toggle
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div data-nav-menu hidden class="md:hidden border-t border-(--color-line) animate-fade-in-up" style="background: var(--color-paper)">
+    <div class="px-6 py-8 flex flex-col gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-xl"
+          style={`font-family: var(--font-display); font-weight: var(--weight-display-bold); color: ${isActive(link.href) ? "var(--color-accent)" : "var(--color-ink)"}`}
+        >
+          {link.name}
+        </a>
+      ))}
+      <div class="pt-6 mt-2 border-t" style="border-color: var(--color-line)">
+        <ContactModal
+          triggerText="Let's Talk"
+          triggerStyle="btn w-full"
+          triggerButtonStyle="background: var(--color-accent); color: var(--color-paper)"
+          title="Send a brief."
+          subject="New Project Inquiry via deepakj.dev (Navbar mobile)"
+          uid="nav-mobile"
+        />
+      </div>
+    </div>
+  </div>
+</header>

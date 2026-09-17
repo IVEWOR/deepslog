@@ -1,0 +1,38 @@
+---
+const CLIENTS = [
+  { name: "Merkbart", href: "/work/merkbart" },
+  { name: "Gray _Matters", href: "/work/graymattersnyc" },
+  { name: "The Business Fashion", href: "/work/thebusinessfashion" },
+  { name: "Faire", href: "/work/faire" },
+  { name: "Chasin' Unicorns", href: "/work/chasin-unicorns" },
+  { name: "The Collection", href: "/work/darkestfox" },
+  { name: "LEO Eyewear", href: "/work/leoeyewear" },
+];
+
+const nameClasses =
+  "text-[clamp(0.8rem,2vw,0.8rem)] font-display uppercase text-(--color-paper)/90 font-[600]";
+---
+
+<section class="bg-(--color-ink) md:flex items-center md:h-10 py-2" aria-label="Client logos">
+  <div class="px-[clamp(1.5rem,4vw,4rem)] md:border-r border-r-(--color-ink-surface-line) hidden md:block">
+    <span class="label md:block md:w-max" style="color: var(--color-ink-surface-muted)">
+      Trusted by Shopify Merchants
+    </span>
+  </div>
+
+  <div class="relative flex items-center overflow-hidden">
+    <div
+      class="animate-marquee motion-reduce:animate-none flex w-max items-center gap-x-10 whitespace-nowrap hover:[animation-play-state:paused] sm:gap-x-20"
+      style="animation-duration: 55s"
+    >
+      {CLIENTS.map((client) => (
+        <a href={client.href} class={nameClasses}>{client.name}</a>
+      ))}
+      <span aria-hidden="true" class="flex items-center gap-x-10 sm:gap-x-20">
+        {CLIENTS.map((client) => (
+          <a href={client.href} class={nameClasses} tabindex="-1">{client.name}</a>
+        ))}
+      </span>
+    </div>
+  </div>
+</section>

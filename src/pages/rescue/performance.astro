@@ -1,0 +1,336 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactModal from "../../components/ContactModal.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import { SITE_URL, priceValidUntil } from "../../lib/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/rescue/performance#service`,
+      name: "Core Web Vitals Optimization",
+      provider: {
+        "@id": `${SITE_URL}/#person`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Web Performance Optimization",
+      offers: {
+        "@type": "Offer",
+        price: "1500.00",
+        priceCurrency: "USD",
+        priceValidUntil: priceValidUntil(),
+        availability: "https://schema.org/InStock",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/rescue/performance#webpage`,
+      name: "Core Web Vitals & Speed Optimization",
+      url: `${SITE_URL}/rescue/performance`,
+      mainEntity: { "@id": `${SITE_URL}/rescue/performance#service` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Rescue", item: `${SITE_URL}/rescue` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Performance",
+          item: `${SITE_URL}/rescue/performance`,
+        },
+      ],
+    },
+  ],
+};
+
+const diagnosis = [
+  {
+    number: "01",
+    title: "Bloated JavaScript",
+    description:
+      "Most themes load every single script on the initial page load. We defer non-critical JS and implement strict code-splitting to free up the main thread.",
+  },
+  {
+    number: "02",
+    title: "Unoptimized Assets",
+    description:
+      "Serving 5MB uncompressed PNGs kills mobile performance. We migrate assets to modern formats (WebP/AVIF) and serve them via advanced Edge CDNs.",
+  },
+  {
+    number: "03",
+    title: "Third-Party App Bloat",
+    description:
+      "Shopify and WordPress plugins inject tracking codes that block rendering. I audit, consolidate, and asynchronously load your marketing stack.",
+  },
+];
+
+const beforeMetrics = [
+  { label: "First Contentful Paint", value: "4.2s" },
+  { label: "Time to Interactive", value: "8.1s" },
+  { label: "Cumulative Layout Shift", value: "0.45" },
+];
+const afterMetrics = [
+  { label: "First Contentful Paint", value: "0.8s" },
+  { label: "Time to Interactive", value: "1.1s" },
+  { label: "Cumulative Layout Shift", value: "0.01" },
+];
+---
+
+<BaseLayout
+  title="Speed Optimization & Core Web Vitals | Deepak Jangra"
+  description="Stop losing customers to a slow website. I strip bloated frontends and configure edge caching for sub-2-second loads on Shopify and custom sites."
+  canonical="/rescue/performance"
+  ogImage={`${SITE_URL}/og-performance.png`}
+  ogImageAlt="Core Web Vitals Optimization - Deepak Jangra"
+  schema={schema}
+>
+  {/* Hero */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">
+      Core Web Vitals Optimization
+    </span>
+
+    <h1
+      class="mt-4 max-w-3xl animate-fade-in-up [animation-delay:100ms]"
+      style="font-weight: var(--weight-display-black)"
+    >
+      Stop losing customers to{" "}
+      <span class="accent">a slow website.</span>
+    </h1>
+
+    <p class="body-lg mt-6 max-w-xl animate-fade-in-up [animation-delay:200ms]">
+      A 1-second delay in page load time reduces conversions by 7%. I
+      rewrite bloated frontends and configure edge networks to guarantee
+      sub-2-second load times.
+    </p>
+
+    <div class="mt-10 flex flex-col items-start gap-6 animate-fade-in-up [animation-delay:300ms] sm:flex-row sm:items-center">
+      <ContactModal
+        triggerText="Get Free Performance Audit"
+        triggerStyle="btn btn-primary"
+        title="Book a Performance Audit."
+        subtitle="Let's diagnose your Core Web Vitals and map out a sub-second optimization plan."
+        subject="Performance Audit Request"
+        fields={[
+          { name: "name", label: "Name", type: "text", required: true },
+          { name: "email", label: "Email", type: "email", required: true },
+          {
+            name: "website",
+            label: "Website URL",
+            type: "url",
+            placeholder: "https://yoursite.com",
+            required: true,
+          },
+          {
+            name: "message",
+            label: "What's failing?",
+            type: "textarea",
+            placeholder:
+              "Which metrics are failing (e.g., LCP, CLS), and any context that helps?",
+            required: false,
+          },
+        ]}
+        calTitle="Ready to review metrics?"
+        calSubtitle="Grab a slot on my calendar so we can look at your Lighthouse scores together."
+        uid="perf-hero"
+      />
+      <a
+        href="/work"
+        class="ui-text link-underline text-(--color-ink)"
+      >
+        See Case Studies
+      </a>
+    </div>
+  </section>
+
+  <SocialProof />
+
+  {/* Before / After */}
+  <section
+    id="proof"
+    class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20"
+  >
+    <span class="label animate-fade-in-up">The Difference</span>
+    <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+      The difference between bouncing and buying.
+    </h2>
+    <p class="body-lg mt-4 max-w-md animate-fade-in-up [animation-delay:200ms]">
+      Actual results from a recent Shopify headless migration.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 border-t border-(--color-line) md:grid-cols-2">
+      {/* Before */}
+      <div class="animate-fade-in-up border-b border-(--color-line) py-10 md:border-b-0 md:border-r md:py-14 md:pr-12">
+        <span class="stat-caption">Before Audit</span>
+        <div class="mt-6 flex items-baseline gap-3">
+          <span class="stat-number text-[3.5rem] text-(--color-muted)">
+            32
+          </span>
+          <span class="stat-caption">Lighthouse Score</span>
+        </div>
+        <div class="mt-8 flex flex-col gap-3 border-t border-(--color-line) pt-6">
+          {beforeMetrics.map((m) => (
+            <div class="flex items-center justify-between">
+              <span class="body-sm">{m.label}</span>
+              <span class="ui-text font-normal tracking-normal normal-case text-(--color-muted)">
+                {m.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* After */}
+      <div class="animate-fade-in-up [animation-delay:100ms] py-10 md:py-14 md:pl-12">
+        <span class="label">After Optimization</span>
+        <div class="mt-6 flex items-baseline gap-3">
+          <span class="stat-number text-[3.5rem]">99</span>
+          <span class="stat-caption">Lighthouse Score</span>
+        </div>
+        <div class="mt-8 flex flex-col gap-3 border-t border-(--color-line) pt-6">
+          {afterMetrics.map((m) => (
+            <div class="flex items-center justify-between">
+              <span class="body-sm text-(--color-ink)">
+                {m.label}
+              </span>
+              <span class="ui-text font-normal tracking-normal normal-case text-(--color-accent)">
+                {m.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <p class="body-sm mt-12 max-w-2xl animate-fade-in-up [animation-delay:200ms]">
+      Recent result: a Shopify Plus store reduced Time to Interactive from
+      8.1s to 1.1s after stripping third-party app bloat and implementing
+      edge caching. Measured with Lighthouse on mobile, before and after the
+      engagement.
+    </p>
+  </section>
+
+  {/* Diagnosis */}
+  <section class="border-b border-(--color-line)">
+    <div class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+      <span class="label animate-fade-in-up">The Diagnosis</span>
+      <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+        Why your current setup is failing Core Web Vitals.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      {diagnosis.map((item, index) => (
+        <div
+          class={`animate-fade-in-up border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-10 lg:py-14 ${
+            index < 2 ? "border-b md:border-b-0 md:border-r" : ""
+          }`}
+          style={`animation-delay: ${200 + index * 100}ms`}
+        >
+          <span class="stat-number text-[1.5rem] text-(--color-muted)">
+            {item.number}
+          </span>
+          <h3 class="mt-4" style="font-size: var(--text-display-sm)">{item.title}</h3>
+          <p class="body-sm mt-3">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Named proof: MerkBart */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+    <span class="label animate-fade-in-up">
+      Same Pattern, Different Platform
+    </span>
+    <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+      The Shopify example above isn&rsquo;t a one-off.
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_220px] lg:gap-16">
+      <div class="animate-fade-in-up [animation-delay:200ms]">
+        <span class="label">WooCommerce, Norway</span>
+        <h3 class="mt-3 max-w-lg">
+          MerkBart moved off shared hosting onto AWS Lightsail with S3 +
+          CloudFront for uploads.
+        </h3>
+        <p class="body-md mt-4 max-w-lg">
+          The admin panel used to freeze for minutes on every order with
+          multiple logo uploads. Now it doesn&rsquo;t freeze at all, and
+          pages load roughly 4&times; faster.
+        </p>
+        <a
+          href="/work/merkbart"
+          class="ui-text link-underline mt-6 text-(--color-accent) hover:text-(--color-ink)"
+        >
+          Read the Full Case Study
+          <svg
+            class="h-3.5 w-3.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="animate-fade-in-up [animation-delay:300ms] border-t border-(--color-line) pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <div class="stat-number">~4&times;</div>
+        <div class="stat-caption mt-2">Faster page loads</div>
+      </div>
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <section id="audit" class="surface-inverted">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <h2 class="mx-auto max-w-2xl animate-fade-in-up [animation-delay:100ms]" style="color: var(--color-ink-surface-text)">
+        Let&rsquo;s <span class="accent">find the bottlenecks.</span>
+      </h2>
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        Send me your URL. I will run a deep-dive performance diagnostic and
+        send you a custom report outlining exactly what is slowing your site
+        down and how much it will cost to fix it.
+      </p>
+      <div class="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+        <ContactModal
+          triggerText="Get Free Diagnostic Report"
+          triggerStyle="btn btn-primary"
+          title="Emergency Speed Rescue."
+          subtitle="Stop bleeding conversions. Let's fix your frontend."
+          subject="URGENT: Performance Rescue Request"
+          fields={[
+            { name: "name", label: "Name", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Website URL",
+              type: "url",
+              placeholder: "https://yoursite.com",
+              required: true,
+            },
+            {
+              name: "message",
+              label: "Bottlenecks",
+              type: "textarea",
+              placeholder:
+                "Any specific issues (e.g., bloated JavaScript, slow third-party scripts)...",
+              required: false,
+            },
+          ]}
+          calTitle="Need immediate triage?"
+          calSubtitle="Grab the next available slot on my calendar to look at the codebase together."
+          uid="perf-cta"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

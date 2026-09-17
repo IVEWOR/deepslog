@@ -1,0 +1,152 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactModal from "../components/ContactModal.astro";
+import { getCollection } from "astro:content";
+import { readingTimeMinutes, shortMonthYear } from "../lib/posts";
+import { SITE_URL } from "../lib/site";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${SITE_URL}/blog#blog`,
+  name: "Deepak Jangra Blog",
+  description: "Shopify Development notes from actual client work.",
+  url: `${SITE_URL}/blog`,
+  author: { "@id": `${SITE_URL}/#person` },
+  blogPost: posts.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    url: `${SITE_URL}/blog/${post.id.replace(/\.md$/, "")}`,
+    datePublished: post.data.date,
+    ...(post.data.featured_image
+      ? { image: `${SITE_URL}${post.data.featured_image}` }
+      : {}),
+  })),
+};
+---
+
+<BaseLayout
+  title="Blog | Shopify Development Notes | Deepak Jangra"
+  description="Notes on Shopify, performance, checkout extensibility, and building stores that scale — written from actual client work, not theory."
+  canonical="/blog"
+  ogImage={`${SITE_URL}/og-blog.png`}
+  ogImageAlt="Deepak Jangra Blog - Shopify Development"
+  schema={schema}
+>
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">Blog</span>
+    <h1
+      class="mt-4 max-w-2xl animate-fade-in-up [animation-delay:100ms]"
+      style="font-weight: var(--weight-display-black)"
+    >
+      Notes from <span class="accent">actual client work.</span>
+    </h1>
+    <p class="body-lg mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+      Shopify, performance, checkout extensibility, and what actually breaks
+      at scale - not theory, just what I&rsquo;ve run into building real
+      stores.
+    </p>
+  </section>
+
+  <div class="hidden border-b border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[110px_1fr_200px_32px] lg:gap-8" aria-hidden="true">
+    <span class="stat-caption">Date</span>
+    <span class="stat-caption">Post</span>
+    <span class="stat-caption">Topics</span>
+    <span></span>
+  </div>
+
+  <div class="px-[clamp(1.5rem,4vw,4rem)]">
+    {posts.length === 0 && (
+      <p class="body-md py-16">No posts published yet. Check back soon.</p>
+    )}
+
+    {posts.map((post) => {
+      const slug = post.id.replace(/\.md$/, "");
+      return (
+        <a
+          href={`/blog/${slug}`}
+          class="group flex flex-col gap-4 border-b border-(--color-border-light) py-8 transition-colors duration-(--duration-fast) hover:bg-(--color-ink)/3 lg:grid lg:grid-cols-[110px_1fr_200px_32px] lg:items-start lg:gap-8 lg:py-10"
+        >
+          <span class="stat-caption tabular-nums lg:pt-1">
+            {shortMonthYear(post.data.date)}
+          </span>
+
+          <span class="flex flex-col gap-2">
+            <h3 class="transition-transform duration-(--duration-fast) group-hover:translate-x-1">
+              {post.data.title}
+            </h3>
+            <span class="body-sm max-w-md">{post.data.excerpt}</span>
+            <span class="stat-caption lg:hidden">
+              {readingTimeMinutes(post.body ?? "")} min read
+            </span>
+          </span>
+
+          <span class="ui-text font-normal tracking-normal normal-case text-(--color-muted) lg:pt-1">
+            {(post.data.tags ?? []).join(" / ")}
+          </span>
+
+          <svg
+            class="hidden h-4 w-4 text-(--color-muted) transition-all duration-(--duration-fast) group-hover:translate-x-1 group-hover:text-(--color-accent) lg:block lg:pt-1"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      );
+    })}
+  </div>
+
+  <section class="surface-inverted mt-20">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <h2 class="mx-auto max-w-2xl animate-fade-in-up [animation-delay:100ms]" style="color: var(--color-ink-surface-text)">
+        Have a project instead of{" "}
+        <span class="accent">a question?</span>
+      </h2>
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        I write about what I run into building stores - if that sounds like
+        your problem, let&rsquo;s talk about it directly.
+      </p>
+      <div class="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+        <ContactModal
+          triggerText="Start a Project"
+          triggerStyle="btn btn-primary"
+          title="Start a project."
+          subtitle="Tell me what you're building or what's broken. I'll reply within a day."
+          subject="New Project Inquiry (From Blog)"
+          fields={[
+            { name: "name", label: "Name", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Shopify Store URL",
+              type: "url",
+              placeholder: "https://yourstore.com",
+              required: false,
+            },
+            {
+              name: "message",
+              label: "What do you need?",
+              type: "textarea",
+              placeholder:
+                "New build, replatform, performance, checkout, custom app - what's the priority?",
+              required: true,
+            },
+          ]}
+          calTitle="Rather talk it through?"
+          calSubtitle="Grab 15 minutes and we'll go over what to tackle first."
+          uid="blog"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import { SITE_URL, GA_ID, X_HANDLE } from "../lib/site";
+
+export interface Props {
+  title: string;
+  description: string;
+  /** Absolute URL or site-relative path. Always rendered absolute. */
+  canonical: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  ogType?: "website" | "article" | "profile";
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  twitterCreator?: string;
+  maxImagePreview?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = `${SITE_URL}/og-about.png`,
+  ogImageAlt = "Deepak Jangra - Independent Shopify Developer",
+  ogType = "website",
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+  twitterCreator = X_HANDLE,
+  maxImagePreview = false,
+} = Astro.props;
+
+const canonicalUrl = canonical.startsWith("http")
+  ? canonical
+  : `${SITE_URL}${canonical === "/" ? "" : canonical}`;
+const imageUrl = ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+{!noindex && <meta name="robots" content="index, follow" />}
+{maxImagePreview && (
+  <>
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  </>
+)}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="Deepak Jangra" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content={ogType} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={ogImageAlt} />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:creator" content={twitterCreator} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="theme-color" content="#17140f" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+{!import.meta.env.DEV && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script
+      is:inline
+      define:vars={{ gaId: GA_ID }}
+      data-ga-id={GA_ID}
+    >{`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', document.currentScript.dataset.gaId, {
+        page_path: location.pathname + location.search,
+      });
+    `}</script>
+  </>
+)}

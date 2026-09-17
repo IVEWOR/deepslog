@@ -1,0 +1,374 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactModal from "../components/ContactModal.astro";
+import SocialProof from "../components/SocialProof.astro";
+import { SITE_URL, priceValidUntil } from "../lib/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/rescue#service`,
+      name: "Emergency Web Development & Code Rescue",
+      description:
+        "Specialized rescue services for broken codebases, AI-generated messes, and performance failures",
+      provider: {
+        "@id": `${SITE_URL}/#person`,
+      },
+      serviceType: [
+        "AI Code Rescue",
+        "Vibe Coding Cleanup",
+        "Performance Optimization",
+        "Technical Debt Reduction",
+        "Shopify Store Rescue",
+      ],
+      areaServed: {
+        "@type": "Place",
+        name: "Global",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Rescue Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              "@id": `${SITE_URL}/rescue/vibe-coding#service`,
+              name: "Vibe Coding Cleanup",
+              description:
+                "Refactor AI-generated code from Cursor, Copilot, v0 into production-ready applications",
+            },
+            price: "2000.00",
+            priceCurrency: "USD",
+            priceValidUntil: priceValidUntil(),
+            availability: "https://schema.org/InStock",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              "@id": `${SITE_URL}/rescue/performance#service`,
+              name: "Speed & Core Web Vitals Rescue",
+              description:
+                "Fix slow websites, optimize Shopify/WordPress, guarantee sub-2-second loads",
+            },
+            price: "1500.00",
+            priceCurrency: "USD",
+            priceValidUntil: priceValidUntil(),
+            availability: "https://schema.org/InStock",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              "@id": `${SITE_URL}/rescue#shopify-service`,
+              name: "Shopify Store Rescue",
+              description:
+                "Audit, stabilize, and document broken checkouts, overloaded themes, and messy app stacks on Shopify Plus stores",
+            },
+            price: "1500.00",
+            priceCurrency: "USD",
+            priceValidUntil: priceValidUntil(),
+            availability: "https://schema.org/InStock",
+          },
+        ],
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/rescue#webpage`,
+      name: "Emergency Code Rescue Services",
+      description: "Stabilize broken codebases and fix slow websites",
+      url: `${SITE_URL}/rescue`,
+      mainEntity: {
+        "@id": `${SITE_URL}/rescue#service`,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Rescue", item: `${SITE_URL}/rescue` },
+      ],
+    },
+  ],
+};
+
+const pathways = [
+  {
+    number: "01",
+    title: "Architecture & AI Rescue",
+    description:
+      "You built a prototype using Cursor or v0, but now it's a monolithic mess of spaghetti code that crashes when you try to scale. I refactor it into production-ready React/Next.js.",
+    href: "/rescue/vibe-coding",
+    cta: "Explore AI Code Rescue",
+  },
+  {
+    number: "02",
+    title: "Speed & Core Web Vitals",
+    description:
+      "Your Shopify or WordPress site is painfully slow, tanking your SEO and killing conversion rates. I strip out the bloat and guarantee sub-2-second load times.",
+    href: "/rescue/performance",
+    cta: "Explore Performance Rescue",
+  },
+  {
+    number: "03",
+    title: "Shopify Store Rescue",
+    description:
+      "Broken checkout? Theme falling apart after too many app installs? Previous developer used a page builder that slowed your store to a crawl? I audit, stabilize, and document - so your team can maintain it without me.",
+    cta: "Get a Store Audit",
+    modal: true,
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Audit",
+    description:
+      "A real review of your repo or store, not a sales call. You get a written list of what's actually broken, ranked by what's costing you the most.",
+  },
+  {
+    number: "02",
+    title: "Stabilize",
+    description:
+      "I fix what's actively bleeding money or breaking first, without a ground-up rewrite unless one is genuinely needed. You keep selling while it happens.",
+  },
+  {
+    number: "03",
+    title: "Document & Hand Off",
+    description:
+      "You get documentation and a staging environment either way, whether we keep working together or your team takes it from here.",
+  },
+];
+---
+
+<BaseLayout
+  title="Shopify Store Rescue: Fix Slow/Broken Stores | Deepak Jangra"
+  description="Slow store, broken checkout, or AI-generated mess? I audit, stabilize, and document Shopify stores so you can keep selling. 48-hour audit."
+  canonical="/rescue"
+  ogImage={`${SITE_URL}/og-rescue.png`}
+  ogImageAlt="Code Rescue Services - AI Cleanup & Speed Optimization"
+  schema={schema}
+>
+  {/* Hero */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">
+      Emergency Development Services
+    </span>
+
+    <h1
+      class="mt-4 max-w-3xl animate-fade-in-up [animation-delay:100ms]"
+      style="font-weight: var(--weight-display-black)"
+    >
+      Did your last developer <span class="accent">leave a mess?</span>
+    </h1>
+
+    <p class="body-lg mt-6 max-w-xl animate-fade-in-up [animation-delay:200ms]">
+      Whether your Shopify store is breaking at scale, your AI-generated
+      checkout extension is a mess, or your previous developer disappeared -
+      I step in, stabilize the codebase, and get you back to selling.
+    </p>
+  </section>
+
+  <SocialProof />
+
+  {/* Pathways */}
+  <section class="border-b border-(--color-line)" aria-label="Rescue services">
+    <div class="grid grid-cols-1 lg:grid-cols-3">
+      {pathways.map((path, index) => (
+        <div
+          class={`animate-fade-in-up flex flex-col border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20 ${
+            index < 2 ? "border-b lg:border-b-0 lg:border-r" : ""
+          }`}
+          style={`animation-delay: ${300 + index * 100}ms`}
+        >
+          <span class="stat-number text-[1.5rem] text-(--color-muted)">
+            {path.number}
+          </span>
+          <h2 class="mt-5" style="font-size: var(--text-display-md)">{path.title}</h2>
+          <p class="body-sm mt-3 grow">{path.description}</p>
+
+          <div class="mt-8 border-t border-(--color-line) pt-6">
+            {path.modal ? (
+              <ContactModal
+                triggerText={path.cta}
+                triggerStyle="ui-text link-underline text-(--color-ink) cursor-pointer"
+                title="Get a Store Audit."
+                subtitle="Broken checkout, slow theme, or a messy app stack? Tell me what's going on."
+                subject="Shopify Store Audit Request"
+                fields={[
+                  { name: "name", label: "Name", type: "text", required: true },
+                  { name: "email", label: "Email", type: "email", required: true },
+                  {
+                    name: "website",
+                    label: "Store URL",
+                    type: "url",
+                    placeholder: "https://yourstore.com",
+                    required: true,
+                  },
+                  {
+                    name: "message",
+                    label: "What's broken or slow?",
+                    type: "textarea",
+                    placeholder:
+                      "Broken checkout, overloaded theme, messy app stack - what's going on?",
+                    required: true,
+                  },
+                ]}
+                calTitle="Need immediate triage?"
+                calSubtitle="Grab the next available slot on my calendar. Let's look at the store together."
+                uid="rescue-audit"
+              />
+            ) : (
+              <a
+                href={path.href}
+                class="ui-text link-underline text-(--color-ink)"
+              >
+                {path.cta}
+                <svg
+                  class="h-3.5 w-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Proof: MerkBart */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">Recent Work</span>
+    <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+      This isn&rsquo;t theoretical.
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_260px] lg:gap-16">
+      <div class="animate-fade-in-up [animation-delay:200ms]">
+        <span class="label">WooCommerce, Norway</span>
+        <h3 class="mt-3 max-w-lg">
+          MerkBart&rsquo;s admin panel froze for minutes every time a
+          customer uploaded logos.
+        </h3>
+        <p class="body-md mt-4 max-w-lg">
+          Invoice generation timed out on bigger orders. Setting a sale
+          price meant editing hundreds of variants by hand. I rebuilt the
+          store from scratch, moved it off shared hosting onto AWS, and
+          replaced the broken plugins with custom ones built around how the
+          team actually works.
+        </p>
+        <a
+          href="/work/merkbart"
+          class="ui-text link-underline mt-6 text-(--color-accent) hover:text-(--color-ink)"
+        >
+          Read the Full Case Study
+          <svg
+            class="h-3.5 w-3.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid animate-fade-in-up grid-cols-2 gap-6 border-t border-(--color-line) pt-6 [animation-delay:300ms] lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <div>
+          <div class="stat-number">~4&times;</div>
+          <div class="stat-caption mt-2">Faster page loads</div>
+        </div>
+        <div>
+          <div class="stat-number">2&times;</div>
+          <div class="stat-caption mt-2">
+            Sales, 3 months post-launch
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Process */}
+  <section class="border-b border-(--color-line) px-[clamp(1.5rem,4vw,4rem)] py-16 lg:py-24">
+    <span class="label animate-fade-in-up">The Process</span>
+    <h2 class="mt-4 max-w-xl animate-fade-in-up [animation-delay:100ms]">
+      How a rescue engagement actually works.
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 border-t border-(--color-line) sm:grid-cols-3">
+      {steps.map((step, index) => (
+        <div
+          class={`animate-fade-in-up py-8 ${
+            index > 0 ? "sm:border-l sm:border-(--color-line) sm:pl-8" : ""
+          } ${index < steps.length - 1 ? "border-b sm:border-b-0 border-(--color-line)" : ""}`}
+          style={`animation-delay: ${200 + index * 100}ms`}
+        >
+          <span class="stat-number text-[1.5rem]">{step.number}</span>
+          <h3 class="mt-4" style="font-size: var(--text-display-sm)">{step.title}</h3>
+          <p class="body-sm mt-3">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Closing CTA */}
+  <section class="surface-inverted">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <h2 class="mx-auto max-w-2xl animate-fade-in-up [animation-delay:100ms]" style="color: var(--color-ink-surface-text)">
+        Have a <span class="accent">different kind</span> of emergency?
+      </h2>
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        Abandoned migrations, broken APIs, or security vulnerabilities?
+        Don&rsquo;t let a bad codebase sink your business. Send me the
+        details and I&rsquo;ll review it within 24 hours.
+      </p>
+      <div class="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+        <ContactModal
+          triggerText="Get Immediate Help"
+          triggerStyle="btn btn-primary"
+          title="Emergency Rescue."
+          subtitle="Stop the bleeding. Tell me what's going wrong."
+          subject="URGENT: General Rescue Request"
+          fields={[
+            { name: "name", label: "Name", type: "text", required: true },
+            { name: "email", label: "Email", type: "email", required: true },
+            {
+              name: "website",
+              label: "Site or Repo URL",
+              type: "text",
+              placeholder: "https://yoursite.com or a repo link",
+              required: false,
+            },
+            {
+              name: "message",
+              label: "What is broken?",
+              type: "textarea",
+              placeholder:
+                "Share details about the bugs, security flaws, or bad migrations so I can review it ASAP.",
+              required: true,
+            },
+          ]}
+          calTitle="Need immediate triage?"
+          calSubtitle="Grab the next available slot on my calendar. Let's look at the codebase together."
+          uid="rescue-general"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

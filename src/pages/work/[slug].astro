@@ -1,0 +1,337 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactModal from "../../components/ContactModal.astro";
+import { truncate } from "../../lib/posts";
+import { SITE_URL, DEFAULT_ROLE, SAME_AS, KNOWS_ABOUT, X_HANDLE } from "../../lib/site";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("work");
+  return projects.map((entry) => ({
+    params: { slug: entry.id.replace(/\.md$/, "") },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { slug } = Astro.params;
+const meta = entry.data;
+const { Content } = await render(entry);
+
+// Normalizes frontmatter dates into full ISO 8601 datetimes with a UTC
+// offset — Rich Results flags bare dates as missing a time zone.
+function normalizeDate(value?: string): string | undefined {
+  if (!value) return undefined;
+  if (value.includes("T")) return value;
+  if (/^\d{4}$/.test(value)) return `${value}-01-15T00:00:00+00:00`;
+  const d = new Date(value);
+  if (!Number.isNaN(d.getTime())) return d.toISOString();
+  return `${value}T00:00:00+00:00`;
+}
+
+const publishedISO = normalizeDate(meta.date_published || meta.date);
+const modifiedISO = normalizeDate(meta.date_modified || meta.date_published || meta.date);
+const description = truncate(
+  meta.excerpt ||
+    `Case study: how ${meta.title} was rebuilt with ${meta.platform}. Performance, UX, and business results.`,
+  155
+);
+const techStack = meta.platform
+  ? meta.platform.split(",").map((item) => item.trim())
+  : [];
+const keywords = [
+  meta.title,
+  ...techStack,
+  "case study",
+  "web development",
+  "portfolio",
+  meta.location || "",
+].filter(Boolean);
+const ogImage = meta.featured_image || "/deepak.png";
+const wordCount = entry.body ? entry.body.split(/\s+/).length : 500;
+const seoTitle = meta.seo_title || `${meta.title} - Case Study | Deepak Jangra`;
+
+// JSON-LD is the ONLY structured data on the page — no itemScope/itemProp
+// microdata in the markup (having both duplicated Article/Breadcrumb items
+// in Rich Results, misattributing author to the client name). Don't add any.
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Deepak Jangra",
+      url: SITE_URL,
+      jobTitle: meta.role || DEFAULT_ROLE,
+      worksFor: {
+        "@type": "Organization",
+        name: "Deepak Jangra Independent Developer",
+        url: SITE_URL,
+      },
+      knowsAbout: KNOWS_ABOUT,
+      sameAs: SAME_AS,
+    },
+    {
+      "@type": "TechArticle",
+      "@id": `${SITE_URL}/work/${slug}#article`,
+      headline: `${meta.title} - Web Development Case Study`,
+      description,
+      author: { "@id": `${SITE_URL}/#person` },
+      publisher: { "@id": `${SITE_URL}/#person` },
+      datePublished: publishedISO,
+      dateModified: modifiedISO,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/work/${slug}`,
+      },
+      image: `${SITE_URL}${ogImage}`,
+      articleSection: "Portfolio",
+      wordCount,
+      inLanguage: "en-US",
+      isAccessibleForFree: true,
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: [".case-study-content", "#project-summary"],
+      },
+      ...(meta.website
+        ? { about: { "@type": "Organization", name: meta.title, url: meta.website } }
+        : {}),
+      mentions: techStack.map((software) => ({ "@type": "Thing", name: software })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/work` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: meta.title,
+          item: `${SITE_URL}/work/${slug}`,
+        },
+      ],
+    },
+    {
+      "@type": "Service",
+      serviceType: "Web Development",
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: { "@type": "Place", name: meta.location || "Global" },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Web Development Services",
+        itemListElement: techStack.map((tech) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: `${tech} Development` },
+        })),
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={description}
+  canonical={`/work/${slug}`}
+  ogImage={ogImage}
+  ogImageAlt={`${meta.title} project preview - built with ${meta.platform}`}
+  ogType="article"
+  publishedTime={publishedISO}
+  modifiedTime={modifiedISO}
+  twitterCreator={X_HANDLE}
+  maxImagePreview
+  schema={schema}
+>
+  {/* Back link + breadcrumb */}
+  <div class="animate-fade-in-up flex flex-wrap items-center justify-between gap-4 border-b border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-4">
+    <a href="/work" class="ui-text flex gap-1" style="color: var(--color-muted)">
+      <svg
+        class="h-3.5 w-3.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+      <span class="link-underline">Back to All Work</span>
+    </a>
+
+    <nav aria-label="Breadcrumb">
+      <ol class="ui-text flex items-center gap-2" style="color: var(--color-muted)">
+        <li>
+          <a href="/" class="link-underline hover:text-(--color-ink)">Home</a>
+        </li>
+        <li aria-hidden="true">/</li>
+        <li>
+          <a href="/work" class="link-underline hover:text-(--color-ink)">Work</a>
+        </li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-(--color-ink)">{meta.title}</li>
+      </ol>
+    </nav>
+  </div>
+
+  {/* Header */}
+  <header class="px-[clamp(1.5rem,4vw,4rem)] py-8 lg:py-20">
+    <h1
+      class="max-w-3xl animate-fade-in-up [animation-delay:100ms]"
+      style="font-weight: var(--weight-display-black)"
+    >
+      {meta.title}
+    </h1>
+
+    <div
+      id="project-summary"
+      class="ui-text mt-6 flex flex-wrap items-center gap-3 text-(--color-muted) animate-fade-in-up [animation-delay:200ms]"
+    >
+      {meta.date && (
+        <>
+          <time datetime={publishedISO}>{meta.date}</time>
+          <span aria-hidden="true">/</span>
+        </>
+      )}
+      {meta.location && <span>{meta.location}</span>}
+      {meta.result_summary && (
+        <>
+          <span aria-hidden="true">/</span>
+          <span class="accent">{meta.result_summary}</span>
+        </>
+      )}
+    </div>
+  </header>
+
+  {/* Hero image */}
+  <section class="px-[clamp(1.5rem,4vw,4rem)] pb-14 lg:pb-20 animate-fade-in-up [animation-delay:300ms]">
+    <figure class="relative aspect-[16/9] w-full overflow-hidden border border-(--color-border-light) bg-(--color-ink-surface)">
+      <img
+        src={ogImage}
+        alt={`${meta.title} project preview - ${meta.platform} development by Deepak Jangra`}
+        class="object-cover object-top w-full h-full"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </figure>
+  </section>
+
+  {/* Content grid */}
+  <section class="border-t border-(--color-border-light) px-[clamp(1.5rem,4vw,4rem)] py-14 lg:py-20">
+    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+      <aside class="order-2 flex flex-col gap-10 lg:sticky lg:top-24 lg:order-1 lg:col-span-4">
+        {meta.website && (
+          <a
+            href={meta.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary w-full"
+          >
+            Visit Live Site
+            <svg
+              class="h-3.5 w-3.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+        )}
+
+        <div class="border-t border-(--color-border-light)">
+          {meta.client && (
+            <div class="border-b border-(--color-border-light) py-5">
+              <span class="stat-caption">Client</span>
+              <p class="mt-2" style="font-weight: var(--weight-display-bold)">
+                {meta.client}
+              </p>
+            </div>
+          )}
+
+          {techStack.length > 0 && (
+            <div class="border-b border-(--color-border-light) py-5">
+              <span class="stat-caption">Tech Stack</span>
+              <p class="ui-text mt-2 font-normal tracking-normal normal-case text-(--color-muted)">
+                {techStack.join(" / ")}
+              </p>
+            </div>
+          )}
+
+          {meta.industry && (
+            <div class="border-b border-(--color-border-light) py-5">
+              <span class="stat-caption">Industry</span>
+              <p class="body-sm mt-2 text-(--color-ink)">{meta.industry}</p>
+            </div>
+          )}
+
+          {meta.duration && (
+            <div class="py-5">
+              <span class="stat-caption">Duration</span>
+              <p class="body-sm mt-2 text-(--color-ink)">{meta.duration}</p>
+            </div>
+          )}
+        </div>
+
+        {meta.testimonial && (
+          <blockquote class="border-t border-(--color-line) pt-6">
+            <p class="leading-[1.6] text-(--color-ink)" style="font-size: var(--text-display-sm)">
+              &ldquo;{meta.testimonial}&rdquo;
+            </p>
+            <footer class="body-sm mt-4">&mdash; {meta.client}</footer>
+          </blockquote>
+        )}
+      </aside>
+
+      <article class="order-1 lg:order-2 lg:col-span-8 case-study-content">
+        <div
+          class="prose prose-swiss max-w-none
+            prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-[-0.01em] prose-headings:text-(--color-ink)
+            prose-h2:text-(length:--text-display-lg) prose-h2:mt-14 prose-h2:mb-6
+            prose-h3:text-(length:--text-display-md) prose-h3:mt-10 prose-h3:mb-4
+            prose-p:text-(--color-muted) prose-p:leading-[1.7] prose-p:mb-5
+            prose-a:text-(--color-accent) prose-a:font-medium prose-a:no-underline hover:prose-a:text-(--color-ink)
+            prose-img:border prose-img:border-(--color-border-light) prose-img:rounded-none
+            prose-figure:my-8
+            prose-blockquote:border-l prose-blockquote:border-l-(--color-line) prose-blockquote:bg-transparent prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-(--color-ink)
+            prose-strong:text-(--color-ink) prose-strong:font-medium
+            prose-code:font-mono prose-code:text-(--color-accent) prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-(--color-ink-surface) prose-pre:text-(--color-ink-surface-text) prose-pre:rounded-none prose-pre:border prose-pre:border-(--color-line)
+            prose-ul:marker:text-(--color-accent) prose-ol:marker:text-(--color-accent)"
+        >
+          <Content />
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="surface-inverted">
+    <div class="px-[clamp(1.5rem,4vw,4rem)] py-20 text-center lg:py-28">
+      <h2 class="mx-auto max-w-2xl animate-fade-in-up [animation-delay:100ms]" style="color: var(--color-ink-surface-text)">
+        {meta.cta_heading || "Building something similar?"}
+      </h2>
+      <p class="body-lg mx-auto mt-6 max-w-md animate-fade-in-up [animation-delay:200ms]">
+        {meta.cta_body ||
+          "I help businesses fix slow, broken websites and turn them into something their team can actually run. Let's talk about your project."}
+      </p>
+      <div class="mt-10 flex justify-center animate-fade-in-up [animation-delay:300ms]">
+        <ContactModal
+          triggerText="Start a Project"
+          triggerStyle="btn btn-primary"
+          title={`Interested in a ${meta.title}-style build?`}
+          subtitle="Tell me about your project and I'll respond within 24 hours."
+          subject={`Project Inquiry: Similar to ${meta.title}`}
+          inputLabel="Your Project"
+          inputPlaceholder="What are we building? Share your timeline, budget, and must-have features."
+          uid={`work-${slug}`}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

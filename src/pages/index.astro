@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SocialProof from "../components/SocialProof.astro";
+import WorkHome from "../components/WorkHome.astro";
+import Expertise from "../components/Expertise.astro";
+import Process from "../components/Process.astro";
+import AboutMe from "../components/AboutMe.astro";
+import CTA from "../components/CTA.astro";
+import { SITE_URL, ORG_NAME, SAME_AS, KNOWS_ABOUT } from "../lib/site";
+
+const title = "Deepak Jangra - Independent Shopify Developer";
+const description =
+  "Independent Shopify Plus developer with 9+ years building fast, revenue-driving stores for DTC merchants and agencies. Store rescue, CWV speed, checkout.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Deepak Jangra",
+      jobTitle: "Independent Shopify Developer",
+      description:
+        "Independent contractor and Shopify developer with 9+ years of experience building and rescuing high-performance Shopify stores for merchants and agencies.",
+      url: SITE_URL,
+      image: `${SITE_URL}/og-about.png`,
+      sameAs: SAME_AS,
+      knowsAbout: KNOWS_ABOUT,
+      worksFor: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: ORG_NAME,
+      url: SITE_URL,
+      logo: `${SITE_URL}/icons/android-chrome-512x512.png`,
+      founder: { "@id": `${SITE_URL}/#person` },
+      employee: { "@id": `${SITE_URL}/#person` },
+      sameAs: SAME_AS.filter((url) => !url.includes("wikipedia")),
+      makesOffer: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Shopify Development",
+            description:
+              "Custom Shopify builds, Hydrogen storefronts, checkout extensibility, and performance optimization.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "White-Label Development",
+            description: "Silent technical partner for agencies.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Store Rescue & Migrations",
+            description:
+              "Stabilizing broken Shopify stores and migrating acquired brands without starting from scratch.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Deepak Jangra - Independent Shopify Developer",
+      description:
+        "Portfolio and services of Deepak Jangra, independent Shopify developer.",
+      inLanguage: "en-US",
+      publisher: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://deepakj.dev"
+  ogImage={`${SITE_URL}/og-about.png`}
+  ogImageAlt="Deepak Jangra - Independent Shopify Developer"
+  maxImagePreview
+  schema={schema}
+>
+  <Hero />
+  <SocialProof />
+  <WorkHome />
+  <Expertise />
+  <Process />
+  <AboutMe />
+  <CTA />
+</BaseLayout>

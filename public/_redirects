@@ -1,0 +1,19 @@
+# Cloudflare Pages redirects — ported from netlify.toml + next.config.mjs
+# (kept in sync so rollback to Netlify still works via netlify.toml).
+# Syntax: <from> <to> <status>
+
+# Legacy domain consolidation
+https://deepslog.com/work/elegance-originals https://deepakj.dev/work 301
+https://deepslog.com/* https://deepakj.dev/:splat 301
+http://deepslog.com/* https://deepakj.dev/:splat 301
+
+# Old /projects/* URLs (pre-2024 IA) -> /work/*
+/projects/* /work/:splat 301
+
+# Dead case-study slugs -> index (never resurrect without content)
+/work/womencann /work 301
+/work/solutions-by-it-works /work 301
+/work/classic-car-dealer /work 301
+
+# Typo OG asset renamed to og-performance.png (keep old URL working)
+/og-performace.png /og-performance.png 301
