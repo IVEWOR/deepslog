@@ -3,7 +3,7 @@ title: The Business Fashion
 website: https://www.thebusinessfashion.com
 platform: Shopify, Liquid, Bootstrap 5, Ajaxinate.js, Cloudflare
 location: Leicester, United Kingdom
-featured_image: /thebusinessfashion.png
+featured_image: /thebusinessfashion.webp
 industry: Fashion / Luxury Retail
 duration: Ongoing since December 2024
 date: "2024"

@@ -3,7 +3,7 @@ title: Beryll
 website: https://beryll.com
 platform: Shopify, Liquid
 location: USA
-featured_image: /beryll.png
+featured_image: /beryll.webp
 industry: Fashion / Sunglasses & Accessories
 duration: September–October 2022
 date: "2022"

@@ -3,7 +3,7 @@ title: Dead Atlantic
 website: https://dead-atlantic.myshopify.com
 platform: Shopify, Liquid
 location: USA
-featured_image: /dead-atlantic.png
+featured_image: /dead-atlantic.webp
 industry: Fashion / Streetwear
 duration: September–October 2022
 date: "2022"

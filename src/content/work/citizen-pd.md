@@ -3,7 +3,7 @@ title: Citizen PD
 website: https://citizenpd.com
 platform: WordPress, Advanced Custom Fields (ACF), Contact Form 7
 location: USA
-featured_image: /citizen-pd.png
+featured_image: /citizen-pd.webp
 industry: Video Platform / Citizen Journalism
 duration: September 2022
 date: "2022"

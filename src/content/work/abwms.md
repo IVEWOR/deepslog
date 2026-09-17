@@ -3,7 +3,7 @@ title: ABWMS
 website: https://abwms.org
 platform: Custom PHP, MySQL, Bootstrap Admin Dashboard
 location: USA
-featured_image: /abwms.png
+featured_image: /abwms.webp
 industry: Medical Certification / Professional Association
 duration: September 2022 – January 2023
 date: "2022"

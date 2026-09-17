@@ -3,7 +3,7 @@ title: Darkest Fox
 website: https://www.darkestfox.com
 platform: Shopify, Liquid, JavaScript
 location: United States
-featured_image: /darkestfox.png
+featured_image: /darkestfox.webp
 industry: Fashion / Luxury Lingerie & Lifestyle
 duration: 2021 engagement
 date: "2021"

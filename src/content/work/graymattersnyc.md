@@ -3,7 +3,7 @@ title: Gray Matters NYC
 website: https://www.graymattersnyc.com
 platform: Shopify, Liquid, JavaScript
 location: United States / Italy
-featured_image: /graymattersnyc.png
+featured_image: /graymattersnyc.webp
 industry: Fashion / Footwear
 duration: 2021 engagement
 date: "2021"

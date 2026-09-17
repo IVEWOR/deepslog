@@ -3,7 +3,7 @@ title: Theatre Projects
 website: https://theatreprojects.com
 platform: WordPress, AWS S3, CloudFront, Custom Geotagging (IP-based), Schema Markup
 location: USA / UK / Global
-featured_image: /theatre-projects.png
+featured_image: /theatre-projects.webp
 industry: Performing Arts / Theatre Design Consulting
 duration: Ongoing maintenance & optimization
 date: "2022"

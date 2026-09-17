@@ -3,7 +3,7 @@ title: Prime Peptides
 website: /work
 platform: Wix, Wix Velo, Node.js, REST API, HMAC Security, Crypto-Fiat Gateway
 location: United States
-featured_image: /primepeptides.png
+featured_image: /primepeptides.webp
 industry: Health & Wellness / High-Risk Merchant E-commerce
 duration: February 2026 engagement
 date: "2026"

@@ -3,7 +3,7 @@ title: GoAmplifi
 website: https://www.goamplifi.com
 platform: WordPress, WP Engine, Ubermenu, WebinarNinja, Salesforce
 location: USA
-featured_image: /goamplifi.png
+featured_image: /goamplifi.webp
 industry: Information Management / Data Consultancy
 duration: November 2022
 date: "2022"

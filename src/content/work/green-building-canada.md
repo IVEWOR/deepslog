@@ -3,7 +3,7 @@ title: Green Building Canada
 website: https://greenbuildingcanada.ca
 platform: WordPress, Custom Plugin Development, Theme Development
 location: Canada
-featured_image: /green-building-canada.png
+featured_image: /green-building-canada.webp
 industry: Job Portal / Green & Sustainable Employment
 duration: 2024 engagement
 date: "2024"

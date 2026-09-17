@@ -3,7 +3,7 @@ title: Chasin' Unicorns
 website: https://chasinunicorns.com
 platform: Shopify, Liquid, Recharge, Klaviyo
 location: USA
-featured_image: /chasin-unicorns.png
+featured_image: /chasin-unicorns.webp
 industry: Crystal Lifestyle / Subscription Boxes
 duration: September–October 2022
 date: "2022"

@@ -107,10 +107,10 @@ const STATS = [
         <span class="text-(--color-muted)"> - Merkbart</span>
       </p>
 
-      <div class="mt-12 grid grid-cols-3 border-y border-(--color-border-light) mx-[-1.5rem] md:mx-0">
+      <div class="mt-12 grid grid-cols-3 max-[380px]:grid-cols-1 border-y border-(--color-border-light) mx-[-1.5rem] md:mx-0">
         {STATS.map((stat, i) => (
           <div
-            class={`py-7 px-4 md:pr-4 ${i > 0 ? "border-l border-(--color-border-light)" : ""}`}
+            class={`py-7 px-4 md:pr-4 max-[380px]:py-5 ${i > 0 ? "border-l border-(--color-border-light) max-[380px]:border-l-0 max-[380px]:border-t" : ""}`}
           >
             <div class="stat-number">{stat.value}</div>
             <div class="stat-caption mt-4 leading-[1.5]">{stat.label}</div>

@@ -3,7 +3,7 @@ title: LEO Eyewear
 website: https://leoeyewear.com
 platform: Shopify, Liquid, Figma, Judge.me, Razorpay, Shiprocket, Meta Pixel, Google Pixel, Instagram Pixel
 location: Delhi, India
-featured_image: /leoeyewear.png
+featured_image: /leoeyewear.webp
 industry: Fashion / Tech Eyewear
 duration: 2020 – 2026 (initial build, then full redesign)
 date: "2026"

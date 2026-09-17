@@ -3,7 +3,7 @@ title: House Haven
 website: https://househaven.store
 platform: Shopify
 location: USA
-featured_image: /house-haven.png
+featured_image: /house-haven.webp
 industry: Home Goods / E-commerce
 duration: October–November 2022
 date: "2022"

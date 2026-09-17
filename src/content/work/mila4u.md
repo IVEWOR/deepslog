@@ -3,7 +3,7 @@ title: Mila4u.com
 website: https://mila4u.com
 platform: Shopify
 location: USA
-featured_image: /mila4u.png
+featured_image: /mila4u.webp
 industry: Fashion / Leather Bags
 duration: September 2022
 date: "2022"

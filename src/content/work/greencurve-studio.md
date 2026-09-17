@@ -3,7 +3,7 @@ title: GreenCurve Studio
 website: https://greencurve.com
 platform: WordPress, Custom Slider, Interactive Map, WhatsApp/Tawk.to Integration
 location: USA
-featured_image: /greencurve-studio.png
+featured_image: /greencurve-studio.webp
 industry: Interior Design / Dental & Medical Office Design
 duration: October–November 2022
 date: "2022"

@@ -7,7 +7,7 @@ date_modified: 2026-09-03
 tags:
   - Shopify
   - Performance
-featured_image: /blog/fastest-shopify-themes/fastest-shopify-themes.png
+featured_image: /blog/fastest-shopify-themes/fastest-shopify-themes.webp
 ---
 
 A few months ago, a client asked me a deceptively simple question: _Which Shopify theme is actually the fastest?_

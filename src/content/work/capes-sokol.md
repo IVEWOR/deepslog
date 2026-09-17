@@ -3,7 +3,7 @@ title: Capes Sokol
 website: https://capessokol.com/
 platform: WordPress, Beaver Builder, Advanced Custom Fields, Search and Filter Pro, MetaBox
 location: United States
-featured_image: /capes-sokol.png
+featured_image: /capes-sokol.webp
 industry: Legal Services / Law Firm
 duration: April 2022 initial build sprint, expanded into a broader site-wide engagement
 date: "2022"

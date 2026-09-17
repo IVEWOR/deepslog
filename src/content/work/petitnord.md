@@ -3,7 +3,7 @@ title: Petit Nord
 website: https://petitnord.com
 platform: Shopify Plus, Klaviyo, Shopify Flow, Checkout Blocks, SPY ERP, Webshipper
 location: Denmark
-featured_image: /petitnord.png
+featured_image: /petitnord.webp
 industry: Fashion / Premium Children's Footwear
 duration: 8-hour assessment, plus a separate Shopify Scripts migration (June 2026)
 date: "2026"

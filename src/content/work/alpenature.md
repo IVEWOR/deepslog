@@ -3,7 +3,7 @@ title: Alpenature
 website: https://www.alpenature.com
 platform: WordPress, Gravity Forms, Stripe, Facebook/Instagram Business
 location: Austria (St. Anton am Arlberg)
-featured_image: /alpenature.png
+featured_image: /alpenature.webp
 industry: Adventure Tourism / Ski & Snowshoe Tours
 duration: November 2022 – February 2023
 date: "2022"

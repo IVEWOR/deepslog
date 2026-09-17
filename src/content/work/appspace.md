@@ -3,7 +3,7 @@ title: Appspace
 website: https://www.appspace.com
 platform: WordPress, Elementor, Custom Plugins
 location: United States
-featured_image: /appspace.png
+featured_image: /appspace.webp
 industry: Workplace Experience Software
 duration: 9-month engagement
 date: "2022"

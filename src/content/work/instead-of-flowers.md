@@ -3,7 +3,7 @@ title: Instead of Flowers
 website: https://www.insteadofflowers.com
 platform: WooCommerce, Facebook Pixel, Google Tag Manager
 location: USA
-featured_image: /instead-of-flowers.png
+featured_image: /instead-of-flowers.webp
 industry: E-commerce / Gift Baskets
 duration: October 2022
 date: "2022"

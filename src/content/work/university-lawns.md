@@ -3,7 +3,7 @@ title: University Lawns
 website: https://universitylawns.com
 platform: WordPress, Jobber.com, Google/Facebook Ads
 location: USA
-featured_image: /university-lawns.png
+featured_image: /university-lawns.webp
 industry: Landscaping Services
 duration: January 2023
 date: "2023"

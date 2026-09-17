@@ -3,7 +3,7 @@ title: Faire – Learning Hub
 website: https://www.faire.com/blog/community/
 platform: WordPress, Custom Child Theme, Gravity Forms
 location: United States
-featured_image: /Faire.png
+featured_image: /Faire.webp
 industry: Wholesale Marketplace / Community & Content
 duration: 2023 engagement
 date: "2023"

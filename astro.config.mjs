@@ -69,6 +69,32 @@ function rehypeArticleMedia() {
   };
 }
 
+// Wraps markdown tables in a scroll container so wide data tables
+// (theme benchmarks, before/after comparisons) scroll horizontally on
+// narrow screens instead of breaking the layout.
+function rehypeTableWrap() {
+  return (tree) => {
+    const walk = (node) => {
+      const children = node.children || [];
+      for (let i = 0; i < children.length; i++) {
+        const child = children[i];
+        if (child.type !== "element") continue;
+        if (child.tagName === "table") {
+          children[i] = {
+            type: "element",
+            tagName: "div",
+            properties: { className: ["table-scroll"] },
+            children: [child],
+          };
+        } else {
+          walk(child);
+        }
+      }
+    };
+    walk(tree);
+  };
+}
+
 // https://astro.build/config
 // Static output for Cloudflare Pages. All routes prerendered at build time;
 // only islands (contact modal, work grid filter, mobile nav) ship JS.
@@ -100,7 +126,7 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, rehypeExternalLinks, rehypeArticleMedia],
+    rehypePlugins: [rehypeSlug, rehypeExternalLinks, rehypeArticleMedia, rehypeTableWrap],
     shikiConfig: {
       theme: "github-light",
       wrap: true,

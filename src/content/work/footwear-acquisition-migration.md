@@ -3,7 +3,7 @@ title: Footwear Brand Acquisition - Migration Plan & Runbook
 seo_title: "Footwear Acquisition Migration - Case Study | Deepak Jangra"
 platform: Shopify Plus, Klaviyo, Attentive, Judge.me, Shopify Flow, SPS Commerce EDI
 location: EU
-featured_image: /footwear-acquisition-migration.png
+featured_image: /footwear-acquisition-migration.webp
 industry: Fashion / Footwear E-commerce (Acquisition Due Diligence)
 duration: 48 hours
 date: "2026"

@@ -3,7 +3,7 @@ title: Bloom Bras
 website: https://bloombras.com
 platform: Shopify, Liquid
 location: USA
-featured_image: /bloom-bras.png
+featured_image: /bloom-bras.webp
 industry: Fashion / Intimate Apparel
 duration: January 2023
 date: "2023"

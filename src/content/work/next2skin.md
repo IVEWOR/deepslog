@@ -3,7 +3,7 @@ title: Next2Skin
 website: https://next2skin.in
 platform: Shopify, Liquid, Shiprocket, Judge.me
 location: India
-featured_image: /next2skin.png
+featured_image: /next2skin.webp
 industry: Fashion Accessories / Hosiery & Legwear E-commerce
 duration: 2021 engagement
 date: "2021"

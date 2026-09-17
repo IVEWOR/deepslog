@@ -3,7 +3,7 @@ title: Light Up Your Holidays
 website: https://lightupyourholidays.com
 platform: WordPress, Ninja Forms, Salesforce CRM
 location: USA
-featured_image: /light-up-your-holidays.png
+featured_image: /light-up-your-holidays.webp
 industry: Holiday Lighting Services
 duration: October–November 2022
 date: "2022"

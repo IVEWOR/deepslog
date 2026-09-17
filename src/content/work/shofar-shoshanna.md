@@ -3,7 +3,7 @@ title: Shofar Shoshanna
 website: https://shofarshoshanna.com
 platform: WordPress, Google Search Console, SEO Optimization
 location: USA
-featured_image: /shofar-shoshanna.png
+featured_image: /shofar-shoshanna.webp
 industry: Judaica / Religious Products
 duration: October–November 2022
 date: "2022"

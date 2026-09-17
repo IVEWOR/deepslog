@@ -218,6 +218,7 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 120ms;
 }
+
 @layer base {
   * {
     margin: 0;
@@ -470,6 +471,30 @@
 
 /* Prose (markdown case studies + blog posts) follows the same Swiss
    treatment: flat images, mono captions, ink headings. */
+.prose-swiss {
+  /* Remap every Tailwind Typography default (oklch slates) to theme
+     tokens in one place. `.prose-swiss` is unlayered so these beat the
+     plugin's own `.prose` defaults on the same element, and any element
+     without an explicit override below still renders on-palette. */
+  --tw-prose-body: var(--color-muted);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-muted);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-accent);
+  --tw-prose-bullets: var(--color-accent);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-line);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-kbd: var(--color-ink);
+  --tw-prose-kbd-shadows: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  --tw-prose-code: var(--color-accent);
+  --tw-prose-pre-code: var(--color-ink-surface-text);
+  --tw-prose-pre-bg: var(--color-ink-surface);
+  --tw-prose-th-borders: var(--color-ink-surface-line);
+  --tw-prose-td-borders: var(--color-border-light);
+}
 .prose-swiss :where(h2, h3, h4) {
   color: var(--color-ink);
   scroll-margin-top: 5rem;
@@ -522,6 +547,16 @@
   border-radius: 0;
   width: 100%;
   height: auto;
+}
+/* Horizontal scroll container for wide data tables (injected by the
+   rehypeTableWrap markdown plugin). The cut-off columns themselves
+   signal scrollability; no decoration needed. */
+.prose-swiss .table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.prose-swiss .table-scroll table {
+  margin-block: 0;
 }
 
 /* Visible focus for keyboard users (Swiss accent outline) */

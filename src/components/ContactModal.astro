@@ -80,7 +80,9 @@ const formFields: Field[] = fields ?? [
       style="background: rgba(23, 20, 15, 0.6)"
     ></div>
 
-    <div class="flex min-h-full flex-col justify-center p-4 sm:p-8 relative">
+    {/* No justify-center here on purpose: with m-auto on the dialog,
+        short viewports scroll from the top instead of clipping it. */}
+    <div class="flex min-h-full flex-col p-4 sm:p-8 relative">
       <div
         class="surface-inverted relative mx-auto my-auto flex w-full max-w-xl animate-fade-in-up flex-col overflow-hidden border md:max-h-[85vh]"
         style="border-color: var(--color-ink-surface-line)"
@@ -155,7 +157,11 @@ const formFields: Field[] = fields ?? [
                     for={`cm-${uid}-${field.name}`}
                   >
                     {field.label}
-                    {field.required === false && <span class="normal-case"> (optional)</span>}
+                    {field.required === false ? (
+                      <span class="normal-case"> (optional)</span>
+                    ) : (
+                      <span class="accent" aria-hidden="true"> *</span>
+                    )}
                   </label>
                   {field.type === "textarea" ? (
                     <textarea
@@ -164,7 +170,7 @@ const formFields: Field[] = fields ?? [
                       name={field.name}
                       rows={field.rows || 3}
                       class="w-full border px-4 py-3 outline-none transition-colors resize-none"
-                      style="background: var(--color-ink); border-color: var(--color-ink-surface-line); color: var(--color-ink-surface-text); font-size: var(--text-body-md)"
+                      style="background: var(--color-ink); border-color: var(--color-ink-surface-line); color: var(--color-ink-surface-text); font-size: 16px"
                       placeholder={field.placeholder}
                     ></textarea>
                   ) : (
@@ -175,7 +181,7 @@ const formFields: Field[] = fields ?? [
                       name={field.name}
                       placeholder={field.placeholder}
                       class="w-full border px-4 py-3 outline-none transition-colors"
-                      style="background: var(--color-ink); border-color: var(--color-ink-surface-line); color: var(--color-ink-surface-text); font-size: var(--text-body-md)"
+                      style="background: var(--color-ink); border-color: var(--color-ink-surface-line); color: var(--color-ink-surface-text); font-size: 16px"
                     />
                   )}
                 </div>

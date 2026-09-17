@@ -3,7 +3,7 @@ title: MerkBart
 website: https://merkbart.no
 platform: WooCommerce, AWS, S3, Custom Plugins, mPDF, Loco Translate, JavaScript
 location: Norway
-featured_image: /merkbart.png
+featured_image: /merkbart.webp
 industry: Custom Stickers & Printing, B2B + B2C
 duration: Ongoing since January 2024
 date: "2024"

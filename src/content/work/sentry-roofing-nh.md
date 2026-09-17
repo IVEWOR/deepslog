@@ -3,7 +3,7 @@ title: Sentry Roofing NH
 website: https://sentryroofingnh.com
 platform: WordPress, Divi, WP Forms, Google Maps API
 location: USA (New Hampshire)
-featured_image: /sentry-roofing-nh.png
+featured_image: /sentry-roofing-nh.webp
 industry: Roofing / Construction
 duration: September–October 2022
 date: "2022"

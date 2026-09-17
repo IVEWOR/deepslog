@@ -15,7 +15,7 @@ export const featuredProjects: WorkCard[] = [
       "Pre-close migration plan and hour-by-hour 48-hour go-live runbook for a Shopify Plus acquisition covering 1,200 SKUs and 450K+ Klaviyo profiles.",
     tech: ["Shopify Plus", "Klaviyo", "Shopify Flow", "SPS Commerce EDI"],
     link: "footwear-acquisition-migration",
-    image: "/footwear-acquisition-migration.png",
+    image: "/footwear-acquisition-migration.webp",
   },
   {
     title: "Petit Nord",
@@ -24,7 +24,7 @@ export const featuredProjects: WorkCard[] = [
       "Data-backed Shopify Plus consolidation assessment across four regional stores, plus a Shopify Scripts to Checkout Blocks migration ahead of Shopify's deprecation deadline.",
     tech: ["Shopify Plus", "Klaviyo", "Checkout Blocks", "SPY ERP"],
     link: "petitnord",
-    image: "/petitnord.png",
+    image: "/petitnord.webp",
   },
   {
     title: "Prime Peptides / PsiFi Integration",
@@ -33,7 +33,7 @@ export const featuredProjects: WorkCard[] = [
       "Custom high-risk payment gateway integration for Wix E-commerce using PsiFi and Simplex with automated 5% fee logic.",
     tech: ["Wix Velo", "Node.js", "REST API", "HMAC Security"],
     link: "prime-peptides",
-    image: "/primepeptides.png",
+    image: "/primepeptides.webp",
   },
   {
     title: "LEO Eyewear",
@@ -42,7 +42,7 @@ export const featuredProjects: WorkCard[] = [
       "Full Shopify redesign for a tech eyewear brand - fixed 100vh video homepage, adaptive transparent header, full pixel tracking, technical SEO, and Razorpay + Shiprocket integration.",
     tech: ["Shopify", "Liquid", "Figma", "Razorpay"],
     link: "leoeyewear",
-    image: "/leoeyewear.png",
+    image: "/leoeyewear.webp",
   },
   {
     title: "The Business Fashion",
@@ -51,7 +51,7 @@ export const featuredProjects: WorkCard[] = [
       "Ongoing Shopify partnership with a UK luxury multi-brand retailer - rebuilt collection pages for infinite scroll and 3x+ faster loads.",
     tech: ["Shopify", "Liquid", "Bootstrap 5", "Cloudflare"],
     link: "thebusinessfashion",
-    image: "/thebusinessfashion.png",
+    image: "/thebusinessfashion.webp",
   },
   {
     title: "Merkbart",
@@ -60,7 +60,7 @@ export const featuredProjects: WorkCard[] = [
       "Rebuilt a slow, freezing WooCommerce store from scratch, custom pricing, discount, and invoicing plugins. Sales doubled within three months.",
     tech: ["WooCommerce", "WordPress", "Custom Plugin", "AWS"],
     link: "merkbart",
-    image: "/merkbart.png",
+    image: "/merkbart.webp",
   },
   {
     title: "Green Building Canada",
@@ -69,7 +69,7 @@ export const featuredProjects: WorkCard[] = [
       "Complex WordPress architecture with custom PHP plugin development.",
     tech: ["WordPress", "PHP", "Plugin Dev", "JavaScript"],
     link: "green-building-canada",
-    image: "/green-building-canada.png",
+    image: "/green-building-canada.webp",
   },
   {
     title: "Faire",
@@ -78,7 +78,7 @@ export const featuredProjects: WorkCard[] = [
       "High-traffic resource hub built for scale and sub-second load times.",
     tech: ["WordPress", "PHP", "JavaScript"],
     link: "faire",
-    image: "/Faire.png",
+    image: "/Faire.webp",
   },
   {
     title: "Appspace",
@@ -87,7 +87,7 @@ export const featuredProjects: WorkCard[] = [
       "Enterprise custom theme development prioritizing SEO and Core Web Vitals.",
     tech: ["WordPress", "Custom Theme", "PHP", "JavaScript"],
     link: "appspace",
-    image: "/appspace.png",
+    image: "/appspace.webp",
   },
   {
     title: "Capes Sokol",
@@ -96,7 +96,7 @@ export const featuredProjects: WorkCard[] = [
       "Legal firm frontend overhaul with a focus on accessibility and speed.",
     tech: ["JavaScript", "WordPress", "PHP", "Custom Theme"],
     link: "capes-sokol",
-    image: "/capes-sokol.png",
+    image: "/capes-sokol.webp",
   },
   {
     title: "Gray _Matters",
@@ -105,7 +105,7 @@ export const featuredProjects: WorkCard[] = [
       "Premium Shopify storefront with custom liquid block architecture.",
     tech: ["Shopify", "Liquid", "JavaScript", "Custom Blocks"],
     link: "graymattersnyc",
-    image: "/graymattersnyc.png",
+    image: "/graymattersnyc.webp",
   },
   {
     title: "Darkest Fox",
@@ -114,7 +114,7 @@ export const featuredProjects: WorkCard[] = [
       "High-conversion eCommerce build focused on mobile checkout flows.",
     tech: ["Shopify", "JavaScript", "Liquid", "Custom Blocks"],
     link: "darkestfox",
-    image: "/darkestfox.png",
+    image: "/darkestfox.webp",
   },
   {
     title: "Next2Skin",
@@ -123,7 +123,7 @@ export const featuredProjects: WorkCard[] = [
       "Full custom Shopify build for an Indian hosiery brand - every core page built from scratch, Shiprocket integrated for fulfillment and order tracking.",
     tech: ["Shopify", "Liquid", "Shiprocket", "Judge.me"],
     link: "next2skin",
-    image: "/next2skin.png",
+    image: "/next2skin.webp",
   },
 ];
 
@@ -135,7 +135,7 @@ export const additionalProjects: WorkCard[] = [
       "Diagnosed a third-party form tracking gap blocking Google and Facebook Ads conversions for a landscaping company.",
     tech: ["WordPress", "Jobber.com", "Ad Tracking"],
     link: "university-lawns",
-    image: "/university-lawns.png",
+    image: "/university-lawns.webp",
   },
   {
     title: "Bloom Bras",
@@ -144,7 +144,7 @@ export const additionalProjects: WorkCard[] = [
       "Reusable Shopify product page template - visible size selector, size-guide modal, and Shop Pay integration.",
     tech: ["Shopify", "Liquid"],
     link: "bloom-bras",
-    image: "/bloom-bras.png",
+    image: "/bloom-bras.webp",
   },
   {
     title: "Theatre Projects",
@@ -153,7 +153,7 @@ export const additionalProjects: WorkCard[] = [
       "WordPress accessibility and SEO overhaul for a global theatre design consultancy - zero critical accessibility issues, custom geotagging across three offices.",
     tech: ["WordPress", "AWS S3", "CloudFront"],
     link: "theatre-projects",
-    image: "/theatre-projects.png",
+    image: "/theatre-projects.webp",
   },
   {
     title: "GoAmplifi",
@@ -162,7 +162,7 @@ export const additionalProjects: WorkCard[] = [
       "Webinar registration templates and Salesforce lead-capture integration for a data consultancy.",
     tech: ["WordPress", "WP Engine", "Salesforce"],
     link: "goamplifi",
-    image: "/goamplifi.png",
+    image: "/goamplifi.webp",
   },
   {
     title: "Alpenature",
@@ -171,7 +171,7 @@ export const additionalProjects: WorkCard[] = [
       "7+ custom multi-step booking forms with Stripe payments and dynamic pricing for an Austrian adventure tour company.",
     tech: ["WordPress", "Gravity Forms", "Stripe"],
     link: "alpenature",
-    image: "/alpenature.png",
+    image: "/alpenature.webp",
   },
   {
     title: "GreenCurve Studio",
@@ -180,7 +180,7 @@ export const additionalProjects: WorkCard[] = [
       "Homepage rebuild for an award-winning interior design studio - interactive project map and SEO landing pages for three specialties.",
     tech: ["WordPress", "Custom Slider", "Interactive Map"],
     link: "greencurve-studio",
-    image: "/greencurve-studio.png",
+    image: "/greencurve-studio.webp",
   },
   {
     title: "Shofar Shoshanna",
@@ -189,7 +189,7 @@ export const additionalProjects: WorkCard[] = [
       "Homepage rebuild and technical SEO fix for a Judaica brand - resolved Google mobile usability errors and reindexed the site.",
     tech: ["WordPress", "SEO", "Google Search Console"],
     link: "shofar-shoshanna",
-    image: "/shofar-shoshanna.png",
+    image: "/shofar-shoshanna.webp",
   },
   {
     title: "House Haven",
@@ -198,7 +198,7 @@ export const additionalProjects: WorkCard[] = [
       "Full Shopify store build for a home goods brand - product copywriting, reviews, and an admin-editable FAQ.",
     tech: ["Shopify"],
     link: "house-haven",
-    image: "/house-haven.png",
+    image: "/house-haven.webp",
   },
   {
     title: "Instead of Flowers",
@@ -207,7 +207,7 @@ export const additionalProjects: WorkCard[] = [
       "Diagnosed and fixed Facebook Pixel over-reporting on a WooCommerce store caused by a double-firing tracking path.",
     tech: ["WooCommerce", "Facebook Pixel", "GTM"],
     link: "instead-of-flowers",
-    image: "/instead-of-flowers.png",
+    image: "/instead-of-flowers.webp",
   },
   {
     title: "Light Up Your Holidays",
@@ -216,7 +216,7 @@ export const additionalProjects: WorkCard[] = [
       "Salesforce CRM integration across 6 site forms for a holiday lighting service, resolving API and OAuth blockers.",
     tech: ["WordPress", "Ninja Forms", "Salesforce"],
     link: "light-up-your-holidays",
-    image: "/light-up-your-holidays.png",
+    image: "/light-up-your-holidays.webp",
   },
   {
     title: "Mila4u.com",
@@ -225,7 +225,7 @@ export const additionalProjects: WorkCard[] = [
       "Diagnosed and scoped a Safari-specific navigation bug for a leather bag brand's Shopify store.",
     tech: ["Shopify"],
     link: "mila4u",
-    image: "/mila4u.png",
+    image: "/mila4u.webp",
   },
   {
     title: "Chasin' Unicorns",
@@ -234,7 +234,7 @@ export const additionalProjects: WorkCard[] = [
       "Shopify subscription store rebuild - custom Recharge checkout routing, automated monthly timers, fixed social-share previews.",
     tech: ["Shopify", "Recharge", "Klaviyo"],
     link: "chasin-unicorns",
-    image: "/chasin-unicorns.png",
+    image: "/chasin-unicorns.webp",
   },
   {
     title: "Sentry Roofing NH",
@@ -243,7 +243,7 @@ export const additionalProjects: WorkCard[] = [
       "Full Divi rebuild for a roofing company - interactive service-area map, financing calculator, and GoDaddy migration.",
     tech: ["WordPress", "Divi", "WP Forms"],
     link: "sentry-roofing-nh",
-    image: "/sentry-roofing-nh.png",
+    image: "/sentry-roofing-nh.webp",
   },
   {
     title: "ABWMS",
@@ -252,7 +252,7 @@ export const additionalProjects: WorkCard[] = [
       "Custom PHP admin tooling for a medical certification board - filterable CSV export and a security-hardened password reset.",
     tech: ["PHP", "MySQL", "Bootstrap"],
     link: "abwms",
-    image: "/abwms.png",
+    image: "/abwms.webp",
   },
   {
     title: "Dead Atlantic",
@@ -261,7 +261,7 @@ export const additionalProjects: WorkCard[] = [
       "Custom Shopify lookbook page preserving native image aspect ratios for a streetwear brand.",
     tech: ["Shopify", "Liquid"],
     link: "dead-atlantic",
-    image: "/dead-atlantic.png",
+    image: "/dead-atlantic.webp",
   },
   {
     title: "Beryll",
@@ -270,7 +270,7 @@ export const additionalProjects: WorkCard[] = [
       "Reusable Shopify blog template with standardized image ratios and brand-matched typography.",
     tech: ["Shopify", "Liquid"],
     link: "beryll",
-    image: "/beryll.png",
+    image: "/beryll.webp",
   },
   {
     title: "Citizen PD",
@@ -279,7 +279,7 @@ export const additionalProjects: WorkCard[] = [
       "Diagnosed Contact Form 7 limitations and scoped an ACF Pro rebuild for a citizen journalism video platform.",
     tech: ["WordPress", "ACF", "Contact Form 7"],
     link: "citizen-pd",
-    image: "/citizen-pd.png",
+    image: "/citizen-pd.webp",
   },
 ];
 
